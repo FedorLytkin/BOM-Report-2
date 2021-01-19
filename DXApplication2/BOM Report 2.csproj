@@ -53,6 +53,12 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -90,6 +96,7 @@
     <Compile Include="API Toops\ComponentInfo.cs" />
     <Compile Include="ArticleTools\CustomTreeNode.cs" />
     <Compile Include="Controllers\ConnectionString.cs" />
+    <Compile Include="Controllers\SetUpdateOptionBD.cs" />
     <Compile Include="CSVReportExport\CSV_Report_Write.cs" />
     <Compile Include="Dump\Dump.cs" />
     <Compile Include="Licenc\CompressedFile.cs" />
@@ -106,6 +113,7 @@
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\Column options\Lock_Column_Class.cs" />
     <Compile Include="Options\ColumnsConf_Save_Read.cs" />
     <Compile Include="Options\Column_Class.cs" />
     <Compile Include="Options\CopyINIFile.cs" />

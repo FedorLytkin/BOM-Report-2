@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -25,6 +26,7 @@ namespace VSNRM_Kompas.API_Toops
         public Dictionary<string, string> ParamValueList { get; set; }
         public bool SheeMetall { get; set; }
         public bool HaveUnfold { get; set; }
+        public Bitmap Slide { get; set; }
 
 
 

@@ -46,8 +46,12 @@ namespace VSNRM_Kompas.Options
                 }
             }
             OptionInformation = new GetOptionInformation(controller);
-        } 
-
+        }
+        public void UpdateBD()
+        { 
+            SetUpdateOptionBD updateOptionBD = new SetUpdateOptionBD(controller);
+            OptionInformation = new GetOptionInformation(controller);
+        }
         public void SaveColumnCFG(List<Column_Class> Columns_Option_)
         {
             controller.Delete_Data(Query.Select_Option.DeleteColumns);

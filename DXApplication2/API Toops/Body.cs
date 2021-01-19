@@ -22,6 +22,8 @@ using DevExpress.XtraTreeList.Nodes;
 using VSNRM_Kompas.Options;
 using DevExpress.XtraSplashScreen;
 using VSNRM_Kompas.Dump;
+using VSNRM_Kompas.Options.Column_Options;
+using Microsoft.WindowsAPICodePack.Shell;
 
 namespace SaveDXF
 {
@@ -128,6 +130,12 @@ namespace SaveDXF
             treeView = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).treeList1;
             FindParam_Model = ColumnsConf_Save_Read.FindParams();   //получаем список искомых параметров
             FindModel_List = new List<object>();                    //обнуляем список обработанных файлов
+            if (MainForm.thisDemo)
+            {
+                Lock_Column_Class lock_Column_ = new Lock_Column_Class();
+                foreach (Column_Class column_ in lock_Column_.Lock_Column)
+                    FindParam_Model.Remove(column_.Caption);
+            }
         }
         public void OpenThisDocument(string FFN)
         {
@@ -330,7 +338,15 @@ namespace SaveDXF
             Dictionary<string, string> ParValues = componentInfo.ParamValueList;
             foreach(string FieldName in FindParam_Model)
             {
-                Node.SetValue(FieldName, ParValues[FieldName]);
+                switch (FieldName)
+                {
+                    case "Миниатюра":
+                        Node.SetValue(FieldName, componentInfo.Slide);
+                        break;
+                    default:
+                        Node.SetValue(FieldName, ParValues[FieldName]);
+                        break;
+                }
             }
             if (componentInfo.standardComponent)
             {
@@ -771,6 +787,9 @@ namespace SaveDXF
             iMSH.isDetal = part.Detail;
             iMSH.standardComponent = part.Standard;
             iMSH.Key = ComponentKey;
+
+            ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
+            iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
             return iMSH;
         }
         public static double GetThicknessPart(IPart7 Part_, bool inSource = true)

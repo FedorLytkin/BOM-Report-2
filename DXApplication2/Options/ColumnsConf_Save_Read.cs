@@ -18,9 +18,12 @@ namespace VSNRM_Kompas.Options
             foreach (TreeListColumn Column in treeView.Columns)
             {
                 Column_Class column_Class = (Column_Class)Column.Tag;
-                column_Class.Visible = Column.Visible;
-                column_Class.Index = Column.VisibleIndex;
-                column_s.Add(column_Class);
+                if (column_Class != null)
+                {
+                    column_Class.Visible = Column.Visible;
+                    column_Class.Index = Column.VisibleIndex;
+                    column_s.Add(column_Class);
+                }
             }
             return column_s;
         }

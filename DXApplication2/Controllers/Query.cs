@@ -175,7 +175,24 @@ WHERE tbl_Options.Opt_Name = '{OptionClass.Get_Opt_Name_By_OptionsList(OptionsLi
             }
             connection.Close();
             return Result;
-        } 
+        }
+        public int SendQuery(string SQL_Query)
+        {
+            int Result = -1;
+            connection.Open();
+            command = new OleDbCommand(SQL_Query, connection);
+            try
+            {
+                command.ExecuteNonQuery();
+                Result = 1;
+            }
+            catch (Exception ex)
+            {
+                Result = -1;
+            }
+            connection.Close();
+            return Result;
+        }
         public int Delete_Data(Select_Option select_Option)
         {
             int Result = -1;
@@ -187,6 +204,20 @@ WHERE tbl_Options.Opt_Name = '{OptionClass.Get_Opt_Name_By_OptionsList(OptionsLi
             Result = 1; 
             connection.Close();
             return Result;
+        }
+        public bool TableExist(string tableName)
+        {
+            bool exists = false;
+            connection.Open();
+            try
+            {
+                DataTable dbTbl = connection.GetSchema("Tables", new string[] { null, null, tableName, null });
+                if (dbTbl.Rows.Count != 0)
+                    exists = true;
+            }
+            catch { }
+            connection.Close();
+            return exists;
         }
     }
 }

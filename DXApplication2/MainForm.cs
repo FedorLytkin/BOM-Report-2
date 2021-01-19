@@ -17,6 +17,8 @@ using System.Threading;
 using VSNRM_Kompas.Controllers;
 using System.Data;
 using About_Control;
+using VSNRM_Kompas.Options.Column_Options;
+using System.Drawing;
 
 namespace VSNRM_Kompas
 {
@@ -27,6 +29,7 @@ namespace VSNRM_Kompas
         public Body body = new Body();
         Query controller;
         public OptionClass Main_Options;
+        RepositoryItemPictureEdit pictureEdit;
         public MainForm()
         {
             CopyINIFile copyINIFile = new CopyINIFile();
@@ -34,11 +37,14 @@ namespace VSNRM_Kompas
             InitializeComponent();
             Body.Init();
             AddColumns();
+            pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
         }
         private void AddOptionControls()
         {
             Main_Options = new OptionClass();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name);
+
+            Main_Options.UpdateBD();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -77,8 +83,31 @@ namespace VSNRM_Kompas
             treeList1.Nodes.Clear();
             foreach (Column_Class column in column_List)
             {
-                TreeListColumn listColumn = treeList1.Columns.Add();
+                TreeListColumn listColumn = new TreeListColumn();
+
+                //switch (column.Caption)
+                //{
+                //    case "Миниатюра":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Custom;
+                //        break;
+                //    case "Масса":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //        break;
+                //    case "Толщина":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //        break;
+                //    case "Объем":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //        break;
+                //    case "Площадь":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //        break;
+                //    case "Плотность":
+                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //        break;
+                //}
                 AddOneColumns(listColumn, column);
+                treeList1.Columns.Add(listColumn);
                 if (!column.System)
                     (Col_List_CB.Edit as RepositoryItemComboBox).Items.Add(column.Name);
             }
@@ -218,6 +247,10 @@ namespace VSNRM_Kompas
 
                 AddOneColumns(listColumn, column);
                 AddItem_In_Combobox();
+                if (MainForm.thisDemo)
+                {
+                    Lock_Column_Class lock_Column_Class = new Lock_Column_Class();
+                }
             }
             else
             {
@@ -239,7 +272,9 @@ namespace VSNRM_Kompas
             listColumn.FieldName = column_Config.FieldName;
             listColumn.Visible = column_Config.Visible;
             listColumn.Tag = column_Config;
-            listColumn.VisibleIndex = column_Config.Index;
+            listColumn.VisibleIndex = column_Config.Index; 
+            if (!column_Config.System)
+                listColumn.AppearanceHeader.BackColor = Color.Gainsboro;
 
         }
 
@@ -431,6 +466,29 @@ namespace VSNRM_Kompas
             splashScreenManager2.SetWaitFormCaption("Создание Dump");
             Dump.Dump dump = new Dump.Dump();
             splashScreenManager2.CloseWaitForm();
+        }
+
+        private void bt_Demo_Dump_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("https://youtu.be/sMHP-6wwAVU");
+        }
+
+        private void treeList1_CustomNodeCellEdit(object sender, GetCustomNodeCellEditEventArgs e)
+        {
+            if (e.Column.FieldName == "Миниатюра")
+            {
+                e.RepositoryItem = pictureEdit;
+            }
+        }
+
+        private void Bt_Telegram_Canal_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("https://t.me/BOMReport");
+        }
+
+        private void Bt_Telegram_Chat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("https://t.me/BOMReportChat");
         }
     }
 }
