@@ -70,7 +70,8 @@ namespace VSNRM_Kompas.API_Toops
                 Area = this.Area, 
                 ParamValueList = this.ParamValueList,
                 SheeMetall = this.SheeMetall,
-                HaveUnfold = this.HaveUnfold
+                HaveUnfold = this.HaveUnfold,
+                Slide = this.Slide
             };
         }
 

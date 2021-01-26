@@ -27,13 +27,13 @@ namespace VSNRM_Kompas
         public static bool thisDemo = true;
         public static string ProgramID = "20";
         public Body body = new Body();
-        Query controller;
-        public OptionClass Main_Options;
+        XMLContreller.XMLCLass controller;
+        public CFG_Class Main_Options;
         RepositoryItemPictureEdit pictureEdit;
         public MainForm()
         {
             CopyINIFile copyINIFile = new CopyINIFile();
-            controller = new Query(ConnectionString.ConnStr);
+            controller = new XMLContreller.XMLCLass();
             InitializeComponent();
             Body.Init();
             AddColumns();
@@ -41,20 +41,16 @@ namespace VSNRM_Kompas
         }
         private void AddOptionControls()
         {
-            Main_Options = new OptionClass();
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name);
-
-            Main_Options.UpdateBD();
+            Main_Options = new CFG_Class();
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name.Value);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             AddOptionControls();
             //treeList1.Load += TreeList1_Load;
-
-
-            for (int i = 0; i < 5; i++)
-                Thread.Sleep(100);
-
+             
+            //for (int i = 0; i < 5; i++)
+            //    Thread.Sleep(100); 
             DemoVers_StartWindows();
             All_Level_Check_CH_B.Checked = !(thisDemo);
             Bt_NaimSpletter.Checked = true;
@@ -62,22 +58,8 @@ namespace VSNRM_Kompas
         }
         private void AddColumns()
         {
-            List<Column_Class> column_List = new List<Column_Class>();
-            DataTable Col_dataTable = controller.Get_Data(Query.Select_Option.ColumsList);
-            foreach (DataRow oRow in Col_dataTable.Rows)
-            {
-                Column_Class column = new Column_Class();
-                column.Caption = oRow["Column_Caption"].ToString();
-                column.Name = oRow["Column_Name"].ToString();
-                column.FieldName = oRow["Column_FieldName"].ToString();
-                column.Visible = Convert.ToBoolean(oRow["Column_Visible"].ToString());
-                column.System = Convert.ToBoolean(oRow["Column_System"].ToString());
-                column.Index = Convert.ToInt32(oRow["Column_Index"]);
-                //column.TreeList = Convert.ToBoolean(oRow["Column_TreeList"].ToString());
-                //column.Index_TreeList = Convert.ToInt32(oRow["Column_Index_TreeList"]);
-                //column.Visible_TreeList = Convert.ToBoolean(oRow["Column_Visible_TreeList"]);
-                column_List.Add(column);
-            }
+            List<Column_Class> column_List = controller.IColumns.GetColumns();
+
             column_List.Sort(delegate (Column_Class column_1, Column_Class column_2) { return column_1.Index.CompareTo(column_2.Index); });
 
             treeList1.Nodes.Clear();
@@ -85,27 +67,6 @@ namespace VSNRM_Kompas
             {
                 TreeListColumn listColumn = new TreeListColumn();
 
-                //switch (column.Caption)
-                //{
-                //    case "Миниатюра":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Custom;
-                //        break;
-                //    case "Масса":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                //        break;
-                //    case "Толщина":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                //        break;
-                //    case "Объем":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                //        break;
-                //    case "Площадь":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                //        break;
-                //    case "Плотность":
-                //        listColumn.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                //        break;
-                //}
                 AddOneColumns(listColumn, column);
                 treeList1.Columns.Add(listColumn);
                 if (!column.System)
@@ -113,19 +74,6 @@ namespace VSNRM_Kompas
             }
 
         }
-        //public void AddColumns2()
-        //{
-        //    List<Column_Class> ColumnsConfig =  OptionClass.GetColumnsConfig();
-        //    ColumnsConfig.Sort(delegate (Column_Class column_1, Column_Class column_2){return column_1.Index.CompareTo(column_2.Index);});
-        //    foreach (Column_Class column in ColumnsConfig)
-        //    {
-        //        TreeListColumn listColumn = treeList1.Columns.Add();
-        //        AddOneColumns(listColumn, column);
-        //        if (!column.System) 
-        //            (Col_List_CB.Edit as RepositoryItemComboBox).Items.Add(column.Name); 
-        //    }
-        //}
-
         public void AddItem_In_Combobox()
         {
             (Col_List_CB.Edit as RepositoryItemComboBox).Items.Clear();
@@ -306,18 +254,23 @@ namespace VSNRM_Kompas
             splashScreenManager2.SetWaitFormCaption("Сохранение настроек");
             splashScreenManager2.SetWaitFormDescription("Настройка столбцов");
             ColumnsConf_Save_Read columnsConf_Save_Read = new ColumnsConf_Save_Read();
-            Main_Options.SaveColumnCFG(columnsConf_Save_Read.GetColumnsConfig());
+
+            //Main_Options.SaveColumnCFG(columnsConf_Save_Read.GetColumnsConfig());
+
+            XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
+            xMLCLass.IColumns.SaveColums(columnsConf_Save_Read.GetColumnsConfig());
+
             splashScreenManager2.CloseWaitForm();
         }
 
-        public void SaveColumnCFG(List<Column_Class> Columns_Option_)
-        {
-            controller.Delete_Data(Query.Select_Option.DeleteColumns);
-            foreach (Column_Class column_ in Columns_Option_)
-            {
-                controller.Set_Column_Option(column_);
-            }
-        }
+        //public void SaveColumnCFG(List<Column_Class> Columns_Option_)
+        //{
+        //    controller.Delete_Data(Query.Select_Option.DeleteColumns);
+        //    foreach (Column_Class column_ in Columns_Option_)
+        //    {
+        //        controller.Set_Column_Option(column_);
+        //    }
+        //}
         private void barToggleSwitch_All_Level_Check_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (thisDemo )
@@ -450,8 +403,9 @@ namespace VSNRM_Kompas
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        { 
-            controller.Set_Option_FieldValue("Skin_Name", DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName);
+        {
+            Main_Options.Skin_Name.Value = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName;
+            Main_Options.SaveOption();
         }
 
         private void bt_AboutBox_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

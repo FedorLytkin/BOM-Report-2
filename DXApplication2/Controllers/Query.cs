@@ -81,24 +81,24 @@ namespace VSNRM_Kompas.Controllers
             connection.Close();  
             return bufferTable;
         }
-        public string Get_Option_FieldValue(OptionClass.OptionsListEnum OptionsList)
-        {
-            string OptVal = "";
-            string CommantSQL = $@"SELECT tbl_Options.Opt_Name, tbl_Options.Opt_Val
-FROM tbl_Options
-WHERE tbl_Options.Opt_Name = '{OptionClass.Get_Opt_Name_By_OptionsList(OptionsList)}'";
-            connection.Open();
-            command = new OleDbCommand(CommantSQL, connection);
+//        public string Get_Option_FieldValue(OptionClass.OptionsListEnum OptionsList)
+//        {
+//            string OptVal = "";
+//            string CommantSQL = $@"SELECT tbl_Options.Opt_Name, tbl_Options.Opt_Val
+//FROM tbl_Options
+//WHERE tbl_Options.Opt_Name = '{OptionClass.Get_Opt_Name_By_OptionsList(OptionsList)}'";
+//            connection.Open();
+//            command = new OleDbCommand(CommantSQL, connection);
 
-            command.ExecuteNonQuery();
-            using (OleDbDataReader reader = command.ExecuteReader())
-            {
-                reader.Read();
-                OptVal = reader["Opt_Val"].ToString();
-            }
-            connection.Close();
-            return OptVal;
-        }
+//            command.ExecuteNonQuery();
+//            using (OleDbDataReader reader = command.ExecuteReader())
+//            {
+//                reader.Read();
+//                OptVal = reader["Opt_Val"].ToString();
+//            }
+//            connection.Close();
+//            return OptVal;
+//        }
         public string Get_SystemInformation_FieldValue(string FieldName)
         {
             string OptVal = "";

@@ -41,6 +41,7 @@ namespace SaveDXF
         public bool Split_Naim = false;
         public bool OnlySheetMetalls = false;
         public static bool thisFirstMessage = false;
+        CFG_Class optionClassInBody;
         TreeList treeView;
         SplashScreenManager waitMng;
 
@@ -130,6 +131,8 @@ namespace SaveDXF
             treeView = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).treeList1;
             FindParam_Model = ColumnsConf_Save_Read.FindParams();   //получаем список искомых параметров
             FindModel_List = new List<object>();                    //обнуляем список обработанных файлов
+            optionClassInBody = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).Main_Options;
+
             if (MainForm.thisDemo)
             {
                 Lock_Column_Class lock_Column_ = new Lock_Column_Class();
@@ -204,7 +207,9 @@ namespace SaveDXF
                     {
                         try
                         {
-                            if (item.Hidden != true)
+                            bool ItemHidden = item.Hidden;
+                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
+                            if (ItemHidden != true)
                             {
                                 ComponentInfo componentInfo = GetParam(item);
                                 AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
@@ -299,7 +304,9 @@ namespace SaveDXF
             {
                 try
                 {
-                    if (item.Hidden != true)
+                    bool ItemHidden = item.Hidden;
+                    if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
+                    if (ItemHidden != true)
                     {
                         if (Find_Item.FileName + "|" + Find_Item.Marking == item.FileName + "|" + item.Marking) 
                             QNT += 1;
@@ -326,7 +333,9 @@ namespace SaveDXF
             {
                 try
                 {
-                    if (item.Hidden != true)
+                    bool ItemHidden = item.Hidden;
+                    if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
+                    if (ItemHidden != true)
                         PartList.Add(item.FileName + "|" + item.Marking);
                 }
                 catch { }

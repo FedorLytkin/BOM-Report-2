@@ -23,7 +23,7 @@ namespace SaveDXF
         public static string ComputerName_;
         public static string DelimerChar = "ANK";
         RijndaelManaged Rijndael;
-        OptionClass OptionClass_ = new OptionClass();
+        CFG_Class OptionClass_ = new CFG_Class();
 
         public CryptoClass()
         {

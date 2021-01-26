@@ -18,7 +18,7 @@ namespace VSNRM_Kompas.Dump
 {
     class Dump
     {
-        OptionClass Option;
+        CFG_Class Option;
         string NowDumpFolder;
         public static string ModelFolderInDump;
         string resultZipFile;

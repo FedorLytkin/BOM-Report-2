@@ -34,9 +34,10 @@ namespace VSNRM_Kompas
             this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
-            this.lb_Pogovorki = new DevExpress.XtraEditors.LabelControl();
+            this.memoEdit_Pogovorki = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Pogovorki.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBarControl
@@ -50,7 +51,7 @@ namespace VSNRM_Kompas
             // labelCopyright
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(23, 268);
+            this.labelCopyright.Location = new System.Drawing.Point(23, 287);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(72, 26);
             this.labelCopyright.TabIndex = 6;
@@ -77,22 +78,26 @@ namespace VSNRM_Kompas
             this.peImage.Size = new System.Drawing.Size(426, 180);
             this.peImage.TabIndex = 9;
             // 
-            // lb_Pogovorki
+            // memoEdit_Pogovorki
             // 
-            this.lb_Pogovorki.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lb_Pogovorki.Location = new System.Drawing.Point(23, 249);
-            this.lb_Pogovorki.Name = "lb_Pogovorki";
-            this.lb_Pogovorki.Size = new System.Drawing.Size(281, 13);
-            this.lb_Pogovorki.TabIndex = 10;
-            this.lb_Pogovorki.Text = "План-закон, выполнение-долг, перевыполнение-честь";
+            this.memoEdit_Pogovorki.EditValue = "Работа должна приносить либо деньги, либо удовлетворение, либо профессиональный р" +
+    "ост. А лучше первое, второе и третье\"";
+            this.memoEdit_Pogovorki.Enabled = false;
+            this.memoEdit_Pogovorki.Location = new System.Drawing.Point(23, 249);
+            this.memoEdit_Pogovorki.Name = "memoEdit_Pogovorki";
+            this.memoEdit_Pogovorki.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.memoEdit_Pogovorki.Properties.ReadOnly = true;
+            this.memoEdit_Pogovorki.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.memoEdit_Pogovorki.Size = new System.Drawing.Size(404, 32);
+            this.memoEdit_Pogovorki.TabIndex = 12;
             // 
             // SplashScreen1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 320);
+            this.Controls.Add(this.memoEdit_Pogovorki);
             this.Controls.Add(this.labelCopyright);
-            this.Controls.Add(this.lb_Pogovorki);
             this.Controls.Add(this.peImage);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.progressBarControl);
@@ -100,6 +105,7 @@ namespace VSNRM_Kompas
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Pogovorki.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +117,6 @@ namespace VSNRM_Kompas
         private DevExpress.XtraEditors.LabelControl labelCopyright;
         private DevExpress.XtraEditors.LabelControl labelStatus;
         private DevExpress.XtraEditors.PictureEdit peImage;
-        private DevExpress.XtraEditors.LabelControl lb_Pogovorki;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_Pogovorki;
     }
 }

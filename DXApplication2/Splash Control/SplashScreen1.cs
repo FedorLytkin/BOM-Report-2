@@ -15,23 +15,23 @@ namespace VSNRM_Kompas
 {
     public partial class SplashScreen1 : SplashScreen
     {
-        Query controller;
+        XMLContreller.XMLCLass controller;
         public SplashScreen1()
         {
             InitializeComponent();
-            controller = new Query(ConnectionString.ConnStr);
-            this.lb_Pogovorki.Text = GetRandomPogovorka();
+            controller = new XMLContreller.XMLCLass();
+            this.memoEdit_Pogovorki.Text = GetRandomPogovorka();
             this.labelCopyright.Text = $"{Application.ProductName} v{Application.ProductVersion}\nCopyright © 2020-" + DateTime.Now.Year.ToString();
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(controller.Get_Option_FieldValue(OptionClass.OptionsListEnum.Skin_Name));
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(controller.IOptions.GetFieldValue("Skin_Name"));
         }
         private string GetRandomPogovorka()
         {
             string Pogovorka = "";
-            DataTable table = controller.Get_Data(Query.Select_Option.Pogovorki);
+            List<string> table = controller.IList.GetList(OptionPath.Sayings_FileINI);
             int row_ind = 0;
             Random rnd = new Random();
-            row_ind = rnd.Next(table.Rows.Count);
-            Pogovorka = table.Rows[row_ind][1].ToString();
+            row_ind = rnd.Next(table.Count);
+            Pogovorka = table[row_ind].ToString();
             return Pogovorka;
         }
         #region Overrides
@@ -43,8 +43,5 @@ namespace VSNRM_Kompas
 
         #endregion
 
-        public enum SplashScreenCommand
-        {
-        }
     }
 }

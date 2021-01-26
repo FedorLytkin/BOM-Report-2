@@ -12,7 +12,7 @@ namespace VSNRM_Kompas.Controllers
     class SetUpdateOptionBD
     {
         Query controller;
-        OptionClass optionClass;
+        CFG_Class optionClass;
         public const string BDVersion = "18.0.9.2";
         enum BDVersionCompare
         {

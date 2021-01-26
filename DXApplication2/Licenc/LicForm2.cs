@@ -20,7 +20,7 @@ namespace SaveDXF
     {
         RijndaelManaged Rijndael;
         CryptoClass CryptoClass_;
-        OptionClass OptionClass_ = new OptionClass();
+        CFG_Class OptionClass_ = new CFG_Class();
         CompressedFile compressedFile;
 
         public static string PatternID = "100";
@@ -40,7 +40,7 @@ namespace SaveDXF
         private void buttonGenerate_Click(object sender, EventArgs e)
         { 
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.FileName = $"Queryfile_({CryptoClass.ComputerName_}_{CryptoClass.ProgramID_})";
+            dialog.FileName = $"Queryfile_({CryptoClass.ComputerName_}_{CryptoClass.ProgramID_}_{Application.ProductName}_v{Application.ProductVersion})";
             dialog.Filter = "datq files(*.datq)|*.datq";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -78,21 +78,21 @@ namespace SaveDXF
         private void buttonImortFile_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(ThisPCLic)) return;
-            openFileDialog1.FileName = "keyfile";
+            openFileDialog1.FileName = $"keyfile_({CryptoClass.ComputerName_}_{CryptoClass.ProgramID_}_{Application.ProductName}_v{Application.ProductVersion})";
             openFileDialog1.Filter = "dat files(*.dat)|*.dat";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    File.Delete(OptionClass_.KeyFile_Puth);
-                    File.Copy(openFileDialog1.FileName, OptionClass_.KeyFile_Puth);
+                    if (File.Exists(OptionClass_.KeyFile_Puth))
+                        File.Delete(OptionClass_.KeyFile_Puth);
+                    File.Copy(openFileDialog1.FileName, OptionClass_.KeyFile_Puth, true);
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Ошибка при распозновании ключа!", $"{Application.ProductName}. Менеджер лицензии", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    add_LogFile($@"{Path.GetDirectoryName(OptionClass_.KeyFile_Puth)}\err.txt", ex.Message);
                 }
-                //обработку нового файла и проверку ключ
-                //GetKeyFile(ThisPCLic, OptionClass_.KeyFile_Puth);
                 this.Close();
             }
         }
@@ -116,6 +116,13 @@ namespace SaveDXF
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.evernote.com/l/AjJSBG66FZBA7KMBazxxsVvqEjyUddPCVfw/");
+        }
+        private void add_LogFile(string FileName, string Message)
+        {
+            StreamWriter sw = new StreamWriter(FileName, false, System.Text.Encoding.Default);
+            sw.Write(Message);
+            sw.Flush();
+            sw.Close();
         }
     }
 }

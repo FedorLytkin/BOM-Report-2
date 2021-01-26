@@ -15,7 +15,7 @@ namespace About_Control
 {
     public partial class AboutForm : DevExpress.XtraEditors.XtraForm
     {
-        OptionClass optionClass;
+        CFG_Class optionClass;
         public AboutForm()
         {
             InitializeComponent();
