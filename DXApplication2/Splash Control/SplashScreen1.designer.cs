@@ -1,5 +1,5 @@
 ﻿
-namespace VSNRM_Kompas
+namespace VSNRM_Kompas.Splash_Control
 {
     partial class SplashScreen1
     {
@@ -85,6 +85,8 @@ namespace VSNRM_Kompas
             this.memoEdit_Pogovorki.Enabled = false;
             this.memoEdit_Pogovorki.Location = new System.Drawing.Point(23, 249);
             this.memoEdit_Pogovorki.Name = "memoEdit_Pogovorki";
+            this.memoEdit_Pogovorki.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.memoEdit_Pogovorki.Properties.Appearance.Options.UseBackColor = true;
             this.memoEdit_Pogovorki.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.memoEdit_Pogovorki.Properties.ReadOnly = true;
             this.memoEdit_Pogovorki.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;

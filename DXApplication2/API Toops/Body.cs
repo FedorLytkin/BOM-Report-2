@@ -281,7 +281,7 @@ namespace SaveDXF
 
                         TreeListNode TempNode;
                         TempNode = AddNode(node, componentInfo_Copy, true);
-                        TempNode.Tag = componentInfo_Copy;
+                        //TempNode.Tag = componentInfo_Copy;
                     }
                     catch { }
                 }
@@ -293,7 +293,7 @@ namespace SaveDXF
 
                 TreeListNode TempNode;
                 TempNode = AddNode(node, componentInfo_Copy, true);
-                TempNode.Tag = componentInfo_Copy; 
+                //TempNode.Tag = componentInfo_Copy; 
             }
         }
         private double GetQNTInParts(IPart7 Find_Item, IPart7 TopPart)
@@ -494,12 +494,16 @@ namespace SaveDXF
                         //temp_componentInfo.QNT = Convert.ToDouble(TempNode.GetValue("Количество")) + 1;
                         double QNT = 0;
                         if (AddBodyTree)
+                        {
                             QNT = temp_componentInfo.Body.QNT + _componentInfo.Body.QNT;
+                            temp_componentInfo.Body.QNT = QNT;
+                        }
                         else
                             QNT = temp_componentInfo.QNT + _componentInfo.QNT;
                         ChildNode = TempNode;
                         ChildNode.SetValue("Количество", QNT);
                         ChildNode.SetValue("Количество общ.", GetTotalQNT(ChildNode));
+                        ChildNode.Tag = temp_componentInfo;
                         return ChildNode;
                     }
                 }
@@ -514,6 +518,7 @@ namespace SaveDXF
             else
                 AddCellsInNode(ChildNode, _componentInfo.Body);
             ChildNode.SetValue("Количество общ.", GetTotalQNT(ChildNode));
+            ChildNode.Tag = _componentInfo;
             return ChildNode;
         }
 

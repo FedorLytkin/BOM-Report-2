@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using VSNRM_Kompas.Controllers;
 using VSNRM_Kompas.Options;
 
-namespace VSNRM_Kompas
+namespace VSNRM_Kompas.Splash_Control
 {
     public partial class SplashScreen1 : SplashScreen
     {
@@ -23,6 +23,9 @@ namespace VSNRM_Kompas
             this.memoEdit_Pogovorki.Text = GetRandomPogovorka();
             this.labelCopyright.Text = $"{Application.ProductName} v{Application.ProductVersion}\nCopyright © 2020-" + DateTime.Now.Year.ToString();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(controller.IOptions.GetFieldValue("Skin_Name"));
+            this.memoEdit_Pogovorki.BackColor = DevExpress.LookAndFeel.LookAndFeelHelper.GetSystemColor(
+DevExpress.LookAndFeel.UserLookAndFeel.Default.ActiveLookAndFeel,
+SystemColors.Window);
         }
         private string GetRandomPogovorka()
         {
