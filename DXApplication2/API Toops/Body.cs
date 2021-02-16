@@ -719,6 +719,12 @@ namespace SaveDXF
                     case "Имя файла":
                         ParamValue = System.IO.Path.GetFileNameWithoutExtension(part.FileName);
                         break;
+                    case "Путь файла":
+                        ParamValue = part.FileName;
+                        break;
+                    case "Расположение файла":
+                        ParamValue = System.IO.Path.GetDirectoryName(part.FileName);
+                        break;
                     case "Наименование":
                         ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
                         if (Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);

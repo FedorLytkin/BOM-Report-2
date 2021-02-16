@@ -114,6 +114,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\CFG_Class.cs" />
+    <Compile Include="Options\Column options\AddNewColumns_Class.cs" />
     <Compile Include="Options\Column options\Lock_Column_Class.cs" />
     <Compile Include="Options\ColumnsConf_Save_Read.cs" />
     <Compile Include="Options\Column_Class.cs" />

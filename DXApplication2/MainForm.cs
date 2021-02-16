@@ -59,6 +59,8 @@ namespace VSNRM_Kompas
         private void AddColumns()
         {
             List<Column_Class> column_List = controller.IColumns.GetColumns();
+            Options.Column_options.AddNewColumns_Class ColumnsUpdate = new Options.Column_options.AddNewColumns_Class();
+            ColumnsUpdate.GetUpdateColumnList(column_List);
 
             column_List.Sort(delegate (Column_Class column_1, Column_Class column_2) { return column_1.Index.CompareTo(column_2.Index); });
 
@@ -72,7 +74,6 @@ namespace VSNRM_Kompas
                 if (!column.System)
                     (Col_List_CB.Edit as RepositoryItemComboBox).Items.Add(column.Name);
             }
-
         }
         public void AddItem_In_Combobox()
         {
