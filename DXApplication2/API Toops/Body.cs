@@ -260,7 +260,7 @@ namespace SaveDXF
             {
                 string ParamValue = null;
                 ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyBodyIPart7(Part, _body, ParamName), "");
-                if (Split_Naim && ParamName == "Наименование") { ParamValue = OptionsFold.tools_class.SplitString(ParamValue); }
+                if (Split_Naim && ParamName == "Наименование") { ParamValue = OptionsFold.tools_class.SplitString(ParamValue); componentInfo_Copy.Body.Naim = ParamValue; }
                 ParamValueList.Add(ParamName, ParamValue);
             }
             componentInfo_Copy.Body.ParamValueList = ParamValueList;
@@ -793,6 +793,7 @@ namespace SaveDXF
             iMSH.Oboz = part.Marking;
             iMSH.Mass = part.Mass;
             iMSH.Naim = part.Name;
+            if (Split_Naim) iMSH.Naim = OptionsFold.tools_class.SplitString(part.Name);
             iMSH._MCH.Xc = massInertiaParam.Xc;
             iMSH._MCH.Yc = massInertiaParam.Yc;
             iMSH._MCH.Zc = massInertiaParam.Zc; 

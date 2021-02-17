@@ -445,5 +445,11 @@ namespace VSNRM_Kompas
         {
             Process.Start("https://t.me/BOMReportChat");
         }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Diagramm.DiagrammForm diagrammForm = new Diagramm.DiagrammForm();
+            diagrammForm.ShowDialog(); 
+        }
     }
 }
