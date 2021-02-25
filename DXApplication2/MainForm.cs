@@ -19,6 +19,7 @@ using System.Data;
 using About_Control;
 using VSNRM_Kompas.Options.Column_Options;
 using System.Drawing;
+using DevExpress.XtraBars;
 
 namespace VSNRM_Kompas
 {
@@ -449,12 +450,13 @@ namespace VSNRM_Kompas
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
         }
-
+        int SelectButton = 1;
         private void Bt_AllParts_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            barButtonItem3.Caption = Bt_AllParts.Caption; 
-            barButtonItem3.ImageOptions.SvgImage = Bt_AllParts.ImageOptions.SvgImage;
-            barButtonItem3.SuperTip = Bt_AllParts.SuperTip;
+            bt_SplitButton.Caption = Bt_AllParts.Caption;
+            bt_SplitButton.ImageOptions.SvgImage = Bt_AllParts.ImageOptions.SvgImage;
+            bt_SplitButton.SuperTip = Bt_AllParts.SuperTip;
+            SelectButton = 0;
 
             Diagramm.AllPartReport_Form allPartReport_ = new Diagramm.AllPartReport_Form();
             allPartReport_.ShowDialog();
@@ -462,15 +464,22 @@ namespace VSNRM_Kompas
 
         private void bt_LinkVis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            barButtonItem3.Caption = bt_LinkVis.Caption;
-            barButtonItem3.ImageOptions.SvgImage = bt_LinkVis.ImageOptions.SvgImage;
-            barButtonItem3.SuperTip = bt_LinkVis.SuperTip;
+            bt_SplitButton.Caption = bt_LinkVis.Caption;
+            bt_SplitButton.ImageOptions.SvgImage = bt_LinkVis.ImageOptions.SvgImage;
+            bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
+            SelectButton = 1;
 
             DiagramDataControllerBehavior.DiagrammForm2 form1 = new DiagramDataControllerBehavior.DiagrammForm2();
             form1.ShowDialog();
 
             //Diagramm.DiagrammForm diagrammForm = new Diagramm.DiagrammForm();
             //diagrammForm.ShowDialog();
+        }
+
+        private void bt_SplitButton_ItemClick(object sender, ItemClickEventArgs e)
+        { 
+            PopupMenu menu = (e.Item as BarButtonItem).DropDownControl as PopupMenu;
+            menu.ItemLinks[SelectButton].Item.PerformClick();
         }
     }
 }
