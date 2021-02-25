@@ -140,7 +140,10 @@ namespace VSNRM_Kompas.Diagramm
                         if (row == null)
                         {
                             row = dataTable.Rows.Add();
-                            foreach (KeyValuePair<string, string> Param in componentInfo.ParamValueList)
+                            Dictionary<string, string> Comp_params;
+                            if (componentInfo.isBody) Comp_params = componentInfo.Body.ParamValueList;
+                            else Comp_params = componentInfo.ParamValueList;
+                            foreach (KeyValuePair<string, string> Param in Comp_params)
                             {
                                 switch (Param.Key)
                                 {
