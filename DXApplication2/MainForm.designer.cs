@@ -1021,6 +1021,7 @@
             this.Bt_AllParts.Caption = "Структура объекта";
             this.Bt_AllParts.Id = 52;
             this.Bt_AllParts.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_AllParts.ImageOptions.SvgImage")));
+            this.Bt_AllParts.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2));
             this.Bt_AllParts.Name = "Bt_AllParts";
             this.Bt_AllParts.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             toolTipTitleItem51.Text = "Структура объекта";
@@ -1041,6 +1042,7 @@
             this.bt_LinkVis.Caption = "Визуализатор связей";
             this.bt_LinkVis.Id = 53;
             this.bt_LinkVis.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_LinkVis.ImageOptions.SvgImage")));
+            this.bt_LinkVis.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2));
             this.bt_LinkVis.Name = "bt_LinkVis";
             this.bt_LinkVis.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bt_LinkVis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_LinkVis_ItemClick);
