@@ -21,12 +21,14 @@ namespace VSNRM_Kompas.API_Toops
         public string FFN { get; set; }
         public bool isDetal { get; set; }
         public bool standardComponent { get; set; }
+        public bool isBody { get; set; }
         public string Key { get; set; }
         public double Area { get; set; }
         public Dictionary<string, string> ParamValueList { get; set; }
         public bool SheeMetall { get; set; }
         public bool HaveUnfold { get; set; }
         public Bitmap Slide { get; set; }
+        public Bitmap LargeSlide { get; set; }
 
 
 
@@ -65,13 +67,15 @@ namespace VSNRM_Kompas.API_Toops
                 RazdelSP = this.RazdelSP, 
                 FFN = this.FFN, 
                 isDetal = this.isDetal, 
-                standardComponent = this.standardComponent, 
+                standardComponent = this.standardComponent,
+                isBody = this.isBody,
                 Key = this.Key, 
                 Area = this.Area, 
                 ParamValueList = this.ParamValueList,
                 SheeMetall = this.SheeMetall,
                 HaveUnfold = this.HaveUnfold,
-                Slide = this.Slide
+                Slide = this.Slide,
+                LargeSlide = this.LargeSlide
             };
         }
 

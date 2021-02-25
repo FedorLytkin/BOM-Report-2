@@ -448,8 +448,29 @@ namespace VSNRM_Kompas
 
         private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Diagramm.DiagrammForm diagrammForm = new Diagramm.DiagrammForm();
-            diagrammForm.ShowDialog(); 
+        }
+
+        private void Bt_AllParts_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            barButtonItem3.Caption = Bt_AllParts.Caption; 
+            barButtonItem3.ImageOptions.SvgImage = Bt_AllParts.ImageOptions.SvgImage;
+            barButtonItem3.SuperTip = Bt_AllParts.SuperTip;
+
+            Diagramm.AllPartReport_Form allPartReport_ = new Diagramm.AllPartReport_Form();
+            allPartReport_.ShowDialog();
+        }
+
+        private void bt_LinkVis_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            barButtonItem3.Caption = bt_LinkVis.Caption;
+            barButtonItem3.ImageOptions.SvgImage = bt_LinkVis.ImageOptions.SvgImage;
+            barButtonItem3.SuperTip = bt_LinkVis.SuperTip;
+
+            DiagramDataControllerBehavior.DiagrammForm2 form1 = new DiagramDataControllerBehavior.DiagrammForm2();
+            form1.ShowDialog();
+
+            //Diagramm.DiagrammForm diagrammForm = new Diagramm.DiagrammForm();
+            //diagrammForm.ShowDialog();
         }
     }
 }

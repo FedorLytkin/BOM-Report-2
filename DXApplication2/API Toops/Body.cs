@@ -254,6 +254,7 @@ namespace SaveDXF
                 componentInfo_Copy.Body.QNT = kolvo;
                 componentInfo_Copy.Body.QNT_False = false;
             }
+            componentInfo_Copy.isBody = true;
             componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             foreach (string ParamName in FindParam_Model)
@@ -811,6 +812,7 @@ namespace SaveDXF
 
             ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
             iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
+            iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
             return iMSH;
         }
         public static double GetThicknessPart(IPart7 Part_, bool inSource = true)
