@@ -80,24 +80,7 @@ namespace DiagramDataControllerBehavior.Data
                 ClassData item = new ClassData();
                 if (!KeyList.Contains(componentInfo.Key))
                 {
-                    if (componentInfo.isBody)
-                    {
-                        item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
-                        item.Oboz = componentInfo.Body.Oboz;
-                        item.Naim = componentInfo.Body.Naim;
-                        if(componentInfo.Body.ParamValueList.ContainsKey(Material))
-                            item.Material = componentInfo.Body.ParamValueList[Material];
-                    }
-                    else
-                    {
-                        item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
-                        item.Oboz = componentInfo.Oboz;
-                        item.Naim = componentInfo.Naim;
-                        if (componentInfo.ParamValueList.ContainsKey(Material))
-                            item.Material = componentInfo.ParamValueList[Material]; 
-                    }
-                    item.Slide = componentInfo.LargeSlide;
-                    item.Type = GetType_By_RazdelSP(componentInfo);
+                    item = SetData(item, componentInfo);
                     item.Key = componentInfo.Key;
                     list.Add(item);
                     KeyList.Add(componentInfo.Key);
@@ -106,6 +89,28 @@ namespace DiagramDataControllerBehavior.Data
 
             return list;
         }
+        private ClassData SetData(ClassData item, ComponentInfo componentInfo)
+        { 
+            if (componentInfo.isBody)
+            {
+                item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
+                item.Oboz = componentInfo.Body.Oboz;
+                item.Naim = componentInfo.Body.Naim;
+                if (componentInfo.Body.ParamValueList.ContainsKey(Material))
+                    item.Material = componentInfo.Body.ParamValueList[Material];
+            }
+            else
+            {
+                item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
+                item.Oboz = componentInfo.Oboz;
+                item.Naim = componentInfo.Naim;
+                if (componentInfo.ParamValueList.ContainsKey(Material))
+                    item.Material = componentInfo.ParamValueList[Material];
+            }
+            item.Slide = componentInfo.LargeSlide;
+            item.Type = GetType_By_RazdelSP(componentInfo);
+            return item;
+        }
         public List<ClassData> ClassList_Create_Dublicate()
         {
             var list = new List<ClassData>();
@@ -113,25 +118,8 @@ namespace DiagramDataControllerBehavior.Data
             foreach (TreeListNode node in nodes)
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                ClassData item = new ClassData();
-                if (componentInfo.isBody)
-                {
-                    item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
-                    item.Oboz = componentInfo.Body.Oboz;
-                    item.Naim = componentInfo.Body.Naim;
-                    if (componentInfo.Body.ParamValueList.ContainsKey(Material))
-                        item.Material = componentInfo.Body.ParamValueList[Material];
-                }
-                else
-                {
-                    item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
-                    item.Oboz = componentInfo.Oboz;
-                    item.Naim = componentInfo.Naim;
-                    if (componentInfo.ParamValueList.ContainsKey(Material))
-                        item.Material = componentInfo.Body.ParamValueList[Material];
-                }
-                item.Slide = componentInfo.LargeSlide;
-                item.Type = GetType_By_RazdelSP(componentInfo);
+                ClassData item = new ClassData(); 
+                item = SetData(item, componentInfo);
                 item.Key = node.Id.ToString();
                 list.Add(item);
             }
