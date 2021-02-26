@@ -94,7 +94,7 @@ namespace DiagramDataControllerBehavior.Data
                         item.Oboz = componentInfo.Oboz;
                         item.Naim = componentInfo.Naim;
                         if (componentInfo.ParamValueList.ContainsKey(Material))
-                            item.Material = componentInfo.Body.ParamValueList[Material]; 
+                            item.Material = componentInfo.ParamValueList[Material]; 
                     }
                     item.Slide = componentInfo.LargeSlide;
                     item.Type = GetType_By_RazdelSP(componentInfo);
