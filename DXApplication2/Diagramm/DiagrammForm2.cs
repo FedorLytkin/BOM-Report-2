@@ -19,14 +19,17 @@ namespace DiagramDataControllerBehavior
     public partial class DiagrammForm2 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         TreeList treeView;
+        ClassStructureGenerator classStructureGenerator;
+        bool Create_Dublicate = false;
         public DiagrammForm2()
         {
             InitializeComponent();
             treeView = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).treeList1;
-            ClassStructureGenerator classStructureGenerator = new ClassStructureGenerator(treeView);
+            classStructureGenerator = new ClassStructureGenerator(treeView);
 
-            diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
-            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList();
+            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(); 
+            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate(); 
+            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
             diagramDataBindingController1.LayoutKind = DiagramLayoutKind.MindMapTree;
         }
 
@@ -103,6 +106,15 @@ namespace DiagramDataControllerBehavior
                     Process.Start(saveFileDialog.FileName);
                 } 
             }
+        }
+
+        private void Toggle_CreateDublicate_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Create_Dublicate = Toggle_CreateDublicate.Checked;
+            diagramDataBindingController1.DataSource = null;
+            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
+            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
+            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
     }
 }

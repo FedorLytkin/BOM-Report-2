@@ -29,9 +29,8 @@ namespace DiagramDataControllerBehavior.Data
     }
     public class ConnectionData
     {
-        string fromEmployeeID;
         public string ConnectorText { get; set; }
-        public object ConnectedFrom { get { return fromEmployeeID; } set { fromEmployeeID = value.ToString(); } }
+        public object ConnectedFrom { get; set; }
         public object ConnectedTo { get; set; }
     }
 }

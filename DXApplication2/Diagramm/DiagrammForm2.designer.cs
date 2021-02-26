@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiagrammForm2));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             this.diagramControl1 = new DevExpress.XtraDiagram.DiagramControl();
             this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
             this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
@@ -80,8 +85,10 @@
             this.Bt_SaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.bt_Print = new DevExpress.XtraBars.BarButtonItem();
             this.bt_Export = new DevExpress.XtraBars.BarButtonItem();
+            this.Toggle_CreateDublicate = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.diagramControl1)).BeginInit();
@@ -93,11 +100,11 @@
             // diagramControl1
             // 
             this.diagramControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.diagramControl1.Location = new System.Drawing.Point(0, 144);
+            this.diagramControl1.Location = new System.Drawing.Point(0, 162);
             this.diagramControl1.Name = "diagramControl1";
             this.diagramControl1.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[0]);
             this.diagramControl1.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
-            this.diagramControl1.Size = new System.Drawing.Size(993, 530);
+            this.diagramControl1.Size = new System.Drawing.Size(993, 522);
             this.diagramControl1.TabIndex = 0;
             // 
             // diagramDataBindingController1
@@ -1235,14 +1242,15 @@
             this.ribbonControl1.SearchEditItem,
             this.Bt_SaveAs,
             this.bt_Print,
-            this.bt_Export});
+            this.bt_Export,
+            this.Toggle_CreateDublicate});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(993, 144);
+            this.ribbonControl1.Size = new System.Drawing.Size(993, 162);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // Bt_SaveAs
@@ -1273,10 +1281,29 @@
             this.bt_Export.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.bt_Export.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Export_ItemClick);
             // 
+            // Toggle_CreateDublicate
+            // 
+            this.Toggle_CreateDublicate.Caption = "Дубликаты повторяющихся";
+            this.Toggle_CreateDublicate.Id = 4;
+            this.Toggle_CreateDublicate.Name = "Toggle_CreateDublicate";
+            toolTipTitleItem1.Text = "Создавать дубликаты для повторно применяемых компонентов";
+            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = resources.GetString("toolTipItem1.Text");
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "BOM-Report";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.Toggle_CreateDublicate.SuperTip = superToolTip1;
+            this.Toggle_CreateDublicate.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.Toggle_CreateDublicate_CheckedChanged);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Инструменты";
             // 
@@ -1288,12 +1315,18 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Инструменты сохранения";
             // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.Toggle_CreateDublicate);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Состав";
+            // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 674);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 684);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(993, 36);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(993, 26);
             // 
             // ribbonPage2
             // 
@@ -1378,6 +1411,8 @@
         private DevExpress.XtraBars.BarButtonItem Bt_SaveAs;
         private DevExpress.XtraBars.BarButtonItem bt_Print;
         private DevExpress.XtraBars.BarButtonItem bt_Export;
+        private DevExpress.XtraBars.BarToggleSwitchItem Toggle_CreateDublicate;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }
 
