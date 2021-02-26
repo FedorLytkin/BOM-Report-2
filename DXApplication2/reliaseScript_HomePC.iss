@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "BOM-Report Kompas 3D"
-#define MyAppVersion "18.26.20.64"
+#define MyAppVersion "18.27.20.103"
 #define MyAppPublisher "DXF-AutoHelp - dxfautohelp@gmail.com"
 #define MyAppURL "dxfautohelp@gmail.com"
 #define MyAppExeName "BOM Report.exe"
