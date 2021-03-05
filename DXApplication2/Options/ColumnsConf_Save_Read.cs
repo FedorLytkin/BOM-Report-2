@@ -34,7 +34,8 @@ namespace VSNRM_Kompas.Options
             TreeList treeView = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).treeList1;
             foreach (TreeListColumn Column in treeView.Columns)
             {
-                if (Column.Visible)
+                Column_Class column_Class = (Column_Class)Column.Tag;
+                if (Column.Visible || column_Class.System || Column.Name == "Количество" || Column.Name == "Количество общ.")
                     Vis_Columns.Add(Column.Name);
             }
             return Vis_Columns;

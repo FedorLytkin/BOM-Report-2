@@ -107,6 +107,11 @@ namespace DiagramDataControllerBehavior.Data
                 if (componentInfo.ParamValueList.ContainsKey(Material))
                     item.Material = componentInfo.ParamValueList[Material];
             }
+            if (string.IsNullOrEmpty(componentInfo.ParamValueList["Количество общ."]))
+                item.Qnt = 0;
+            else
+                item.Qnt = Convert.ToDouble(componentInfo.ParamValueList["Количество общ."]);
+            //item.Qnt = componentInfo.Total_QNT;
             item.Slide = componentInfo.LargeSlide;
             item.Type = GetType_By_RazdelSP(componentInfo);
             return item;

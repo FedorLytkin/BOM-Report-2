@@ -12,6 +12,7 @@ namespace DiagramDataControllerBehavior.Data
         public string FileName { get; set; }
         public string Oboz { get; set; }
         public string Naim { get; set; }
+        public double Qnt { get; set; }
         public string Material { get; set; }
         public Bitmap Slide { get; set; }
         public string Key { get; set; }

@@ -518,7 +518,8 @@ namespace SaveDXF
                 AddCellsInNode(ChildNode, _componentInfo);
             else
                 AddCellsInNode(ChildNode, _componentInfo.Body);
-            ChildNode.SetValue("Количество общ.", GetTotalQNT(ChildNode));
+            _componentInfo.Total_QNT = GetTotalQNT(ChildNode);
+            ChildNode.SetValue("Количество общ.", _componentInfo.Total_QNT);
             ChildNode.Tag = _componentInfo;
             return ChildNode;
         }
