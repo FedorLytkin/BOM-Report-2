@@ -116,7 +116,7 @@ namespace DiagramDataControllerBehavior.Data
                 {
                     if (!KeyList.Contains(componentInfo.Key))
                     {
-                        item.Qnt = GetTotalCount(node, componentInfo.QNT);
+                        item.Qnt = GetTotalCount(node, componentInfo.Total_QNT);
                         item.Key = componentInfo.Key;
                         list.Add(item);
 
