@@ -20,7 +20,7 @@ namespace DiagramDataControllerBehavior
     {
         TreeList treeView;
         ClassStructureGenerator classStructureGenerator;
-        bool Create_Dublicate = false;
+        bool Create_Dublicate = false; 
         public DiagrammForm2()
         {
             InitializeComponent();
@@ -146,15 +146,6 @@ namespace DiagramDataControllerBehavior
         private void Toggle_CreateDublicate_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Create_Dublicate = Toggle_CreateDublicate.Checked;
-            diagramDataBindingController1.DataSource = null;
-            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
-            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
-            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
-        }
-
-        private void bt_Dublicate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Create_Dublicate = bt_Dublicate.Down;
             CreateDublicate();
         }
         private void CreateDublicate()
@@ -162,7 +153,13 @@ namespace DiagramDataControllerBehavior
             diagramDataBindingController1.DataSource = null;
             if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
             else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
-            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
+            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate); 
+        }
+
+        private void bt_Dublicate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Create_Dublicate = bt_Dublicate.Down;
+            CreateDublicate();
         }
 
         private void Bt_Qnt_On_Line_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -170,5 +167,6 @@ namespace DiagramDataControllerBehavior
             classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
             diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
+
     }
 }

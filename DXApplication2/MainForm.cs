@@ -54,6 +54,7 @@ namespace VSNRM_Kompas
             //    Thread.Sleep(100); 
             DemoVers_StartWindows();
             All_Level_Check_CH_B.Checked = !(thisDemo);
+            bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
             Bt_NaimSpletter.Checked = true;
             Body.AppVersNOTValidStrongMessage();
         }

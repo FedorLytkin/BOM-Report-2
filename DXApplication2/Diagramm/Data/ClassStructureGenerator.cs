@@ -12,7 +12,8 @@ using System.IO;
 namespace DiagramDataControllerBehavior.Data
 {
     public class ClassStructureGenerator
-    {
+    { 
+        public bool Create_Qnt_On_Line = false;
         TreeList treeView;
         List<string> KeyList;
         const string Material = "Материал";
@@ -107,11 +108,11 @@ namespace DiagramDataControllerBehavior.Data
                 if (componentInfo.ParamValueList.ContainsKey(Material))
                     item.Material = componentInfo.ParamValueList[Material];
             }
-            if (string.IsNullOrEmpty(componentInfo.ParamValueList["Количество общ."]))
-                item.Qnt = 0;
-            else
-                item.Qnt = Convert.ToDouble(componentInfo.ParamValueList["Количество общ."]);
-            //item.Qnt = componentInfo.Total_QNT;
+            //if (string.IsNullOrEmpty(componentInfo.ParamValueList["Количество общ."]))
+            //    item.Qnt = 0;
+            //else
+            //    item.Qnt = Convert.ToDouble(componentInfo.ParamValueList["Количество общ."]);
+            item.Qnt = componentInfo.Total_QNT;
             item.Slide = componentInfo.LargeSlide;
             item.Type = GetType_By_RazdelSP(componentInfo);
             return item;
@@ -139,66 +140,35 @@ namespace DiagramDataControllerBehavior.Data
             foreach (TreeListNode node in treeView.Nodes)
             {
                 if (node.HasChildren)
-                { 
-                    if (!CreateDublicate) TravelTreeList(node, cList); 
-                    else TravelTreeList_CreateDublicate(node, cList);
-                }
+                    TravelTreeList(node, cList, CreateDublicate); 
             }
 
             return cList;
         }
-        private void TravelTreeList_CreateDublicate(TreeListNode ParentNode, List<ConnectionData> cList)
+        private void TravelTreeList(TreeListNode ParentNode, List<ConnectionData>  cList, bool CreateDublicate)
         {
             ComponentInfo Parent_componentinfo = (ComponentInfo)ParentNode.Tag;
             foreach (TreeListNode node in ParentNode.Nodes)
             {
                 ComponentInfo componentinfo = (ComponentInfo)node.Tag;
-                if (componentinfo.Body.Naim != null)
+                ConnectionData connectionData = new ConnectionData();
+                if (Create_Qnt_On_Line)
                 {
-                    cList.Add(new ConnectionData()
-                    {
-                        ConnectedTo = node.Id.ToString(),
-                        ConnectorText = componentinfo.Body.QNT.ToString(),
-                        ConnectedFrom = ParentNode.Id.ToString()
-                    });
+                    if (componentinfo.isBody) connectionData.ConnectorText = componentinfo.Body.QNT.ToString(); 
+                    else connectionData.ConnectorText = componentinfo.QNT.ToString(); 
+                }
+                if (CreateDublicate)
+                {
+                    connectionData.ConnectedTo = node.Id.ToString();
+                    connectionData.ConnectedFrom = ParentNode.Id.ToString();
                 }
                 else
                 {
-                    cList.Add(new ConnectionData()
-                    {
-                        ConnectedTo = node.Id.ToString(),
-                        ConnectorText = componentinfo.QNT.ToString(),
-                        ConnectedFrom = ParentNode.Id.ToString()
-                    });
-                } 
-                if (node.HasChildren) TravelTreeList_CreateDublicate(node, cList);
-            }
-        }
-        private void TravelTreeList(TreeListNode ParentNode, List<ConnectionData>  cList)
-        {
-            ComponentInfo Parent_componentinfo = (ComponentInfo)ParentNode.Tag;
-            foreach (TreeListNode node in ParentNode.Nodes)
-            {
-                ComponentInfo componentinfo = (ComponentInfo)node.Tag;
-                if (componentinfo.Body.Naim != null)
-                {
-                    cList.Add(new ConnectionData()
-                    {
-                        ConnectedTo = componentinfo.Key,
-                        ConnectorText = componentinfo.Body.QNT.ToString(),
-                        ConnectedFrom = Parent_componentinfo.Key
-                    });
+                    connectionData.ConnectedTo = componentinfo.Key;
+                    connectionData.ConnectedFrom = Parent_componentinfo.Key;
                 }
-                else
-                {
-                    cList.Add(new ConnectionData()
-                    {
-                        ConnectedTo = componentinfo.Key,
-                        ConnectorText = componentinfo.QNT.ToString(),
-                        ConnectedFrom = Parent_componentinfo.Key
-                    });
-                }
-                if (node.HasChildren) TravelTreeList(node, cList);
+                cList.Add(connectionData); 
+                if (node.HasChildren) TravelTreeList(node, cList, CreateDublicate);
             }
         }
     }
