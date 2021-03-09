@@ -83,45 +83,103 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Utils.SuperToolTip superToolTip36 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip43 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem51 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip36 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip37 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip38 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem45 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip39 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip40 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip41 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip42 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip44 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem52 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem9 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem53 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Utils.SuperToolTip superToolTip45 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem54 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem10 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem55 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip46 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem56 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem11 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem57 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip47 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem58 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem12 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem59 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Utils.SuperToolTip superToolTip48 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem60 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Utils.SuperToolTip superToolTip37 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip38 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip49 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem61 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem13 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem62 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip50 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem63 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem14 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem64 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
@@ -3251,11 +3309,22 @@
             // diagramCommandShowRulersBarCheckItem1
             // 
             this.diagramCommandShowRulersBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandShowRulersBarCheckItem1.Caption = "Линейка";
             this.diagramCommandShowRulersBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
             this.diagramCommandShowRulersBarCheckItem1.Id = 51;
             this.diagramCommandShowRulersBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandShowRulersBarCheckItem1.Name = "diagramCommandShowRulersBarCheckItem1";
             this.diagramCommandShowRulersBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem25.Text = "Линейка";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Используйте линейку, для измерения и выравнивания объектов в документе.";
+            toolTipTitleItem26.LeftIndent = 6;
+            toolTipTitleItem26.Text = "BOM-Report";
+            superToolTip24.Items.Add(toolTipTitleItem25);
+            superToolTip24.Items.Add(toolTipItem2);
+            superToolTip24.Items.Add(toolTipSeparatorItem2);
+            superToolTip24.Items.Add(toolTipTitleItem26);
+            this.diagramCommandShowRulersBarCheckItem1.SuperTip = superToolTip24;
             // 
             // diagramCommandShowGridBarCheckItem1
             // 
@@ -3265,15 +3334,38 @@
             this.diagramCommandShowGridBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandShowGridBarCheckItem1.Name = "diagramCommandShowGridBarCheckItem1";
             this.diagramCommandShowGridBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem27.Text = "Сетка";
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Линии сетки упрощают выравнивание объектов по тексту, другим объектам или определ" +
+    "енному месту.";
+            toolTipTitleItem28.LeftIndent = 6;
+            toolTipTitleItem28.Text = "BOM-Report";
+            superToolTip25.Items.Add(toolTipTitleItem27);
+            superToolTip25.Items.Add(toolTipItem3);
+            superToolTip25.Items.Add(toolTipSeparatorItem3);
+            superToolTip25.Items.Add(toolTipTitleItem28);
+            this.diagramCommandShowGridBarCheckItem1.SuperTip = superToolTip25;
             // 
             // diagramCommandShowPageBreaksBarCheckItem1
             // 
             this.diagramCommandShowPageBreaksBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandShowPageBreaksBarCheckItem1.Caption = "Разрывы страниц";
             this.diagramCommandShowPageBreaksBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
             this.diagramCommandShowPageBreaksBarCheckItem1.Id = 53;
             this.diagramCommandShowPageBreaksBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandShowPageBreaksBarCheckItem1.Name = "diagramCommandShowPageBreaksBarCheckItem1";
             this.diagramCommandShowPageBreaksBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem29.Text = "Разрывы страниц";
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = "Включите разрывы страниц, чтобы увидеть, что будет напечатано на каждой странице " +
+    "вашего документа";
+            toolTipTitleItem30.LeftIndent = 6;
+            toolTipTitleItem30.Text = "BOM-Report";
+            superToolTip26.Items.Add(toolTipTitleItem29);
+            superToolTip26.Items.Add(toolTipItem4);
+            superToolTip26.Items.Add(toolTipSeparatorItem4);
+            superToolTip26.Items.Add(toolTipTitleItem30);
+            this.diagramCommandShowPageBreaksBarCheckItem1.SuperTip = superToolTip26;
             // 
             // diagramCommandPanesBarDropDownItem1
             // 
@@ -3314,6 +3406,16 @@
             this.diagramCommandFitToPageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandFitToPageBarButtonItem1.Name = "diagramCommandFitToPageBarButtonItem1";
             this.diagramCommandFitToPageBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem31.Text = "Вписать в окно (Ctrl+Shift+W)";
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "Изменение масштаба документа так, чтобы страница целиком поместилась в окне.";
+            toolTipTitleItem32.LeftIndent = 6;
+            toolTipTitleItem32.Text = "BOM-Report";
+            superToolTip27.Items.Add(toolTipTitleItem31);
+            superToolTip27.Items.Add(toolTipItem5);
+            superToolTip27.Items.Add(toolTipSeparatorItem5);
+            superToolTip27.Items.Add(toolTipTitleItem32);
+            this.diagramCommandFitToPageBarButtonItem1.SuperTip = superToolTip27;
             // 
             // diagramCommandFitToWidthBarButtonItem1
             // 
@@ -3321,6 +3423,16 @@
             this.diagramCommandFitToWidthBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandFitToWidthBarButtonItem1.Name = "diagramCommandFitToWidthBarButtonItem1";
             this.diagramCommandFitToWidthBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem33.Text = "По ширине страницы";
+            toolTipItem6.LeftIndent = 6;
+            toolTipItem6.Text = "Изменение масштаба документа так, чтобы страница поместилась по ширине окна.";
+            toolTipTitleItem34.LeftIndent = 6;
+            toolTipTitleItem34.Text = "BOM-Report";
+            superToolTip28.Items.Add(toolTipTitleItem33);
+            superToolTip28.Items.Add(toolTipItem6);
+            superToolTip28.Items.Add(toolTipSeparatorItem6);
+            superToolTip28.Items.Add(toolTipTitleItem34);
+            this.diagramCommandFitToWidthBarButtonItem1.SuperTip = superToolTip28;
             // 
             // diagramCommandPageOrientationBarDropDownItem1
             // 
@@ -3332,24 +3444,34 @@
             this.diagramCommandPageOrientationBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
             this.diagramCommandPageOrientationBarDropDownItem1.Name = "diagramCommandPageOrientationBarDropDownItem1";
             this.diagramCommandPageOrientationBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            toolTipTitleItem37.Text = "Ориентация";
+            toolTipItem7.LeftIndent = 6;
+            toolTipItem7.Text = "Переключайте страницу между книжной и альбомной ориентацией.";
+            toolTipTitleItem38.LeftIndent = 6;
+            toolTipTitleItem38.Text = "BOM-Report";
+            superToolTip31.Items.Add(toolTipTitleItem37);
+            superToolTip31.Items.Add(toolTipItem7);
+            superToolTip31.Items.Add(toolTipSeparatorItem7);
+            superToolTip31.Items.Add(toolTipTitleItem38);
+            this.diagramCommandPageOrientationBarDropDownItem1.SuperTip = superToolTip31;
             // 
             // diagramCommandPageOrientation_HorizontalBarCheckItem1
             // 
             this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Id = 63;
             this.diagramCommandPageOrientation_HorizontalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Name = "diagramCommandPageOrientation_HorizontalBarCheckItem1";
-            toolTipTitleItem25.Text = "Альбомная";
-            superToolTip24.Items.Add(toolTipTitleItem25);
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.SuperTip = superToolTip24;
+            toolTipTitleItem35.Text = "Альбомная";
+            superToolTip29.Items.Add(toolTipTitleItem35);
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.SuperTip = superToolTip29;
             // 
             // diagramCommandPageOrientation_VerticalBarCheckItem1
             // 
             this.diagramCommandPageOrientation_VerticalBarCheckItem1.Id = 64;
             this.diagramCommandPageOrientation_VerticalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandPageOrientation_VerticalBarCheckItem1.Name = "diagramCommandPageOrientation_VerticalBarCheckItem1";
-            toolTipTitleItem26.Text = "Книжная";
-            superToolTip25.Items.Add(toolTipTitleItem26);
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1.SuperTip = superToolTip25;
+            toolTipTitleItem36.Text = "Книжная";
+            superToolTip30.Items.Add(toolTipTitleItem36);
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1.SuperTip = superToolTip30;
             // 
             // diagramCommandPageSizeBarDropDownItem1
             // 
@@ -3371,6 +3493,16 @@
             this.diagramCommandPageSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
             this.diagramCommandPageSizeBarDropDownItem1.Name = "diagramCommandPageSizeBarDropDownItem1";
             this.diagramCommandPageSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            toolTipTitleItem50.Text = "Размер";
+            toolTipItem9.LeftIndent = 6;
+            toolTipItem9.Text = "Выберите размер страницы";
+            toolTipTitleItem51.LeftIndent = 6;
+            toolTipTitleItem51.Text = "BOM-Report";
+            superToolTip43.Items.Add(toolTipTitleItem50);
+            superToolTip43.Items.Add(toolTipItem9);
+            superToolTip43.Items.Add(toolTipSeparatorItem8);
+            superToolTip43.Items.Add(toolTipTitleItem51);
+            this.diagramCommandPageSizeBarDropDownItem1.SuperTip = superToolTip43;
             // 
             // diagramCommandPageSize_LetterBarCheckItem1
             // 
@@ -3382,10 +3514,10 @@
             this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_LetterBarCheckItem1.Name = "diagramCommandPageSize_LetterBarCheckItem1";
-            superToolTip26.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem27.Text = "<b>Letter</b><br>8,5\" x 11\"";
-            superToolTip26.Items.Add(toolTipTitleItem27);
-            this.diagramCommandPageSize_LetterBarCheckItem1.SuperTip = superToolTip26;
+            superToolTip32.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem39.Text = "<b>Letter</b><br>8,5\" x 11\"";
+            superToolTip32.Items.Add(toolTipTitleItem39);
+            this.diagramCommandPageSize_LetterBarCheckItem1.SuperTip = superToolTip32;
             // 
             // diagramCommandPageSize_TabloidBarCheckItem1
             // 
@@ -3397,10 +3529,10 @@
             this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_TabloidBarCheckItem1.Name = "diagramCommandPageSize_TabloidBarCheckItem1";
-            superToolTip27.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem28.Text = "<b>Tabloid</b><br>11\" x 17\"";
-            superToolTip27.Items.Add(toolTipTitleItem28);
-            this.diagramCommandPageSize_TabloidBarCheckItem1.SuperTip = superToolTip27;
+            superToolTip33.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem40.Text = "<b>Tabloid</b><br>11\" x 17\"";
+            superToolTip33.Items.Add(toolTipTitleItem40);
+            this.diagramCommandPageSize_TabloidBarCheckItem1.SuperTip = superToolTip33;
             // 
             // diagramCommandPageSize_LegalBarCheckItem1
             // 
@@ -3412,10 +3544,10 @@
             this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_LegalBarCheckItem1.Name = "diagramCommandPageSize_LegalBarCheckItem1";
-            superToolTip28.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem29.Text = "<b>Legal</b><br>8,5\" x 14\"";
-            superToolTip28.Items.Add(toolTipTitleItem29);
-            this.diagramCommandPageSize_LegalBarCheckItem1.SuperTip = superToolTip28;
+            superToolTip34.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem41.Text = "<b>Legal</b><br>8,5\" x 14\"";
+            superToolTip34.Items.Add(toolTipTitleItem41);
+            this.diagramCommandPageSize_LegalBarCheckItem1.SuperTip = superToolTip34;
             // 
             // diagramCommandPageSize_StatementBarCheckItem1
             // 
@@ -3427,10 +3559,10 @@
             this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_StatementBarCheckItem1.Name = "diagramCommandPageSize_StatementBarCheckItem1";
-            superToolTip29.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem30.Text = "<b>Statement</b><br>5,5\" x 8,5\"";
-            superToolTip29.Items.Add(toolTipTitleItem30);
-            this.diagramCommandPageSize_StatementBarCheckItem1.SuperTip = superToolTip29;
+            superToolTip35.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem42.Text = "<b>Statement</b><br>5,5\" x 8,5\"";
+            superToolTip35.Items.Add(toolTipTitleItem42);
+            this.diagramCommandPageSize_StatementBarCheckItem1.SuperTip = superToolTip35;
             // 
             // diagramCommandPageSize_ExecutiveBarCheckItem1
             // 
@@ -3442,10 +3574,10 @@
             this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_ExecutiveBarCheckItem1.Name = "diagramCommandPageSize_ExecutiveBarCheckItem1";
-            superToolTip30.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem31.Text = "<b>Executive</b><br>7,25\" x 10,5\"";
-            superToolTip30.Items.Add(toolTipTitleItem31);
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.SuperTip = superToolTip30;
+            superToolTip36.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem43.Text = "<b>Executive</b><br>7,25\" x 10,5\"";
+            superToolTip36.Items.Add(toolTipTitleItem43);
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.SuperTip = superToolTip36;
             // 
             // diagramCommandPageSize_A3BarCheckItem1
             // 
@@ -3457,10 +3589,10 @@
             this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_A3BarCheckItem1.Name = "diagramCommandPageSize_A3BarCheckItem1";
-            superToolTip31.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem32.Text = "<b>A3</b><br>11,7\" x 16,53\"";
-            superToolTip31.Items.Add(toolTipTitleItem32);
-            this.diagramCommandPageSize_A3BarCheckItem1.SuperTip = superToolTip31;
+            superToolTip37.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem44.Text = "<b>A3</b><br>11,7\" x 16,53\"";
+            superToolTip37.Items.Add(toolTipTitleItem44);
+            this.diagramCommandPageSize_A3BarCheckItem1.SuperTip = superToolTip37;
             // 
             // diagramCommandPageSize_A4BarCheckItem1
             // 
@@ -3472,10 +3604,10 @@
             this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_A4BarCheckItem1.Name = "diagramCommandPageSize_A4BarCheckItem1";
-            superToolTip32.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem33.Text = "<b>A4</b><br>8,27\" x 11,7\"";
-            superToolTip32.Items.Add(toolTipTitleItem33);
-            this.diagramCommandPageSize_A4BarCheckItem1.SuperTip = superToolTip32;
+            superToolTip38.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem45.Text = "<b>A4</b><br>8,27\" x 11,7\"";
+            superToolTip38.Items.Add(toolTipTitleItem45);
+            this.diagramCommandPageSize_A4BarCheckItem1.SuperTip = superToolTip38;
             // 
             // diagramCommandPageSize_A5BarCheckItem1
             // 
@@ -3487,10 +3619,10 @@
             this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_A5BarCheckItem1.Name = "diagramCommandPageSize_A5BarCheckItem1";
-            superToolTip33.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem34.Text = "<b>A5</b><br>5,82\" x 8,27\"";
-            superToolTip33.Items.Add(toolTipTitleItem34);
-            this.diagramCommandPageSize_A5BarCheckItem1.SuperTip = superToolTip33;
+            superToolTip39.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem46.Text = "<b>A5</b><br>5,82\" x 8,27\"";
+            superToolTip39.Items.Add(toolTipTitleItem46);
+            this.diagramCommandPageSize_A5BarCheckItem1.SuperTip = superToolTip39;
             // 
             // diagramCommandPageSize_B4BarCheckItem1
             // 
@@ -3502,10 +3634,10 @@
             this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_B4BarCheckItem1.Name = "diagramCommandPageSize_B4BarCheckItem1";
-            superToolTip34.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem35.Text = "<b>B4 (JIS)</b><br>10,11\" x 14,33\"";
-            superToolTip34.Items.Add(toolTipTitleItem35);
-            this.diagramCommandPageSize_B4BarCheckItem1.SuperTip = superToolTip34;
+            superToolTip40.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem47.Text = "<b>B4 (JIS)</b><br>10,11\" x 14,33\"";
+            superToolTip40.Items.Add(toolTipTitleItem47);
+            this.diagramCommandPageSize_B4BarCheckItem1.SuperTip = superToolTip40;
             // 
             // diagramCommandPageSize_B5BarCheckItem1
             // 
@@ -3517,10 +3649,10 @@
             this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
             this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.diagramCommandPageSize_B5BarCheckItem1.Name = "diagramCommandPageSize_B5BarCheckItem1";
-            superToolTip35.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem36.Text = "<b>B5 (JIS)</b><br>7,17\" x 10,11\"";
-            superToolTip35.Items.Add(toolTipTitleItem36);
-            this.diagramCommandPageSize_B5BarCheckItem1.SuperTip = superToolTip35;
+            superToolTip41.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem48.Text = "<b>B5 (JIS)</b><br>7,17\" x 10,11\"";
+            superToolTip41.Items.Add(toolTipTitleItem48);
+            this.diagramCommandPageSize_B5BarCheckItem1.SuperTip = superToolTip41;
             // 
             // diagramCommandFitToDrawingBarButtonItem1
             // 
@@ -3530,9 +3662,16 @@
             // 
             // diagramCommandSetPageParameters_PageSizeBarButtonItem1
             // 
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Caption = "Другие размеры страниц...";
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Description = "Выберите размер страницы из списка или установите нестандартный размер";
             this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Id = 76;
             this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Name = "diagramCommandSetPageParameters_PageSizeBarButtonItem1";
+            toolTipTitleItem49.Text = "Другие размеры страниц...";
+            toolTipItem8.Text = "Choose a page size from the list or set a custom size.";
+            superToolTip42.Items.Add(toolTipTitleItem49);
+            superToolTip42.Items.Add(toolTipItem8);
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.SuperTip = superToolTip42;
             // 
             // diagramCommandAutoSizeBarDropDownItem1
             // 
@@ -3545,6 +3684,16 @@
             this.diagramCommandAutoSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
             this.diagramCommandAutoSizeBarDropDownItem1.Name = "diagramCommandAutoSizeBarDropDownItem1";
             this.diagramCommandAutoSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            toolTipTitleItem52.Text = "Авто размер";
+            toolTipItem10.LeftIndent = 6;
+            toolTipItem10.Text = "Отрегулируйте размер страницы для движущихся элементов за ее пределами.";
+            toolTipTitleItem53.LeftIndent = 6;
+            toolTipTitleItem53.Text = "BOM-Report";
+            superToolTip44.Items.Add(toolTipTitleItem52);
+            superToolTip44.Items.Add(toolTipItem10);
+            superToolTip44.Items.Add(toolTipSeparatorItem9);
+            superToolTip44.Items.Add(toolTipTitleItem53);
+            this.diagramCommandAutoSizeBarDropDownItem1.SuperTip = superToolTip44;
             // 
             // diagramCommandAutoSize_NoneBarCheckItem1
             // 
@@ -3597,6 +3746,7 @@
             // 
             // diagramCommandReLayoutBarDropDownItem1
             // 
+            this.diagramCommandReLayoutBarDropDownItem1.Caption = "Перестроить схему";
             this.diagramCommandReLayoutBarDropDownItem1.Id = 83;
             this.diagramCommandReLayoutBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandReLayoutBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -3621,9 +3771,21 @@
             this.diagramCommandReLayoutBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
             this.diagramCommandReLayoutBarDropDownItem1.Name = "diagramCommandReLayoutBarDropDownItem1";
             this.diagramCommandReLayoutBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem54.Text = "Перестроить схему";
+            toolTipItem11.LeftIndent = 6;
+            toolTipItem11.Text = "Разместите диаграмму, разрешив программному обеспечению изменить положение элемен" +
+    "тов.";
+            toolTipTitleItem55.LeftIndent = 6;
+            toolTipTitleItem55.Text = "BOM-Report";
+            superToolTip45.Items.Add(toolTipTitleItem54);
+            superToolTip45.Items.Add(toolTipItem11);
+            superToolTip45.Items.Add(toolTipSeparatorItem10);
+            superToolTip45.Items.Add(toolTipTitleItem55);
+            this.diagramCommandReLayoutBarDropDownItem1.SuperTip = superToolTip45;
             // 
             // diagramReLayoutTreeBarHeaderItem1
             // 
+            this.diagramReLayoutTreeBarHeaderItem1.Caption = "Иерархия";
             this.diagramReLayoutTreeBarHeaderItem1.Id = 86;
             this.diagramReLayoutTreeBarHeaderItem1.Name = "diagramReLayoutTreeBarHeaderItem1";
             // 
@@ -3670,6 +3832,7 @@
             // 
             // diagramReLayoutMindMapTreeHeaderBarHeaderItem1
             // 
+            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Caption = "Интеллект-карта";
             this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Id = 94;
             this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutMindMapTreeHeaderBarHeaderItem1";
             // 
@@ -3716,6 +3879,7 @@
             // 
             // diagramReLayoutCircularHeaderBarHeaderItem1
             // 
+            this.diagramReLayoutCircularHeaderBarHeaderItem1.Caption = "По кругу";
             this.diagramReLayoutCircularHeaderBarHeaderItem1.Id = 102;
             this.diagramReLayoutCircularHeaderBarHeaderItem1.Name = "diagramReLayoutCircularHeaderBarHeaderItem1";
             // 
@@ -3727,6 +3891,7 @@
             // 
             // diagramCommandChangeConnectorTypeBarDropDownItem1
             // 
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.Caption = "Типы линий";
             this.diagramCommandChangeConnectorTypeBarDropDownItem1.Id = 84;
             this.diagramCommandChangeConnectorTypeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandChangeConnectorTypeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -3734,6 +3899,16 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_CurvedBarButtonItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_StraightBarButtonItem1)});
             this.diagramCommandChangeConnectorTypeBarDropDownItem1.Name = "diagramCommandChangeConnectorTypeBarDropDownItem1";
+            toolTipTitleItem56.Text = "Типы линий";
+            toolTipItem12.LeftIndent = 6;
+            toolTipItem12.Text = "Измените внешний вид линий связи на схеме";
+            toolTipTitleItem57.LeftIndent = 6;
+            toolTipTitleItem57.Text = "BOM-Report";
+            superToolTip46.Items.Add(toolTipTitleItem56);
+            superToolTip46.Items.Add(toolTipItem12);
+            superToolTip46.Items.Add(toolTipSeparatorItem11);
+            superToolTip46.Items.Add(toolTipTitleItem57);
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.SuperTip = superToolTip46;
             // 
             // diagramCommandChangeConnectorType_RightAngleBarButtonItem1
             // 
@@ -3755,6 +3930,7 @@
             // 
             // diagramCommandReLayoutPartsBarDropDownItem1
             // 
+            this.diagramCommandReLayoutPartsBarDropDownItem1.Caption = "Перестроить элементы";
             this.diagramCommandReLayoutPartsBarDropDownItem1.Id = 85;
             this.diagramCommandReLayoutPartsBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandReLayoutPartsBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -3772,9 +3948,20 @@
             this.diagramCommandReLayoutPartsBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
             this.diagramCommandReLayoutPartsBarDropDownItem1.Name = "diagramCommandReLayoutPartsBarDropDownItem1";
             this.diagramCommandReLayoutPartsBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem58.Text = "Перестроить элементы";
+            toolTipItem13.LeftIndent = 6;
+            toolTipItem13.Text = "Измените расположение подчиненного элемента или выбранных элементов";
+            toolTipTitleItem59.LeftIndent = 6;
+            toolTipTitleItem59.Text = "BOM-Report";
+            superToolTip47.Items.Add(toolTipTitleItem58);
+            superToolTip47.Items.Add(toolTipItem13);
+            superToolTip47.Items.Add(toolTipSeparatorItem12);
+            superToolTip47.Items.Add(toolTipTitleItem59);
+            this.diagramCommandReLayoutPartsBarDropDownItem1.SuperTip = superToolTip47;
             // 
             // diagramReLayoutPartsTreeHeaderBarHeaderItem1
             // 
+            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Caption = "Иерархия";
             this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Id = 107;
             this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsTreeHeaderBarHeaderItem1";
             // 
@@ -3821,6 +4008,7 @@
             // 
             // diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1
             // 
+            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Caption = "Интеллект-карта";
             this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Id = 115;
             this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1";
             // 
@@ -4077,11 +4265,11 @@
             this.diagramCommandToolsContainerCheckDropDownItem1.Name = "diagramCommandToolsContainerCheckDropDownItem1";
             this.diagramCommandToolsContainerCheckDropDownItem1.RememberLastCommand = true;
             this.diagramCommandToolsContainerCheckDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            toolTipTitleItem37.Text = "Прямоугольник (Ctrl+8)";
-            toolTipItem2.Text = "Drag to draw a rectangle.";
-            superToolTip36.Items.Add(toolTipTitleItem37);
-            superToolTip36.Items.Add(toolTipItem2);
-            this.diagramCommandToolsContainerCheckDropDownItem1.SuperTip = superToolTip36;
+            toolTipTitleItem60.Text = "Прямоугольник (Ctrl+8)";
+            toolTipItem14.Text = "Drag to draw a rectangle.";
+            superToolTip48.Items.Add(toolTipTitleItem60);
+            superToolTip48.Items.Add(toolTipItem14);
+            this.diagramCommandToolsContainerCheckDropDownItem1.SuperTip = superToolTip48;
             // 
             // ToolsContainerPopupMenu
             // 
@@ -4190,17 +4378,17 @@
             this.bt_Dublicate.Id = 166;
             this.bt_Dublicate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Dublicate.ImageOptions.SvgImage")));
             this.bt_Dublicate.Name = "bt_Dublicate";
-            toolTipTitleItem38.Text = "Дубликаты повторяющихся";
-            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "Создавать дубликаты для повторно применяемых компонентов";
-            toolTipTitleItem39.LeftIndent = 6;
-            toolTipTitleItem39.Text = "BOM-Report";
-            superToolTip37.Items.Add(toolTipTitleItem38);
-            superToolTip37.Items.Add(toolTipItem3);
-            superToolTip37.Items.Add(toolTipSeparatorItem2);
-            superToolTip37.Items.Add(toolTipTitleItem39);
-            this.bt_Dublicate.SuperTip = superToolTip37;
+            toolTipTitleItem61.Text = "Дубликаты повторяющихся";
+            toolTipItem15.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            toolTipItem15.LeftIndent = 6;
+            toolTipItem15.Text = "Создавать дубликаты для повторно применяемых компонентов";
+            toolTipTitleItem62.LeftIndent = 6;
+            toolTipTitleItem62.Text = "BOM-Report";
+            superToolTip49.Items.Add(toolTipTitleItem61);
+            superToolTip49.Items.Add(toolTipItem15);
+            superToolTip49.Items.Add(toolTipSeparatorItem13);
+            superToolTip49.Items.Add(toolTipTitleItem62);
+            this.bt_Dublicate.SuperTip = superToolTip49;
             this.bt_Dublicate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Dublicate_ItemClick);
             // 
             // Bt_Qnt_On_Line
@@ -4210,18 +4398,18 @@
             this.Bt_Qnt_On_Line.Id = 167;
             this.Bt_Qnt_On_Line.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_Qnt_On_Line.ImageOptions.SvgImage")));
             this.Bt_Qnt_On_Line.Name = "Bt_Qnt_On_Line";
-            toolTipTitleItem40.Text = "Указать количество на линиях связи";
-            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "При ВКЛ опции, на линиях связи, будет отмечено Количество, с которой в данный узе" +
+            toolTipTitleItem63.Text = "Указать количество на линиях связи";
+            toolTipItem16.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem16.LeftIndent = 6;
+            toolTipItem16.Text = "При ВКЛ опции, на линиях связи, будет отмечено Количество, с которой в данный узе" +
     "л будет входить компонент\r\nПри ВЫКЛ, данный параметры отображаться не будет";
-            toolTipTitleItem41.LeftIndent = 6;
-            toolTipTitleItem41.Text = "BOM-Report";
-            superToolTip38.Items.Add(toolTipTitleItem40);
-            superToolTip38.Items.Add(toolTipItem4);
-            superToolTip38.Items.Add(toolTipSeparatorItem3);
-            superToolTip38.Items.Add(toolTipTitleItem41);
-            this.Bt_Qnt_On_Line.SuperTip = superToolTip38;
+            toolTipTitleItem64.LeftIndent = 6;
+            toolTipTitleItem64.Text = "BOM-Report";
+            superToolTip50.Items.Add(toolTipTitleItem63);
+            superToolTip50.Items.Add(toolTipItem16);
+            superToolTip50.Items.Add(toolTipSeparatorItem14);
+            superToolTip50.Items.Add(toolTipTitleItem64);
+            this.Bt_Qnt_On_Line.SuperTip = superToolTip50;
             this.Bt_Qnt_On_Line.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Qnt_On_Line_ItemClick);
             // 
             // ribbonPage1
@@ -4280,7 +4468,6 @@
             this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowRulersBarCheckItem1);
             this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowGridBarCheckItem1);
             this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowPageBreaksBarCheckItem1);
-            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandPanesBarDropDownItem1);
             this.diagramShowRibbonPageGroup1.Name = "diagramShowRibbonPageGroup1";
             // 
             // diagramZoomRibbonPageGroup1
