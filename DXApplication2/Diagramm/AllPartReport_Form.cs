@@ -158,7 +158,7 @@ namespace VSNRM_Kompas.Diagramm
                                     default:
                                         row[Param.Key] = Param.Value;
                                         break;
-                                } 
+                                }
                             }
                             row[System_Count_ColumnName] = node[System_Total_Count_ColumnName];
                         }

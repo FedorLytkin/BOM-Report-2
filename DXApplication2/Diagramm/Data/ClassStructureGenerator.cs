@@ -71,25 +71,6 @@ namespace DiagramDataControllerBehavior.Data
                     return ClassType.Part; 
             }
         }
-        public List<ClassData> ClassList()
-        {
-            var list = new List<ClassData>();
-            List<TreeListNode> nodes = treeView.GetNodeList();
-            foreach (TreeListNode node in nodes)
-            {
-                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                ClassData item = new ClassData();
-                if (!KeyList.Contains(componentInfo.Key))
-                {
-                    item = SetData(item, componentInfo);
-                    item.Key = componentInfo.Key;
-                    list.Add(item);
-                    KeyList.Add(componentInfo.Key);
-                }
-            }
-
-            return list;
-        }
         private ClassData SetData(ClassData item, ComponentInfo componentInfo)
         { 
             if (componentInfo.isBody)
@@ -117,20 +98,48 @@ namespace DiagramDataControllerBehavior.Data
             item.Type = GetType_By_RazdelSP(componentInfo);
             return item;
         }
-        public List<ClassData> ClassList_Create_Dublicate()
+        public List<ClassData> ClassList(bool CreateDublicate)
         {
             var list = new List<ClassData>();
             List<TreeListNode> nodes = treeView.GetNodeList();
             foreach (TreeListNode node in nodes)
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                ClassData item = new ClassData(); 
+                ClassData item = new ClassData();
                 item = SetData(item, componentInfo);
-                item.Key = node.Id.ToString();
-                list.Add(item);
+                if (CreateDublicate)
+                {
+                    item.Key = node.Id.ToString();
+                    list.Add(item);
+                }
+                else
+                {
+                    if (!KeyList.Contains(componentInfo.Key))
+                    {
+                        item.Qnt = GetTotalCount(node, componentInfo.QNT);
+                        item.Key = componentInfo.Key;
+                        list.Add(item);
+
+                        KeyList.Add(componentInfo.Key);
+                    }
+                }
             }
 
             return list;
+        }
+        private double GetTotalCount(TreeListNode ThisNode, double Qnt)
+        {
+            ComponentInfo ThisComponentInfo = (ComponentInfo)ThisNode.Tag;
+            List<TreeListNode> nodes = treeView.GetNodeList();
+            foreach (TreeListNode oNode in nodes)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)oNode.Tag;
+                if (ThisComponentInfo.Key == componentInfo.Key && ThisNode.Id != oNode.Id)
+                {
+                    return componentInfo.Total_QNT + ThisComponentInfo.Total_QNT;
+                }
+            }
+            return Qnt;
         }
         public List<ConnectionData> ConnectionList(bool CreateDublicate)
         {
@@ -157,6 +166,7 @@ namespace DiagramDataControllerBehavior.Data
                     if (componentinfo.isBody) connectionData.ConnectorText = componentinfo.Body.QNT.ToString(); 
                     else connectionData.ConnectorText = componentinfo.QNT.ToString(); 
                 }
+
                 if (CreateDublicate)
                 {
                     connectionData.ConnectedTo = node.Id.ToString();

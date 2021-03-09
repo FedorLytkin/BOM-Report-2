@@ -27,8 +27,9 @@ namespace DiagramDataControllerBehavior
             treeView = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).treeList1;
             classStructureGenerator = new ClassStructureGenerator(treeView);
 
-            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(); 
-            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate(); 
+            diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(Create_Dublicate);
+            //if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(bt_Dublicate.Down); 
+            //else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate(); 
             diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
             diagramDataBindingController1.LayoutKind = DiagramLayoutKind.MindMapTree;
         }
@@ -147,8 +148,9 @@ namespace DiagramDataControllerBehavior
         {
             Create_Dublicate = Toggle_CreateDublicate.Checked;
             diagramDataBindingController1.DataSource = null;
-            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
-            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
+            diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(Create_Dublicate);
+            //if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
+            //else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
             diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
 
@@ -160,8 +162,9 @@ namespace DiagramDataControllerBehavior
         private void CreateDublicate()
         {
             diagramDataBindingController1.DataSource = null;
-            if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
-            else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
+            diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(Create_Dublicate);
+            //if (!Create_Dublicate) diagramDataBindingController1.DataSource = classStructureGenerator.ClassList();
+            //else diagramDataBindingController1.DataSource = classStructureGenerator.ClassList_Create_Dublicate();
             diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
 
