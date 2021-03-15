@@ -119,6 +119,7 @@
       <DependentUpon>DiagrammForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="Dump\Dump.cs" />
+    <Compile Include="Export\XMLexport\XMLExport_Class.cs" />
     <Compile Include="Licenc\CompressedFile.cs" />
     <Compile Include="Licenc\CryptoClass.cs" />
     <Compile Include="Licenc\LicForm2.cs">

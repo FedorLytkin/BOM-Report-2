@@ -130,6 +130,20 @@ namespace VSNRM_Kompas
         {
             ExportToCSV();
         }
+        private void ExportXML(string ExportFileName)
+        {
+            TreeListColumn treeListColumn_Image = new TreeListColumn();
+            treeListColumn_Image = treeList1.Columns["Миниатюра"];
+
+            treeList1.Columns.Remove(treeList1.Columns["Миниатюра"]);
+            treeList1.ExportToXml(ExportFileName);
+            treeList1.Columns.Add(treeListColumn_Image);
+            //foreach (TreeListNode node in treeList1.GetNodeList())
+            //{
+            //    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+            //    node.SetValue("Миниатюра", componentInfo.Slide);
+            //}
+        }
         private void ExportToCSV()
         {
             if (treeList1.Nodes.Count == 0) return;
@@ -154,7 +168,10 @@ namespace VSNRM_Kompas
                         treeList1.ExportToHtml(ExportFileName);
                         break;
                     case ".XML":
-                        treeList1.ExportToXml(ExportFileName);
+                        VSNRM_Kompas.Export.XMLexport.XMLExport_Class xMLExport_ = new Export.XMLexport.XMLExport_Class();
+                        xMLExport_.exportToXml(treeList1, ExportFileName);
+                        //ExportXML(ExportFileName);
+                        //treeList1.ExportToXml(ExportFileName);
                         break;
                     case ".PDF":
                         treeList1.ExportToPdf(ExportFileName);
@@ -164,7 +181,7 @@ namespace VSNRM_Kompas
                         break;
                     case ".XLS":
                         treeList1.ExportToXls(ExportFileName);
-                        break;
+                        break; 
                     case ".XLSX":
                         treeList1.ExportToXlsx(ExportFileName);
                         break;
