@@ -30,104 +30,195 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiagrammForm2));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges1 = new DevExpress.Skins.SkinPaddingEdges();
+            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Utils.SuperToolTip superToolTip36 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Utils.SuperToolTip superToolTip37 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip38 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             DevExpress.Utils.SuperToolTip superToolTip39 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip40 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip41 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem45 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip42 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip43 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip44 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip45 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip46 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip47 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem51 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip48 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem52 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip49 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem53 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip50 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem54 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip51 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem55 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip52 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem56 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip53 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem57 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip54 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem58 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Skins.SkinPaddingEdges skinPaddingEdges2 = new DevExpress.Skins.SkinPaddingEdges();
-            DevExpress.Utils.SuperToolTip superToolTip55 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem59 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip56 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem60 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip57 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem61 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip58 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem62 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip59 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem63 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip60 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem64 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip61 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem65 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip62 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem66 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip63 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem67 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip64 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem68 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip65 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem69 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip66 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem70 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip67 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem71 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip68 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem72 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip69 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem73 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip70 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem74 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip71 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem75 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip72 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem76 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip73 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem77 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup7 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup10 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Utils.SuperToolTip superToolTip74 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem78 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup8 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup9 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.Utils.SuperToolTip superToolTip75 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem79 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem80 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip76 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem81 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem82 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
             this.diagramControl1 = new DevExpress.XtraDiagram.DiagramControl();
             this.panAndZoomDockPanel1 = new DevExpress.XtraDiagram.Docking.PanAndZoomDockPanel();
+            this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramConnector1 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector2 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramContainer2 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape3 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape4 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer3 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage1 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape5 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape6 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape7 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape8 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer4 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage2 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape9 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape10 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape11 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape12 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer5 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage3 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape13 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape14 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape15 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape16 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer6 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage4 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape17 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape18 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape19 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape20 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer7 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage5 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape21 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape22 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape23 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape24 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer8 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage6 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramShape25 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape26 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape27 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape28 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramConnector3 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector4 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector5 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector6 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector7 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramConnector8 = new DevExpress.XtraDiagram.DiagramConnector();
+            this.diagramContainer9 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage7 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer10 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape29 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape30 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape31 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer11 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage8 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer12 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape32 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape33 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape34 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer13 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage9 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer14 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape35 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape36 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape37 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer15 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage10 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer16 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape38 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape39 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape40 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer17 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage11 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer18 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape41 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape42 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape43 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramContainer19 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramImage12 = new DevExpress.XtraDiagram.DiagramImage();
+            this.diagramContainer20 = new DevExpress.XtraDiagram.DiagramContainer();
+            this.diagramShape44 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape45 = new DevExpress.XtraDiagram.DiagramShape();
+            this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.Bt_SaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.bt_Print = new DevExpress.XtraBars.BarButtonItem();
@@ -311,92 +402,8 @@
             this.diagramBarController1 = new DevExpress.XtraDiagram.Bars.DiagramBarController(this.components);
             this.BringToFrontPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.SendToBackPopupMenu = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramConnector1 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector2 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramContainer2 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape3 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape4 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer3 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage1 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape5 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape6 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape7 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape8 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer4 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage2 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape9 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape10 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape11 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape12 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer5 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage3 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape13 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape14 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape15 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape16 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer6 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage4 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape17 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape18 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape19 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape20 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer7 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage5 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape21 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape22 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape23 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape24 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer8 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage6 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramShape25 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape26 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape27 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape28 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramConnector3 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector4 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector5 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector6 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector7 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramConnector8 = new DevExpress.XtraDiagram.DiagramConnector();
-            this.diagramContainer9 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage7 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer10 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape29 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape30 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape31 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer11 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage8 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer12 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape32 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape33 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape34 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer13 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage9 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer14 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape35 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape36 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape37 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer15 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage10 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer16 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape38 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape39 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape40 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer17 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage11 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer18 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape41 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape42 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape43 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramContainer19 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramImage12 = new DevExpress.XtraDiagram.DiagramImage();
-            this.diagramContainer20 = new DevExpress.XtraDiagram.DiagramContainer();
-            this.diagramShape44 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape45 = new DevExpress.XtraDiagram.DiagramShape();
-            this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
+            this.Demonstration_Panel = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.Bt_VideoAboutLink = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).BeginInit();
@@ -511,1931 +518,6 @@
             this.panAndZoomDockPanel1.SavedIndex = 0;
             this.panAndZoomDockPanel1.Size = new System.Drawing.Size(197, 522);
             this.panAndZoomDockPanel1.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Hidden;
-            // 
-            // ribbonControl1
-            // 
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem,
-            this.ribbonControl1.SearchEditItem,
-            this.Bt_SaveAs,
-            this.bt_Print,
-            this.bt_Export,
-            this.Toggle_CreateDublicate,
-            this.diagramStatusBarShapeInfoBarStaticItem1,
-            this.diagramCommandStatusBarZoomEditorBarEditItem1,
-            this.diagramCommandContainerPaddingBarDropDownItem1,
-            this.diagramCommandContainerHeaderPaddingBarDropDownItem1,
-            this.diagramCommandContainerPadding_P0BarCheckItem1,
-            this.diagramCommandContainerPadding_P4BarCheckItem1,
-            this.diagramCommandContainerPadding_P8BarCheckItem1,
-            this.diagramCommandContainerPadding_P12BarCheckItem1,
-            this.diagramCommandContainerPadding_P16BarCheckItem1,
-            this.diagramCommandContainerPadding_P24BarCheckItem1,
-            this.diagramCommandContainerPadding_P32BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1,
-            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1,
-            this.diagramCommandContainerStylesBarGalleryItem1,
-            this.diagramCommandShowContainerHeaderBarCheckItem1,
-            this.diagramCommandCollapseSelectedContainersBarCheckItem1,
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1,
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1,
-            this.diagramCommandBringForwardBarButtonItem1,
-            this.diagramCommandBringToFrontBarButtonItem1,
-            this.diagramCommandSendBackwardBarButtonItem1,
-            this.diagramCommandSendToBackBarButtonItem1,
-            this.diagramCommandImageToolsRotateBarDropDownItem1,
-            this.diagramCommandImageToolsStretchModeBarDropDownItem1,
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1,
-            this.diagramCommandResetSelectedImagesBarButtonItem1,
-            this.diagramCommandLoadImageBarButtonItem1,
-            this.diagramCommandRotate_Right90BarButtonItem1,
-            this.diagramCommandRotate_Left90BarButtonItem1,
-            this.diagramCommandFlipImage_VerticalBarButtonItem1,
-            this.diagramCommandFlipImage_HorizontalBarButtonItem1,
-            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1,
-            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1,
-            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1,
-            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1,
-            this.diagramCommandShowRulersBarCheckItem1,
-            this.diagramCommandShowGridBarCheckItem1,
-            this.diagramCommandShowPageBreaksBarCheckItem1,
-            this.diagramCommandPanesBarDropDownItem1,
-            this.diagramCommandShapesPanelBarCheckItem1,
-            this.diagramCommandPropertiesPanelBarCheckItem1,
-            this.diagramCommandPanAndZoomPanelBarCheckItem1,
-            this.diagramCommandFitToPageBarButtonItem1,
-            this.diagramCommandFitToWidthBarButtonItem1,
-            this.diagramCommandPageOrientationBarDropDownItem1,
-            this.diagramCommandPageSizeBarDropDownItem1,
-            this.diagramCommandAutoSizeBarDropDownItem1,
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1,
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1,
-            this.diagramCommandPageSize_LetterBarCheckItem1,
-            this.diagramCommandPageSize_TabloidBarCheckItem1,
-            this.diagramCommandPageSize_LegalBarCheckItem1,
-            this.diagramCommandPageSize_StatementBarCheckItem1,
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1,
-            this.diagramCommandPageSize_A3BarCheckItem1,
-            this.diagramCommandPageSize_A4BarCheckItem1,
-            this.diagramCommandPageSize_A5BarCheckItem1,
-            this.diagramCommandPageSize_B4BarCheckItem1,
-            this.diagramCommandPageSize_B5BarCheckItem1,
-            this.diagramCommandFitToDrawingBarButtonItem1,
-            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1,
-            this.diagramCommandAutoSize_NoneBarCheckItem1,
-            this.diagramCommandAutoSize_AutoSizeBarCheckItem1,
-            this.diagramCommandAutoSize_FillBarCheckItem1,
-            this.diagramCommandThemesBarGalleryItem1,
-            this.diagramCommandSnapToItemsBarCheckItem1,
-            this.diagramCommandSnapToGridBarCheckItem1,
-            this.diagramCommandReLayoutBarDropDownItem1,
-            this.diagramCommandChangeConnectorTypeBarDropDownItem1,
-            this.diagramCommandReLayoutPartsBarDropDownItem1,
-            this.diagramReLayoutTreeBarHeaderItem1,
-            this.diagramCommandTreeLayout_DownBarButtonItem1,
-            this.diagramCommandTreeLayout_UpBarButtonItem1,
-            this.diagramCommandTreeLayout_RightBarButtonItem1,
-            this.diagramCommandTreeLayout_LeftBarButtonItem1,
-            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1,
-            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1,
-            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1,
-            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1,
-            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1,
-            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1,
-            this.diagramReLayoutSugiyamaBarHeaderItem1,
-            this.diagramCommandSugiyamaLayout_DownBarButtonItem1,
-            this.diagramCommandSugiyamaLayout_UpBarButtonItem1,
-            this.diagramCommandSugiyamaLayout_RightBarButtonItem1,
-            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1,
-            this.diagramReLayoutCircularHeaderBarHeaderItem1,
-            this.diagramCommandCircularLayoutBarButtonItem1,
-            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1,
-            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1,
-            this.diagramCommandChangeConnectorType_StraightBarButtonItem1,
-            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1,
-            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1,
-            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1,
-            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1,
-            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1,
-            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1,
-            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1,
-            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1,
-            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1,
-            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1,
-            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1,
-            this.diagramCommandInsertContainerBarSplitButtonItem1,
-            this.diagramCommandInsertImageBarButtonItem1,
-            this.diagramCommandPasteBarButtonItem1,
-            this.diagramCommandCutBarButtonItem1,
-            this.diagramCommandCopyBarButtonItem1,
-            this.barButtonGroup1,
-            this.diagramCommandFontFamilyBarEditItem1,
-            this.diagramCommandFontSizeBarEditItem1,
-            this.diagramCommandIncreaseFontSizeBarButtonItem1,
-            this.diagramCommandDecreaseFontSizeBarButtonItem1,
-            this.barButtonGroup2,
-            this.diagramCommandToggleFontBoldBarCheckItem1,
-            this.diagramCommandToggleFontItalicBarCheckItem1,
-            this.diagramCommandToggleFontUnderlineBarCheckItem1,
-            this.diagramCommandToggleFontStrikethroughBarCheckItem1,
-            this.diagramCommandForegroundColorBarSplitButtonItem1,
-            this.barButtonGroup3,
-            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1,
-            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1,
-            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1,
-            this.barButtonGroup4,
-            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1,
-            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1,
-            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1,
-            this.diagramCommandSelectPointerToolBarCheckItem1,
-            this.diagramCommandSelectConnectorToolBarCheckItem1,
-            this.diagramCommandToolsContainerCheckDropDownItem1,
-            this.diagramCommandSelectPanToolBarCheckItem1,
-            this.diagramCommandSelectRectangleToolBarCheckItem1,
-            this.diagramCommandSelectEllipseToolBarCheckItem1,
-            this.diagramCommandSelectRightTriangleToolBarCheckItem1,
-            this.diagramCommandSelectHexagonToolBarCheckItem1,
-            this.diagramCommandShapeStylesBarGalleryItem1,
-            this.diagramCommandBackgroundColorBarSplitButtonItem1,
-            this.diagramCommandStrokeColorBarSplitButtonItem1,
-            this.diagramCommandBringToFrontBarSplitButtonItem1,
-            this.diagramCommandSendToBackBarSplitButtonItem1,
-            this.barButtonGroup5,
-            this.bt_Dublicate,
-            this.Bt_Qnt_On_Line});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 168;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.diagramViewRibbonPage1});
-            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.diagramRepositoryItemZoomTrackBar1,
-            this.repositoryItemFontEdit1,
-            this.repositoryItemDiagramFontSizeEdit1});
-            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(1156, 158);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
-            // 
-            // Bt_SaveAs
-            // 
-            this.Bt_SaveAs.Caption = "Сохранить как";
-            this.Bt_SaveAs.Id = 1;
-            this.Bt_SaveAs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_SaveAs.ImageOptions.SvgImage")));
-            this.Bt_SaveAs.Name = "Bt_SaveAs";
-            this.Bt_SaveAs.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.Bt_SaveAs.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.Bt_SaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_SaveAs_ItemClick);
-            // 
-            // bt_Print
-            // 
-            this.bt_Print.Caption = "Просмотр и Печать";
-            this.bt_Print.Id = 2;
-            this.bt_Print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Print.ImageOptions.SvgImage")));
-            this.bt_Print.Name = "bt_Print";
-            this.bt_Print.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bt_Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Print_ItemClick);
-            // 
-            // bt_Export
-            // 
-            this.bt_Export.Caption = "Экпорт";
-            this.bt_Export.Id = 3;
-            this.bt_Export.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Export.ImageOptions.SvgImage")));
-            this.bt_Export.Name = "bt_Export";
-            this.bt_Export.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.bt_Export.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Export_ItemClick);
-            // 
-            // Toggle_CreateDublicate
-            // 
-            this.Toggle_CreateDublicate.Caption = "Дубликаты повторяющихся";
-            this.Toggle_CreateDublicate.Id = 4;
-            this.Toggle_CreateDublicate.Name = "Toggle_CreateDublicate";
-            toolTipTitleItem42.Text = "Создавать дубликаты для повторно применяемых компонентов";
-            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem5.LeftIndent = 6;
-            toolTipTitleItem43.LeftIndent = 6;
-            toolTipTitleItem43.Text = "BOM-Report";
-            superToolTip39.Items.Add(toolTipTitleItem42);
-            superToolTip39.Items.Add(toolTipItem5);
-            superToolTip39.Items.Add(toolTipSeparatorItem4);
-            superToolTip39.Items.Add(toolTipTitleItem43);
-            this.Toggle_CreateDublicate.SuperTip = superToolTip39;
-            this.Toggle_CreateDublicate.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.Toggle_CreateDublicate_CheckedChanged);
-            // 
-            // diagramStatusBarShapeInfoBarStaticItem1
-            // 
-            this.diagramStatusBarShapeInfoBarStaticItem1.Id = 5;
-            this.diagramStatusBarShapeInfoBarStaticItem1.Name = "diagramStatusBarShapeInfoBarStaticItem1";
-            toolTipTitleItem44.Text = "Информация о фигуре";
-            superToolTip40.Items.Add(toolTipTitleItem44);
-            this.diagramStatusBarShapeInfoBarStaticItem1.SuperTip = superToolTip40;
-            this.diagramStatusBarShapeInfoBarStaticItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // diagramCommandStatusBarZoomEditorBarEditItem1
-            // 
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.Edit = this.diagramRepositoryItemZoomTrackBar1;
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.EditWidth = 100;
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.Id = 6;
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandStatusBarZoomEditorBarEditItem1.Name = "diagramCommandStatusBarZoomEditorBarEditItem1";
-            // 
-            // diagramRepositoryItemZoomTrackBar1
-            // 
-            this.diagramRepositoryItemZoomTrackBar1.LabelAppearance.Options.UseTextOptions = true;
-            this.diagramRepositoryItemZoomTrackBar1.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.diagramRepositoryItemZoomTrackBar1.LargeChange = 240;
-            this.diagramRepositoryItemZoomTrackBar1.Maximum = 3600;
-            this.diagramRepositoryItemZoomTrackBar1.Minimum = -3600;
-            this.diagramRepositoryItemZoomTrackBar1.Name = "diagramRepositoryItemZoomTrackBar1";
-            this.diagramRepositoryItemZoomTrackBar1.SmallChange = 120;
-            this.diagramRepositoryItemZoomTrackBar1.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse;
-            // 
-            // diagramCommandContainerPaddingBarDropDownItem1
-            // 
-            this.diagramCommandContainerPaddingBarDropDownItem1.Id = 7;
-            this.diagramCommandContainerPaddingBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPaddingBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P0BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P4BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P8BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P12BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P16BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P24BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P32BarCheckItem1)});
-            this.diagramCommandContainerPaddingBarDropDownItem1.Name = "diagramCommandContainerPaddingBarDropDownItem1";
-            // 
-            // diagramCommandContainerPadding_P0BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P0BarCheckItem1.Id = 9;
-            this.diagramCommandContainerPadding_P0BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P0BarCheckItem1.Name = "diagramCommandContainerPadding_P0BarCheckItem1";
-            toolTipTitleItem45.Text = "0 px.";
-            superToolTip41.Items.Add(toolTipTitleItem45);
-            this.diagramCommandContainerPadding_P0BarCheckItem1.SuperTip = superToolTip41;
-            // 
-            // diagramCommandContainerPadding_P4BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P4BarCheckItem1.Id = 10;
-            this.diagramCommandContainerPadding_P4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P4BarCheckItem1.Name = "diagramCommandContainerPadding_P4BarCheckItem1";
-            toolTipTitleItem46.Text = "4 px.";
-            superToolTip42.Items.Add(toolTipTitleItem46);
-            this.diagramCommandContainerPadding_P4BarCheckItem1.SuperTip = superToolTip42;
-            // 
-            // diagramCommandContainerPadding_P8BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P8BarCheckItem1.Id = 11;
-            this.diagramCommandContainerPadding_P8BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P8BarCheckItem1.Name = "diagramCommandContainerPadding_P8BarCheckItem1";
-            toolTipTitleItem47.Text = "8 px.";
-            superToolTip43.Items.Add(toolTipTitleItem47);
-            this.diagramCommandContainerPadding_P8BarCheckItem1.SuperTip = superToolTip43;
-            // 
-            // diagramCommandContainerPadding_P12BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P12BarCheckItem1.Id = 12;
-            this.diagramCommandContainerPadding_P12BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P12BarCheckItem1.Name = "diagramCommandContainerPadding_P12BarCheckItem1";
-            toolTipTitleItem48.Text = "12 px.";
-            superToolTip44.Items.Add(toolTipTitleItem48);
-            this.diagramCommandContainerPadding_P12BarCheckItem1.SuperTip = superToolTip44;
-            // 
-            // diagramCommandContainerPadding_P16BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P16BarCheckItem1.Id = 13;
-            this.diagramCommandContainerPadding_P16BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P16BarCheckItem1.Name = "diagramCommandContainerPadding_P16BarCheckItem1";
-            toolTipTitleItem49.Text = "16 px.";
-            superToolTip45.Items.Add(toolTipTitleItem49);
-            this.diagramCommandContainerPadding_P16BarCheckItem1.SuperTip = superToolTip45;
-            // 
-            // diagramCommandContainerPadding_P24BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P24BarCheckItem1.Id = 14;
-            this.diagramCommandContainerPadding_P24BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P24BarCheckItem1.Name = "diagramCommandContainerPadding_P24BarCheckItem1";
-            toolTipTitleItem50.Text = "24 px.";
-            superToolTip46.Items.Add(toolTipTitleItem50);
-            this.diagramCommandContainerPadding_P24BarCheckItem1.SuperTip = superToolTip46;
-            // 
-            // diagramCommandContainerPadding_P32BarCheckItem1
-            // 
-            this.diagramCommandContainerPadding_P32BarCheckItem1.Id = 15;
-            this.diagramCommandContainerPadding_P32BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerPadding_P32BarCheckItem1.Name = "diagramCommandContainerPadding_P32BarCheckItem1";
-            toolTipTitleItem51.Text = "32 px.";
-            superToolTip47.Items.Add(toolTipTitleItem51);
-            this.diagramCommandContainerPadding_P32BarCheckItem1.SuperTip = superToolTip47;
-            // 
-            // diagramCommandContainerHeaderPaddingBarDropDownItem1
-            // 
-            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.Id = 8;
-            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P0BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P4BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P8BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P12BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P16BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P24BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P32BarCheckItem1)});
-            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.Name = "diagramCommandContainerHeaderPaddingBarDropDownItem1";
-            // 
-            // diagramCommandContainerHeaderPadding_P0BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.Id = 16;
-            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P0BarCheckItem1";
-            toolTipTitleItem52.Text = "0 px.";
-            superToolTip48.Items.Add(toolTipTitleItem52);
-            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.SuperTip = superToolTip48;
-            // 
-            // diagramCommandContainerHeaderPadding_P4BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.Id = 17;
-            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P4BarCheckItem1";
-            toolTipTitleItem53.Text = "4 px.";
-            superToolTip49.Items.Add(toolTipTitleItem53);
-            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.SuperTip = superToolTip49;
-            // 
-            // diagramCommandContainerHeaderPadding_P8BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.Id = 18;
-            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P8BarCheckItem1";
-            toolTipTitleItem54.Text = "8 px.";
-            superToolTip50.Items.Add(toolTipTitleItem54);
-            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.SuperTip = superToolTip50;
-            // 
-            // diagramCommandContainerHeaderPadding_P12BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.Id = 19;
-            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P12BarCheckItem1";
-            toolTipTitleItem55.Text = "12 px.";
-            superToolTip51.Items.Add(toolTipTitleItem55);
-            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.SuperTip = superToolTip51;
-            // 
-            // diagramCommandContainerHeaderPadding_P16BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.Id = 20;
-            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P16BarCheckItem1";
-            toolTipTitleItem56.Text = "16 px.";
-            superToolTip52.Items.Add(toolTipTitleItem56);
-            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.SuperTip = superToolTip52;
-            // 
-            // diagramCommandContainerHeaderPadding_P24BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.Id = 21;
-            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P24BarCheckItem1";
-            toolTipTitleItem57.Text = "24 px.";
-            superToolTip53.Items.Add(toolTipTitleItem57);
-            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.SuperTip = superToolTip53;
-            // 
-            // diagramCommandContainerHeaderPadding_P32BarCheckItem1
-            // 
-            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.Id = 22;
-            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P32BarCheckItem1";
-            toolTipTitleItem58.Text = "32 px.";
-            superToolTip54.Items.Add(toolTipTitleItem58);
-            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.SuperTip = superToolTip54;
-            // 
-            // diagramCommandContainerStylesBarGalleryItem1
-            // 
-            // 
-            // 
-            // 
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ColumnCount = 6;
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup6});
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
-            skinPaddingEdges2.Left = 5;
-            skinPaddingEdges2.Right = 5;
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ItemImagePadding = skinPaddingEdges2;
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.RowCount = 1;
-            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandContainerStylesBarGalleryItem1.Id = 23;
-            this.diagramCommandContainerStylesBarGalleryItem1.Name = "diagramCommandContainerStylesBarGalleryItem1";
-            // 
-            // diagramCommandShowContainerHeaderBarCheckItem1
-            // 
-            this.diagramCommandShowContainerHeaderBarCheckItem1.Id = 24;
-            this.diagramCommandShowContainerHeaderBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandShowContainerHeaderBarCheckItem1.Name = "diagramCommandShowContainerHeaderBarCheckItem1";
-            // 
-            // diagramCommandCollapseSelectedContainersBarCheckItem1
-            // 
-            this.diagramCommandCollapseSelectedContainersBarCheckItem1.Id = 25;
-            this.diagramCommandCollapseSelectedContainersBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandCollapseSelectedContainersBarCheckItem1.Name = "diagramCommandCollapseSelectedContainersBarCheckItem1";
-            // 
-            // diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1
-            // 
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.DropDownControl = this.ImageToolsBringToFrontContainerPopupMenu;
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.Id = 26;
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.Name = "diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1";
-            // 
-            // ImageToolsBringToFrontContainerPopupMenu
-            // 
-            this.ImageToolsBringToFrontContainerPopupMenu.ItemLinks.Add(this.diagramCommandBringForwardBarButtonItem1);
-            this.ImageToolsBringToFrontContainerPopupMenu.ItemLinks.Add(this.diagramCommandBringToFrontBarButtonItem1);
-            this.ImageToolsBringToFrontContainerPopupMenu.Name = "ImageToolsBringToFrontContainerPopupMenu";
-            this.ImageToolsBringToFrontContainerPopupMenu.Ribbon = this.ribbonControl1;
-            // 
-            // diagramCommandBringForwardBarButtonItem1
-            // 
-            this.diagramCommandBringForwardBarButtonItem1.Id = 28;
-            this.diagramCommandBringForwardBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandBringForwardBarButtonItem1.Name = "diagramCommandBringForwardBarButtonItem1";
-            // 
-            // diagramCommandBringToFrontBarButtonItem1
-            // 
-            this.diagramCommandBringToFrontBarButtonItem1.Id = 29;
-            this.diagramCommandBringToFrontBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandBringToFrontBarButtonItem1.Name = "diagramCommandBringToFrontBarButtonItem1";
-            // 
-            // diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1
-            // 
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.DropDownControl = this.ImageToolsSendToBackContainerPopupMenu;
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.Id = 27;
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.Name = "diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1";
-            // 
-            // ImageToolsSendToBackContainerPopupMenu
-            // 
-            this.ImageToolsSendToBackContainerPopupMenu.ItemLinks.Add(this.diagramCommandSendBackwardBarButtonItem1);
-            this.ImageToolsSendToBackContainerPopupMenu.ItemLinks.Add(this.diagramCommandSendToBackBarButtonItem1);
-            this.ImageToolsSendToBackContainerPopupMenu.Name = "ImageToolsSendToBackContainerPopupMenu";
-            this.ImageToolsSendToBackContainerPopupMenu.Ribbon = this.ribbonControl1;
-            // 
-            // diagramCommandSendBackwardBarButtonItem1
-            // 
-            this.diagramCommandSendBackwardBarButtonItem1.Id = 30;
-            this.diagramCommandSendBackwardBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSendBackwardBarButtonItem1.Name = "diagramCommandSendBackwardBarButtonItem1";
-            // 
-            // diagramCommandSendToBackBarButtonItem1
-            // 
-            this.diagramCommandSendToBackBarButtonItem1.Id = 31;
-            this.diagramCommandSendToBackBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSendToBackBarButtonItem1.Name = "diagramCommandSendToBackBarButtonItem1";
-            // 
-            // diagramCommandImageToolsRotateBarDropDownItem1
-            // 
-            this.diagramCommandImageToolsRotateBarDropDownItem1.Id = 32;
-            this.diagramCommandImageToolsRotateBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsRotateBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandRotate_Right90BarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandRotate_Left90BarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFlipImage_VerticalBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFlipImage_HorizontalBarButtonItem1)});
-            this.diagramCommandImageToolsRotateBarDropDownItem1.Name = "diagramCommandImageToolsRotateBarDropDownItem1";
-            // 
-            // diagramCommandRotate_Right90BarButtonItem1
-            // 
-            this.diagramCommandRotate_Right90BarButtonItem1.Id = 37;
-            this.diagramCommandRotate_Right90BarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandRotate_Right90BarButtonItem1.Name = "diagramCommandRotate_Right90BarButtonItem1";
-            // 
-            // diagramCommandRotate_Left90BarButtonItem1
-            // 
-            this.diagramCommandRotate_Left90BarButtonItem1.Id = 38;
-            this.diagramCommandRotate_Left90BarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandRotate_Left90BarButtonItem1.Name = "diagramCommandRotate_Left90BarButtonItem1";
-            // 
-            // diagramCommandFlipImage_VerticalBarButtonItem1
-            // 
-            this.diagramCommandFlipImage_VerticalBarButtonItem1.Id = 39;
-            this.diagramCommandFlipImage_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFlipImage_VerticalBarButtonItem1.Name = "diagramCommandFlipImage_VerticalBarButtonItem1";
-            // 
-            // diagramCommandFlipImage_HorizontalBarButtonItem1
-            // 
-            this.diagramCommandFlipImage_HorizontalBarButtonItem1.Id = 40;
-            this.diagramCommandFlipImage_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFlipImage_HorizontalBarButtonItem1.Name = "diagramCommandFlipImage_HorizontalBarButtonItem1";
-            // 
-            // diagramCommandImageToolsStretchModeBarDropDownItem1
-            // 
-            this.diagramCommandImageToolsStretchModeBarDropDownItem1.Id = 33;
-            this.diagramCommandImageToolsStretchModeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsStretchModeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1)});
-            this.diagramCommandImageToolsStretchModeBarDropDownItem1.Name = "diagramCommandImageToolsStretchModeBarDropDownItem1";
-            // 
-            // diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1
-            // 
-            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.Id = 41;
-            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1";
-            // 
-            // diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1
-            // 
-            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.Id = 42;
-            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1";
-            // 
-            // diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1
-            // 
-            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.Id = 43;
-            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1";
-            // 
-            // diagramCommandImageToolsSetImageScaleBarDropDownItem1
-            // 
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Enabled = false;
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Id = 34;
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_1BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_2BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_4BarCheckItem1)});
-            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Name = "diagramCommandImageToolsSetImageScaleBarDropDownItem1";
-            // 
-            // diagramCommandImageToolsSetImageScale_0_25BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.Id = 44;
-            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_25BarCheckItem1";
-            toolTipTitleItem59.Text = "25 %";
-            superToolTip55.Items.Add(toolTipTitleItem59);
-            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.SuperTip = superToolTip55;
-            // 
-            // diagramCommandImageToolsSetImageScale_0_5BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.Id = 45;
-            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_5BarCheckItem1";
-            toolTipTitleItem60.Text = "50 %";
-            superToolTip56.Items.Add(toolTipTitleItem60);
-            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.SuperTip = superToolTip56;
-            // 
-            // diagramCommandImageToolsSetImageScale_0_75BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.Id = 46;
-            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_75BarCheckItem1";
-            toolTipTitleItem61.Text = "75 %";
-            superToolTip57.Items.Add(toolTipTitleItem61);
-            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.SuperTip = superToolTip57;
-            // 
-            // diagramCommandImageToolsSetImageScale_1BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.Id = 47;
-            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_1BarCheckItem1";
-            toolTipTitleItem62.Text = "100 %";
-            superToolTip58.Items.Add(toolTipTitleItem62);
-            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.SuperTip = superToolTip58;
-            // 
-            // diagramCommandImageToolsSetImageScale_1_5BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.Id = 48;
-            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_1_5BarCheckItem1";
-            toolTipTitleItem63.Text = "150 %";
-            superToolTip59.Items.Add(toolTipTitleItem63);
-            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.SuperTip = superToolTip59;
-            // 
-            // diagramCommandImageToolsSetImageScale_2BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.Id = 49;
-            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_2BarCheckItem1";
-            toolTipTitleItem64.Text = "200 %";
-            superToolTip60.Items.Add(toolTipTitleItem64);
-            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.SuperTip = superToolTip60;
-            // 
-            // diagramCommandImageToolsSetImageScale_4BarCheckItem1
-            // 
-            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.Id = 50;
-            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_4BarCheckItem1";
-            toolTipTitleItem65.Text = "400 %";
-            superToolTip61.Items.Add(toolTipTitleItem65);
-            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.SuperTip = superToolTip61;
-            // 
-            // diagramCommandResetSelectedImagesBarButtonItem1
-            // 
-            this.diagramCommandResetSelectedImagesBarButtonItem1.Id = 35;
-            this.diagramCommandResetSelectedImagesBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandResetSelectedImagesBarButtonItem1.Name = "diagramCommandResetSelectedImagesBarButtonItem1";
-            // 
-            // diagramCommandLoadImageBarButtonItem1
-            // 
-            this.diagramCommandLoadImageBarButtonItem1.Id = 36;
-            this.diagramCommandLoadImageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandLoadImageBarButtonItem1.Name = "diagramCommandLoadImageBarButtonItem1";
-            // 
-            // diagramCommandShowRulersBarCheckItem1
-            // 
-            this.diagramCommandShowRulersBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.diagramCommandShowRulersBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.diagramCommandShowRulersBarCheckItem1.Id = 51;
-            this.diagramCommandShowRulersBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandShowRulersBarCheckItem1.Name = "diagramCommandShowRulersBarCheckItem1";
-            this.diagramCommandShowRulersBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandShowGridBarCheckItem1
-            // 
-            this.diagramCommandShowGridBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.diagramCommandShowGridBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.diagramCommandShowGridBarCheckItem1.Id = 52;
-            this.diagramCommandShowGridBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandShowGridBarCheckItem1.Name = "diagramCommandShowGridBarCheckItem1";
-            this.diagramCommandShowGridBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandShowPageBreaksBarCheckItem1
-            // 
-            this.diagramCommandShowPageBreaksBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.diagramCommandShowPageBreaksBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.diagramCommandShowPageBreaksBarCheckItem1.Id = 53;
-            this.diagramCommandShowPageBreaksBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandShowPageBreaksBarCheckItem1.Name = "diagramCommandShowPageBreaksBarCheckItem1";
-            this.diagramCommandShowPageBreaksBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandPanesBarDropDownItem1
-            // 
-            this.diagramCommandPanesBarDropDownItem1.Id = 54;
-            this.diagramCommandPanesBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPanesBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandShapesPanelBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPropertiesPanelBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPanAndZoomPanelBarCheckItem1)});
-            this.diagramCommandPanesBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.diagramCommandPanesBarDropDownItem1.Name = "diagramCommandPanesBarDropDownItem1";
-            this.diagramCommandPanesBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandShapesPanelBarCheckItem1
-            // 
-            this.diagramCommandShapesPanelBarCheckItem1.Id = 55;
-            this.diagramCommandShapesPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandShapesPanelBarCheckItem1.Name = "diagramCommandShapesPanelBarCheckItem1";
-            this.diagramCommandShapesPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandPropertiesPanelBarCheckItem1
-            // 
-            this.diagramCommandPropertiesPanelBarCheckItem1.Id = 56;
-            this.diagramCommandPropertiesPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPropertiesPanelBarCheckItem1.Name = "diagramCommandPropertiesPanelBarCheckItem1";
-            this.diagramCommandPropertiesPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandPanAndZoomPanelBarCheckItem1
-            // 
-            this.diagramCommandPanAndZoomPanelBarCheckItem1.Id = 57;
-            this.diagramCommandPanAndZoomPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPanAndZoomPanelBarCheckItem1.Name = "diagramCommandPanAndZoomPanelBarCheckItem1";
-            this.diagramCommandPanAndZoomPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandFitToPageBarButtonItem1
-            // 
-            this.diagramCommandFitToPageBarButtonItem1.Id = 58;
-            this.diagramCommandFitToPageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFitToPageBarButtonItem1.Name = "diagramCommandFitToPageBarButtonItem1";
-            this.diagramCommandFitToPageBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandFitToWidthBarButtonItem1
-            // 
-            this.diagramCommandFitToWidthBarButtonItem1.Id = 59;
-            this.diagramCommandFitToWidthBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFitToWidthBarButtonItem1.Name = "diagramCommandFitToWidthBarButtonItem1";
-            this.diagramCommandFitToWidthBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandPageOrientationBarDropDownItem1
-            // 
-            this.diagramCommandPageOrientationBarDropDownItem1.Id = 60;
-            this.diagramCommandPageOrientationBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageOrientationBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageOrientation_HorizontalBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageOrientation_VerticalBarCheckItem1)});
-            this.diagramCommandPageOrientationBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.diagramCommandPageOrientationBarDropDownItem1.Name = "diagramCommandPageOrientationBarDropDownItem1";
-            this.diagramCommandPageOrientationBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandPageOrientation_HorizontalBarCheckItem1
-            // 
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Id = 63;
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Name = "diagramCommandPageOrientation_HorizontalBarCheckItem1";
-            toolTipTitleItem66.Text = "Альбомная";
-            superToolTip62.Items.Add(toolTipTitleItem66);
-            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.SuperTip = superToolTip62;
-            // 
-            // diagramCommandPageOrientation_VerticalBarCheckItem1
-            // 
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1.Id = 64;
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1.Name = "diagramCommandPageOrientation_VerticalBarCheckItem1";
-            toolTipTitleItem67.Text = "Книжная";
-            superToolTip63.Items.Add(toolTipTitleItem67);
-            this.diagramCommandPageOrientation_VerticalBarCheckItem1.SuperTip = superToolTip63;
-            // 
-            // diagramCommandPageSizeBarDropDownItem1
-            // 
-            this.diagramCommandPageSizeBarDropDownItem1.Id = 61;
-            this.diagramCommandPageSizeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSizeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_LetterBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_TabloidBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_LegalBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_StatementBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_ExecutiveBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A3BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A4BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A5BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_B4BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_B5BarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFitToDrawingBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetPageParameters_PageSizeBarButtonItem1)});
-            this.diagramCommandPageSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.diagramCommandPageSizeBarDropDownItem1.Name = "diagramCommandPageSizeBarDropDownItem1";
-            this.diagramCommandPageSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandPageSize_LetterBarCheckItem1
-            // 
-            this.diagramCommandPageSize_LetterBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_LetterBarCheckItem1.Id = 65;
-            this.diagramCommandPageSize_LetterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_LetterBarCheckItem1.Name = "diagramCommandPageSize_LetterBarCheckItem1";
-            superToolTip64.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem68.Text = "<b>Letter</b><br>8,5\" x 11\"";
-            superToolTip64.Items.Add(toolTipTitleItem68);
-            this.diagramCommandPageSize_LetterBarCheckItem1.SuperTip = superToolTip64;
-            // 
-            // diagramCommandPageSize_TabloidBarCheckItem1
-            // 
-            this.diagramCommandPageSize_TabloidBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.Id = 66;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_TabloidBarCheckItem1.Name = "diagramCommandPageSize_TabloidBarCheckItem1";
-            superToolTip65.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem69.Text = "<b>Tabloid</b><br>11\" x 17\"";
-            superToolTip65.Items.Add(toolTipTitleItem69);
-            this.diagramCommandPageSize_TabloidBarCheckItem1.SuperTip = superToolTip65;
-            // 
-            // diagramCommandPageSize_LegalBarCheckItem1
-            // 
-            this.diagramCommandPageSize_LegalBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_LegalBarCheckItem1.Id = 67;
-            this.diagramCommandPageSize_LegalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_LegalBarCheckItem1.Name = "diagramCommandPageSize_LegalBarCheckItem1";
-            superToolTip66.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem70.Text = "<b>Legal</b><br>8,5\" x 14\"";
-            superToolTip66.Items.Add(toolTipTitleItem70);
-            this.diagramCommandPageSize_LegalBarCheckItem1.SuperTip = superToolTip66;
-            // 
-            // diagramCommandPageSize_StatementBarCheckItem1
-            // 
-            this.diagramCommandPageSize_StatementBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_StatementBarCheckItem1.Id = 68;
-            this.diagramCommandPageSize_StatementBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_StatementBarCheckItem1.Name = "diagramCommandPageSize_StatementBarCheckItem1";
-            superToolTip67.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem71.Text = "<b>Statement</b><br>5,5\" x 8,5\"";
-            superToolTip67.Items.Add(toolTipTitleItem71);
-            this.diagramCommandPageSize_StatementBarCheckItem1.SuperTip = superToolTip67;
-            // 
-            // diagramCommandPageSize_ExecutiveBarCheckItem1
-            // 
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.Id = 69;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.Name = "diagramCommandPageSize_ExecutiveBarCheckItem1";
-            superToolTip68.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem72.Text = "<b>Executive</b><br>7,25\" x 10,5\"";
-            superToolTip68.Items.Add(toolTipTitleItem72);
-            this.diagramCommandPageSize_ExecutiveBarCheckItem1.SuperTip = superToolTip68;
-            // 
-            // diagramCommandPageSize_A3BarCheckItem1
-            // 
-            this.diagramCommandPageSize_A3BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_A3BarCheckItem1.Id = 70;
-            this.diagramCommandPageSize_A3BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A3BarCheckItem1.Name = "diagramCommandPageSize_A3BarCheckItem1";
-            superToolTip69.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem73.Text = "<b>A3</b><br>11,7\" x 16,53\"";
-            superToolTip69.Items.Add(toolTipTitleItem73);
-            this.diagramCommandPageSize_A3BarCheckItem1.SuperTip = superToolTip69;
-            // 
-            // diagramCommandPageSize_A4BarCheckItem1
-            // 
-            this.diagramCommandPageSize_A4BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_A4BarCheckItem1.Id = 71;
-            this.diagramCommandPageSize_A4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A4BarCheckItem1.Name = "diagramCommandPageSize_A4BarCheckItem1";
-            superToolTip70.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem74.Text = "<b>A4</b><br>8,27\" x 11,7\"";
-            superToolTip70.Items.Add(toolTipTitleItem74);
-            this.diagramCommandPageSize_A4BarCheckItem1.SuperTip = superToolTip70;
-            // 
-            // diagramCommandPageSize_A5BarCheckItem1
-            // 
-            this.diagramCommandPageSize_A5BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_A5BarCheckItem1.Id = 72;
-            this.diagramCommandPageSize_A5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_A5BarCheckItem1.Name = "diagramCommandPageSize_A5BarCheckItem1";
-            superToolTip71.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem75.Text = "<b>A5</b><br>5,82\" x 8,27\"";
-            superToolTip71.Items.Add(toolTipTitleItem75);
-            this.diagramCommandPageSize_A5BarCheckItem1.SuperTip = superToolTip71;
-            // 
-            // diagramCommandPageSize_B4BarCheckItem1
-            // 
-            this.diagramCommandPageSize_B4BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_B4BarCheckItem1.Id = 73;
-            this.diagramCommandPageSize_B4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_B4BarCheckItem1.Name = "diagramCommandPageSize_B4BarCheckItem1";
-            superToolTip72.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem76.Text = "<b>B4 (JIS)</b><br>10,11\" x 14,33\"";
-            superToolTip72.Items.Add(toolTipTitleItem76);
-            this.diagramCommandPageSize_B4BarCheckItem1.SuperTip = superToolTip72;
-            // 
-            // diagramCommandPageSize_B5BarCheckItem1
-            // 
-            this.diagramCommandPageSize_B5BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandPageSize_B5BarCheckItem1.Id = 74;
-            this.diagramCommandPageSize_B5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
-            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.diagramCommandPageSize_B5BarCheckItem1.Name = "diagramCommandPageSize_B5BarCheckItem1";
-            superToolTip73.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem77.Text = "<b>B5 (JIS)</b><br>7,17\" x 10,11\"";
-            superToolTip73.Items.Add(toolTipTitleItem77);
-            this.diagramCommandPageSize_B5BarCheckItem1.SuperTip = superToolTip73;
-            // 
-            // diagramCommandFitToDrawingBarButtonItem1
-            // 
-            this.diagramCommandFitToDrawingBarButtonItem1.Id = 75;
-            this.diagramCommandFitToDrawingBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFitToDrawingBarButtonItem1.Name = "diagramCommandFitToDrawingBarButtonItem1";
-            // 
-            // diagramCommandSetPageParameters_PageSizeBarButtonItem1
-            // 
-            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Id = 76;
-            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Name = "diagramCommandSetPageParameters_PageSizeBarButtonItem1";
-            // 
-            // diagramCommandAutoSizeBarDropDownItem1
-            // 
-            this.diagramCommandAutoSizeBarDropDownItem1.Id = 62;
-            this.diagramCommandAutoSizeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandAutoSizeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_NoneBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_AutoSizeBarCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_FillBarCheckItem1)});
-            this.diagramCommandAutoSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.diagramCommandAutoSizeBarDropDownItem1.Name = "diagramCommandAutoSizeBarDropDownItem1";
-            this.diagramCommandAutoSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandAutoSize_NoneBarCheckItem1
-            // 
-            this.diagramCommandAutoSize_NoneBarCheckItem1.Id = 77;
-            this.diagramCommandAutoSize_NoneBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandAutoSize_NoneBarCheckItem1.Name = "diagramCommandAutoSize_NoneBarCheckItem1";
-            // 
-            // diagramCommandAutoSize_AutoSizeBarCheckItem1
-            // 
-            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.Id = 78;
-            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.Name = "diagramCommandAutoSize_AutoSizeBarCheckItem1";
-            // 
-            // diagramCommandAutoSize_FillBarCheckItem1
-            // 
-            this.diagramCommandAutoSize_FillBarCheckItem1.Id = 79;
-            this.diagramCommandAutoSize_FillBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandAutoSize_FillBarCheckItem1.Name = "diagramCommandAutoSize_FillBarCheckItem1";
-            // 
-            // diagramCommandThemesBarGalleryItem1
-            // 
-            // 
-            // 
-            // 
-            this.diagramCommandThemesBarGalleryItem1.Gallery.ColumnCount = 8;
-            this.diagramCommandThemesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup7});
-            this.diagramCommandThemesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
-            this.diagramCommandThemesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
-            this.diagramCommandThemesBarGalleryItem1.Gallery.RowCount = 1;
-            this.diagramCommandThemesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandThemesBarGalleryItem1.Id = 80;
-            this.diagramCommandThemesBarGalleryItem1.Name = "diagramCommandThemesBarGalleryItem1";
-            // 
-            // diagramCommandSnapToItemsBarCheckItem1
-            // 
-            this.diagramCommandSnapToItemsBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.diagramCommandSnapToItemsBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.diagramCommandSnapToItemsBarCheckItem1.Id = 81;
-            this.diagramCommandSnapToItemsBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSnapToItemsBarCheckItem1.Name = "diagramCommandSnapToItemsBarCheckItem1";
-            // 
-            // diagramCommandSnapToGridBarCheckItem1
-            // 
-            this.diagramCommandSnapToGridBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.diagramCommandSnapToGridBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
-            this.diagramCommandSnapToGridBarCheckItem1.Id = 82;
-            this.diagramCommandSnapToGridBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSnapToGridBarCheckItem1.Name = "diagramCommandSnapToGridBarCheckItem1";
-            // 
-            // diagramCommandReLayoutBarDropDownItem1
-            // 
-            this.diagramCommandReLayoutBarDropDownItem1.Id = 83;
-            this.diagramCommandReLayoutBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandReLayoutBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutTreeBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_DownBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_UpBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_RightBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_LeftBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutSugiyamaBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_DownBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_UpBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_RightBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_LeftBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutCircularHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandCircularLayoutBarButtonItem1)});
-            this.diagramCommandReLayoutBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandReLayoutBarDropDownItem1.Name = "diagramCommandReLayoutBarDropDownItem1";
-            this.diagramCommandReLayoutBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // diagramReLayoutTreeBarHeaderItem1
-            // 
-            this.diagramReLayoutTreeBarHeaderItem1.Id = 86;
-            this.diagramReLayoutTreeBarHeaderItem1.Name = "diagramReLayoutTreeBarHeaderItem1";
-            // 
-            // diagramCommandTreeLayout_DownBarButtonItem1
-            // 
-            this.diagramCommandTreeLayout_DownBarButtonItem1.Id = 87;
-            this.diagramCommandTreeLayout_DownBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayout_DownBarButtonItem1.Name = "diagramCommandTreeLayout_DownBarButtonItem1";
-            // 
-            // diagramCommandTreeLayout_UpBarButtonItem1
-            // 
-            this.diagramCommandTreeLayout_UpBarButtonItem1.Id = 88;
-            this.diagramCommandTreeLayout_UpBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayout_UpBarButtonItem1.Name = "diagramCommandTreeLayout_UpBarButtonItem1";
-            // 
-            // diagramCommandTreeLayout_RightBarButtonItem1
-            // 
-            this.diagramCommandTreeLayout_RightBarButtonItem1.Id = 89;
-            this.diagramCommandTreeLayout_RightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayout_RightBarButtonItem1.Name = "diagramCommandTreeLayout_RightBarButtonItem1";
-            // 
-            // diagramCommandTreeLayout_LeftBarButtonItem1
-            // 
-            this.diagramCommandTreeLayout_LeftBarButtonItem1.Id = 90;
-            this.diagramCommandTreeLayout_LeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayout_LeftBarButtonItem1.Name = "diagramCommandTreeLayout_LeftBarButtonItem1";
-            // 
-            // diagramReLayoutTipOverTreeHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1.Id = 91;
-            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1.Name = "diagramReLayoutTipOverTreeHeaderBarHeaderItem1";
-            // 
-            // diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1
-            // 
-            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.Id = 92;
-            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.Name = "diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1";
-            // 
-            // diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1
-            // 
-            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.Id = 93;
-            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.Name = "diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1";
-            // 
-            // diagramReLayoutMindMapTreeHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Id = 94;
-            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutMindMapTreeHeaderBarHeaderItem1";
-            // 
-            // diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1
-            // 
-            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.Id = 95;
-            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.Name = "diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1";
-            // 
-            // diagramCommandMindMapTreeLayout_VerticalBarButtonItem1
-            // 
-            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.Id = 96;
-            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.Name = "diagramCommandMindMapTreeLayout_VerticalBarButtonItem1";
-            // 
-            // diagramReLayoutSugiyamaBarHeaderItem1
-            // 
-            this.diagramReLayoutSugiyamaBarHeaderItem1.Id = 97;
-            this.diagramReLayoutSugiyamaBarHeaderItem1.Name = "diagramReLayoutSugiyamaBarHeaderItem1";
-            // 
-            // diagramCommandSugiyamaLayout_DownBarButtonItem1
-            // 
-            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.Id = 98;
-            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.Name = "diagramCommandSugiyamaLayout_DownBarButtonItem1";
-            // 
-            // diagramCommandSugiyamaLayout_UpBarButtonItem1
-            // 
-            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.Id = 99;
-            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.Name = "diagramCommandSugiyamaLayout_UpBarButtonItem1";
-            // 
-            // diagramCommandSugiyamaLayout_RightBarButtonItem1
-            // 
-            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.Id = 100;
-            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.Name = "diagramCommandSugiyamaLayout_RightBarButtonItem1";
-            // 
-            // diagramCommandSugiyamaLayout_LeftBarButtonItem1
-            // 
-            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.Id = 101;
-            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.Name = "diagramCommandSugiyamaLayout_LeftBarButtonItem1";
-            // 
-            // diagramReLayoutCircularHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutCircularHeaderBarHeaderItem1.Id = 102;
-            this.diagramReLayoutCircularHeaderBarHeaderItem1.Name = "diagramReLayoutCircularHeaderBarHeaderItem1";
-            // 
-            // diagramCommandCircularLayoutBarButtonItem1
-            // 
-            this.diagramCommandCircularLayoutBarButtonItem1.Id = 103;
-            this.diagramCommandCircularLayoutBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandCircularLayoutBarButtonItem1.Name = "diagramCommandCircularLayoutBarButtonItem1";
-            // 
-            // diagramCommandChangeConnectorTypeBarDropDownItem1
-            // 
-            this.diagramCommandChangeConnectorTypeBarDropDownItem1.Id = 84;
-            this.diagramCommandChangeConnectorTypeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandChangeConnectorTypeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_CurvedBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_StraightBarButtonItem1)});
-            this.diagramCommandChangeConnectorTypeBarDropDownItem1.Name = "diagramCommandChangeConnectorTypeBarDropDownItem1";
-            // 
-            // diagramCommandChangeConnectorType_RightAngleBarButtonItem1
-            // 
-            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.Id = 104;
-            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.Name = "diagramCommandChangeConnectorType_RightAngleBarButtonItem1";
-            // 
-            // diagramCommandChangeConnectorType_CurvedBarButtonItem1
-            // 
-            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.Id = 105;
-            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.Name = "diagramCommandChangeConnectorType_CurvedBarButtonItem1";
-            // 
-            // diagramCommandChangeConnectorType_StraightBarButtonItem1
-            // 
-            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.Id = 106;
-            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.Name = "diagramCommandChangeConnectorType_StraightBarButtonItem1";
-            // 
-            // diagramCommandReLayoutPartsBarDropDownItem1
-            // 
-            this.diagramCommandReLayoutPartsBarDropDownItem1.Id = 85;
-            this.diagramCommandReLayoutPartsBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandReLayoutPartsBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsTreeHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1)});
-            this.diagramCommandReLayoutPartsBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandReLayoutPartsBarDropDownItem1.Name = "diagramCommandReLayoutPartsBarDropDownItem1";
-            this.diagramCommandReLayoutPartsBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // diagramReLayoutPartsTreeHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Id = 107;
-            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsTreeHeaderBarHeaderItem1";
-            // 
-            // diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1
-            // 
-            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.Id = 108;
-            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1";
-            // 
-            // diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1
-            // 
-            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.Id = 109;
-            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1";
-            // 
-            // diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1
-            // 
-            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Id = 110;
-            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1";
-            // 
-            // diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1
-            // 
-            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Id = 111;
-            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1";
-            // 
-            // diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1.Id = 112;
-            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1";
-            // 
-            // diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1
-            // 
-            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Id = 113;
-            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Name = "diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1";
-            // 
-            // diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1
-            // 
-            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Id = 114;
-            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Name = "diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1";
-            // 
-            // diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1
-            // 
-            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Id = 115;
-            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1";
-            // 
-            // diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1
-            // 
-            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.Id = 116;
-            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.Name = "diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1";
-            // 
-            // diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1
-            // 
-            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.Id = 117;
-            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.Name = "diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1";
-            // 
-            // diagramCommandInsertContainerBarSplitButtonItem1
-            // 
-            this.diagramCommandInsertContainerBarSplitButtonItem1.DropDownControl = this.InsertContainerPopupMenu;
-            this.diagramCommandInsertContainerBarSplitButtonItem1.Id = 118;
-            this.diagramCommandInsertContainerBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.diagramCommandInsertContainerBarSplitButtonItem1.Name = "diagramCommandInsertContainerBarSplitButtonItem1";
-            this.diagramCommandInsertContainerBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // InsertContainerPopupMenu
-            // 
-            // 
-            // 
-            // 
-            this.InsertContainerPopupMenu.Gallery.AllowFilter = false;
-            this.InsertContainerPopupMenu.Gallery.ColumnCount = 4;
-            this.InsertContainerPopupMenu.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup10});
-            this.InsertContainerPopupMenu.Gallery.ImageSize = new System.Drawing.Size(65, 46);
-            this.InsertContainerPopupMenu.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
-            this.InsertContainerPopupMenu.Gallery.RowCount = 2;
-            this.InsertContainerPopupMenu.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
-            this.InsertContainerPopupMenu.Gallery.ShowGroupCaption = false;
-            this.InsertContainerPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
-            this.InsertContainerPopupMenu.Name = "InsertContainerPopupMenu";
-            this.InsertContainerPopupMenu.Ribbon = this.ribbonControl1;
-            // 
-            // diagramCommandInsertImageBarButtonItem1
-            // 
-            this.diagramCommandInsertImageBarButtonItem1.Id = 119;
-            this.diagramCommandInsertImageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandInsertImageBarButtonItem1.Name = "diagramCommandInsertImageBarButtonItem1";
-            this.diagramCommandInsertImageBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandPasteBarButtonItem1
-            // 
-            this.diagramCommandPasteBarButtonItem1.Id = 124;
-            this.diagramCommandPasteBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandPasteBarButtonItem1.Name = "diagramCommandPasteBarButtonItem1";
-            this.diagramCommandPasteBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // diagramCommandCutBarButtonItem1
-            // 
-            this.diagramCommandCutBarButtonItem1.Id = 125;
-            this.diagramCommandCutBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandCutBarButtonItem1.Name = "diagramCommandCutBarButtonItem1";
-            this.diagramCommandCutBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandCopyBarButtonItem1
-            // 
-            this.diagramCommandCopyBarButtonItem1.Id = 126;
-            this.diagramCommandCopyBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandCopyBarButtonItem1.Name = "diagramCommandCopyBarButtonItem1";
-            this.diagramCommandCopyBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // barButtonGroup1
-            // 
-            this.barButtonGroup1.Id = 120;
-            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandFontFamilyBarEditItem1);
-            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandFontSizeBarEditItem1);
-            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandIncreaseFontSizeBarButtonItem1);
-            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandDecreaseFontSizeBarButtonItem1);
-            this.barButtonGroup1.Name = "barButtonGroup1";
-            this.barButtonGroup1.Tag = "bgFontSizeAndFamily";
-            // 
-            // diagramCommandFontFamilyBarEditItem1
-            // 
-            this.diagramCommandFontFamilyBarEditItem1.Edit = this.repositoryItemFontEdit1;
-            this.diagramCommandFontFamilyBarEditItem1.EditWidth = 130;
-            this.diagramCommandFontFamilyBarEditItem1.Id = 127;
-            this.diagramCommandFontFamilyBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFontFamilyBarEditItem1.Name = "diagramCommandFontFamilyBarEditItem1";
-            // 
-            // repositoryItemFontEdit1
-            // 
-            this.repositoryItemFontEdit1.AutoHeight = false;
-            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
-            // 
-            // diagramCommandFontSizeBarEditItem1
-            // 
-            this.diagramCommandFontSizeBarEditItem1.Edit = this.repositoryItemDiagramFontSizeEdit1;
-            this.diagramCommandFontSizeBarEditItem1.Id = 128;
-            this.diagramCommandFontSizeBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandFontSizeBarEditItem1.Name = "diagramCommandFontSizeBarEditItem1";
-            // 
-            // repositoryItemDiagramFontSizeEdit1
-            // 
-            this.repositoryItemDiagramFontSizeEdit1.AutoHeight = false;
-            this.repositoryItemDiagramFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDiagramFontSizeEdit1.Diagram = this.diagramControl1;
-            this.repositoryItemDiagramFontSizeEdit1.Name = "repositoryItemDiagramFontSizeEdit1";
-            // 
-            // diagramCommandIncreaseFontSizeBarButtonItem1
-            // 
-            this.diagramCommandIncreaseFontSizeBarButtonItem1.Id = 129;
-            this.diagramCommandIncreaseFontSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandIncreaseFontSizeBarButtonItem1.Name = "diagramCommandIncreaseFontSizeBarButtonItem1";
-            this.diagramCommandIncreaseFontSizeBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandDecreaseFontSizeBarButtonItem1
-            // 
-            this.diagramCommandDecreaseFontSizeBarButtonItem1.Id = 130;
-            this.diagramCommandDecreaseFontSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandDecreaseFontSizeBarButtonItem1.Name = "diagramCommandDecreaseFontSizeBarButtonItem1";
-            this.diagramCommandDecreaseFontSizeBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // barButtonGroup2
-            // 
-            this.barButtonGroup2.Id = 121;
-            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontBoldBarCheckItem1);
-            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontItalicBarCheckItem1);
-            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontUnderlineBarCheckItem1);
-            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontStrikethroughBarCheckItem1);
-            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandForegroundColorBarSplitButtonItem1);
-            this.barButtonGroup2.Name = "barButtonGroup2";
-            this.barButtonGroup2.Tag = "bgFontTypeAndColor";
-            // 
-            // diagramCommandToggleFontBoldBarCheckItem1
-            // 
-            this.diagramCommandToggleFontBoldBarCheckItem1.Id = 131;
-            this.diagramCommandToggleFontBoldBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandToggleFontBoldBarCheckItem1.Name = "diagramCommandToggleFontBoldBarCheckItem1";
-            this.diagramCommandToggleFontBoldBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandToggleFontItalicBarCheckItem1
-            // 
-            this.diagramCommandToggleFontItalicBarCheckItem1.Id = 132;
-            this.diagramCommandToggleFontItalicBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandToggleFontItalicBarCheckItem1.Name = "diagramCommandToggleFontItalicBarCheckItem1";
-            this.diagramCommandToggleFontItalicBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandToggleFontUnderlineBarCheckItem1
-            // 
-            this.diagramCommandToggleFontUnderlineBarCheckItem1.Id = 133;
-            this.diagramCommandToggleFontUnderlineBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandToggleFontUnderlineBarCheckItem1.Name = "diagramCommandToggleFontUnderlineBarCheckItem1";
-            this.diagramCommandToggleFontUnderlineBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandToggleFontStrikethroughBarCheckItem1
-            // 
-            this.diagramCommandToggleFontStrikethroughBarCheckItem1.Id = 134;
-            this.diagramCommandToggleFontStrikethroughBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandToggleFontStrikethroughBarCheckItem1.Name = "diagramCommandToggleFontStrikethroughBarCheckItem1";
-            this.diagramCommandToggleFontStrikethroughBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandForegroundColorBarSplitButtonItem1
-            // 
-            this.diagramCommandForegroundColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandForegroundColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
-            this.diagramCommandForegroundColorBarSplitButtonItem1.Id = 135;
-            this.diagramCommandForegroundColorBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandForegroundColorBarSplitButtonItem1.Name = "diagramCommandForegroundColorBarSplitButtonItem1";
-            this.diagramCommandForegroundColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // barButtonGroup3
-            // 
-            this.barButtonGroup3.Id = 122;
-            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_TopBarCheckItem1);
-            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1);
-            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1);
-            this.barButtonGroup3.Name = "barButtonGroup3";
-            this.barButtonGroup3.Tag = "bgVerticalTextAlignment";
-            // 
-            // diagramCommandSetVerticalAlignment_TopBarCheckItem1
-            // 
-            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.Id = 136;
-            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_TopBarCheckItem1";
-            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandSetVerticalAlignment_CenterBarCheckItem1
-            // 
-            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.Id = 137;
-            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_CenterBarCheckItem1";
-            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandSetVerticalAlignment_BottomBarCheckItem1
-            // 
-            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.Id = 138;
-            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_BottomBarCheckItem1";
-            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // barButtonGroup4
-            // 
-            this.barButtonGroup4.Id = 123;
-            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1);
-            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1);
-            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1);
-            this.barButtonGroup4.Name = "barButtonGroup4";
-            this.barButtonGroup4.Tag = "bgHorizontalTextAlignment";
-            // 
-            // diagramCommandSetHorizontalAlignment_LeftBarCheckItem1
-            // 
-            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.Id = 139;
-            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_LeftBarCheckItem1";
-            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandSetHorizontalAlignment_CenterBarCheckItem1
-            // 
-            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.Id = 140;
-            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_CenterBarCheckItem1";
-            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandSetHorizontalAlignment_RightBarCheckItem1
-            // 
-            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.Id = 141;
-            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_RightBarCheckItem1";
-            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandSelectPointerToolBarCheckItem1
-            // 
-            this.diagramCommandSelectPointerToolBarCheckItem1.Id = 142;
-            this.diagramCommandSelectPointerToolBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSelectPointerToolBarCheckItem1.Name = "diagramCommandSelectPointerToolBarCheckItem1";
-            this.diagramCommandSelectPointerToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSelectConnectorToolBarCheckItem1
-            // 
-            this.diagramCommandSelectConnectorToolBarCheckItem1.Id = 143;
-            this.diagramCommandSelectConnectorToolBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramCommandSelectConnectorToolBarCheckItem1.Name = "diagramCommandSelectConnectorToolBarCheckItem1";
-            this.diagramCommandSelectConnectorToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandToolsContainerCheckDropDownItem1
-            // 
-            this.diagramCommandToolsContainerCheckDropDownItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.CheckDropDown;
-            this.diagramCommandToolsContainerCheckDropDownItem1.Caption = "Прямоугольник";
-            this.diagramCommandToolsContainerCheckDropDownItem1.Description = "Drag to draw a rectangle.";
-            this.diagramCommandToolsContainerCheckDropDownItem1.DropDownControl = this.ToolsContainerPopupMenu;
-            this.diagramCommandToolsContainerCheckDropDownItem1.Id = 144;
-            this.diagramCommandToolsContainerCheckDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.diagramCommandToolsContainerCheckDropDownItem1.Name = "diagramCommandToolsContainerCheckDropDownItem1";
-            this.diagramCommandToolsContainerCheckDropDownItem1.RememberLastCommand = true;
-            this.diagramCommandToolsContainerCheckDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            toolTipTitleItem78.Text = "Прямоугольник (Ctrl+8)";
-            toolTipItem6.Text = "Drag to draw a rectangle.";
-            superToolTip74.Items.Add(toolTipTitleItem78);
-            superToolTip74.Items.Add(toolTipItem6);
-            this.diagramCommandToolsContainerCheckDropDownItem1.SuperTip = superToolTip74;
-            // 
-            // ToolsContainerPopupMenu
-            // 
-            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectRectangleToolBarCheckItem1);
-            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectEllipseToolBarCheckItem1);
-            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectRightTriangleToolBarCheckItem1);
-            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectHexagonToolBarCheckItem1);
-            this.ToolsContainerPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.ToolsContainerPopupMenu.Name = "ToolsContainerPopupMenu";
-            this.ToolsContainerPopupMenu.Ribbon = this.ribbonControl1;
-            // 
-            // diagramCommandSelectRectangleToolBarCheckItem1
-            // 
-            this.diagramCommandSelectRectangleToolBarCheckItem1.Id = 156;
-            this.diagramCommandSelectRectangleToolBarCheckItem1.Name = "diagramCommandSelectRectangleToolBarCheckItem1";
-            this.diagramCommandSelectRectangleToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSelectEllipseToolBarCheckItem1
-            // 
-            this.diagramCommandSelectEllipseToolBarCheckItem1.Id = 157;
-            this.diagramCommandSelectEllipseToolBarCheckItem1.Name = "diagramCommandSelectEllipseToolBarCheckItem1";
-            this.diagramCommandSelectEllipseToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSelectRightTriangleToolBarCheckItem1
-            // 
-            this.diagramCommandSelectRightTriangleToolBarCheckItem1.Id = 158;
-            this.diagramCommandSelectRightTriangleToolBarCheckItem1.Name = "diagramCommandSelectRightTriangleToolBarCheckItem1";
-            this.diagramCommandSelectRightTriangleToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSelectHexagonToolBarCheckItem1
-            // 
-            this.diagramCommandSelectHexagonToolBarCheckItem1.Id = 159;
-            this.diagramCommandSelectHexagonToolBarCheckItem1.Name = "diagramCommandSelectHexagonToolBarCheckItem1";
-            this.diagramCommandSelectHexagonToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSelectPanToolBarCheckItem1
-            // 
-            this.diagramCommandSelectPanToolBarCheckItem1.Id = 155;
-            this.diagramCommandSelectPanToolBarCheckItem1.Name = "diagramCommandSelectPanToolBarCheckItem1";
-            this.diagramCommandSelectPanToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-            // 
-            // diagramCommandShapeStylesBarGalleryItem1
-            // 
-            // 
-            // 
-            // 
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ColumnCount = 7;
-            galleryItemGroup8.Caption = "Стили варианта";
-            galleryItemGroup8.Tag = "Стили варианта";
-            galleryItemGroup9.Caption = "Стили темы";
-            galleryItemGroup9.Tag = "Стили темы";
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup8,
-            galleryItemGroup9});
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(43, 43);
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.RowCount = 7;
-            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramCommandShapeStylesBarGalleryItem1.Id = 150;
-            this.diagramCommandShapeStylesBarGalleryItem1.Name = "diagramCommandShapeStylesBarGalleryItem1";
-            // 
-            // diagramCommandBackgroundColorBarSplitButtonItem1
-            // 
-            this.diagramCommandBackgroundColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandBackgroundColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
-            this.diagramCommandBackgroundColorBarSplitButtonItem1.Id = 160;
-            this.diagramCommandBackgroundColorBarSplitButtonItem1.Name = "diagramCommandBackgroundColorBarSplitButtonItem1";
-            this.diagramCommandBackgroundColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandStrokeColorBarSplitButtonItem1
-            // 
-            this.diagramCommandStrokeColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandStrokeColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
-            this.diagramCommandStrokeColorBarSplitButtonItem1.Id = 161;
-            this.diagramCommandStrokeColorBarSplitButtonItem1.Name = "diagramCommandStrokeColorBarSplitButtonItem1";
-            this.diagramCommandStrokeColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandBringToFrontBarSplitButtonItem1
-            // 
-            this.diagramCommandBringToFrontBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandBringToFrontBarSplitButtonItem1.Id = 162;
-            this.diagramCommandBringToFrontBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.diagramCommandBringToFrontBarSplitButtonItem1.Name = "diagramCommandBringToFrontBarSplitButtonItem1";
-            this.diagramCommandBringToFrontBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // diagramCommandSendToBackBarSplitButtonItem1
-            // 
-            this.diagramCommandSendToBackBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.diagramCommandSendToBackBarSplitButtonItem1.Id = 163;
-            this.diagramCommandSendToBackBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.diagramCommandSendToBackBarSplitButtonItem1.Name = "diagramCommandSendToBackBarSplitButtonItem1";
-            this.diagramCommandSendToBackBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            // 
-            // barButtonGroup5
-            // 
-            this.barButtonGroup5.Caption = "barButtonGroup5";
-            this.barButtonGroup5.Id = 164;
-            this.barButtonGroup5.ItemLinks.Add(this.bt_Dublicate);
-            this.barButtonGroup5.ItemLinks.Add(this.Bt_Qnt_On_Line);
-            this.barButtonGroup5.Name = "barButtonGroup5";
-            // 
-            // bt_Dublicate
-            // 
-            this.bt_Dublicate.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.bt_Dublicate.Caption = "Дубликаты повторяющихся";
-            this.bt_Dublicate.Id = 166;
-            this.bt_Dublicate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Dublicate.ImageOptions.SvgImage")));
-            this.bt_Dublicate.Name = "bt_Dublicate";
-            toolTipTitleItem79.Text = "Дубликаты повторяющихся";
-            toolTipItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "Создавать дубликаты для повторно применяемых компонентов";
-            toolTipTitleItem80.LeftIndent = 6;
-            toolTipTitleItem80.Text = "BOM-Report";
-            superToolTip75.Items.Add(toolTipTitleItem79);
-            superToolTip75.Items.Add(toolTipItem7);
-            superToolTip75.Items.Add(toolTipSeparatorItem5);
-            superToolTip75.Items.Add(toolTipTitleItem80);
-            this.bt_Dublicate.SuperTip = superToolTip75;
-            this.bt_Dublicate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Dublicate_ItemClick);
-            // 
-            // Bt_Qnt_On_Line
-            // 
-            this.Bt_Qnt_On_Line.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.Bt_Qnt_On_Line.Caption = "Количество на линиях";
-            this.Bt_Qnt_On_Line.Id = 167;
-            this.Bt_Qnt_On_Line.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_Qnt_On_Line.ImageOptions.SvgImage")));
-            this.Bt_Qnt_On_Line.Name = "Bt_Qnt_On_Line";
-            toolTipTitleItem81.Text = "Указать количество на линиях связи";
-            toolTipItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem8.LeftIndent = 6;
-            toolTipItem8.Text = "При ВКЛ опции, на линиях связи, будет отмечено Количество, с которой в данный узе" +
-    "л будет входить компонент\r\nПри ВЫКЛ, данный параметры отображаться не будет";
-            toolTipTitleItem82.LeftIndent = 6;
-            toolTipTitleItem82.Text = "BOM-Report";
-            superToolTip76.Items.Add(toolTipTitleItem81);
-            superToolTip76.Items.Add(toolTipItem8);
-            superToolTip76.Items.Add(toolTipSeparatorItem6);
-            superToolTip76.Items.Add(toolTipTitleItem82);
-            this.Bt_Qnt_On_Line.SuperTip = superToolTip76;
-            this.Bt_Qnt_On_Line.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Qnt_On_Line_ItemClick);
-            // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
-            this.diagramPageSetupRibbonPageGroup1,
-            this.diagramTreeLayoutRibbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Инструменты";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.Bt_SaveAs);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bt_Print);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bt_Export);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Инструменты сохранения";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonGroup5);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Состав";
-            // 
-            // diagramPageSetupRibbonPageGroup1
-            // 
-            this.diagramPageSetupRibbonPageGroup1.AllowTextClipping = false;
-            this.diagramPageSetupRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandPageOrientationBarDropDownItem1);
-            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandPageSizeBarDropDownItem1);
-            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandAutoSizeBarDropDownItem1);
-            this.diagramPageSetupRibbonPageGroup1.Name = "diagramPageSetupRibbonPageGroup1";
-            // 
-            // diagramTreeLayoutRibbonPageGroup1
-            // 
-            this.diagramTreeLayoutRibbonPageGroup1.AllowTextClipping = false;
-            this.diagramTreeLayoutRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.True;
-            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandReLayoutBarDropDownItem1);
-            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandChangeConnectorTypeBarDropDownItem1);
-            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandReLayoutPartsBarDropDownItem1);
-            this.diagramTreeLayoutRibbonPageGroup1.Name = "diagramTreeLayoutRibbonPageGroup1";
-            // 
-            // diagramViewRibbonPage1
-            // 
-            this.diagramViewRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.diagramShowRibbonPageGroup1,
-            this.diagramZoomRibbonPageGroup1});
-            this.diagramViewRibbonPage1.Name = "diagramViewRibbonPage1";
-            // 
-            // diagramShowRibbonPageGroup1
-            // 
-            this.diagramShowRibbonPageGroup1.AllowTextClipping = false;
-            this.diagramShowRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowRulersBarCheckItem1);
-            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowGridBarCheckItem1);
-            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowPageBreaksBarCheckItem1);
-            this.diagramShowRibbonPageGroup1.Name = "diagramShowRibbonPageGroup1";
-            // 
-            // diagramZoomRibbonPageGroup1
-            // 
-            this.diagramZoomRibbonPageGroup1.AllowTextClipping = false;
-            this.diagramZoomRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.diagramZoomRibbonPageGroup1.ItemLinks.Add(this.diagramCommandFitToPageBarButtonItem1);
-            this.diagramZoomRibbonPageGroup1.ItemLinks.Add(this.diagramCommandFitToWidthBarButtonItem1);
-            this.diagramZoomRibbonPageGroup1.Name = "diagramZoomRibbonPageGroup1";
-            // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.ItemLinks.Add(this.diagramStatusBarShapeInfoBarStaticItem1);
-            this.ribbonStatusBar1.ItemLinks.Add(this.diagramCommandStatusBarZoomEditorBarEditItem1);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 686);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1156, 24);
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "ribbonPage2";
-            // 
-            // dockManager1
-            // 
-            this.dockManager1.Form = this;
-            this.dockManager1.HiddenPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.panAndZoomDockPanel1});
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.diagramControlDockPanel1});
-            this.dockManager1.TopZIndexControls.AddRange(new string[] {
-            "DevExpress.XtraBars.BarDockControl",
-            "DevExpress.XtraBars.StandaloneBarDockControl",
-            "System.Windows.Forms.StatusBar",
-            "System.Windows.Forms.MenuStrip",
-            "System.Windows.Forms.StatusStrip",
-            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
-            "DevExpress.XtraBars.Ribbon.RibbonControl",
-            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
-            "DevExpress.XtraBars.Navigation.TileNavPane",
-            "DevExpress.XtraBars.TabFormControl",
-            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
-            "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
-            // 
-            // diagramControlDockPanel1
-            // 
-            this.diagramControlDockPanel1.Controls.Add(this.controlContainer1);
-            this.diagramControlDockPanel1.DockedAsTabbedDocument = true;
-            this.diagramControlDockPanel1.FloatSize = new System.Drawing.Size(300, 200);
-            this.diagramControlDockPanel1.ID = new System.Guid("c21d6871-705c-407e-b946-1310c47b9e39");
-            this.diagramControlDockPanel1.Name = "diagramControlDockPanel1";
-            this.diagramControlDockPanel1.Options.ShowCloseButton = false;
-            this.diagramControlDockPanel1.OriginalSize = new System.Drawing.Size(300, 200);
-            this.diagramControlDockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.diagramControlDockPanel1.SavedIndex = 0;
-            // 
-            // controlContainer1
-            // 
-            this.controlContainer1.Controls.Add(this.diagramControl1);
-            this.controlContainer1.Location = new System.Drawing.Point(0, 0);
-            this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(1150, 523);
-            this.controlContainer1.TabIndex = 0;
-            // 
-            // documentManager1
-            // 
-            this.documentManager1.ContainerControl = this;
-            this.documentManager1.View = this.tabbedView1;
-            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
-            this.tabbedView1});
-            // 
-            // tabbedView1
-            // 
-            this.tabbedView1.DocumentGroupProperties.ShowTabHeader = false;
-            this.tabbedView1.DocumentGroups.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup[] {
-            this.documentGroup1});
-            this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
-            this.document1});
-            dockingContainer2.Element = this.documentGroup1;
-            this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
-            dockingContainer2});
-            this.tabbedView1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
-            // 
-            // diagramBarController1
-            // 
-            this.diagramBarController1.BarItems.Add(this.diagramStatusBarShapeInfoBarStaticItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandStatusBarZoomEditorBarEditItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPaddingBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPaddingBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P0BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P4BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P8BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P12BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P16BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P24BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P32BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P0BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P4BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P8BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P12BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P16BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P24BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P32BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerStylesBarGalleryItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShowContainerHeaderBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandCollapseSelectedContainersBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandBringForwardBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandBringToFrontBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSendBackwardBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSendToBackBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsRotateBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsStretchModeBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScaleBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandResetSelectedImagesBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandLoadImageBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandRotate_Right90BarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandRotate_Left90BarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFlipImage_VerticalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFlipImage_HorizontalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_1BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_2BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_4BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShowRulersBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShowGridBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShowPageBreaksBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPanesBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShapesPanelBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPropertiesPanelBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPanAndZoomPanelBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToPageBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToWidthBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientationBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSizeBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSizeBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientation_HorizontalBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientation_VerticalBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_LetterBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_TabloidBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_LegalBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_StatementBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_ExecutiveBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A3BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A4BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A5BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_B4BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_B5BarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToDrawingBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetPageParameters_PageSizeBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_NoneBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_AutoSizeBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_FillBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandThemesBarGalleryItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSnapToItemsBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSnapToGridBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandReLayoutBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorTypeBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandReLayoutPartsBarDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutTreeBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_DownBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_UpBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_RightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_LeftBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutSugiyamaBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_DownBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_UpBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_RightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_LeftBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutCircularHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandCircularLayoutBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_CurvedBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_StraightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsTreeHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandInsertContainerBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandInsertImageBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandPasteBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandCutBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandCopyBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFontFamilyBarEditItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandFontSizeBarEditItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandIncreaseFontSizeBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandDecreaseFontSizeBarButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontBoldBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontItalicBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontUnderlineBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontStrikethroughBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandForegroundColorBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_TopBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectPointerToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectConnectorToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandToolsContainerCheckDropDownItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectPanToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectRectangleToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectEllipseToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectRightTriangleToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectHexagonToolBarCheckItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandShapeStylesBarGalleryItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandBackgroundColorBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandStrokeColorBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandBringToFrontBarSplitButtonItem1);
-            this.diagramBarController1.BarItems.Add(this.diagramCommandSendToBackBarSplitButtonItem1);
-            this.diagramBarController1.Control = this.diagramControl1;
-            this.diagramBarController1.RibbonControl = this.ribbonControl1;
-            // 
-            // BringToFrontPopupMenu
-            // 
-            this.BringToFrontPopupMenu.ItemLinks.Add(this.diagramCommandBringForwardBarButtonItem1);
-            this.BringToFrontPopupMenu.ItemLinks.Add(this.diagramCommandBringToFrontBarButtonItem1);
-            this.BringToFrontPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.BringToFrontPopupMenu.Name = "BringToFrontPopupMenu";
-            this.BringToFrontPopupMenu.Ribbon = this.ribbonControl1;
-            // 
-            // SendToBackPopupMenu
-            // 
-            this.SendToBackPopupMenu.ItemLinks.Add(this.diagramCommandSendBackwardBarButtonItem1);
-            this.SendToBackPopupMenu.ItemLinks.Add(this.diagramCommandSendToBackBarButtonItem1);
-            this.SendToBackPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
-            this.SendToBackPopupMenu.Name = "SendToBackPopupMenu";
-            this.SendToBackPopupMenu.Ribbon = this.ribbonControl1;
             // 
             // diagramContainer1
             // 
@@ -4514,6 +2596,1959 @@
             this.diagramShape46.Size = new System.Drawing.SizeF(180F, 20F);
             this.diagramShape46.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl1.ExpandCollapseItem,
+            this.ribbonControl1.SearchEditItem,
+            this.Bt_SaveAs,
+            this.bt_Print,
+            this.bt_Export,
+            this.Toggle_CreateDublicate,
+            this.diagramStatusBarShapeInfoBarStaticItem1,
+            this.diagramCommandStatusBarZoomEditorBarEditItem1,
+            this.diagramCommandContainerPaddingBarDropDownItem1,
+            this.diagramCommandContainerHeaderPaddingBarDropDownItem1,
+            this.diagramCommandContainerPadding_P0BarCheckItem1,
+            this.diagramCommandContainerPadding_P4BarCheckItem1,
+            this.diagramCommandContainerPadding_P8BarCheckItem1,
+            this.diagramCommandContainerPadding_P12BarCheckItem1,
+            this.diagramCommandContainerPadding_P16BarCheckItem1,
+            this.diagramCommandContainerPadding_P24BarCheckItem1,
+            this.diagramCommandContainerPadding_P32BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1,
+            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1,
+            this.diagramCommandContainerStylesBarGalleryItem1,
+            this.diagramCommandShowContainerHeaderBarCheckItem1,
+            this.diagramCommandCollapseSelectedContainersBarCheckItem1,
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1,
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1,
+            this.diagramCommandBringForwardBarButtonItem1,
+            this.diagramCommandBringToFrontBarButtonItem1,
+            this.diagramCommandSendBackwardBarButtonItem1,
+            this.diagramCommandSendToBackBarButtonItem1,
+            this.diagramCommandImageToolsRotateBarDropDownItem1,
+            this.diagramCommandImageToolsStretchModeBarDropDownItem1,
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1,
+            this.diagramCommandResetSelectedImagesBarButtonItem1,
+            this.diagramCommandLoadImageBarButtonItem1,
+            this.diagramCommandRotate_Right90BarButtonItem1,
+            this.diagramCommandRotate_Left90BarButtonItem1,
+            this.diagramCommandFlipImage_VerticalBarButtonItem1,
+            this.diagramCommandFlipImage_HorizontalBarButtonItem1,
+            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1,
+            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1,
+            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1,
+            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1,
+            this.diagramCommandShowRulersBarCheckItem1,
+            this.diagramCommandShowGridBarCheckItem1,
+            this.diagramCommandShowPageBreaksBarCheckItem1,
+            this.diagramCommandPanesBarDropDownItem1,
+            this.diagramCommandShapesPanelBarCheckItem1,
+            this.diagramCommandPropertiesPanelBarCheckItem1,
+            this.diagramCommandPanAndZoomPanelBarCheckItem1,
+            this.diagramCommandFitToPageBarButtonItem1,
+            this.diagramCommandFitToWidthBarButtonItem1,
+            this.diagramCommandPageOrientationBarDropDownItem1,
+            this.diagramCommandPageSizeBarDropDownItem1,
+            this.diagramCommandAutoSizeBarDropDownItem1,
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1,
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1,
+            this.diagramCommandPageSize_LetterBarCheckItem1,
+            this.diagramCommandPageSize_TabloidBarCheckItem1,
+            this.diagramCommandPageSize_LegalBarCheckItem1,
+            this.diagramCommandPageSize_StatementBarCheckItem1,
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1,
+            this.diagramCommandPageSize_A3BarCheckItem1,
+            this.diagramCommandPageSize_A4BarCheckItem1,
+            this.diagramCommandPageSize_A5BarCheckItem1,
+            this.diagramCommandPageSize_B4BarCheckItem1,
+            this.diagramCommandPageSize_B5BarCheckItem1,
+            this.diagramCommandFitToDrawingBarButtonItem1,
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1,
+            this.diagramCommandAutoSize_NoneBarCheckItem1,
+            this.diagramCommandAutoSize_AutoSizeBarCheckItem1,
+            this.diagramCommandAutoSize_FillBarCheckItem1,
+            this.diagramCommandThemesBarGalleryItem1,
+            this.diagramCommandSnapToItemsBarCheckItem1,
+            this.diagramCommandSnapToGridBarCheckItem1,
+            this.diagramCommandReLayoutBarDropDownItem1,
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1,
+            this.diagramCommandReLayoutPartsBarDropDownItem1,
+            this.diagramReLayoutTreeBarHeaderItem1,
+            this.diagramCommandTreeLayout_DownBarButtonItem1,
+            this.diagramCommandTreeLayout_UpBarButtonItem1,
+            this.diagramCommandTreeLayout_RightBarButtonItem1,
+            this.diagramCommandTreeLayout_LeftBarButtonItem1,
+            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1,
+            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1,
+            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1,
+            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1,
+            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1,
+            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1,
+            this.diagramReLayoutSugiyamaBarHeaderItem1,
+            this.diagramCommandSugiyamaLayout_DownBarButtonItem1,
+            this.diagramCommandSugiyamaLayout_UpBarButtonItem1,
+            this.diagramCommandSugiyamaLayout_RightBarButtonItem1,
+            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1,
+            this.diagramReLayoutCircularHeaderBarHeaderItem1,
+            this.diagramCommandCircularLayoutBarButtonItem1,
+            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1,
+            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1,
+            this.diagramCommandChangeConnectorType_StraightBarButtonItem1,
+            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1,
+            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1,
+            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1,
+            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1,
+            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1,
+            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1,
+            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1,
+            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1,
+            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1,
+            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1,
+            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1,
+            this.diagramCommandInsertContainerBarSplitButtonItem1,
+            this.diagramCommandInsertImageBarButtonItem1,
+            this.diagramCommandPasteBarButtonItem1,
+            this.diagramCommandCutBarButtonItem1,
+            this.diagramCommandCopyBarButtonItem1,
+            this.barButtonGroup1,
+            this.diagramCommandFontFamilyBarEditItem1,
+            this.diagramCommandFontSizeBarEditItem1,
+            this.diagramCommandIncreaseFontSizeBarButtonItem1,
+            this.diagramCommandDecreaseFontSizeBarButtonItem1,
+            this.barButtonGroup2,
+            this.diagramCommandToggleFontBoldBarCheckItem1,
+            this.diagramCommandToggleFontItalicBarCheckItem1,
+            this.diagramCommandToggleFontUnderlineBarCheckItem1,
+            this.diagramCommandToggleFontStrikethroughBarCheckItem1,
+            this.diagramCommandForegroundColorBarSplitButtonItem1,
+            this.barButtonGroup3,
+            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1,
+            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1,
+            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1,
+            this.barButtonGroup4,
+            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1,
+            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1,
+            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1,
+            this.diagramCommandSelectPointerToolBarCheckItem1,
+            this.diagramCommandSelectConnectorToolBarCheckItem1,
+            this.diagramCommandToolsContainerCheckDropDownItem1,
+            this.diagramCommandSelectPanToolBarCheckItem1,
+            this.diagramCommandSelectRectangleToolBarCheckItem1,
+            this.diagramCommandSelectEllipseToolBarCheckItem1,
+            this.diagramCommandSelectRightTriangleToolBarCheckItem1,
+            this.diagramCommandSelectHexagonToolBarCheckItem1,
+            this.diagramCommandShapeStylesBarGalleryItem1,
+            this.diagramCommandBackgroundColorBarSplitButtonItem1,
+            this.diagramCommandStrokeColorBarSplitButtonItem1,
+            this.diagramCommandBringToFrontBarSplitButtonItem1,
+            this.diagramCommandSendToBackBarSplitButtonItem1,
+            this.barButtonGroup5,
+            this.bt_Dublicate,
+            this.Bt_Qnt_On_Line,
+            this.Bt_VideoAboutLink});
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.MaxItemId = 169;
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1,
+            this.diagramViewRibbonPage1});
+            this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.diagramRepositoryItemZoomTrackBar1,
+            this.repositoryItemFontEdit1,
+            this.repositoryItemDiagramFontSizeEdit1});
+            this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl1.Size = new System.Drawing.Size(1156, 158);
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // Bt_SaveAs
+            // 
+            this.Bt_SaveAs.Caption = "Сохранить как";
+            this.Bt_SaveAs.Id = 1;
+            this.Bt_SaveAs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_SaveAs.ImageOptions.SvgImage")));
+            this.Bt_SaveAs.Name = "Bt_SaveAs";
+            this.Bt_SaveAs.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.Bt_SaveAs.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.Bt_SaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_SaveAs_ItemClick);
+            // 
+            // bt_Print
+            // 
+            this.bt_Print.Caption = "Просмотр и Печать";
+            this.bt_Print.Id = 2;
+            this.bt_Print.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Print.ImageOptions.SvgImage")));
+            this.bt_Print.Name = "bt_Print";
+            this.bt_Print.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bt_Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Print_ItemClick);
+            // 
+            // bt_Export
+            // 
+            this.bt_Export.Caption = "Экпорт";
+            this.bt_Export.Id = 3;
+            this.bt_Export.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Export.ImageOptions.SvgImage")));
+            this.bt_Export.Name = "bt_Export";
+            this.bt_Export.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.bt_Export.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Export_ItemClick);
+            // 
+            // Toggle_CreateDublicate
+            // 
+            this.Toggle_CreateDublicate.Caption = "Дубликаты повторяющихся";
+            this.Toggle_CreateDublicate.Id = 4;
+            this.Toggle_CreateDublicate.Name = "Toggle_CreateDublicate";
+            toolTipTitleItem1.Text = "Создавать дубликаты для повторно применяемых компонентов";
+            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem1.LeftIndent = 6;
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "BOM-Report";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.Toggle_CreateDublicate.SuperTip = superToolTip1;
+            this.Toggle_CreateDublicate.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.Toggle_CreateDublicate_CheckedChanged);
+            // 
+            // diagramStatusBarShapeInfoBarStaticItem1
+            // 
+            this.diagramStatusBarShapeInfoBarStaticItem1.Id = 5;
+            this.diagramStatusBarShapeInfoBarStaticItem1.Name = "diagramStatusBarShapeInfoBarStaticItem1";
+            toolTipTitleItem3.Text = "Информация о фигуре";
+            superToolTip2.Items.Add(toolTipTitleItem3);
+            this.diagramStatusBarShapeInfoBarStaticItem1.SuperTip = superToolTip2;
+            this.diagramStatusBarShapeInfoBarStaticItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // diagramCommandStatusBarZoomEditorBarEditItem1
+            // 
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.Edit = this.diagramRepositoryItemZoomTrackBar1;
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.EditWidth = 100;
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.Id = 6;
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandStatusBarZoomEditorBarEditItem1.Name = "diagramCommandStatusBarZoomEditorBarEditItem1";
+            // 
+            // diagramRepositoryItemZoomTrackBar1
+            // 
+            this.diagramRepositoryItemZoomTrackBar1.LabelAppearance.Options.UseTextOptions = true;
+            this.diagramRepositoryItemZoomTrackBar1.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.diagramRepositoryItemZoomTrackBar1.LargeChange = 240;
+            this.diagramRepositoryItemZoomTrackBar1.Maximum = 3600;
+            this.diagramRepositoryItemZoomTrackBar1.Minimum = -3600;
+            this.diagramRepositoryItemZoomTrackBar1.Name = "diagramRepositoryItemZoomTrackBar1";
+            this.diagramRepositoryItemZoomTrackBar1.SmallChange = 120;
+            this.diagramRepositoryItemZoomTrackBar1.SmallChangeUseMode = DevExpress.XtraEditors.Repository.SmallChangeUseMode.ArrowKeysAndMouse;
+            // 
+            // diagramCommandContainerPaddingBarDropDownItem1
+            // 
+            this.diagramCommandContainerPaddingBarDropDownItem1.Id = 7;
+            this.diagramCommandContainerPaddingBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPaddingBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P0BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P4BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P8BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P12BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P16BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P24BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerPadding_P32BarCheckItem1)});
+            this.diagramCommandContainerPaddingBarDropDownItem1.Name = "diagramCommandContainerPaddingBarDropDownItem1";
+            // 
+            // diagramCommandContainerPadding_P0BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P0BarCheckItem1.Id = 9;
+            this.diagramCommandContainerPadding_P0BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P0BarCheckItem1.Name = "diagramCommandContainerPadding_P0BarCheckItem1";
+            toolTipTitleItem4.Text = "0 px.";
+            superToolTip3.Items.Add(toolTipTitleItem4);
+            this.diagramCommandContainerPadding_P0BarCheckItem1.SuperTip = superToolTip3;
+            // 
+            // diagramCommandContainerPadding_P4BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P4BarCheckItem1.Id = 10;
+            this.diagramCommandContainerPadding_P4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P4BarCheckItem1.Name = "diagramCommandContainerPadding_P4BarCheckItem1";
+            toolTipTitleItem5.Text = "4 px.";
+            superToolTip4.Items.Add(toolTipTitleItem5);
+            this.diagramCommandContainerPadding_P4BarCheckItem1.SuperTip = superToolTip4;
+            // 
+            // diagramCommandContainerPadding_P8BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P8BarCheckItem1.Id = 11;
+            this.diagramCommandContainerPadding_P8BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P8BarCheckItem1.Name = "diagramCommandContainerPadding_P8BarCheckItem1";
+            toolTipTitleItem6.Text = "8 px.";
+            superToolTip5.Items.Add(toolTipTitleItem6);
+            this.diagramCommandContainerPadding_P8BarCheckItem1.SuperTip = superToolTip5;
+            // 
+            // diagramCommandContainerPadding_P12BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P12BarCheckItem1.Id = 12;
+            this.diagramCommandContainerPadding_P12BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P12BarCheckItem1.Name = "diagramCommandContainerPadding_P12BarCheckItem1";
+            toolTipTitleItem7.Text = "12 px.";
+            superToolTip6.Items.Add(toolTipTitleItem7);
+            this.diagramCommandContainerPadding_P12BarCheckItem1.SuperTip = superToolTip6;
+            // 
+            // diagramCommandContainerPadding_P16BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P16BarCheckItem1.Id = 13;
+            this.diagramCommandContainerPadding_P16BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P16BarCheckItem1.Name = "diagramCommandContainerPadding_P16BarCheckItem1";
+            toolTipTitleItem8.Text = "16 px.";
+            superToolTip7.Items.Add(toolTipTitleItem8);
+            this.diagramCommandContainerPadding_P16BarCheckItem1.SuperTip = superToolTip7;
+            // 
+            // diagramCommandContainerPadding_P24BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P24BarCheckItem1.Id = 14;
+            this.diagramCommandContainerPadding_P24BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P24BarCheckItem1.Name = "diagramCommandContainerPadding_P24BarCheckItem1";
+            toolTipTitleItem9.Text = "24 px.";
+            superToolTip8.Items.Add(toolTipTitleItem9);
+            this.diagramCommandContainerPadding_P24BarCheckItem1.SuperTip = superToolTip8;
+            // 
+            // diagramCommandContainerPadding_P32BarCheckItem1
+            // 
+            this.diagramCommandContainerPadding_P32BarCheckItem1.Id = 15;
+            this.diagramCommandContainerPadding_P32BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerPadding_P32BarCheckItem1.Name = "diagramCommandContainerPadding_P32BarCheckItem1";
+            toolTipTitleItem10.Text = "32 px.";
+            superToolTip9.Items.Add(toolTipTitleItem10);
+            this.diagramCommandContainerPadding_P32BarCheckItem1.SuperTip = superToolTip9;
+            // 
+            // diagramCommandContainerHeaderPaddingBarDropDownItem1
+            // 
+            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.Id = 8;
+            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P0BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P4BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P8BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P12BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P16BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P24BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandContainerHeaderPadding_P32BarCheckItem1)});
+            this.diagramCommandContainerHeaderPaddingBarDropDownItem1.Name = "diagramCommandContainerHeaderPaddingBarDropDownItem1";
+            // 
+            // diagramCommandContainerHeaderPadding_P0BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.Id = 16;
+            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P0BarCheckItem1";
+            toolTipTitleItem11.Text = "0 px.";
+            superToolTip10.Items.Add(toolTipTitleItem11);
+            this.diagramCommandContainerHeaderPadding_P0BarCheckItem1.SuperTip = superToolTip10;
+            // 
+            // diagramCommandContainerHeaderPadding_P4BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.Id = 17;
+            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P4BarCheckItem1";
+            toolTipTitleItem12.Text = "4 px.";
+            superToolTip11.Items.Add(toolTipTitleItem12);
+            this.diagramCommandContainerHeaderPadding_P4BarCheckItem1.SuperTip = superToolTip11;
+            // 
+            // diagramCommandContainerHeaderPadding_P8BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.Id = 18;
+            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P8BarCheckItem1";
+            toolTipTitleItem13.Text = "8 px.";
+            superToolTip12.Items.Add(toolTipTitleItem13);
+            this.diagramCommandContainerHeaderPadding_P8BarCheckItem1.SuperTip = superToolTip12;
+            // 
+            // diagramCommandContainerHeaderPadding_P12BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.Id = 19;
+            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P12BarCheckItem1";
+            toolTipTitleItem14.Text = "12 px.";
+            superToolTip13.Items.Add(toolTipTitleItem14);
+            this.diagramCommandContainerHeaderPadding_P12BarCheckItem1.SuperTip = superToolTip13;
+            // 
+            // diagramCommandContainerHeaderPadding_P16BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.Id = 20;
+            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P16BarCheckItem1";
+            toolTipTitleItem15.Text = "16 px.";
+            superToolTip14.Items.Add(toolTipTitleItem15);
+            this.diagramCommandContainerHeaderPadding_P16BarCheckItem1.SuperTip = superToolTip14;
+            // 
+            // diagramCommandContainerHeaderPadding_P24BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.Id = 21;
+            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P24BarCheckItem1";
+            toolTipTitleItem16.Text = "24 px.";
+            superToolTip15.Items.Add(toolTipTitleItem16);
+            this.diagramCommandContainerHeaderPadding_P24BarCheckItem1.SuperTip = superToolTip15;
+            // 
+            // diagramCommandContainerHeaderPadding_P32BarCheckItem1
+            // 
+            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.Id = 22;
+            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.Name = "diagramCommandContainerHeaderPadding_P32BarCheckItem1";
+            toolTipTitleItem17.Text = "32 px.";
+            superToolTip16.Items.Add(toolTipTitleItem17);
+            this.diagramCommandContainerHeaderPadding_P32BarCheckItem1.SuperTip = superToolTip16;
+            // 
+            // diagramCommandContainerStylesBarGalleryItem1
+            // 
+            // 
+            // 
+            // 
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ColumnCount = 6;
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup1});
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
+            skinPaddingEdges1.Left = 5;
+            skinPaddingEdges1.Right = 5;
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ItemImagePadding = skinPaddingEdges1;
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.RowCount = 1;
+            this.diagramCommandContainerStylesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandContainerStylesBarGalleryItem1.Id = 23;
+            this.diagramCommandContainerStylesBarGalleryItem1.Name = "diagramCommandContainerStylesBarGalleryItem1";
+            // 
+            // diagramCommandShowContainerHeaderBarCheckItem1
+            // 
+            this.diagramCommandShowContainerHeaderBarCheckItem1.Id = 24;
+            this.diagramCommandShowContainerHeaderBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandShowContainerHeaderBarCheckItem1.Name = "diagramCommandShowContainerHeaderBarCheckItem1";
+            // 
+            // diagramCommandCollapseSelectedContainersBarCheckItem1
+            // 
+            this.diagramCommandCollapseSelectedContainersBarCheckItem1.Id = 25;
+            this.diagramCommandCollapseSelectedContainersBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandCollapseSelectedContainersBarCheckItem1.Name = "diagramCommandCollapseSelectedContainersBarCheckItem1";
+            // 
+            // diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1
+            // 
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.DropDownControl = this.ImageToolsBringToFrontContainerPopupMenu;
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.Id = 26;
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1.Name = "diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1";
+            // 
+            // ImageToolsBringToFrontContainerPopupMenu
+            // 
+            this.ImageToolsBringToFrontContainerPopupMenu.ItemLinks.Add(this.diagramCommandBringForwardBarButtonItem1);
+            this.ImageToolsBringToFrontContainerPopupMenu.ItemLinks.Add(this.diagramCommandBringToFrontBarButtonItem1);
+            this.ImageToolsBringToFrontContainerPopupMenu.Name = "ImageToolsBringToFrontContainerPopupMenu";
+            this.ImageToolsBringToFrontContainerPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // diagramCommandBringForwardBarButtonItem1
+            // 
+            this.diagramCommandBringForwardBarButtonItem1.Id = 28;
+            this.diagramCommandBringForwardBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandBringForwardBarButtonItem1.Name = "diagramCommandBringForwardBarButtonItem1";
+            // 
+            // diagramCommandBringToFrontBarButtonItem1
+            // 
+            this.diagramCommandBringToFrontBarButtonItem1.Id = 29;
+            this.diagramCommandBringToFrontBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandBringToFrontBarButtonItem1.Name = "diagramCommandBringToFrontBarButtonItem1";
+            // 
+            // diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1
+            // 
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.DropDownControl = this.ImageToolsSendToBackContainerPopupMenu;
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.Id = 27;
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1.Name = "diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1";
+            // 
+            // ImageToolsSendToBackContainerPopupMenu
+            // 
+            this.ImageToolsSendToBackContainerPopupMenu.ItemLinks.Add(this.diagramCommandSendBackwardBarButtonItem1);
+            this.ImageToolsSendToBackContainerPopupMenu.ItemLinks.Add(this.diagramCommandSendToBackBarButtonItem1);
+            this.ImageToolsSendToBackContainerPopupMenu.Name = "ImageToolsSendToBackContainerPopupMenu";
+            this.ImageToolsSendToBackContainerPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // diagramCommandSendBackwardBarButtonItem1
+            // 
+            this.diagramCommandSendBackwardBarButtonItem1.Id = 30;
+            this.diagramCommandSendBackwardBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSendBackwardBarButtonItem1.Name = "diagramCommandSendBackwardBarButtonItem1";
+            // 
+            // diagramCommandSendToBackBarButtonItem1
+            // 
+            this.diagramCommandSendToBackBarButtonItem1.Id = 31;
+            this.diagramCommandSendToBackBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSendToBackBarButtonItem1.Name = "diagramCommandSendToBackBarButtonItem1";
+            // 
+            // diagramCommandImageToolsRotateBarDropDownItem1
+            // 
+            this.diagramCommandImageToolsRotateBarDropDownItem1.Id = 32;
+            this.diagramCommandImageToolsRotateBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsRotateBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandRotate_Right90BarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandRotate_Left90BarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFlipImage_VerticalBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFlipImage_HorizontalBarButtonItem1)});
+            this.diagramCommandImageToolsRotateBarDropDownItem1.Name = "diagramCommandImageToolsRotateBarDropDownItem1";
+            // 
+            // diagramCommandRotate_Right90BarButtonItem1
+            // 
+            this.diagramCommandRotate_Right90BarButtonItem1.Id = 37;
+            this.diagramCommandRotate_Right90BarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandRotate_Right90BarButtonItem1.Name = "diagramCommandRotate_Right90BarButtonItem1";
+            // 
+            // diagramCommandRotate_Left90BarButtonItem1
+            // 
+            this.diagramCommandRotate_Left90BarButtonItem1.Id = 38;
+            this.diagramCommandRotate_Left90BarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandRotate_Left90BarButtonItem1.Name = "diagramCommandRotate_Left90BarButtonItem1";
+            // 
+            // diagramCommandFlipImage_VerticalBarButtonItem1
+            // 
+            this.diagramCommandFlipImage_VerticalBarButtonItem1.Id = 39;
+            this.diagramCommandFlipImage_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFlipImage_VerticalBarButtonItem1.Name = "diagramCommandFlipImage_VerticalBarButtonItem1";
+            // 
+            // diagramCommandFlipImage_HorizontalBarButtonItem1
+            // 
+            this.diagramCommandFlipImage_HorizontalBarButtonItem1.Id = 40;
+            this.diagramCommandFlipImage_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFlipImage_HorizontalBarButtonItem1.Name = "diagramCommandFlipImage_HorizontalBarButtonItem1";
+            // 
+            // diagramCommandImageToolsStretchModeBarDropDownItem1
+            // 
+            this.diagramCommandImageToolsStretchModeBarDropDownItem1.Id = 33;
+            this.diagramCommandImageToolsStretchModeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsStretchModeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1)});
+            this.diagramCommandImageToolsStretchModeBarDropDownItem1.Name = "diagramCommandImageToolsStretchModeBarDropDownItem1";
+            // 
+            // diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1
+            // 
+            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.Id = 41;
+            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1";
+            // 
+            // diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1
+            // 
+            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.Id = 42;
+            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1";
+            // 
+            // diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1
+            // 
+            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.Id = 43;
+            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1.Name = "diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1";
+            // 
+            // diagramCommandImageToolsSetImageScaleBarDropDownItem1
+            // 
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Enabled = false;
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Id = 34;
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_1BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_2BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandImageToolsSetImageScale_4BarCheckItem1)});
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Name = "diagramCommandImageToolsSetImageScaleBarDropDownItem1";
+            // 
+            // diagramCommandImageToolsSetImageScale_0_25BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.Id = 44;
+            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_25BarCheckItem1";
+            toolTipTitleItem18.Text = "25 %";
+            superToolTip17.Items.Add(toolTipTitleItem18);
+            this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1.SuperTip = superToolTip17;
+            // 
+            // diagramCommandImageToolsSetImageScale_0_5BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.Id = 45;
+            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_5BarCheckItem1";
+            toolTipTitleItem19.Text = "50 %";
+            superToolTip18.Items.Add(toolTipTitleItem19);
+            this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1.SuperTip = superToolTip18;
+            // 
+            // diagramCommandImageToolsSetImageScale_0_75BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.Id = 46;
+            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_0_75BarCheckItem1";
+            toolTipTitleItem20.Text = "75 %";
+            superToolTip19.Items.Add(toolTipTitleItem20);
+            this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1.SuperTip = superToolTip19;
+            // 
+            // diagramCommandImageToolsSetImageScale_1BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.Id = 47;
+            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_1BarCheckItem1";
+            toolTipTitleItem21.Text = "100 %";
+            superToolTip20.Items.Add(toolTipTitleItem21);
+            this.diagramCommandImageToolsSetImageScale_1BarCheckItem1.SuperTip = superToolTip20;
+            // 
+            // diagramCommandImageToolsSetImageScale_1_5BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.Id = 48;
+            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_1_5BarCheckItem1";
+            toolTipTitleItem22.Text = "150 %";
+            superToolTip21.Items.Add(toolTipTitleItem22);
+            this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1.SuperTip = superToolTip21;
+            // 
+            // diagramCommandImageToolsSetImageScale_2BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.Id = 49;
+            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_2BarCheckItem1";
+            toolTipTitleItem23.Text = "200 %";
+            superToolTip22.Items.Add(toolTipTitleItem23);
+            this.diagramCommandImageToolsSetImageScale_2BarCheckItem1.SuperTip = superToolTip22;
+            // 
+            // diagramCommandImageToolsSetImageScale_4BarCheckItem1
+            // 
+            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.Id = 50;
+            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.Name = "diagramCommandImageToolsSetImageScale_4BarCheckItem1";
+            toolTipTitleItem24.Text = "400 %";
+            superToolTip23.Items.Add(toolTipTitleItem24);
+            this.diagramCommandImageToolsSetImageScale_4BarCheckItem1.SuperTip = superToolTip23;
+            // 
+            // diagramCommandResetSelectedImagesBarButtonItem1
+            // 
+            this.diagramCommandResetSelectedImagesBarButtonItem1.Id = 35;
+            this.diagramCommandResetSelectedImagesBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandResetSelectedImagesBarButtonItem1.Name = "diagramCommandResetSelectedImagesBarButtonItem1";
+            // 
+            // diagramCommandLoadImageBarButtonItem1
+            // 
+            this.diagramCommandLoadImageBarButtonItem1.Id = 36;
+            this.diagramCommandLoadImageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandLoadImageBarButtonItem1.Name = "diagramCommandLoadImageBarButtonItem1";
+            // 
+            // diagramCommandShowRulersBarCheckItem1
+            // 
+            this.diagramCommandShowRulersBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandShowRulersBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.diagramCommandShowRulersBarCheckItem1.Id = 51;
+            this.diagramCommandShowRulersBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandShowRulersBarCheckItem1.Name = "diagramCommandShowRulersBarCheckItem1";
+            this.diagramCommandShowRulersBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandShowGridBarCheckItem1
+            // 
+            this.diagramCommandShowGridBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandShowGridBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.diagramCommandShowGridBarCheckItem1.Id = 52;
+            this.diagramCommandShowGridBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandShowGridBarCheckItem1.Name = "diagramCommandShowGridBarCheckItem1";
+            this.diagramCommandShowGridBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandShowPageBreaksBarCheckItem1
+            // 
+            this.diagramCommandShowPageBreaksBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandShowPageBreaksBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.diagramCommandShowPageBreaksBarCheckItem1.Id = 53;
+            this.diagramCommandShowPageBreaksBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandShowPageBreaksBarCheckItem1.Name = "diagramCommandShowPageBreaksBarCheckItem1";
+            this.diagramCommandShowPageBreaksBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandPanesBarDropDownItem1
+            // 
+            this.diagramCommandPanesBarDropDownItem1.Id = 54;
+            this.diagramCommandPanesBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPanesBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandShapesPanelBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPropertiesPanelBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPanAndZoomPanelBarCheckItem1)});
+            this.diagramCommandPanesBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.diagramCommandPanesBarDropDownItem1.Name = "diagramCommandPanesBarDropDownItem1";
+            this.diagramCommandPanesBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandShapesPanelBarCheckItem1
+            // 
+            this.diagramCommandShapesPanelBarCheckItem1.Id = 55;
+            this.diagramCommandShapesPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandShapesPanelBarCheckItem1.Name = "diagramCommandShapesPanelBarCheckItem1";
+            this.diagramCommandShapesPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandPropertiesPanelBarCheckItem1
+            // 
+            this.diagramCommandPropertiesPanelBarCheckItem1.Id = 56;
+            this.diagramCommandPropertiesPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPropertiesPanelBarCheckItem1.Name = "diagramCommandPropertiesPanelBarCheckItem1";
+            this.diagramCommandPropertiesPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandPanAndZoomPanelBarCheckItem1
+            // 
+            this.diagramCommandPanAndZoomPanelBarCheckItem1.Id = 57;
+            this.diagramCommandPanAndZoomPanelBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPanAndZoomPanelBarCheckItem1.Name = "diagramCommandPanAndZoomPanelBarCheckItem1";
+            this.diagramCommandPanAndZoomPanelBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandFitToPageBarButtonItem1
+            // 
+            this.diagramCommandFitToPageBarButtonItem1.Id = 58;
+            this.diagramCommandFitToPageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFitToPageBarButtonItem1.Name = "diagramCommandFitToPageBarButtonItem1";
+            this.diagramCommandFitToPageBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandFitToWidthBarButtonItem1
+            // 
+            this.diagramCommandFitToWidthBarButtonItem1.Id = 59;
+            this.diagramCommandFitToWidthBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFitToWidthBarButtonItem1.Name = "diagramCommandFitToWidthBarButtonItem1";
+            this.diagramCommandFitToWidthBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandPageOrientationBarDropDownItem1
+            // 
+            this.diagramCommandPageOrientationBarDropDownItem1.Id = 60;
+            this.diagramCommandPageOrientationBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageOrientationBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageOrientation_HorizontalBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageOrientation_VerticalBarCheckItem1)});
+            this.diagramCommandPageOrientationBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.diagramCommandPageOrientationBarDropDownItem1.Name = "diagramCommandPageOrientationBarDropDownItem1";
+            this.diagramCommandPageOrientationBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandPageOrientation_HorizontalBarCheckItem1
+            // 
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Id = 63;
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.Name = "diagramCommandPageOrientation_HorizontalBarCheckItem1";
+            toolTipTitleItem25.Text = "Альбомная";
+            superToolTip24.Items.Add(toolTipTitleItem25);
+            this.diagramCommandPageOrientation_HorizontalBarCheckItem1.SuperTip = superToolTip24;
+            // 
+            // diagramCommandPageOrientation_VerticalBarCheckItem1
+            // 
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1.Id = 64;
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1.Name = "diagramCommandPageOrientation_VerticalBarCheckItem1";
+            toolTipTitleItem26.Text = "Книжная";
+            superToolTip25.Items.Add(toolTipTitleItem26);
+            this.diagramCommandPageOrientation_VerticalBarCheckItem1.SuperTip = superToolTip25;
+            // 
+            // diagramCommandPageSizeBarDropDownItem1
+            // 
+            this.diagramCommandPageSizeBarDropDownItem1.Id = 61;
+            this.diagramCommandPageSizeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSizeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_LetterBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_TabloidBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_LegalBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_StatementBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_ExecutiveBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A3BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A4BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_A5BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_B4BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandPageSize_B5BarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandFitToDrawingBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSetPageParameters_PageSizeBarButtonItem1)});
+            this.diagramCommandPageSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.diagramCommandPageSizeBarDropDownItem1.Name = "diagramCommandPageSizeBarDropDownItem1";
+            this.diagramCommandPageSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandPageSize_LetterBarCheckItem1
+            // 
+            this.diagramCommandPageSize_LetterBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_LetterBarCheckItem1.Id = 65;
+            this.diagramCommandPageSize_LetterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_LetterBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_LetterBarCheckItem1.Name = "diagramCommandPageSize_LetterBarCheckItem1";
+            superToolTip26.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem27.Text = "<b>Letter</b><br>8,5\" x 11\"";
+            superToolTip26.Items.Add(toolTipTitleItem27);
+            this.diagramCommandPageSize_LetterBarCheckItem1.SuperTip = superToolTip26;
+            // 
+            // diagramCommandPageSize_TabloidBarCheckItem1
+            // 
+            this.diagramCommandPageSize_TabloidBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.Id = 66;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_TabloidBarCheckItem1.Name = "diagramCommandPageSize_TabloidBarCheckItem1";
+            superToolTip27.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem28.Text = "<b>Tabloid</b><br>11\" x 17\"";
+            superToolTip27.Items.Add(toolTipTitleItem28);
+            this.diagramCommandPageSize_TabloidBarCheckItem1.SuperTip = superToolTip27;
+            // 
+            // diagramCommandPageSize_LegalBarCheckItem1
+            // 
+            this.diagramCommandPageSize_LegalBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_LegalBarCheckItem1.Id = 67;
+            this.diagramCommandPageSize_LegalBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_LegalBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_LegalBarCheckItem1.Name = "diagramCommandPageSize_LegalBarCheckItem1";
+            superToolTip28.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem29.Text = "<b>Legal</b><br>8,5\" x 14\"";
+            superToolTip28.Items.Add(toolTipTitleItem29);
+            this.diagramCommandPageSize_LegalBarCheckItem1.SuperTip = superToolTip28;
+            // 
+            // diagramCommandPageSize_StatementBarCheckItem1
+            // 
+            this.diagramCommandPageSize_StatementBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_StatementBarCheckItem1.Id = 68;
+            this.diagramCommandPageSize_StatementBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_StatementBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_StatementBarCheckItem1.Name = "diagramCommandPageSize_StatementBarCheckItem1";
+            superToolTip29.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem30.Text = "<b>Statement</b><br>5,5\" x 8,5\"";
+            superToolTip29.Items.Add(toolTipTitleItem30);
+            this.diagramCommandPageSize_StatementBarCheckItem1.SuperTip = superToolTip29;
+            // 
+            // diagramCommandPageSize_ExecutiveBarCheckItem1
+            // 
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.Id = 69;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.Name = "diagramCommandPageSize_ExecutiveBarCheckItem1";
+            superToolTip30.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem31.Text = "<b>Executive</b><br>7,25\" x 10,5\"";
+            superToolTip30.Items.Add(toolTipTitleItem31);
+            this.diagramCommandPageSize_ExecutiveBarCheckItem1.SuperTip = superToolTip30;
+            // 
+            // diagramCommandPageSize_A3BarCheckItem1
+            // 
+            this.diagramCommandPageSize_A3BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_A3BarCheckItem1.Id = 70;
+            this.diagramCommandPageSize_A3BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A3BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A3BarCheckItem1.Name = "diagramCommandPageSize_A3BarCheckItem1";
+            superToolTip31.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem32.Text = "<b>A3</b><br>11,7\" x 16,53\"";
+            superToolTip31.Items.Add(toolTipTitleItem32);
+            this.diagramCommandPageSize_A3BarCheckItem1.SuperTip = superToolTip31;
+            // 
+            // diagramCommandPageSize_A4BarCheckItem1
+            // 
+            this.diagramCommandPageSize_A4BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_A4BarCheckItem1.Id = 71;
+            this.diagramCommandPageSize_A4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A4BarCheckItem1.Name = "diagramCommandPageSize_A4BarCheckItem1";
+            superToolTip32.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem33.Text = "<b>A4</b><br>8,27\" x 11,7\"";
+            superToolTip32.Items.Add(toolTipTitleItem33);
+            this.diagramCommandPageSize_A4BarCheckItem1.SuperTip = superToolTip32;
+            // 
+            // diagramCommandPageSize_A5BarCheckItem1
+            // 
+            this.diagramCommandPageSize_A5BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_A5BarCheckItem1.Id = 72;
+            this.diagramCommandPageSize_A5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_A5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_A5BarCheckItem1.Name = "diagramCommandPageSize_A5BarCheckItem1";
+            superToolTip33.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem34.Text = "<b>A5</b><br>5,82\" x 8,27\"";
+            superToolTip33.Items.Add(toolTipTitleItem34);
+            this.diagramCommandPageSize_A5BarCheckItem1.SuperTip = superToolTip33;
+            // 
+            // diagramCommandPageSize_B4BarCheckItem1
+            // 
+            this.diagramCommandPageSize_B4BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_B4BarCheckItem1.Id = 73;
+            this.diagramCommandPageSize_B4BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_B4BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_B4BarCheckItem1.Name = "diagramCommandPageSize_B4BarCheckItem1";
+            superToolTip34.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem35.Text = "<b>B4 (JIS)</b><br>10,11\" x 14,33\"";
+            superToolTip34.Items.Add(toolTipTitleItem35);
+            this.diagramCommandPageSize_B4BarCheckItem1.SuperTip = superToolTip34;
+            // 
+            // diagramCommandPageSize_B5BarCheckItem1
+            // 
+            this.diagramCommandPageSize_B5BarCheckItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandPageSize_B5BarCheckItem1.Id = 74;
+            this.diagramCommandPageSize_B5BarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Normal.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.Options.UseTextOptions = true;
+            this.diagramCommandPageSize_B5BarCheckItem1.ItemInMenuAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.diagramCommandPageSize_B5BarCheckItem1.Name = "diagramCommandPageSize_B5BarCheckItem1";
+            superToolTip35.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem36.Text = "<b>B5 (JIS)</b><br>7,17\" x 10,11\"";
+            superToolTip35.Items.Add(toolTipTitleItem36);
+            this.diagramCommandPageSize_B5BarCheckItem1.SuperTip = superToolTip35;
+            // 
+            // diagramCommandFitToDrawingBarButtonItem1
+            // 
+            this.diagramCommandFitToDrawingBarButtonItem1.Id = 75;
+            this.diagramCommandFitToDrawingBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFitToDrawingBarButtonItem1.Name = "diagramCommandFitToDrawingBarButtonItem1";
+            // 
+            // diagramCommandSetPageParameters_PageSizeBarButtonItem1
+            // 
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Id = 76;
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetPageParameters_PageSizeBarButtonItem1.Name = "diagramCommandSetPageParameters_PageSizeBarButtonItem1";
+            // 
+            // diagramCommandAutoSizeBarDropDownItem1
+            // 
+            this.diagramCommandAutoSizeBarDropDownItem1.Id = 62;
+            this.diagramCommandAutoSizeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandAutoSizeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_NoneBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_AutoSizeBarCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandAutoSize_FillBarCheckItem1)});
+            this.diagramCommandAutoSizeBarDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.diagramCommandAutoSizeBarDropDownItem1.Name = "diagramCommandAutoSizeBarDropDownItem1";
+            this.diagramCommandAutoSizeBarDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandAutoSize_NoneBarCheckItem1
+            // 
+            this.diagramCommandAutoSize_NoneBarCheckItem1.Id = 77;
+            this.diagramCommandAutoSize_NoneBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandAutoSize_NoneBarCheckItem1.Name = "diagramCommandAutoSize_NoneBarCheckItem1";
+            // 
+            // diagramCommandAutoSize_AutoSizeBarCheckItem1
+            // 
+            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.Id = 78;
+            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandAutoSize_AutoSizeBarCheckItem1.Name = "diagramCommandAutoSize_AutoSizeBarCheckItem1";
+            // 
+            // diagramCommandAutoSize_FillBarCheckItem1
+            // 
+            this.diagramCommandAutoSize_FillBarCheckItem1.Id = 79;
+            this.diagramCommandAutoSize_FillBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandAutoSize_FillBarCheckItem1.Name = "diagramCommandAutoSize_FillBarCheckItem1";
+            // 
+            // diagramCommandThemesBarGalleryItem1
+            // 
+            // 
+            // 
+            // 
+            this.diagramCommandThemesBarGalleryItem1.Gallery.ColumnCount = 8;
+            this.diagramCommandThemesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup2});
+            this.diagramCommandThemesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(65, 46);
+            this.diagramCommandThemesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
+            this.diagramCommandThemesBarGalleryItem1.Gallery.RowCount = 1;
+            this.diagramCommandThemesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandThemesBarGalleryItem1.Id = 80;
+            this.diagramCommandThemesBarGalleryItem1.Name = "diagramCommandThemesBarGalleryItem1";
+            // 
+            // diagramCommandSnapToItemsBarCheckItem1
+            // 
+            this.diagramCommandSnapToItemsBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandSnapToItemsBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.diagramCommandSnapToItemsBarCheckItem1.Id = 81;
+            this.diagramCommandSnapToItemsBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSnapToItemsBarCheckItem1.Name = "diagramCommandSnapToItemsBarCheckItem1";
+            // 
+            // diagramCommandSnapToGridBarCheckItem1
+            // 
+            this.diagramCommandSnapToGridBarCheckItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.diagramCommandSnapToGridBarCheckItem1.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.diagramCommandSnapToGridBarCheckItem1.Id = 82;
+            this.diagramCommandSnapToGridBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSnapToGridBarCheckItem1.Name = "diagramCommandSnapToGridBarCheckItem1";
+            // 
+            // diagramCommandReLayoutBarDropDownItem1
+            // 
+            this.diagramCommandReLayoutBarDropDownItem1.Id = 83;
+            this.diagramCommandReLayoutBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandReLayoutBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutTreeBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_DownBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_UpBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_RightBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayout_LeftBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutSugiyamaBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_DownBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_UpBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_RightBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandSugiyamaLayout_LeftBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutCircularHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandCircularLayoutBarButtonItem1)});
+            this.diagramCommandReLayoutBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandReLayoutBarDropDownItem1.Name = "diagramCommandReLayoutBarDropDownItem1";
+            this.diagramCommandReLayoutBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // diagramReLayoutTreeBarHeaderItem1
+            // 
+            this.diagramReLayoutTreeBarHeaderItem1.Id = 86;
+            this.diagramReLayoutTreeBarHeaderItem1.Name = "diagramReLayoutTreeBarHeaderItem1";
+            // 
+            // diagramCommandTreeLayout_DownBarButtonItem1
+            // 
+            this.diagramCommandTreeLayout_DownBarButtonItem1.Id = 87;
+            this.diagramCommandTreeLayout_DownBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayout_DownBarButtonItem1.Name = "diagramCommandTreeLayout_DownBarButtonItem1";
+            // 
+            // diagramCommandTreeLayout_UpBarButtonItem1
+            // 
+            this.diagramCommandTreeLayout_UpBarButtonItem1.Id = 88;
+            this.diagramCommandTreeLayout_UpBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayout_UpBarButtonItem1.Name = "diagramCommandTreeLayout_UpBarButtonItem1";
+            // 
+            // diagramCommandTreeLayout_RightBarButtonItem1
+            // 
+            this.diagramCommandTreeLayout_RightBarButtonItem1.Id = 89;
+            this.diagramCommandTreeLayout_RightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayout_RightBarButtonItem1.Name = "diagramCommandTreeLayout_RightBarButtonItem1";
+            // 
+            // diagramCommandTreeLayout_LeftBarButtonItem1
+            // 
+            this.diagramCommandTreeLayout_LeftBarButtonItem1.Id = 90;
+            this.diagramCommandTreeLayout_LeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayout_LeftBarButtonItem1.Name = "diagramCommandTreeLayout_LeftBarButtonItem1";
+            // 
+            // diagramReLayoutTipOverTreeHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1.Id = 91;
+            this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1.Name = "diagramReLayoutTipOverTreeHeaderBarHeaderItem1";
+            // 
+            // diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1
+            // 
+            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.Id = 92;
+            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1.Name = "diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1";
+            // 
+            // diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1
+            // 
+            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.Id = 93;
+            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1.Name = "diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1";
+            // 
+            // diagramReLayoutMindMapTreeHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Id = 94;
+            this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutMindMapTreeHeaderBarHeaderItem1";
+            // 
+            // diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1
+            // 
+            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.Id = 95;
+            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1.Name = "diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1";
+            // 
+            // diagramCommandMindMapTreeLayout_VerticalBarButtonItem1
+            // 
+            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.Id = 96;
+            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1.Name = "diagramCommandMindMapTreeLayout_VerticalBarButtonItem1";
+            // 
+            // diagramReLayoutSugiyamaBarHeaderItem1
+            // 
+            this.diagramReLayoutSugiyamaBarHeaderItem1.Id = 97;
+            this.diagramReLayoutSugiyamaBarHeaderItem1.Name = "diagramReLayoutSugiyamaBarHeaderItem1";
+            // 
+            // diagramCommandSugiyamaLayout_DownBarButtonItem1
+            // 
+            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.Id = 98;
+            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSugiyamaLayout_DownBarButtonItem1.Name = "diagramCommandSugiyamaLayout_DownBarButtonItem1";
+            // 
+            // diagramCommandSugiyamaLayout_UpBarButtonItem1
+            // 
+            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.Id = 99;
+            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSugiyamaLayout_UpBarButtonItem1.Name = "diagramCommandSugiyamaLayout_UpBarButtonItem1";
+            // 
+            // diagramCommandSugiyamaLayout_RightBarButtonItem1
+            // 
+            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.Id = 100;
+            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSugiyamaLayout_RightBarButtonItem1.Name = "diagramCommandSugiyamaLayout_RightBarButtonItem1";
+            // 
+            // diagramCommandSugiyamaLayout_LeftBarButtonItem1
+            // 
+            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.Id = 101;
+            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSugiyamaLayout_LeftBarButtonItem1.Name = "diagramCommandSugiyamaLayout_LeftBarButtonItem1";
+            // 
+            // diagramReLayoutCircularHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutCircularHeaderBarHeaderItem1.Id = 102;
+            this.diagramReLayoutCircularHeaderBarHeaderItem1.Name = "diagramReLayoutCircularHeaderBarHeaderItem1";
+            // 
+            // diagramCommandCircularLayoutBarButtonItem1
+            // 
+            this.diagramCommandCircularLayoutBarButtonItem1.Id = 103;
+            this.diagramCommandCircularLayoutBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandCircularLayoutBarButtonItem1.Name = "diagramCommandCircularLayoutBarButtonItem1";
+            // 
+            // diagramCommandChangeConnectorTypeBarDropDownItem1
+            // 
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.Id = 84;
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_CurvedBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandChangeConnectorType_StraightBarButtonItem1)});
+            this.diagramCommandChangeConnectorTypeBarDropDownItem1.Name = "diagramCommandChangeConnectorTypeBarDropDownItem1";
+            // 
+            // diagramCommandChangeConnectorType_RightAngleBarButtonItem1
+            // 
+            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.Id = 104;
+            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1.Name = "diagramCommandChangeConnectorType_RightAngleBarButtonItem1";
+            // 
+            // diagramCommandChangeConnectorType_CurvedBarButtonItem1
+            // 
+            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.Id = 105;
+            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandChangeConnectorType_CurvedBarButtonItem1.Name = "diagramCommandChangeConnectorType_CurvedBarButtonItem1";
+            // 
+            // diagramCommandChangeConnectorType_StraightBarButtonItem1
+            // 
+            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.Id = 106;
+            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandChangeConnectorType_StraightBarButtonItem1.Name = "diagramCommandChangeConnectorType_StraightBarButtonItem1";
+            // 
+            // diagramCommandReLayoutPartsBarDropDownItem1
+            // 
+            this.diagramCommandReLayoutPartsBarDropDownItem1.Id = 85;
+            this.diagramCommandReLayoutPartsBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandReLayoutPartsBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsTreeHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1)});
+            this.diagramCommandReLayoutPartsBarDropDownItem1.MultiColumn = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandReLayoutPartsBarDropDownItem1.Name = "diagramCommandReLayoutPartsBarDropDownItem1";
+            this.diagramCommandReLayoutPartsBarDropDownItem1.OptionsMultiColumn.LargeImages = DevExpress.Utils.DefaultBoolean.True;
+            // 
+            // diagramReLayoutPartsTreeHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Id = 107;
+            this.diagramReLayoutPartsTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsTreeHeaderBarHeaderItem1";
+            // 
+            // diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1
+            // 
+            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.Id = 108;
+            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1";
+            // 
+            // diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1
+            // 
+            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.Id = 109;
+            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1";
+            // 
+            // diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1
+            // 
+            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Id = 110;
+            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1";
+            // 
+            // diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1
+            // 
+            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Id = 111;
+            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Name = "diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1";
+            // 
+            // diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1.Id = 112;
+            this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1";
+            // 
+            // diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1
+            // 
+            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Id = 113;
+            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1.Name = "diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1";
+            // 
+            // diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1
+            // 
+            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Id = 114;
+            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1.Name = "diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1";
+            // 
+            // diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1
+            // 
+            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Id = 115;
+            this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1.Name = "diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1";
+            // 
+            // diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1
+            // 
+            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.Id = 116;
+            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1.Name = "diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1";
+            // 
+            // diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1
+            // 
+            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.Id = 117;
+            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1.Name = "diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1";
+            // 
+            // diagramCommandInsertContainerBarSplitButtonItem1
+            // 
+            this.diagramCommandInsertContainerBarSplitButtonItem1.DropDownControl = this.InsertContainerPopupMenu;
+            this.diagramCommandInsertContainerBarSplitButtonItem1.Id = 118;
+            this.diagramCommandInsertContainerBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.diagramCommandInsertContainerBarSplitButtonItem1.Name = "diagramCommandInsertContainerBarSplitButtonItem1";
+            this.diagramCommandInsertContainerBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // InsertContainerPopupMenu
+            // 
+            // 
+            // 
+            // 
+            this.InsertContainerPopupMenu.Gallery.AllowFilter = false;
+            this.InsertContainerPopupMenu.Gallery.ColumnCount = 4;
+            this.InsertContainerPopupMenu.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup3});
+            this.InsertContainerPopupMenu.Gallery.ImageSize = new System.Drawing.Size(65, 46);
+            this.InsertContainerPopupMenu.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
+            this.InsertContainerPopupMenu.Gallery.RowCount = 2;
+            this.InsertContainerPopupMenu.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
+            this.InsertContainerPopupMenu.Gallery.ShowGroupCaption = false;
+            this.InsertContainerPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.LargeImagesText;
+            this.InsertContainerPopupMenu.Name = "InsertContainerPopupMenu";
+            this.InsertContainerPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // diagramCommandInsertImageBarButtonItem1
+            // 
+            this.diagramCommandInsertImageBarButtonItem1.Id = 119;
+            this.diagramCommandInsertImageBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandInsertImageBarButtonItem1.Name = "diagramCommandInsertImageBarButtonItem1";
+            this.diagramCommandInsertImageBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandPasteBarButtonItem1
+            // 
+            this.diagramCommandPasteBarButtonItem1.Id = 124;
+            this.diagramCommandPasteBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandPasteBarButtonItem1.Name = "diagramCommandPasteBarButtonItem1";
+            this.diagramCommandPasteBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // diagramCommandCutBarButtonItem1
+            // 
+            this.diagramCommandCutBarButtonItem1.Id = 125;
+            this.diagramCommandCutBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandCutBarButtonItem1.Name = "diagramCommandCutBarButtonItem1";
+            this.diagramCommandCutBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandCopyBarButtonItem1
+            // 
+            this.diagramCommandCopyBarButtonItem1.Id = 126;
+            this.diagramCommandCopyBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandCopyBarButtonItem1.Name = "diagramCommandCopyBarButtonItem1";
+            this.diagramCommandCopyBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barButtonGroup1
+            // 
+            this.barButtonGroup1.Id = 120;
+            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandFontFamilyBarEditItem1);
+            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandFontSizeBarEditItem1);
+            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandIncreaseFontSizeBarButtonItem1);
+            this.barButtonGroup1.ItemLinks.Add(this.diagramCommandDecreaseFontSizeBarButtonItem1);
+            this.barButtonGroup1.Name = "barButtonGroup1";
+            this.barButtonGroup1.Tag = "bgFontSizeAndFamily";
+            // 
+            // diagramCommandFontFamilyBarEditItem1
+            // 
+            this.diagramCommandFontFamilyBarEditItem1.Edit = this.repositoryItemFontEdit1;
+            this.diagramCommandFontFamilyBarEditItem1.EditWidth = 130;
+            this.diagramCommandFontFamilyBarEditItem1.Id = 127;
+            this.diagramCommandFontFamilyBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFontFamilyBarEditItem1.Name = "diagramCommandFontFamilyBarEditItem1";
+            // 
+            // repositoryItemFontEdit1
+            // 
+            this.repositoryItemFontEdit1.AutoHeight = false;
+            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+            // 
+            // diagramCommandFontSizeBarEditItem1
+            // 
+            this.diagramCommandFontSizeBarEditItem1.Edit = this.repositoryItemDiagramFontSizeEdit1;
+            this.diagramCommandFontSizeBarEditItem1.Id = 128;
+            this.diagramCommandFontSizeBarEditItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandFontSizeBarEditItem1.Name = "diagramCommandFontSizeBarEditItem1";
+            // 
+            // repositoryItemDiagramFontSizeEdit1
+            // 
+            this.repositoryItemDiagramFontSizeEdit1.AutoHeight = false;
+            this.repositoryItemDiagramFontSizeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDiagramFontSizeEdit1.Diagram = this.diagramControl1;
+            this.repositoryItemDiagramFontSizeEdit1.Name = "repositoryItemDiagramFontSizeEdit1";
+            // 
+            // diagramCommandIncreaseFontSizeBarButtonItem1
+            // 
+            this.diagramCommandIncreaseFontSizeBarButtonItem1.Id = 129;
+            this.diagramCommandIncreaseFontSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandIncreaseFontSizeBarButtonItem1.Name = "diagramCommandIncreaseFontSizeBarButtonItem1";
+            this.diagramCommandIncreaseFontSizeBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandDecreaseFontSizeBarButtonItem1
+            // 
+            this.diagramCommandDecreaseFontSizeBarButtonItem1.Id = 130;
+            this.diagramCommandDecreaseFontSizeBarButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandDecreaseFontSizeBarButtonItem1.Name = "diagramCommandDecreaseFontSizeBarButtonItem1";
+            this.diagramCommandDecreaseFontSizeBarButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barButtonGroup2
+            // 
+            this.barButtonGroup2.Id = 121;
+            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontBoldBarCheckItem1);
+            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontItalicBarCheckItem1);
+            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontUnderlineBarCheckItem1);
+            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandToggleFontStrikethroughBarCheckItem1);
+            this.barButtonGroup2.ItemLinks.Add(this.diagramCommandForegroundColorBarSplitButtonItem1);
+            this.barButtonGroup2.Name = "barButtonGroup2";
+            this.barButtonGroup2.Tag = "bgFontTypeAndColor";
+            // 
+            // diagramCommandToggleFontBoldBarCheckItem1
+            // 
+            this.diagramCommandToggleFontBoldBarCheckItem1.Id = 131;
+            this.diagramCommandToggleFontBoldBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandToggleFontBoldBarCheckItem1.Name = "diagramCommandToggleFontBoldBarCheckItem1";
+            this.diagramCommandToggleFontBoldBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandToggleFontItalicBarCheckItem1
+            // 
+            this.diagramCommandToggleFontItalicBarCheckItem1.Id = 132;
+            this.diagramCommandToggleFontItalicBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandToggleFontItalicBarCheckItem1.Name = "diagramCommandToggleFontItalicBarCheckItem1";
+            this.diagramCommandToggleFontItalicBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandToggleFontUnderlineBarCheckItem1
+            // 
+            this.diagramCommandToggleFontUnderlineBarCheckItem1.Id = 133;
+            this.diagramCommandToggleFontUnderlineBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandToggleFontUnderlineBarCheckItem1.Name = "diagramCommandToggleFontUnderlineBarCheckItem1";
+            this.diagramCommandToggleFontUnderlineBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandToggleFontStrikethroughBarCheckItem1
+            // 
+            this.diagramCommandToggleFontStrikethroughBarCheckItem1.Id = 134;
+            this.diagramCommandToggleFontStrikethroughBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandToggleFontStrikethroughBarCheckItem1.Name = "diagramCommandToggleFontStrikethroughBarCheckItem1";
+            this.diagramCommandToggleFontStrikethroughBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandForegroundColorBarSplitButtonItem1
+            // 
+            this.diagramCommandForegroundColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandForegroundColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
+            this.diagramCommandForegroundColorBarSplitButtonItem1.Id = 135;
+            this.diagramCommandForegroundColorBarSplitButtonItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandForegroundColorBarSplitButtonItem1.Name = "diagramCommandForegroundColorBarSplitButtonItem1";
+            this.diagramCommandForegroundColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barButtonGroup3
+            // 
+            this.barButtonGroup3.Id = 122;
+            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_TopBarCheckItem1);
+            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1);
+            this.barButtonGroup3.ItemLinks.Add(this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1);
+            this.barButtonGroup3.Name = "barButtonGroup3";
+            this.barButtonGroup3.Tag = "bgVerticalTextAlignment";
+            // 
+            // diagramCommandSetVerticalAlignment_TopBarCheckItem1
+            // 
+            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.Id = 136;
+            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_TopBarCheckItem1";
+            this.diagramCommandSetVerticalAlignment_TopBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandSetVerticalAlignment_CenterBarCheckItem1
+            // 
+            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.Id = 137;
+            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_CenterBarCheckItem1";
+            this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandSetVerticalAlignment_BottomBarCheckItem1
+            // 
+            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.Id = 138;
+            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.Name = "diagramCommandSetVerticalAlignment_BottomBarCheckItem1";
+            this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barButtonGroup4
+            // 
+            this.barButtonGroup4.Id = 123;
+            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1);
+            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1);
+            this.barButtonGroup4.ItemLinks.Add(this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1);
+            this.barButtonGroup4.Name = "barButtonGroup4";
+            this.barButtonGroup4.Tag = "bgHorizontalTextAlignment";
+            // 
+            // diagramCommandSetHorizontalAlignment_LeftBarCheckItem1
+            // 
+            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.Id = 139;
+            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_LeftBarCheckItem1";
+            this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandSetHorizontalAlignment_CenterBarCheckItem1
+            // 
+            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.Id = 140;
+            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_CenterBarCheckItem1";
+            this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandSetHorizontalAlignment_RightBarCheckItem1
+            // 
+            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.Id = 141;
+            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.Name = "diagramCommandSetHorizontalAlignment_RightBarCheckItem1";
+            this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandSelectPointerToolBarCheckItem1
+            // 
+            this.diagramCommandSelectPointerToolBarCheckItem1.Id = 142;
+            this.diagramCommandSelectPointerToolBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSelectPointerToolBarCheckItem1.Name = "diagramCommandSelectPointerToolBarCheckItem1";
+            this.diagramCommandSelectPointerToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSelectConnectorToolBarCheckItem1
+            // 
+            this.diagramCommandSelectConnectorToolBarCheckItem1.Id = 143;
+            this.diagramCommandSelectConnectorToolBarCheckItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramCommandSelectConnectorToolBarCheckItem1.Name = "diagramCommandSelectConnectorToolBarCheckItem1";
+            this.diagramCommandSelectConnectorToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandToolsContainerCheckDropDownItem1
+            // 
+            this.diagramCommandToolsContainerCheckDropDownItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.CheckDropDown;
+            this.diagramCommandToolsContainerCheckDropDownItem1.Caption = "Прямоугольник";
+            this.diagramCommandToolsContainerCheckDropDownItem1.Description = "Drag to draw a rectangle.";
+            this.diagramCommandToolsContainerCheckDropDownItem1.DropDownControl = this.ToolsContainerPopupMenu;
+            this.diagramCommandToolsContainerCheckDropDownItem1.Id = 144;
+            this.diagramCommandToolsContainerCheckDropDownItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.diagramCommandToolsContainerCheckDropDownItem1.Name = "diagramCommandToolsContainerCheckDropDownItem1";
+            this.diagramCommandToolsContainerCheckDropDownItem1.RememberLastCommand = true;
+            this.diagramCommandToolsContainerCheckDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            toolTipTitleItem37.Text = "Прямоугольник (Ctrl+8)";
+            toolTipItem2.Text = "Drag to draw a rectangle.";
+            superToolTip36.Items.Add(toolTipTitleItem37);
+            superToolTip36.Items.Add(toolTipItem2);
+            this.diagramCommandToolsContainerCheckDropDownItem1.SuperTip = superToolTip36;
+            // 
+            // ToolsContainerPopupMenu
+            // 
+            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectRectangleToolBarCheckItem1);
+            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectEllipseToolBarCheckItem1);
+            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectRightTriangleToolBarCheckItem1);
+            this.ToolsContainerPopupMenu.ItemLinks.Add(this.diagramCommandSelectHexagonToolBarCheckItem1);
+            this.ToolsContainerPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.ToolsContainerPopupMenu.Name = "ToolsContainerPopupMenu";
+            this.ToolsContainerPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // diagramCommandSelectRectangleToolBarCheckItem1
+            // 
+            this.diagramCommandSelectRectangleToolBarCheckItem1.Id = 156;
+            this.diagramCommandSelectRectangleToolBarCheckItem1.Name = "diagramCommandSelectRectangleToolBarCheckItem1";
+            this.diagramCommandSelectRectangleToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSelectEllipseToolBarCheckItem1
+            // 
+            this.diagramCommandSelectEllipseToolBarCheckItem1.Id = 157;
+            this.diagramCommandSelectEllipseToolBarCheckItem1.Name = "diagramCommandSelectEllipseToolBarCheckItem1";
+            this.diagramCommandSelectEllipseToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSelectRightTriangleToolBarCheckItem1
+            // 
+            this.diagramCommandSelectRightTriangleToolBarCheckItem1.Id = 158;
+            this.diagramCommandSelectRightTriangleToolBarCheckItem1.Name = "diagramCommandSelectRightTriangleToolBarCheckItem1";
+            this.diagramCommandSelectRightTriangleToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSelectHexagonToolBarCheckItem1
+            // 
+            this.diagramCommandSelectHexagonToolBarCheckItem1.Id = 159;
+            this.diagramCommandSelectHexagonToolBarCheckItem1.Name = "diagramCommandSelectHexagonToolBarCheckItem1";
+            this.diagramCommandSelectHexagonToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSelectPanToolBarCheckItem1
+            // 
+            this.diagramCommandSelectPanToolBarCheckItem1.Id = 155;
+            this.diagramCommandSelectPanToolBarCheckItem1.Name = "diagramCommandSelectPanToolBarCheckItem1";
+            this.diagramCommandSelectPanToolBarCheckItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // diagramCommandShapeStylesBarGalleryItem1
+            // 
+            // 
+            // 
+            // 
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ColumnCount = 7;
+            galleryItemGroup4.Caption = "Стили варианта";
+            galleryItemGroup4.Tag = "Стили варианта";
+            galleryItemGroup5.Caption = "Стили темы";
+            galleryItemGroup5.Tag = "Стили темы";
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
+            galleryItemGroup4,
+            galleryItemGroup5});
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ImageSize = new System.Drawing.Size(43, 43);
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ItemCheckMode = DevExpress.XtraBars.Ribbon.Gallery.ItemCheckMode.SingleRadio;
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.RowCount = 7;
+            this.diagramCommandShapeStylesBarGalleryItem1.Gallery.ScaleImages = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramCommandShapeStylesBarGalleryItem1.Id = 150;
+            this.diagramCommandShapeStylesBarGalleryItem1.Name = "diagramCommandShapeStylesBarGalleryItem1";
+            // 
+            // diagramCommandBackgroundColorBarSplitButtonItem1
+            // 
+            this.diagramCommandBackgroundColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandBackgroundColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
+            this.diagramCommandBackgroundColorBarSplitButtonItem1.Id = 160;
+            this.diagramCommandBackgroundColorBarSplitButtonItem1.Name = "diagramCommandBackgroundColorBarSplitButtonItem1";
+            this.diagramCommandBackgroundColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandStrokeColorBarSplitButtonItem1
+            // 
+            this.diagramCommandStrokeColorBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandStrokeColorBarSplitButtonItem1.Color = System.Drawing.Color.Empty;
+            this.diagramCommandStrokeColorBarSplitButtonItem1.Id = 161;
+            this.diagramCommandStrokeColorBarSplitButtonItem1.Name = "diagramCommandStrokeColorBarSplitButtonItem1";
+            this.diagramCommandStrokeColorBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandBringToFrontBarSplitButtonItem1
+            // 
+            this.diagramCommandBringToFrontBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandBringToFrontBarSplitButtonItem1.Id = 162;
+            this.diagramCommandBringToFrontBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.diagramCommandBringToFrontBarSplitButtonItem1.Name = "diagramCommandBringToFrontBarSplitButtonItem1";
+            this.diagramCommandBringToFrontBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // diagramCommandSendToBackBarSplitButtonItem1
+            // 
+            this.diagramCommandSendToBackBarSplitButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.diagramCommandSendToBackBarSplitButtonItem1.Id = 163;
+            this.diagramCommandSendToBackBarSplitButtonItem1.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.diagramCommandSendToBackBarSplitButtonItem1.Name = "diagramCommandSendToBackBarSplitButtonItem1";
+            this.diagramCommandSendToBackBarSplitButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barButtonGroup5
+            // 
+            this.barButtonGroup5.Caption = "barButtonGroup5";
+            this.barButtonGroup5.Id = 164;
+            this.barButtonGroup5.ItemLinks.Add(this.bt_Dublicate);
+            this.barButtonGroup5.ItemLinks.Add(this.Bt_Qnt_On_Line);
+            this.barButtonGroup5.Name = "barButtonGroup5";
+            // 
+            // bt_Dublicate
+            // 
+            this.bt_Dublicate.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.bt_Dublicate.Caption = "Дубликаты повторяющихся";
+            this.bt_Dublicate.Id = 166;
+            this.bt_Dublicate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Dublicate.ImageOptions.SvgImage")));
+            this.bt_Dublicate.Name = "bt_Dublicate";
+            toolTipTitleItem38.Text = "Дубликаты повторяющихся";
+            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Создавать дубликаты для повторно применяемых компонентов";
+            toolTipTitleItem39.LeftIndent = 6;
+            toolTipTitleItem39.Text = "BOM-Report";
+            superToolTip37.Items.Add(toolTipTitleItem38);
+            superToolTip37.Items.Add(toolTipItem3);
+            superToolTip37.Items.Add(toolTipSeparatorItem2);
+            superToolTip37.Items.Add(toolTipTitleItem39);
+            this.bt_Dublicate.SuperTip = superToolTip37;
+            this.bt_Dublicate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Dublicate_ItemClick);
+            // 
+            // Bt_Qnt_On_Line
+            // 
+            this.Bt_Qnt_On_Line.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.Bt_Qnt_On_Line.Caption = "Количество на линиях";
+            this.Bt_Qnt_On_Line.Id = 167;
+            this.Bt_Qnt_On_Line.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_Qnt_On_Line.ImageOptions.SvgImage")));
+            this.Bt_Qnt_On_Line.Name = "Bt_Qnt_On_Line";
+            toolTipTitleItem40.Text = "Указать количество на линиях связи";
+            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = "При ВКЛ опции, на линиях связи, будет отмечено Количество, с которой в данный узе" +
+    "л будет входить компонент\r\nПри ВЫКЛ, данный параметры отображаться не будет";
+            toolTipTitleItem41.LeftIndent = 6;
+            toolTipTitleItem41.Text = "BOM-Report";
+            superToolTip38.Items.Add(toolTipTitleItem40);
+            superToolTip38.Items.Add(toolTipItem4);
+            superToolTip38.Items.Add(toolTipSeparatorItem3);
+            superToolTip38.Items.Add(toolTipTitleItem41);
+            this.Bt_Qnt_On_Line.SuperTip = superToolTip38;
+            this.Bt_Qnt_On_Line.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Qnt_On_Line_ItemClick);
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2,
+            this.diagramPageSetupRibbonPageGroup1,
+            this.diagramTreeLayoutRibbonPageGroup1,
+            this.Demonstration_Panel});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Инструменты";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.Bt_SaveAs);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bt_Print);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bt_Export);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Инструменты сохранения";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonGroup5);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Состав";
+            // 
+            // diagramPageSetupRibbonPageGroup1
+            // 
+            this.diagramPageSetupRibbonPageGroup1.AllowTextClipping = false;
+            this.diagramPageSetupRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandPageOrientationBarDropDownItem1);
+            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandPageSizeBarDropDownItem1);
+            this.diagramPageSetupRibbonPageGroup1.ItemLinks.Add(this.diagramCommandAutoSizeBarDropDownItem1);
+            this.diagramPageSetupRibbonPageGroup1.Name = "diagramPageSetupRibbonPageGroup1";
+            // 
+            // diagramTreeLayoutRibbonPageGroup1
+            // 
+            this.diagramTreeLayoutRibbonPageGroup1.AllowTextClipping = false;
+            this.diagramTreeLayoutRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.True;
+            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandReLayoutBarDropDownItem1);
+            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandChangeConnectorTypeBarDropDownItem1);
+            this.diagramTreeLayoutRibbonPageGroup1.ItemLinks.Add(this.diagramCommandReLayoutPartsBarDropDownItem1);
+            this.diagramTreeLayoutRibbonPageGroup1.Name = "diagramTreeLayoutRibbonPageGroup1";
+            // 
+            // diagramViewRibbonPage1
+            // 
+            this.diagramViewRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.diagramShowRibbonPageGroup1,
+            this.diagramZoomRibbonPageGroup1});
+            this.diagramViewRibbonPage1.Name = "diagramViewRibbonPage1";
+            // 
+            // diagramShowRibbonPageGroup1
+            // 
+            this.diagramShowRibbonPageGroup1.AllowTextClipping = false;
+            this.diagramShowRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowRulersBarCheckItem1);
+            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowGridBarCheckItem1);
+            this.diagramShowRibbonPageGroup1.ItemLinks.Add(this.diagramCommandShowPageBreaksBarCheckItem1);
+            this.diagramShowRibbonPageGroup1.Name = "diagramShowRibbonPageGroup1";
+            // 
+            // diagramZoomRibbonPageGroup1
+            // 
+            this.diagramZoomRibbonPageGroup1.AllowTextClipping = false;
+            this.diagramZoomRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.diagramZoomRibbonPageGroup1.ItemLinks.Add(this.diagramCommandFitToPageBarButtonItem1);
+            this.diagramZoomRibbonPageGroup1.ItemLinks.Add(this.diagramCommandFitToWidthBarButtonItem1);
+            this.diagramZoomRibbonPageGroup1.Name = "diagramZoomRibbonPageGroup1";
+            // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.ItemLinks.Add(this.diagramStatusBarShapeInfoBarStaticItem1);
+            this.ribbonStatusBar1.ItemLinks.Add(this.diagramCommandStatusBarZoomEditorBarEditItem1);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 686);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1156, 24);
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // dockManager1
+            // 
+            this.dockManager1.Form = this;
+            this.dockManager1.HiddenPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.panAndZoomDockPanel1});
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.diagramControlDockPanel1});
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
+            "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
+            // 
+            // diagramControlDockPanel1
+            // 
+            this.diagramControlDockPanel1.Controls.Add(this.controlContainer1);
+            this.diagramControlDockPanel1.DockedAsTabbedDocument = true;
+            this.diagramControlDockPanel1.FloatSize = new System.Drawing.Size(300, 200);
+            this.diagramControlDockPanel1.ID = new System.Guid("c21d6871-705c-407e-b946-1310c47b9e39");
+            this.diagramControlDockPanel1.Name = "diagramControlDockPanel1";
+            this.diagramControlDockPanel1.Options.ShowCloseButton = false;
+            this.diagramControlDockPanel1.OriginalSize = new System.Drawing.Size(300, 200);
+            this.diagramControlDockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.diagramControlDockPanel1.SavedIndex = 0;
+            // 
+            // controlContainer1
+            // 
+            this.controlContainer1.Controls.Add(this.diagramControl1);
+            this.controlContainer1.Location = new System.Drawing.Point(0, 0);
+            this.controlContainer1.Name = "controlContainer1";
+            this.controlContainer1.Size = new System.Drawing.Size(1150, 523);
+            this.controlContainer1.TabIndex = 0;
+            // 
+            // documentManager1
+            // 
+            this.documentManager1.ContainerControl = this;
+            this.documentManager1.View = this.tabbedView1;
+            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.DocumentGroupProperties.ShowTabHeader = false;
+            this.tabbedView1.DocumentGroups.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup[] {
+            this.documentGroup1});
+            this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
+            this.document1});
+            dockingContainer1.Element = this.documentGroup1;
+            this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
+            dockingContainer1});
+            this.tabbedView1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
+            // 
+            // diagramBarController1
+            // 
+            this.diagramBarController1.BarItems.Add(this.diagramStatusBarShapeInfoBarStaticItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandStatusBarZoomEditorBarEditItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPaddingBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPaddingBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P0BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P4BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P8BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P12BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P16BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P24BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerPadding_P32BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P0BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P4BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P8BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P12BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P16BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P24BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerHeaderPadding_P32BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandContainerStylesBarGalleryItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShowContainerHeaderBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandCollapseSelectedContainersBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsBringToFrontContainerBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSendToBackContainerBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandBringForwardBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandBringToFrontBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSendBackwardBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSendToBackBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsRotateBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsStretchModeBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScaleBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandResetSelectedImagesBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandLoadImageBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandRotate_Right90BarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandRotate_Left90BarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFlipImage_VerticalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFlipImage_HorizontalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_StretchBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_UniformBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetSelectedImagesStretchMode_UniformToFillBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_25BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_5BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_0_75BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_1BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_1_5BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_2BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandImageToolsSetImageScale_4BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShowRulersBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShowGridBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShowPageBreaksBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPanesBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShapesPanelBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPropertiesPanelBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPanAndZoomPanelBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToPageBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToWidthBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientationBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSizeBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSizeBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientation_HorizontalBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageOrientation_VerticalBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_LetterBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_TabloidBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_LegalBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_StatementBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_ExecutiveBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A3BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A4BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_A5BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_B4BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPageSize_B5BarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFitToDrawingBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetPageParameters_PageSizeBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_NoneBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_AutoSizeBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandAutoSize_FillBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandThemesBarGalleryItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSnapToItemsBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSnapToGridBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandReLayoutBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorTypeBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandReLayoutPartsBarDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutTreeBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_DownBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_UpBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_RightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayout_LeftBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutTipOverTreeHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayout_LeftToRightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayout_RightToLeftBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutMindMapTreeHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayout_HorizontalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayout_VerticalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutSugiyamaBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_DownBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_UpBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_RightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSugiyamaLayout_LeftBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutCircularHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandCircularLayoutBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_RightAngleBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_CurvedBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandChangeConnectorType_StraightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsTreeHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_TopToBottomBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_BottomToTopBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_LeftToRightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTreeLayoutForSubordinates_RightToLeftBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsTipOverTreeHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayoutForSubordinates_LeftToRightBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandTipOverTreeLayoutForSubordinates_RightToLeftBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramReLayoutPartsMindMapTreeHeaderBarHeaderItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayoutForSubordinates_HorizontalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandMindMapTreeLayoutForSubordinates_VerticalBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandInsertContainerBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandInsertImageBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandPasteBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandCutBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandCopyBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFontFamilyBarEditItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandFontSizeBarEditItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandIncreaseFontSizeBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandDecreaseFontSizeBarButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontBoldBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontItalicBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontUnderlineBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandToggleFontStrikethroughBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandForegroundColorBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_TopBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_CenterBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetVerticalAlignment_BottomBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_LeftBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_CenterBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSetHorizontalAlignment_RightBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectPointerToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectConnectorToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandToolsContainerCheckDropDownItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectPanToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectRectangleToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectEllipseToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectRightTriangleToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSelectHexagonToolBarCheckItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandShapeStylesBarGalleryItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandBackgroundColorBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandStrokeColorBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandBringToFrontBarSplitButtonItem1);
+            this.diagramBarController1.BarItems.Add(this.diagramCommandSendToBackBarSplitButtonItem1);
+            this.diagramBarController1.Control = this.diagramControl1;
+            this.diagramBarController1.RibbonControl = this.ribbonControl1;
+            // 
+            // BringToFrontPopupMenu
+            // 
+            this.BringToFrontPopupMenu.ItemLinks.Add(this.diagramCommandBringForwardBarButtonItem1);
+            this.BringToFrontPopupMenu.ItemLinks.Add(this.diagramCommandBringToFrontBarButtonItem1);
+            this.BringToFrontPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.BringToFrontPopupMenu.Name = "BringToFrontPopupMenu";
+            this.BringToFrontPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // SendToBackPopupMenu
+            // 
+            this.SendToBackPopupMenu.ItemLinks.Add(this.diagramCommandSendBackwardBarButtonItem1);
+            this.SendToBackPopupMenu.ItemLinks.Add(this.diagramCommandSendToBackBarButtonItem1);
+            this.SendToBackPopupMenu.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
+            this.SendToBackPopupMenu.Name = "SendToBackPopupMenu";
+            this.SendToBackPopupMenu.Ribbon = this.ribbonControl1;
+            // 
+            // Demonstration_Panel
+            // 
+            this.Demonstration_Panel.ItemLinks.Add(this.Bt_VideoAboutLink);
+            this.Demonstration_Panel.Name = "Demonstration_Panel";
+            this.Demonstration_Panel.Text = "Демонстрация работы";
+            // 
+            // Bt_VideoAboutLink
+            // 
+            this.Bt_VideoAboutLink.Caption = "Видео-обзор";
+            this.Bt_VideoAboutLink.Id = 168;
+            this.Bt_VideoAboutLink.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_VideoAboutLink.ImageOptions.SvgImage")));
+            this.Bt_VideoAboutLink.Name = "Bt_VideoAboutLink";
+            this.Bt_VideoAboutLink.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            toolTipTitleItem42.Text = "Видео-обзор";
+            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "Смотреть демонстрацию работы инструмента";
+            toolTipTitleItem43.LeftIndent = 6;
+            toolTipTitleItem43.Text = "BOM-Report";
+            superToolTip39.Items.Add(toolTipTitleItem42);
+            superToolTip39.Items.Add(toolTipItem5);
+            superToolTip39.Items.Add(toolTipSeparatorItem4);
+            superToolTip39.Items.Add(toolTipTitleItem43);
+            this.Bt_VideoAboutLink.SuperTip = superToolTip39;
+            this.Bt_VideoAboutLink.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_VideoAboutLink_ItemClick);
+            // 
             // DiagrammForm2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4828,6 +4863,8 @@
         private DevExpress.XtraDiagram.DiagramShape diagramShape44;
         private DevExpress.XtraDiagram.DiagramShape diagramShape45;
         private DevExpress.XtraDiagram.DiagramShape diagramShape46;
+        private DevExpress.XtraBars.BarButtonItem Bt_VideoAboutLink;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup Demonstration_Panel;
     }
 }
 

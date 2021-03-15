@@ -173,5 +173,10 @@ namespace DiagramDataControllerBehavior
             classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
             diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
+
+        private void Bt_VideoAboutLink_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Process.Start("https://youtu.be/TA43iv-ZIXs");
+        }
     }
 }
