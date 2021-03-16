@@ -103,6 +103,9 @@
     <Compile Include="Controllers\ConnectionString.cs" />
     <Compile Include="Controllers\SetUpdateOptionBD.cs" />
     <Compile Include="CSVReportExport\CSV_Report_Write.cs" />
+    <Compile Include="Diagramm\ControlClass\AllPartReport_ControllClass.cs" />
+    <Compile Include="Diagramm\ControlClass\DiagrammForm_ControllClass.cs" />
+    <Compile Include="Diagramm\ControlClass\TreeList_ControlClass.cs" />
     <Compile Include="Diagramm\Data\ClassData.cs" />
     <Compile Include="Diagramm\Data\ClassStructureGenerator.cs" />
     <Compile Include="Diagramm\Data\ViewModel.cs" />

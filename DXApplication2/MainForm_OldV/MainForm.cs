@@ -57,9 +57,6 @@ namespace VSNRM_Kompas
             bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
             Bt_NaimSpletter.Checked = true;
             Body.AppVersNOTValidStrongMessage();
-            mainRibbonControl.PageCategories["Дерево"].Visible = false;
-            mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
-            mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
         }
         private void AddColumns()
         {
@@ -369,10 +366,6 @@ namespace VSNRM_Kompas
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenThisDocument();
-            VSNRM_Kompas.Diagramm.ControlClass.AllPartReport_ControllClass allPartReport_ = new Diagramm.ControlClass.AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView);
-
-            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1);
-
             splashScreenManager2.CloseWaitForm();
         }
 
@@ -505,35 +498,6 @@ namespace VSNRM_Kompas
         { 
             PopupMenu menu = (e.Item as BarButtonItem).DropDownControl as PopupMenu;
             menu.ItemLinks[SelectButton].Item.PerformClick();
-        }
-
-        private void navigationPane1_StateChanging(object sender, DevExpress.XtraBars.Navigation.StateChangingEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void navigationPane1_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
-        {
-            if (e.Page == null) return;
-            switch (e.Page.Caption)
-            {
-                case "Дерево состава":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = true;
-                    mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
-                    mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
-                    break;
-                case "Обозреватель объектов":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = false;
-                    mainRibbonControl.PageCategories["Обозреватель"].Visible = true;
-                    mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
-                    break;
-                case "Визуализатор связей":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = false;
-                    mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
-                    mainRibbonControl.PageCategories["Визуализатор"].Visible = true;
-                    break;
-            }
-
         }
     }
 }
