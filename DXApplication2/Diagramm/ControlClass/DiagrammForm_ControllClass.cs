@@ -23,8 +23,9 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
         TreeList treeView;
         ClassStructureGenerator classStructureGenerator;
         bool Create_Dublicate = false;
-        public DiagrammForm_ControllClass(TreeList GetTreeView, DiagramDataBindingController GetDiagramDataBindingController)
+        public DiagrammForm_ControllClass(TreeList GetTreeView, DiagramDataBindingController GetDiagramDataBindingController, bool Dublicate_Create)
         {
+            Create_Dublicate = Dublicate_Create;
             treeView = GetTreeView;
             classStructureGenerator = new ClassStructureGenerator(treeView);
             diagramDataBindingController1 = GetDiagramDataBindingController;

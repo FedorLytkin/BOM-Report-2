@@ -20,6 +20,8 @@ using About_Control;
 using VSNRM_Kompas.Options.Column_Options;
 using System.Drawing;
 using DevExpress.XtraBars;
+using System.Xml.Serialization;
+using DiagramDataControllerBehavior.Data;
 
 namespace VSNRM_Kompas
 {
@@ -57,7 +59,7 @@ namespace VSNRM_Kompas
             bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
             Bt_NaimSpletter.Checked = true;
             Body.AppVersNOTValidStrongMessage();
-            mainRibbonControl.PageCategories["Дерево"].Visible = false;
+            mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
         }
@@ -371,7 +373,7 @@ namespace VSNRM_Kompas
             body.OpenThisDocument();
             VSNRM_Kompas.Diagramm.ControlClass.AllPartReport_ControllClass allPartReport_ = new Diagramm.ControlClass.AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView);
 
-            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1);
+            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down);
 
             splashScreenManager2.CloseWaitForm();
         }
@@ -534,6 +536,52 @@ namespace VSNRM_Kompas
                     break;
             }
 
+        }
+
+        private void Bt_SaveAs_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var viewmodel = (ViewModel)diagramDataBindingController1.DataSource;
+
+            var office = new Office();
+            office.Elements = viewmodel.Elements;
+            office.Connections = viewmodel.Connections;
+
+            using (FileStream fileStream = new FileStream("classes.xml", FileMode.Create))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(Office));
+                serializer.Serialize(fileStream, office);
+            }
+        }
+
+        private void bt_Print_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            diagramControl1.Print();
+        }
+
+        private void bt_Export_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "BMP files (*.BMP)|*.BMP|GIF files (*.GIF)|*.GIF|PNG files (*.PNG)|*.PNG|JPEG files (*.JPEG)|*.JPEG";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                diagramControl1.ExportDiagram(saveFileDialog.FileName);
+
+                if (MessageBox.Show("Файл успешно создан! \nОткрыть?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Process.Start(saveFileDialog.FileName);
+                }
+            }
+        }
+
+        private void bt_Dublicate_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down);
+        }
+
+        private void Bt_Qnt_On_Line_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
+            //diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
     }
 }
