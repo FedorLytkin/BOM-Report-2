@@ -163,7 +163,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             }
             return dataTable;
         }
-        private void RowsClear()
+        public void RowsClear()
         {
             for (int i = 0; i < Main_gridView.RowCount;)
                 Main_gridView.DeleteRow(i);

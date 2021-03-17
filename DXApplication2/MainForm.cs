@@ -134,7 +134,10 @@ namespace VSNRM_Kompas
         {
             treeList1.Nodes.Clear();
         }
-
+        private void DeleteAllSourse()
+        {
+            UpdateData();
+        }
         private void bbiSaveAndNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ExportToCSV();
