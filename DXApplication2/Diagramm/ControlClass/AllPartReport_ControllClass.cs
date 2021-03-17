@@ -33,11 +33,12 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
 
         bool AllNodes = false;
 
-        public AllPartReport_ControllClass(TreeList GetTreeView, GridControl GetGridControl, GridView GetGridView)
+        public AllPartReport_ControllClass(TreeList GetTreeView, GridControl GetGridControl, GridView GetGridView, bool SetAllNodes)
         {
             treeView = GetTreeView;
             MainGridControl = GetGridControl;
             Main_gridView = GetGridView;
+            AllNodes = SetAllNodes;
 
             DataTable dataTable = new DataTable();
             addColumns(dataTable);
@@ -162,12 +163,64 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             }
             return dataTable;
         }
+        private void RowsClear()
+        {
+            for (int i = 0; i < Main_gridView.RowCount;)
+                Main_gridView.DeleteRow(i);
+        }
         private void Main_gridView_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
         {
             if (e.Column.FieldName == System_Slide_ColumnName)
             {
                 e.RepositoryItem = pictureEdit;
             }
+        }
+        public void ExportToCSV()
+        {
+            if (Main_gridView.RowCount == 0) return;
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            string ExportFileName = "";
+            saveFileDialog.Filter = "CSV files (*.CSV)|*.CSV|DOCX files (*.DOCX)|*.DOCX|HTML files (*.HTML)|*.HTML|PDF files (*.PDF)|*.PDF|TXT files (*.TXT)|*.TXT|XLS files (*.XLS)|*.XLS|XLSX files (*.XLSX)|*.XLSX|All files (*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExportFileName = saveFileDialog.FileName;
+                string FileFormat = Path.GetExtension(ExportFileName).ToUpper();
+                switch (FileFormat)
+                {
+                    case ".TXT":
+                        MainGridControl.ExportToText(ExportFileName);
+                        break;
+                    case ".HTML":
+                        MainGridControl.ExportToHtml(ExportFileName);
+                        break;
+                    case ".PDF":
+                        MainGridControl.ExportToPdf(ExportFileName);
+                        break;
+                    case ".DOCX":
+                        MainGridControl.ExportToDocx(ExportFileName);
+                        break;
+                    case ".XLS":
+                        MainGridControl.ExportToXls(ExportFileName);
+                        break;
+                    case ".XLSX":
+                        MainGridControl.ExportToXlsx(ExportFileName);
+                        break;
+                    case ".CSV":
+                        MainGridControl.ExportToCsv(ExportFileName);
+                        break;
+                }
+                if (MessageBox.Show("Файл успешно создан! \nОткрыть?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Process.Start(ExportFileName);
+                }
+            } 
+        }
+        public void LevelChange(bool SetAllNodes)
+        {
+            AllNodes = SetAllNodes;
+            RowsClear();
+            GetComponents((DataTable)MainGridControl.DataSource);
         }
     }
 }

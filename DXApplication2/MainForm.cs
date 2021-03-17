@@ -43,6 +43,7 @@ namespace VSNRM_Kompas
             InitializeComponent();
             Body.Init();
             AddColumns();
+            UpdateData();
             pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
         }
         private void AddOptionControls()
@@ -530,11 +531,13 @@ namespace VSNRM_Kompas
                     mainRibbonControl.PageCategories["Дерево"].Visible = false;
                     mainRibbonControl.PageCategories["Обозреватель"].Visible = true;
                     mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
+                    mainRibbonControl.SelectPage(mainRibbonControl.PageCategories["Обозреватель"].Pages[0]);
                     break;
                 case "Визуализатор связей":
                     mainRibbonControl.PageCategories["Дерево"].Visible = false;
                     mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
                     mainRibbonControl.PageCategories["Визуализатор"].Visible = true;
+                    mainRibbonControl.SelectPage(mainRibbonControl.PageCategories["Визуализатор"].Pages[0]);
                     break;
             }
 
@@ -595,13 +598,33 @@ namespace VSNRM_Kompas
         }
         private void UpdateData()
         {
-            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView);
+            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, All_Level_Check_CH_B_InAllReport.Checked);
             diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down, Bt_Qnt_On_Line.Down);
         }
 
         private void bt_Update_ItemClick(object sender, ItemClickEventArgs e)
         {
             UpdateData();
+        }
+
+        private void bt_ShowColumns_InAllReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Main_gridView.ColumnsCustomization();
+        }
+
+        private void Bt_Preview_InAllReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MainGridControl.ShowRibbonPrintPreview();
+        }
+
+        private void bt_SaveAndNew_InAllReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            allPartReport.ExportToCSV();
+        }
+
+        private void All_Level_Check_CH_B_InAllReport_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            allPartReport.LevelChange(All_Level_Check_CH_B_InAllReport.Checked);
         }
     }
 }

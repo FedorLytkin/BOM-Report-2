@@ -30,26 +30,26 @@ namespace VSNRM_Kompas.Diagramm
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllPartReport_Form));
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bt_ShowColumns = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -85,7 +85,7 @@ namespace VSNRM_Kompas.Diagramm
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbon.Size = new System.Drawing.Size(1003, 144);
+            this.ribbon.Size = new System.Drawing.Size(1003, 158);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // bt_ShowColumns
@@ -95,18 +95,18 @@ namespace VSNRM_Kompas.Diagramm
             this.bt_ShowColumns.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_ShowColumns.ImageOptions.SvgImage")));
             this.bt_ShowColumns.Name = "bt_ShowColumns";
             this.bt_ShowColumns.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem9.Text = "Выбор колонок";
-            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "Показать список доступных для добавления колонок\r\nСписок доступных колонок можно " +
+            toolTipTitleItem1.Text = "Выбор колонок";
+            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Показать список доступных для добавления колонок\r\nСписок доступных колонок можно " +
     "изменять с помощью инструментов: Добавить и Удалить столбец";
-            toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "BOM-Report";
-            superToolTip5.Items.Add(toolTipTitleItem9);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem5);
-            superToolTip5.Items.Add(toolTipTitleItem10);
-            this.bt_ShowColumns.SuperTip = superToolTip5;
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "BOM-Report";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.bt_ShowColumns.SuperTip = superToolTip1;
             this.bt_ShowColumns.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_ShowColumns_ItemClick);
             // 
             // barButtonItem2
@@ -120,19 +120,19 @@ namespace VSNRM_Kompas.Diagramm
             this.All_Level_Check_CH_B.Caption = "Развернуть состав";
             this.All_Level_Check_CH_B.Id = 3;
             this.All_Level_Check_CH_B.Name = "All_Level_Check_CH_B";
-            toolTipTitleItem11.Text = "Структура - Все уровни";
-            toolTipItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "При Вкл данной опции, процедура будет обрабатывать все уровни вложенности сканиру" +
+            toolTipTitleItem3.Text = "Структура - Все уровни";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "При Вкл данной опции, процедура будет обрабатывать все уровни вложенности сканиру" +
     "емой сборки\r\nПри Выкл, процедура пройдет только по \"верхнему\" уровню пложенности" +
     "";
-            toolTipTitleItem12.LeftIndent = 6;
-            toolTipTitleItem12.Text = "BOM-Report";
-            superToolTip6.Items.Add(toolTipTitleItem11);
-            superToolTip6.Items.Add(toolTipItem6);
-            superToolTip6.Items.Add(toolTipSeparatorItem6);
-            superToolTip6.Items.Add(toolTipTitleItem12);
-            this.All_Level_Check_CH_B.SuperTip = superToolTip6;
+            toolTipTitleItem4.LeftIndent = 6;
+            toolTipTitleItem4.Text = "BOM-Report";
+            superToolTip2.Items.Add(toolTipTitleItem3);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem2);
+            superToolTip2.Items.Add(toolTipTitleItem4);
+            this.All_Level_Check_CH_B.SuperTip = superToolTip2;
             this.All_Level_Check_CH_B.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.All_Level_Check_CH_B_CheckedChanged);
             // 
             // bbiSaveAndNew
@@ -142,18 +142,18 @@ namespace VSNRM_Kompas.Diagramm
             this.bbiSaveAndNew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiSaveAndNew.ImageOptions.SvgImage")));
             this.bbiSaveAndNew.Name = "bbiSaveAndNew";
             this.bbiSaveAndNew.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem13.Text = "Экспорт (CTRL + S)";
-            toolTipItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "Сохранить данные из Дерева состава\r\nСписок доступных форматов: CSV, DOCX, PDF, HT" +
+            toolTipTitleItem5.Text = "Экспорт (CTRL + S)";
+            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Сохранить данные из Дерева состава\r\nСписок доступных форматов: CSV, DOCX, PDF, HT" +
     "ML, XML, XLSX, XLS";
-            toolTipTitleItem14.LeftIndent = 6;
-            toolTipTitleItem14.Text = "BOM-Report";
-            superToolTip7.Items.Add(toolTipTitleItem13);
-            superToolTip7.Items.Add(toolTipItem7);
-            superToolTip7.Items.Add(toolTipSeparatorItem7);
-            superToolTip7.Items.Add(toolTipTitleItem14);
-            this.bbiSaveAndNew.SuperTip = superToolTip7;
+            toolTipTitleItem6.LeftIndent = 6;
+            toolTipTitleItem6.Text = "BOM-Report";
+            superToolTip3.Items.Add(toolTipTitleItem5);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem3);
+            superToolTip3.Items.Add(toolTipTitleItem6);
+            this.bbiSaveAndNew.SuperTip = superToolTip3;
             this.bbiSaveAndNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSaveAndNew_ItemClick);
             // 
             // Bt_Preview
@@ -163,17 +163,17 @@ namespace VSNRM_Kompas.Diagramm
             this.Bt_Preview.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_Preview.ImageOptions.SvgImage")));
             this.Bt_Preview.Name = "Bt_Preview";
             this.Bt_Preview.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem15.Text = "Предпросмотр и Печать (CTRL + P)";
-            toolTipItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            toolTipItem8.LeftIndent = 6;
-            toolTipItem8.Text = resources.GetString("toolTipItem8.Text");
-            toolTipTitleItem16.LeftIndent = 6;
-            toolTipTitleItem16.Text = "BOM-Report";
-            superToolTip8.Items.Add(toolTipTitleItem15);
-            superToolTip8.Items.Add(toolTipItem8);
-            superToolTip8.Items.Add(toolTipSeparatorItem8);
-            superToolTip8.Items.Add(toolTipTitleItem16);
-            this.Bt_Preview.SuperTip = superToolTip8;
+            toolTipTitleItem7.Text = "Предпросмотр и Печать (CTRL + P)";
+            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
+            toolTipTitleItem8.LeftIndent = 6;
+            toolTipTitleItem8.Text = "BOM-Report";
+            superToolTip4.Items.Add(toolTipTitleItem7);
+            superToolTip4.Items.Add(toolTipItem4);
+            superToolTip4.Items.Add(toolTipSeparatorItem4);
+            superToolTip4.Items.Add(toolTipTitleItem8);
+            this.Bt_Preview.SuperTip = superToolTip4;
             this.Bt_Preview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Preview_ItemClick);
             // 
             // ribbonPage1
@@ -189,7 +189,7 @@ namespace VSNRM_Kompas.Diagramm
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.bt_ShowColumns);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Настройка столбцов";
+            this.ribbonPageGroup1.Text = "c";
             // 
             // ribbonPageGroup2
             // 
@@ -206,19 +206,19 @@ namespace VSNRM_Kompas.Diagramm
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 456);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 464);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1003, 32);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1003, 24);
             // 
             // MainGridControl
             // 
             this.MainGridControl.AllowDrop = true;
             this.MainGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainGridControl.Location = new System.Drawing.Point(0, 144);
+            this.MainGridControl.Location = new System.Drawing.Point(0, 158);
             this.MainGridControl.MainView = this.Main_gridView;
             this.MainGridControl.Name = "MainGridControl";
-            this.MainGridControl.Size = new System.Drawing.Size(1003, 312);
+            this.MainGridControl.Size = new System.Drawing.Size(1003, 306);
             this.MainGridControl.TabIndex = 6;
             this.MainGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Main_gridView});
