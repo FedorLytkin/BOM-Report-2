@@ -63,7 +63,7 @@ namespace VSNRM_Kompas
             bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
             Bt_NaimSpletter.Checked = true;
             Body.AppVersNOTValidStrongMessage();
-            mainRibbonControl.PageCategories["Дерево"].Visible = true;
+            //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
         }
@@ -523,25 +523,31 @@ namespace VSNRM_Kompas
             switch (e.Page.Caption)
             {
                 case "Дерево состава":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = true;
+                    //mainRibbonControl.PageCategories["Дерево"].Visible = true;
                     mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
                     mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
                     break;
                 case "Обозреватель объектов":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = false;
+                    //mainRibbonControl.PageCategories["Дерево"].Visible = false;
                     mainRibbonControl.PageCategories["Обозреватель"].Visible = true;
                     mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
                     mainRibbonControl.SelectPage(mainRibbonControl.PageCategories["Обозреватель"].Pages[0]);
                     break;
                 case "Визуализатор связей":
-                    mainRibbonControl.PageCategories["Дерево"].Visible = false;
+                    //mainRibbonControl.PageCategories["Дерево"].Visible = false;
                     mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
                     mainRibbonControl.PageCategories["Визуализатор"].Visible = true;
                     mainRibbonControl.SelectPage(mainRibbonControl.PageCategories["Визуализатор"].Pages[0]);
                     break;
-            }
-
+            } 
         }
+        private void UpdateData()
+        {
+            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, All_Level_Check_CH_B_InAllReport.Checked);
+            diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down, Bt_Qnt_On_Line.Down);
+        }
+
+        #region "Визуализатор связей"
 
         private void Bt_SaveAs_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -592,15 +598,17 @@ namespace VSNRM_Kompas
             //diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
         }
 
+        private void Bt_VideoAboutLink_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Process.Start("https://youtu.be/TA43iv-ZIXs");
+        }
         private void bt_Update_InTree_ItemClick(object sender, ItemClickEventArgs e)
         {
             UpdateData();
         }
-        private void UpdateData()
-        {
-            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, All_Level_Check_CH_B_InAllReport.Checked);
-            diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down, Bt_Qnt_On_Line.Down);
-        }
+        #endregion
+        
+        #region "Обозреватель(Структура) объекта"
 
         private void bt_Update_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -626,5 +634,6 @@ namespace VSNRM_Kompas
         {
             allPartReport.LevelChange(All_Level_Check_CH_B_InAllReport.Checked);
         }
+        #endregion
     }
 }
