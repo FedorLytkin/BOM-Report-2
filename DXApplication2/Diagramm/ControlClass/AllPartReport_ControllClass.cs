@@ -97,9 +97,15 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             if (AllNodes)
                 nodes = treeView.GetNodeList();
             else
+            {
                 if (treeView.Nodes.Count > 0)
-                foreach (TreeListNode node in treeView.Nodes[0].Nodes)
-                    nodes.Add(node);
+                {
+                    foreach (TreeListNode node in treeView.Nodes[0].Nodes)
+                        nodes.Add(node);
+                }
+                    
+            }
+                
             foreach (TreeListNode node in nodes)
             {
                 DataRow row = null;

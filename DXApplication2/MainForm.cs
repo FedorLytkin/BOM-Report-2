@@ -22,6 +22,7 @@ using System.Drawing;
 using DevExpress.XtraBars;
 using System.Xml.Serialization;
 using DiagramDataControllerBehavior.Data;
+using VSNRM_Kompas.Diagramm.ControlClass;
 
 namespace VSNRM_Kompas
 {
@@ -33,6 +34,8 @@ namespace VSNRM_Kompas
         XMLContreller.XMLCLass controller;
         public CFG_Class Main_Options;
         RepositoryItemPictureEdit pictureEdit;
+        DiagrammForm_ControllClass diagrammForm;
+        AllPartReport_ControllClass allPartReport;
         public MainForm()
         {
             CopyINIFile copyINIFile = new CopyINIFile();
@@ -371,9 +374,8 @@ namespace VSNRM_Kompas
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenThisDocument();
-            VSNRM_Kompas.Diagramm.ControlClass.AllPartReport_ControllClass allPartReport_ = new Diagramm.ControlClass.AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView);
-
-            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down);
+            
+            UpdateData();
 
             splashScreenManager2.CloseWaitForm();
         }
@@ -575,13 +577,31 @@ namespace VSNRM_Kompas
 
         private void bt_Dublicate_ItemClick(object sender, ItemClickEventArgs e)
         {
-            VSNRM_Kompas.Diagramm.ControlClass.DiagrammForm_ControllClass diagrammForm_ = new Diagramm.ControlClass.DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down);
+            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
+            diagrammForm.AddElements(bt_Dublicate.Down);
         }
 
         private void Bt_Qnt_On_Line_ItemClick(object sender, ItemClickEventArgs e)
         {
+            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
+            diagrammForm.AddConnectionList(bt_Dublicate.Down);
             //classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
             //diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
+        }
+
+        private void bt_Update_InTree_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UpdateData();
+        }
+        private void UpdateData()
+        {
+            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView);
+            diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down, Bt_Qnt_On_Line.Down);
+        }
+
+        private void bt_Update_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UpdateData();
         }
     }
 }
