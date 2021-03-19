@@ -523,7 +523,47 @@ namespace SaveDXF
             ChildNode.Tag = _componentInfo;
             return ChildNode;
         }
+        public List<string> GetExternal(string FileName)
+        {
 
+            IKompasDocument doc = (IKompasDocument)_IApplication.Documents.Open(FileName, true, false); ;
+            if (doc == null) return null;
+            List<string> drwS = new List<string>();
+            object files = null;
+            object filesTypes = null;
+            (doc as IKompasDocument1).GetExternalFilesNamesEx(true, out files, out filesTypes);
+            
+            foreach (string fl in (string[])files)
+            {
+                drwS.Add(fl);
+            }
+            return drwS;
+        }
+        public bool SetPropertyIPart7(string FileName, string PropertyName, object PropertyValue)
+        {
+            IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(FileName, false, false);
+            IPart7 part_ = _IKompasDocument3D.TopPart;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    int count = _IPropertyMng.PropertyCount[_IKompasDocument3D];
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(_IKompasDocument3D, i);
+
+                        if (PropertyName == Property.Name)
+                        {
+                            SetValueProperty(part_, Property, PropertyValue);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
         public string GetPropertyIPart7(IPart7 part_, string PropertyName)
         {
             IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
@@ -579,6 +619,26 @@ namespace SaveDXF
             }
             if (res != null) { if (res.GetType().Name == "Double") res = Math.Round(Convert.ToDouble(res), 3); } else { return null; }
             return res.ToString();
+        }
+        public static bool SetValueProperty(IPart7 part, IProperty Property, object Value)
+        {
+            bool res = false;
+            if (Property != null)
+            {
+                IPropertyKeeper Prop = (IPropertyKeeper)part;
+
+                if (Prop != null)
+                {
+                    bool Baseunit, FromSource;
+                    Baseunit = false;
+                    _Property classresProperty = (_Property)Property;
+                    if (classresProperty != null)
+                    { 
+                        Prop.SetPropertyValue((_Property)classresProperty, Value, Baseunit);
+                    }
+                }
+            }
+            return res;
         }
         public static bool GetValueProperty(IPart7 part, IProperty Property, out object returnObject)
         {
@@ -963,6 +1023,10 @@ namespace SaveDXF
                 }
             }
             return res;
+        }
+        public void SetFieldValue(string FFN, string FieldValue)
+        {
+
         }
         #region копировать модель
 

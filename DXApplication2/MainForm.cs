@@ -23,6 +23,7 @@ using DevExpress.XtraBars;
 using System.Xml.Serialization;
 using DiagramDataControllerBehavior.Data;
 using VSNRM_Kompas.Diagramm.ControlClass;
+using VSNRM_Kompas.Diagramm;
 
 namespace VSNRM_Kompas
 {
@@ -638,5 +639,20 @@ namespace VSNRM_Kompas
             allPartReport.LevelChange(All_Level_Check_CH_B_InAllReport.Checked);
         }
         #endregion
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
+            List <string> ls = body.GetExternal(componentInfo.FFN);
+
+            //body.SetPropertyIPart7(componentInfo.FFN, "Обозначение", "2222");
+            //body.SetPropertyIPart7(componentInfo.FFN, "Наименование", "1111");
+        }
+
+        private void Bt_ProjClone_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Project_Clone project_Clone = new Project_Clone(body, treeList1);
+            project_Clone.ShowDialog();
+        }
     }
 }

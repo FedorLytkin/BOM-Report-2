@@ -105,6 +105,7 @@
     <Compile Include="CSVReportExport\CSV_Report_Write.cs" />
     <Compile Include="Diagramm\ControlClass\AllPartReport_ControllClass.cs" />
     <Compile Include="Diagramm\ControlClass\DiagrammForm_ControllClass.cs" />
+    <Compile Include="Diagramm\ControlClass\Ploject_Clone_ControllClass.cs" />
     <Compile Include="Diagramm\ControlClass\TreeList_ControlClass.cs" />
     <Compile Include="Diagramm\Data\ClassData.cs" />
     <Compile Include="Diagramm\Data\ClassStructureGenerator.cs" />
@@ -120,6 +121,12 @@
     </Compile>
     <Compile Include="Diagramm\DiagrammForm2.designer.cs">
       <DependentUpon>DiagrammForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagramm\Project_Clone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagramm\Project_Clone.Designer.cs">
+      <DependentUpon>Project_Clone.cs</DependentUpon>
     </Compile>
     <Compile Include="Dump\Dump.cs" />
     <Compile Include="Export\XMLexport\XMLExport_Class.cs" />
@@ -170,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Diagramm\DiagrammForm2.resx">
       <DependentUpon>DiagrammForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagramm\Project_Clone.resx">
+      <DependentUpon>Project_Clone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenc\LicForm2.resx">
       <DependentUpon>LicForm2.cs</DependentUpon>
