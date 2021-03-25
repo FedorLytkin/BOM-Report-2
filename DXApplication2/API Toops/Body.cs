@@ -23,7 +23,7 @@ using VSNRM_Kompas.Options;
 using DevExpress.XtraSplashScreen;
 using VSNRM_Kompas.Dump;
 using VSNRM_Kompas.Options.Column_Options;
-using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Shell; 
 
 namespace SaveDXF
 {
@@ -532,12 +532,50 @@ namespace SaveDXF
             object files = null;
             object filesTypes = null;
             (doc as IKompasDocument1).GetExternalFilesNamesEx(true, out files, out filesTypes);
-            
+            int[] filesTypesList = (int[])filesTypes;
+            int i = 0;
             foreach (string fl in (string[])files)
             {
-                drwS.Add(fl);
+                int d_type = filesTypesList[i];
+                switch (d_type)
+                {
+                    case 14:
+                    case 31:
+                        Drw_Info_Class drw_Info = new Drw_Info_Class();
+                        drwS.Add(fl);
+                        break;
+                }
+                i += 1;
+            }
+            IProductDataManager productData = (IProductDataManager)doc;
+            IKompasDocument3D doc3d = (IKompasDocument3D)doc;
+            
+            IPropertyKeeper propertyKeeper = (IPropertyKeeper)doc3d.TopPart;
+            IProductDataManager ss = productData.ObjectAttachedDocuments[propertyKeeper];
+            ksProductObjectTypeEnum ksProduct = ksProductObjectTypeEnum.ksPOTDocumentObject;
+            productData.AddProductObject(propertyKeeper, @"C:\Users\admin_veza\Desktop\test 1\Стойка верхняя _ ЕЛГ 02.01.20.000.spw", ksProduct);
+            
+
+            ISpecificationDescriptions specification = doc.SpecificationDescriptions;
+            if(specification.Count > 0)
+            {
+                for(int y = 0; y < specification.Count; y++)
+                {
+                    SpecificationDescription description = specification[y];
+                    description.ShowAllObjects = true;
+                    string sp = description.SpecificationDocumentName;
+                    //sp = specification[y].SpecificationDocumentName;
+                }
             }
             return drwS;
+        }
+        public void getSP()
+        {
+            ksDocument3D ksDocument = _kompasObject.ActiveDocument3D();
+            ksSpecification ksSpecification = ksDocument.GetSpecification();
+            bool state = false;
+            object param = null;
+            ksSpecification.ksGetSpcDescription(-1, param, out state);
         }
         public bool SetPropertyIPart7(string FileName, string PropertyName, object PropertyValue)
         {
@@ -870,7 +908,7 @@ namespace SaveDXF
             iMSH.isDetal = part.Detail;
             iMSH.standardComponent = part.Standard;
             iMSH.Key = ComponentKey;
-
+            //4555
             ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
             iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
             iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;

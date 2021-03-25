@@ -29,6 +29,8 @@ namespace VSNRM_Kompas.API_Toops
         public bool HaveUnfold { get; set; }
         public Bitmap Slide { get; set; }
         public Bitmap LargeSlide { get; set; }
+        public bool HaveDrw { get; set; }
+        List<Drw_Info_Class> drw_List { get; set; }
 
 
 
@@ -75,7 +77,8 @@ namespace VSNRM_Kompas.API_Toops
                 SheeMetall = this.SheeMetall,
                 HaveUnfold = this.HaveUnfold,
                 Slide = this.Slide,
-                LargeSlide = this.LargeSlide
+                LargeSlide = this.LargeSlide,
+                drw_List = this.drw_List
             };
         }
 

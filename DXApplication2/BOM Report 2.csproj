@@ -54,6 +54,9 @@
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FolderBrowserDialogEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FolderBrowserDialogEx.1.0.0\lib\net20\FolderBrowserDialogEx.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -99,6 +102,7 @@
     </Compile>
     <Compile Include="API Toops\Body.cs" />
     <Compile Include="API Toops\ComponentInfo.cs" />
+    <Compile Include="API Toops\Drw_Info_Class.cs" />
     <Compile Include="ArticleTools\CustomTreeNode.cs" />
     <Compile Include="Controllers\ConnectionString.cs" />
     <Compile Include="Controllers\SetUpdateOptionBD.cs" />
@@ -128,6 +132,19 @@
     <Compile Include="Diagramm\Project_Clone.Designer.cs">
       <DependentUpon>Project_Clone.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjectClone\FindAndRepace_Class.cs" />
+    <Compile Include="ProjectClone\FindAndRepace_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectClone\FindAndRepace_Form.Designer.cs">
+      <DependentUpon>FindAndRepace_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectClone\Proj_Clone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectClone\Proj_Clone.Designer.cs">
+      <DependentUpon>Proj_Clone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dump\Dump.cs" />
     <Compile Include="Export\XMLexport\XMLExport_Class.cs" />
     <Compile Include="Licenc\CompressedFile.cs" />
@@ -154,6 +171,7 @@
     <Compile Include="Options\tools_class.cs" />
     <Compile Include="Options\Variable_Class.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectClone\Pr_Clone_Class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Splash Control\SplashScreen1.cs">
       <SubType>Form</SubType>
@@ -180,6 +198,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Diagramm\Project_Clone.resx">
       <DependentUpon>Project_Clone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectClone\FindAndRepace_Form.resx">
+      <DependentUpon>FindAndRepace_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectClone\Proj_Clone.resx">
+      <DependentUpon>Proj_Clone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenc\LicForm2.resx">
       <DependentUpon>LicForm2.cs</DependentUpon>

@@ -643,8 +643,8 @@ namespace VSNRM_Kompas
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
             ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
-            List <string> ls = body.GetExternal(componentInfo.FFN);
-
+            List<string> ls = body.GetExternal(componentInfo.FFN);
+            //body.getSP();
             //body.SetPropertyIPart7(componentInfo.FFN, "Обозначение", "2222");
             //body.SetPropertyIPart7(componentInfo.FFN, "Наименование", "1111");
         }
@@ -653,6 +653,12 @@ namespace VSNRM_Kompas
         {
             Project_Clone project_Clone = new Project_Clone(body, treeList1);
             project_Clone.ShowDialog();
+        }
+
+        private void Bt_Copy_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ProjectClone.Proj_Clone proj_Clone = new ProjectClone.Proj_Clone();
+            proj_Clone.ShowDialog();
         }
     }
 }
