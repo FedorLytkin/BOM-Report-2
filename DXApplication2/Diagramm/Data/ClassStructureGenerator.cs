@@ -105,22 +105,25 @@ namespace DiagramDataControllerBehavior.Data
             foreach (TreeListNode node in nodes)
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                ClassData item = new ClassData();
-                item = SetData(item, componentInfo);
-                if (CreateDublicate)
+                if(!componentInfo.HaveSP && !componentInfo.HaveDrw)
                 {
-                    item.Key = node.Id.ToString();
-                    list.Add(item);
-                }
-                else
-                {
-                    if (!KeyList.Contains(componentInfo.Key))
+                    ClassData item = new ClassData();
+                    item = SetData(item, componentInfo);
+                    if (CreateDublicate)
                     {
-                        item.Qnt = GetTotalCount(node, componentInfo.Total_QNT);
-                        item.Key = componentInfo.Key;
+                        item.Key = node.Id.ToString();
                         list.Add(item);
+                    }
+                    else
+                    {
+                        if (!KeyList.Contains(componentInfo.Key))
+                        {
+                            item.Qnt = GetTotalCount(node, componentInfo.Total_QNT);
+                            item.Key = componentInfo.Key;
+                            list.Add(item);
 
-                        KeyList.Add(componentInfo.Key);
+                            KeyList.Add(componentInfo.Key);
+                        }
                     }
                 }
             }

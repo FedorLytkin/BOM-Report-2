@@ -111,53 +111,56 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             {
                 DataRow row = null;
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                foreach (TreeListNode MainNode in treeView.Nodes)
+                if(!componentInfo.HaveDrw && !componentInfo.HaveSP)
                 {
-                    if (node != MainNode)
+                    foreach (TreeListNode MainNode in treeView.Nodes)
                     {
-                        foreach (DataRow dataRow in dataTable.Rows)
+                        if (node != MainNode)
                         {
-                            ComponentInfo temp_componentInfo = (ComponentInfo)dataRow[System_ColumnName];
-                            if (temp_componentInfo != null)
+                            foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                if (temp_componentInfo.Key == componentInfo.Key)
+                                ComponentInfo temp_componentInfo = (ComponentInfo)dataRow[System_ColumnName];
+                                if (temp_componentInfo != null)
                                 {
-                                    row = dataRow;
-                                    break;
+                                    if (temp_componentInfo.Key == componentInfo.Key)
+                                    {
+                                        row = dataRow;
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (row == null)
-                        {
-                            row = dataTable.Rows.Add();
-                            Dictionary<string, string> Comp_params;
-                            if (componentInfo.isBody) Comp_params = componentInfo.Body.ParamValueList;
-                            else Comp_params = componentInfo.ParamValueList;
-                            foreach (KeyValuePair<string, string> Param in Comp_params)
+                            if (row == null)
                             {
-                                switch (Param.Key)
+                                row = dataTable.Rows.Add();
+                                Dictionary<string, string> Comp_params;
+                                if (componentInfo.isBody) Comp_params = componentInfo.Body.ParamValueList;
+                                else Comp_params = componentInfo.ParamValueList;
+                                foreach (KeyValuePair<string, string> Param in Comp_params)
                                 {
-                                    case System_Slide_ColumnName:
-                                        row[Param.Key] = componentInfo.Slide;
-                                        break;
-                                    case System_Count_ColumnName:
-                                        row[Param.Key] = componentInfo.QNT;
-                                        break;
-                                    case System_Total_Count_ColumnName:
-                                        break;
-                                    default:
-                                        row[Param.Key] = Param.Value;
-                                        break;
+                                    switch (Param.Key)
+                                    {
+                                        case System_Slide_ColumnName:
+                                            row[Param.Key] = componentInfo.Slide;
+                                            break;
+                                        case System_Count_ColumnName:
+                                            row[Param.Key] = componentInfo.QNT;
+                                            break;
+                                        case System_Total_Count_ColumnName:
+                                            break;
+                                        default:
+                                            row[Param.Key] = Param.Value;
+                                            break;
+                                    }
                                 }
+                                row[System_Count_ColumnName] = node[System_Total_Count_ColumnName];
                             }
-                            row[System_Count_ColumnName] = node[System_Total_Count_ColumnName];
+                            else
+                            {
+                                row[System_Count_ColumnName] = Convert.ToDouble(row[System_Count_ColumnName]) + Convert.ToDouble(node[System_Total_Count_ColumnName]);
+                                //row[System_Total_Count_ColumnName] = Convert.ToInt32(row[System_Total_Count_ColumnName]) + componentInfo.Total_QNT;
+                            }
+                            row[System_ColumnName] = componentInfo;
                         }
-                        else
-                        {
-                            row[System_Count_ColumnName] = Convert.ToDouble(row[System_Count_ColumnName]) + Convert.ToDouble(node[System_Total_Count_ColumnName]);
-                            //row[System_Total_Count_ColumnName] = Convert.ToInt32(row[System_Total_Count_ColumnName]) + componentInfo.Total_QNT;
-                        }
-                        row[System_ColumnName] = componentInfo;
                     }
                 }
             }

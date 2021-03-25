@@ -30,11 +30,11 @@ namespace VSNRM_Kompas.API_Toops
         public Bitmap Slide { get; set; }
         public Bitmap LargeSlide { get; set; }
         public bool HaveDrw { get; set; }
-        List<Drw_Info_Class> drw_List { get; set; }
+        public bool HaveSP { get; set; }
+        public List<Drw_Info_Class> drw_List = new List<Drw_Info_Class>();
+        public long FL_Size { get; set; }
 
-
-
-
+        public Drw_Info_Class drw_Info = new Drw_Info_Class();
         public Get_MCH _MCH = new Get_MCH();
         public Get_Body Body = new Get_Body();
 
@@ -53,6 +53,16 @@ namespace VSNRM_Kompas.API_Toops
             public string Naim { get; set; }
             public double QNT { get; set; }
             public bool QNT_False { get; set; }
+            public Dictionary<string, string> ParamValueList { get; set; }
+        }
+        public class Drw_Info_Class
+        {
+            public string FFN { get; set; }
+            public string Oboz { get; set; }
+            public string Naim { get; set; }
+            public Bitmap Slide { get; set; }
+            public Bitmap LargeSlide { get; set; }
+            public long FL_Size { get; set; }
             public Dictionary<string, string> ParamValueList { get; set; }
         }
         public object Clone()
@@ -78,7 +88,9 @@ namespace VSNRM_Kompas.API_Toops
                 HaveUnfold = this.HaveUnfold,
                 Slide = this.Slide,
                 LargeSlide = this.LargeSlide,
-                drw_List = this.drw_List
+                drw_List = this.drw_List,
+                drw_Info = this.drw_Info,
+                FL_Size = this.FL_Size
             };
         }
 

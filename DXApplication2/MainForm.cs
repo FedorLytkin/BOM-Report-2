@@ -379,7 +379,7 @@ namespace VSNRM_Kompas
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenThisDocument();
-            
+
             UpdateData();
 
             splashScreenManager2.CloseWaitForm();

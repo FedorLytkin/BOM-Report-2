@@ -119,6 +119,7 @@ namespace SaveDXF
             if (node.Tag == null)
             {
                 node.Tag = GetParam(TopPart);
+                AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
             Recource(TopPart, node);
@@ -166,6 +167,7 @@ namespace SaveDXF
                     {
                         if (tmp_Embodiment.Part == null) { IPart7NothingMsg(FFN); return; }
                         node.Tag = GetParam(tmp_Embodiment.Part);
+                        AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
                     Recource(tmp_Embodiment.Part, node);
@@ -342,6 +344,24 @@ namespace SaveDXF
                 catch { }
             }
             return PartList;
+        }
+        private void AddCellsInNode(TreeListNode Node, ComponentInfo.Drw_Info_Class Drw_componentInfo)
+        {
+            Node.SetValue("Имя файла", Path.GetFileNameWithoutExtension(Drw_componentInfo.FFN));
+            Node.SetValue("Миниатюра", Drw_componentInfo.Slide);
+            switch (Path.GetExtension(Drw_componentInfo.FFN).ToUpper())
+            {
+                case ".CDW":
+                    Node.ImageIndex = 10;
+                    Node.SelectImageIndex = 10;
+                    Node.StateImageIndex = 10;
+                    break;
+                case ".SPW":
+                    Node.ImageIndex = 11;
+                    Node.SelectImageIndex = 11;
+                    Node.StateImageIndex = 11;
+                    break;
+            }
         }
         private void AddCellsInNode(TreeListNode Node, ComponentInfo componentInfo)
         {
@@ -521,32 +541,65 @@ namespace SaveDXF
             _componentInfo.Total_QNT = GetTotalQNT(ChildNode);
             ChildNode.SetValue("Количество общ.", _componentInfo.Total_QNT);
             ChildNode.Tag = _componentInfo;
+
+            AddDrwNode(ChildNode, _componentInfo);
+
             return ChildNode;
+        }
+        private void AddDrwNode(TreeListNode ThisNode, ComponentInfo _componentInfo)
+        {
+
+            foreach (ComponentInfo.Drw_Info_Class drw_Info in _componentInfo.drw_List)
+            {
+                ComponentInfo Drw_Component = (ComponentInfo)_componentInfo.Clone();
+                switch (Path.GetExtension(drw_Info.FFN).ToUpper())
+                {
+                    case ".SPW":
+                        Drw_Component.HaveSP = true;
+                        break;
+                    case ".CDW":
+                        Drw_Component.HaveDrw = true;
+                        break;
+                }
+                Drw_Component.drw_Info = drw_Info;
+                Drw_Component.Key += Drw_Component.Key + "|" + Drw_Component.drw_Info.FFN;
+                TreeListNode Drw_Node = ThisNode.Nodes.Add();
+                AddCellsInNode(Drw_Node, drw_Info);
+                Drw_Node.Tag = Drw_Component;
+            }
+        }
+        private List<string> GetDrwDocs(IPart7 part_)
+        {
+            if (part_ == null) return null;
+
+            IKompasDocument doc = (IKompasDocument)GetIKompasDocument(part_.FileName, false, false);
+            if (doc == null) return null; 
+
+            List<string> drwS = new List<string>();
+
+            IProductDataManager productDataMenager = doc as IProductDataManager;
+            if (productDataMenager == null) return null;
+
+            dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part_];
+
+            if (arrAttachDoc != null)
+                foreach (var tDoc in arrAttachDoc)
+                {
+                    if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
+                    {
+                        drwS.Add(tDoc.ToString());
+                    }   
+                }
+                    
+            return drwS;
         }
         public List<string> GetExternal(string FileName)
         {
 
             IKompasDocument doc = (IKompasDocument)_IApplication.Documents.Open(FileName, true, false); ;
             if (doc == null) return null;
-            List<string> drwS = new List<string>();
-            object files = null;
-            object filesTypes = null;
-            (doc as IKompasDocument1).GetExternalFilesNamesEx(true, out files, out filesTypes);
-            int[] filesTypesList = (int[])filesTypes;
-            int i = 0;
-            foreach (string fl in (string[])files)
-            {
-                int d_type = filesTypesList[i];
-                switch (d_type)
-                {
-                    case 14:
-                    case 31:
-                        Drw_Info_Class drw_Info = new Drw_Info_Class();
-                        drwS.Add(fl);
-                        break;
-                }
-                i += 1;
-            }
+            List<string> drwS = new List<string>(); 
+
             IProductDataManager productData = (IProductDataManager)doc;
             IKompasDocument3D doc3d = (IKompasDocument3D)doc;
             
@@ -912,7 +965,29 @@ namespace SaveDXF
             ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
             iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
             iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+            List<string> DrwList = GetDrwDocs(part);
+            if(DrwList != null)
+            {
+                iMSH.drw_List = new List<ComponentInfo.Drw_Info_Class>();
+                foreach (string drw_Name in DrwList)
+                {
+                    iMSH.drw_List.Add(getDrwParam(drw_Name));
+                }
+            }
+
             return iMSH;
+        }
+        private ComponentInfo.Drw_Info_Class getDrwParam(string drw_Name)
+        {
+            ComponentInfo.Drw_Info_Class drw_Info = new ComponentInfo.Drw_Info_Class();
+            drw_Info.FFN = drw_Name;
+            FileInfo fileInfo = new FileInfo(drw_Name);
+            drw_Info.FL_Size = fileInfo.Length;
+            ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
+            drw_Info.Slide = shellFile.Thumbnail.SmallBitmap;
+            drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+
+            return drw_Info;
         }
         public static double GetThicknessPart(IPart7 Part_, bool inSource = true)
         //процедура возвращает значение толщины ЛТ
