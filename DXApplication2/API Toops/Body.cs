@@ -562,25 +562,27 @@ namespace SaveDXF
                         break;
                 }
                 Drw_Component.drw_Info = drw_Info;
-                Drw_Component.Key += Drw_Component.Key + "|" + Drw_Component.drw_Info.FFN;
+                Drw_Component.Key += Drw_Component.drw_Info.FFN + "|" + _componentInfo.FFN;
+                Drw_Component.FFN = Drw_Component.drw_Info.FFN;
                 TreeListNode Drw_Node = ThisNode.Nodes.Add();
                 AddCellsInNode(Drw_Node, drw_Info);
                 Drw_Node.Tag = Drw_Component;
             }
         }
         private List<string> GetDrwDocs(IPart7 part_)
-        {
-            if (part_ == null) return null;
-
-            IKompasDocument doc = (IKompasDocument)GetIKompasDocument(part_.FileName, false, false);
-            if (doc == null) return null; 
+        { 
+            IKompasDocument3D doci3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            //doci3D.Active = true;
+            if (doci3D == null) return null;
+            IPart7 part7 = doci3D.TopPart;
+            if (part7 == null) return null;
 
             List<string> drwS = new List<string>();
 
-            IProductDataManager productDataMenager = doc as IProductDataManager;
+            IProductDataManager productDataMenager = doci3D as IProductDataManager;
             if (productDataMenager == null) return null;
 
-            dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part_];
+            dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
 
             if (arrAttachDoc != null)
                 foreach (var tDoc in arrAttachDoc)
