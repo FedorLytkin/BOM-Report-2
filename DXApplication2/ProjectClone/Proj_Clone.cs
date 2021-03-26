@@ -1,4 +1,7 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Columns;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +11,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraTreeList.ViewInfo;
 
 namespace VSNRM_Kompas.ProjectClone
 {
     public partial class Proj_Clone : DevExpress.XtraEditors.XtraForm
     {
+        RepositoryItemPictureEdit pictureEdit;
         Pr_Clone_Class Pr_Clone;
-        public Proj_Clone()
+        RepositoryItemCheckEdit checkEdit;
+        Dictionary<TreeListColumn, bool> checkedColumns = new Dictionary<TreeListColumn, bool>();
+        public Proj_Clone(TreeList Donor_treeList)
         {
             InitializeComponent();
+
+            treeList1.OptionsView.ShowCheckBoxes = true;
+            pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
+            this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
             Pr_Clone = new Pr_Clone_Class();
             AddOptionInControls();
+
+            Pr_Clone.Donor_treeList = Donor_treeList;
+            Pr_Clone.This_treeList = treeList1;
+            
+            Pr_Clone.LB_Sborka = lb_Sborka;
+            Pr_Clone.LB_Part = lb_Part;
+            Pr_Clone.LB_Drw = lb_Drws;
+            Pr_Clone.LB_SP = lb_SP;
+            Pr_Clone.Bild_Tree();
+            checkEdit = (RepositoryItemCheckEdit)treeList1.RepositoryItems.Add("CheckEdit");
         }
         private void Proj_Clone_Load(object sender, EventArgs e)
         {
@@ -180,16 +201,19 @@ namespace VSNRM_Kompas.ProjectClone
                 rb_TreeList.Checked = false;
                 rb_GridView.Checked = true;
             }
+            Pr_Clone.Bild_Tree();
         }
 
         private void cb_check_Drw_CheckedChanged(object sender, EventArgs e)
         {
             Pr_Clone.check_Drw = cb_check_Drw.Checked;
+            Pr_Clone.Bild_Tree();
         }
 
         private void cb_check_SP_CheckedChanged(object sender, EventArgs e)
         {
             Pr_Clone.check_SP = cb_check_SP.Checked;
+            Pr_Clone.Bild_Tree();
         }
 
         private void cb_AddPrefix_CheckedChanged(object sender, EventArgs e)
@@ -227,6 +251,74 @@ namespace VSNRM_Kompas.ProjectClone
         private void cb_SaveInOneFolder_CheckedChanged(object sender, EventArgs e)
         {
             Pr_Clone.SaveInOneFolder = cb_SaveInOneFolder.Checked;
+        }
+        private void treeList1_CustomNodeCellEdit(object sender, GetCustomNodeCellEditEventArgs e)
+        {
+            if (e.Column.FieldName == "Миниатюра")
+            {
+                e.RepositoryItem = pictureEdit;
+            }
+        }
+         
+        private void treeList1_CustomDrawColumnHeader(object sender, CustomDrawColumnHeaderEventArgs e)
+        {
+            if (e.Column != null && e.Column.FieldName == "Миниатюра")
+            {
+                Rectangle checkRect = new Rectangle(e.Bounds.Left + 3, e.Bounds.Top + 3, 12, 12);
+                ColumnInfo info = (ColumnInfo)e.ObjectArgs;
+                info.CaptionRect = new Rectangle(new Point(checkRect.Right + 5, info.CaptionRect.Top), info.CaptionRect.Size);
+                e.Painter.DrawObject(info);
+                DrawCheckBox(e.Graphics, checkEdit, checkRect, IsColumnChecked(info.Column));
+                e.Handled = true;
+            }
+        }
+
+        protected void DrawCheckBox(Graphics g, RepositoryItemCheckEdit edit, Rectangle r, bool Checked)
+        {
+            DevExpress.XtraEditors.ViewInfo.CheckEditViewInfo info;
+            DevExpress.XtraEditors.Drawing.CheckEditPainter painter;
+            DevExpress.XtraEditors.Drawing.ControlGraphicsInfoArgs args;
+            info = edit.CreateViewInfo() as DevExpress.XtraEditors.ViewInfo.CheckEditViewInfo;
+            painter = edit.CreatePainter() as DevExpress.XtraEditors.Drawing.CheckEditPainter;
+            info.EditValue = Checked;
+            info.Bounds = r;
+            info.CalcViewInfo(g);
+            args = new DevExpress.XtraEditors.Drawing.ControlGraphicsInfoArgs(info, new DevExpress.Utils.Drawing.GraphicsCache(g), r);
+            painter.Draw(args);
+            args.Cache.Dispose();
+        }
+        private void EmbeddedCheckBoxChecked(TreeListColumn column)
+        {
+            checkedColumns[column] = !IsColumnChecked(column);
+            if (IsColumnChecked(column))
+                treeList1.CheckAll();
+            else
+                treeList1.UncheckAll();
+        }
+        bool IsColumnChecked(TreeListColumn column)
+        {
+            bool isChecked = false;
+            checkedColumns.TryGetValue(column, out isChecked);
+            return isChecked;
+
+        }
+
+        private void treeList1_MouseUp(object sender, MouseEventArgs e)
+        {
+            TreeList tree = sender as TreeList;
+            Point pt = new Point(e.X, e.Y);
+            TreeListHitInfo hit = tree.CalcHitInfo(pt);
+            if (hit.Column != null)
+            {
+                ColumnInfo info = tree.ViewInfo.ColumnsInfo[hit.Column];
+                Rectangle checkRect = new Rectangle(info.Bounds.Left + 3, info.Bounds.Top + 3, 12, 12);
+                if (checkRect.Contains(pt))
+                {
+                    EmbeddedCheckBoxChecked(info.Column);
+                    //EmbeddedCheckBoxChecked(tree);
+                    //throw new DevExpress.Utils.HideException();
+                }
+            }
         }
     }
 }

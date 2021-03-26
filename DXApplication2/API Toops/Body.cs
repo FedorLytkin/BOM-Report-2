@@ -991,7 +991,7 @@ namespace SaveDXF
             iMSH._MCH.Volume = massInertiaParam.Volume;
             iMSH.FFN = part.FileName;
             iMSH.material = part.Material;
-            iMSH.FL_Size = ;
+            iMSH.FL_Size = GetFileSize(part.FileName);
             bool isSHeetmetall = false;
             iMSH.SheeMetall = IsSheetMetal(part, out isSHeetmetall);
             iMSH.HaveUnfold = GetHasFlatPattern(part);

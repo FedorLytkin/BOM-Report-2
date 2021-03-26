@@ -661,7 +661,8 @@ namespace VSNRM_Kompas
 
         private void Bt_Copy_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ProjectClone.Proj_Clone proj_Clone = new ProjectClone.Proj_Clone();
+            ProjectClone.Proj_Clone proj_Clone = new ProjectClone.Proj_Clone(treeList1);
+            
             proj_Clone.ShowDialog();
         }
 
