@@ -415,6 +415,10 @@ namespace VSNRM_Kompas
             body.Split_Naim = Bt_NaimSpletter.Checked;
         }
 
+        private void Add_Drw_In_Tree_CH_B_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            body.Add_Drw = Add_Drw_In_Tree_CH_B.Checked;
+        }
         private void treeList1_PopupMenuShowing(object sender, DevExpress.XtraTreeList.PopupMenuShowingEventArgs e)
         {
             TreeList tL = sender as TreeList;
@@ -660,5 +664,6 @@ namespace VSNRM_Kompas
             ProjectClone.Proj_Clone proj_Clone = new ProjectClone.Proj_Clone();
             proj_Clone.ShowDialog();
         }
+
     }
 }

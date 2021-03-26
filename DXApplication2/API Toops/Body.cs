@@ -39,6 +39,7 @@ namespace SaveDXF
         public List<object> FindModel_List;
         public bool All_Level_Search = false;
         public bool Split_Naim = false;
+        public bool Add_Drw = false;
         public bool OnlySheetMetalls = false;
         public static bool thisFirstMessage = false;
         CFG_Class optionClassInBody;
@@ -119,7 +120,7 @@ namespace SaveDXF
             if (node.Tag == null)
             {
                 node.Tag = GetParam(TopPart);
-                AddDrwNode(node, (ComponentInfo)node.Tag);
+                if(Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
             Recource(TopPart, node);
@@ -167,7 +168,7 @@ namespace SaveDXF
                     {
                         if (tmp_Embodiment.Part == null) { IPart7NothingMsg(FFN); return; }
                         node.Tag = GetParam(tmp_Embodiment.Part);
-                        AddDrwNode(node, (ComponentInfo)node.Tag);
+                        if (Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
                     Recource(tmp_Embodiment.Part, node);
@@ -347,7 +348,13 @@ namespace SaveDXF
         }
         private void AddCellsInNode(TreeListNode Node, ComponentInfo.Drw_Info_Class Drw_componentInfo)
         {
-            Node.SetValue("Имя файла", Path.GetFileNameWithoutExtension(Drw_componentInfo.FFN));
+
+            Dictionary<string, string> ParValues = Drw_componentInfo.ParamValueList;
+            foreach (string FieldName in FindParam_Model)
+            {
+                Node.SetValue(FieldName, ParValues[FieldName]);
+            }
+            //Node.SetValue("Имя файла", Path.GetFileNameWithoutExtension(Drw_componentInfo.FFN));
             Node.SetValue("Миниатюра", Drw_componentInfo.Slide);
             switch (Path.GetExtension(Drw_componentInfo.FFN).ToUpper())
             {
@@ -542,7 +549,7 @@ namespace SaveDXF
             ChildNode.SetValue("Количество общ.", _componentInfo.Total_QNT);
             ChildNode.Tag = _componentInfo;
 
-            AddDrwNode(ChildNode, _componentInfo);
+            if (Add_Drw) AddDrwNode(ChildNode, _componentInfo);
 
             return ChildNode;
         }
@@ -657,6 +664,36 @@ namespace SaveDXF
 
             return false;
         }
+        public string GetPropertyIDrw(string FileName, string PropertyName)
+        {
+            IKompasDocument _IKompasDocumentDrw = (IKompasDocument)GetIKompasDocument(FileName, false, false);
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    int count = _IPropertyMng.PropertyCount[_IKompasDocumentDrw];
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(_IKompasDocumentDrw, i);
+                        if (PropertyName == Property.Name)
+                        {
+                            object returnObject;
+                            if (GetValueProperty(_IKompasDocumentDrw, Property, out returnObject))
+                            {
+                                if (returnObject.GetType().Name == "Double") returnObject = Math.Round(Convert.ToDouble(returnObject), 3);
+                                if (!string.IsNullOrEmpty(returnObject.ToString()))
+                                {
+                                    return returnObject.ToString();
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
         public string GetPropertyIPart7(IPart7 part_, string PropertyName)
         {
             IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
@@ -728,6 +765,31 @@ namespace SaveDXF
                     if (classresProperty != null)
                     { 
                         Prop.SetPropertyValue((_Property)classresProperty, Value, Baseunit);
+                    }
+                }
+            }
+            return res;
+        }
+        public static bool GetValueProperty(IKompasDocument _IKompasDocumentDrw, IProperty Property, out object returnObject)
+        {
+            bool res = false;
+            returnObject = null;
+            if (Property != null)
+            {
+                IPropertyKeeper Prop = _IKompasDocumentDrw as IPropertyKeeper;
+
+                if (Prop != null)
+                {
+                    bool Baseunit, FromSource;
+                    Baseunit = false;
+                    _Property classresProperty = (_Property)Property;
+                    if (classresProperty != null)
+                    {
+                        Prop.GetPropertyValue((_Property)classresProperty, out returnObject, Baseunit, out FromSource);
+                        if (returnObject != null)
+                        {
+                            res = true;
+                        }
                     }
                 }
             }
@@ -812,33 +874,6 @@ namespace SaveDXF
             //процедура закрывает документ
             IKompasDocument _IKompasDocument = (IKompasDocument)_IApplication.Documents[FullFileName];
             if (_IKompasDocument != null && _IKompasDocument.Visible == false) _IKompasDocument.Close(DocumentCloseOptions.kdDoNotSaveChanges);
-        }
-        private ComponentInfo GetParam(ksPart part)
-        {
-            ksMassInertiaParam massInertiaParam = (ksMassInertiaParam)part.CalcMassInertiaProperties((uint)ksLengthUnitsEnum.ksLUnMM);
-            IPropertyMng propertyManager = part as IPropertyMng;
-            //string oboz = propertyManager.GetProperty(kompasDocument, 4); //обозначение
-            //string SSect = propertyManager.GetProperty(kompasDocument, 20);  //раздел спецификации
-
-
-            ComponentInfo iMSH = new ComponentInfo();
-            iMSH._MCH.Area = massInertiaParam.F;
-            iMSH._MCH.Mass = massInertiaParam.m;
-            iMSH._MCH.Volume = massInertiaParam.v;
-            iMSH._MCH.Xc= massInertiaParam.xc;
-            iMSH._MCH.Yc = massInertiaParam.yc;
-            iMSH._MCH.Zc = massInertiaParam.zc;
-
-            iMSH.FFN = part.fileName;
-            iMSH.material = part.material;
-            iMSH.Oboz = part.marking;
-            iMSH.Naim = part.name;
-            iMSH.Mass = part.GetMass();
-            iMSH.isDetal = part.IsDetail();
-            iMSH.standardComponent = part.standardComponent;
-            iMSH.QNT = 1;
-            iMSH.Key = part.fileName + "|" + part.marking;
-            return iMSH;
         }
         private ComponentInfo.Get_Body GetParamBody(IBody7 body)
         {
@@ -956,6 +991,7 @@ namespace SaveDXF
             iMSH._MCH.Volume = massInertiaParam.Volume;
             iMSH.FFN = part.FileName;
             iMSH.material = part.Material;
+            iMSH.FL_Size = ;
             bool isSHeetmetall = false;
             iMSH.SheeMetall = IsSheetMetal(part, out isSHeetmetall);
             iMSH.HaveUnfold = GetHasFlatPattern(part);
@@ -979,15 +1015,93 @@ namespace SaveDXF
 
             return iMSH;
         }
+        private long GetFileSize(string FileName)
+        {
+            if (File.Exists(FileName))
+            {
+                FileInfo fileInfo = new FileInfo(FileName);
+                return fileInfo.Length;
+            }
+            return -1;
+        }
         private ComponentInfo.Drw_Info_Class getDrwParam(string drw_Name)
         {
             ComponentInfo.Drw_Info_Class drw_Info = new ComponentInfo.Drw_Info_Class();
             drw_Info.FFN = drw_Name;
-            FileInfo fileInfo = new FileInfo(drw_Name);
-            drw_Info.FL_Size = fileInfo.Length;
+            drw_Info.FL_Size = GetFileSize(drw_Name);
+            drw_Info.Naim = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, "Наименование"), "");
+            drw_Info.Oboz= OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, "Обозначение"), "");
+            
             ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
             drw_Info.Slide = shellFile.Thumbnail.SmallBitmap;
             drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+
+            Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
+            //iMSH.ParamValueList = FindParam_Model;
+            foreach (string ParamName in FindParam_Model)
+            {
+                string ParamValue = "";
+                switch (ParamName)
+                {
+                    //case "Обозначение":
+                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, ParamName), "");
+                    //    break;
+                    case "Имя файла":
+                        ParamValue = System.IO.Path.GetFileNameWithoutExtension(drw_Name);
+                        break;
+                    case "Путь файла":
+                        ParamValue = drw_Name;
+                        break;
+                    case "Расположение файла":
+                        ParamValue = System.IO.Path.GetDirectoryName(drw_Name);
+                        break;
+                    //case "Наименование":
+                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
+                    //    if (Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
+                    //    break;
+                    //case "Масса":
+                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
+                    //    break;
+                    //case "Материал":
+                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
+                    //    break;
+                    //case "Толщина":
+                    //    ParamValue = Convert.ToString(GetThicknessPart(part, true));
+                    //    break;
+                    //case "Количество":
+                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                    //    if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
+                    //    break;
+                    //case "Количество общ.":
+                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                        //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
+                        break;
+                    //case "Площадь":
+                    //    ParamValue = Math.Round(massInertiaParam.Area, 3).ToString();
+                    //    break;
+                    //case "Объем":
+                    //    ParamValue = Math.Round(massInertiaParam.Volume, 3).ToString();
+                    //    break;
+                    //case "Xc":
+                    //    ParamValue = massInertiaParam.Xc.ToString();
+                    //    break;
+                    //case "Yc":
+                    //    ParamValue = massInertiaParam.Yc.ToString();
+                    //    break;
+                    //case "Zc":
+                    //    ParamValue = massInertiaParam.Zc.ToString();
+                    //    break;
+                    case "Полное имя файла":
+                        ParamValue = drw_Name;
+                        break;
+                    default:
+                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, ParamName), "");
+                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                        break;
+                }
+                ParamValueList.Add(ParamName, ParamValue);
+            }
+            drw_Info.ParamValueList = ParamValueList;
 
             return drw_Info;
         }
