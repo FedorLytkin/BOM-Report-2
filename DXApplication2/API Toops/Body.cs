@@ -1525,6 +1525,23 @@ namespace SaveDXF
             }
             return null;
         }
+        public void SetSourseChancge_ModelAPI7(string DonorFileName, List<TreeListNode> AllComponents)
+        {
+            IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
+            IPart7 part7 = document3D.TopPart;
+            var Parts = part7.PartsEx[0];
+            foreach(IPart7 part in Parts)
+            {
+                IFeature7 feature7 = (IFeature7)part;
+                if (feature7.Excluded)
+                {
+                    string Name = part7.FileName;
+
+                    part7.Update();
+                }
+            }
+            document3D.Close(DocumentCloseOptions.kdSaveChanges);
+        }
         public void SetSourseChancge_Model(string DonorFileName, List<TreeListNode> AllComponents)
         {
             if (!AppVersNOTValidStrongMessage()) return;
