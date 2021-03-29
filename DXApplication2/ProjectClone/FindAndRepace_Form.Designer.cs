@@ -81,6 +81,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.cb_To4noe.Properties.Caption = "Точное соответствие";
             this.cb_To4noe.Size = new System.Drawing.Size(133, 20);
             this.cb_To4noe.TabIndex = 11;
+            this.cb_To4noe.CheckedChanged += new System.EventHandler(this.cb_To4noe_CheckedChanged);
             // 
             // labelControl1
             // 
@@ -152,6 +153,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.cb_NotCheckRegister.Properties.Caption = "Без учета регистра";
             this.cb_NotCheckRegister.Size = new System.Drawing.Size(126, 20);
             this.cb_NotCheckRegister.TabIndex = 3;
+            this.cb_NotCheckRegister.CheckedChanged += new System.EventHandler(this.cb_NotCheckRegister_CheckedChanged);
             // 
             // rb_CheckElement
             // 

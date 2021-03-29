@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using DevExpress.XtraTreeList.ViewInfo;
 using VSNRM_Kompas.API_Toops;
 using System.IO;
+using SaveDXF;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -23,6 +24,7 @@ namespace VSNRM_Kompas.ProjectClone
         Pr_Clone_Class Pr_Clone;
         RepositoryItemCheckEdit checkEdit;
         Dictionary<TreeListColumn, bool> checkedColumns = new Dictionary<TreeListColumn, bool>();
+        public Body body;
         public Proj_Clone(TreeList Donor_treeList)
         {
             InitializeComponent();
@@ -358,6 +360,11 @@ namespace VSNRM_Kompas.ProjectClone
                     e.Appearance.Options.UseBackColor = true;
                 }
             }
+        }
+
+        private void bt_Save_Click(object sender, EventArgs e)
+        {
+            body.SetLinks(treeList1.GetAllCheckedNodes());
         }
     }
 }

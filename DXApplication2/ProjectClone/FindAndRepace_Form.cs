@@ -165,5 +165,15 @@ namespace VSNRM_Kompas.ProjectClone
         {
             FindAndRepace.FindNext(cb_FindParams.Text, tb_FindText.Text, tb_ReplceText.Text);
         }
+
+        private void cb_NotCheckRegister_CheckedChanged(object sender, EventArgs e)
+        {
+            FindAndRepace.Register_Without = cb_NotCheckRegister.Checked;
+        }
+
+        private void cb_To4noe_CheckedChanged(object sender, EventArgs e)
+        {
+            FindAndRepace.To4noe = cb_To4noe.Checked;
+        }
     }
 }

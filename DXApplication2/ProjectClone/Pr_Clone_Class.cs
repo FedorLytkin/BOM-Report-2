@@ -30,7 +30,7 @@ namespace VSNRM_Kompas.ProjectClone
         public bool AddSufix = false;
         public bool AddPrefix = false;
 
-        public bool SaveInOneFolder = false;
+        public bool SaveInOneFolder = true;
         List<string> ColList;
         public LabelControl LB_Sborka;
         public LabelControl LB_Part;
@@ -265,7 +265,10 @@ namespace VSNRM_Kompas.ProjectClone
             FolderBrowserDialogEx folderdialog = new FolderBrowserDialogEx();
             
             if (folderdialog.ShowDialog() == DialogResult.OK)
+            {
+                SetFolderPath(folderdialog.SelectedPath);
                 return folderdialog.SelectedPath;
+            }
             return null;
         }
         public string GetZipFileName()
@@ -282,13 +285,18 @@ namespace VSNRM_Kompas.ProjectClone
             foreach(TreeListNode node in This_treeList.GetNodeList())
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()))
+                if (!string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()))
                     node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
                 //if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()) || string.IsNullOrEmpty(Prefix_Value) || string.IsNullOrEmpty(Sufix_Value))
                 //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
                 //else
                 //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{node.GetValue("Сохранить в имени").ToString()}{Sufix_Value}");
             }
+        }
+        private void SetFolderPath(string FolderPath)
+        {
+            foreach (TreeListNode node in This_treeList.GetNodeList())
+                node.SetValue("Сохранить в папке", FolderPath);
         }
     }
 }

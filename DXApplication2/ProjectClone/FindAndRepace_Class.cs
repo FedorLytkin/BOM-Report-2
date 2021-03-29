@@ -38,37 +38,68 @@ namespace VSNRM_Kompas.ProjectClone
             return Col_List;
         }
         public void FindTextList(string ColumnName, string FindText)
-        { 
+        {
+            StringComparison stringComparison = StringComparison.Ordinal;
+            if (Register_Without) stringComparison = StringComparison.OrdinalIgnoreCase;
             Find_treeListNodes = new List<TreeListNode>();
             foreach (TreeListNode node in treeList.GetNodeList())
             {
-                if (node.GetValue(ColumnName).ToString().Contains(FindText))
+                if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
                     Find_treeListNodes.Add(node);
             }
             NextStep = 0;
         }
         public void FindNext(string ColumnName, string FindText, string ReplaceText)
         {
+            if (string.IsNullOrEmpty(FindText)) return;
+            StringComparison stringComparison = StringComparison.Ordinal;
+            if (Register_Without) stringComparison = StringComparison.OrdinalIgnoreCase;
             if (NextStep >= Find_treeListNodes.Count) NextStep = 0;
+
             for (int ii = NextStep; ii < Find_treeListNodes.Count; ii++)
             {
                 TreeListNode node = Find_treeListNodes[ii];
                 switch (find_Method_Enum)
                 {
                     case Find_Method_Enum.Check_Elements:
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.Checked = true;
+                        if (To4noe)
+                        {
+                            if (node.GetValue(ColumnName).ToString() == FindText)
+                                node.Checked = true;
+                            else
+                                node.Checked = false;
+                        }
                         else
-                            node.Checked = false;
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.Checked = true;
+                            else
+                                node.Checked = false;
+                        }
                         break;
                     case Find_Method_Enum.Not_Check_Elements:
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.Checked = false;
+                        if (To4noe)
+                        {
+                            if (node.GetValue(ColumnName).ToString() == FindText)
+                                node.Checked = false;
+                        }
+                        else
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.Checked = false;
+                        }
                         break;
                     case Find_Method_Enum.RepaceText:
-                        string Val = node.GetValue(ColumnName).ToString();
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        if (To4noe)
+                        {
+                            if (node.GetValue(ColumnName).ToString() == FindText)
+                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        }
+                        else
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        }
                         break;
                 }
                 NextStep += 1;
@@ -77,24 +108,52 @@ namespace VSNRM_Kompas.ProjectClone
         }
         public void FindAll(string ColumnName, string FindText, string ReplaceText)
         {
+            if (string.IsNullOrEmpty(FindText)) return;
+            StringComparison stringComparison = StringComparison.Ordinal;
+            if (Register_Without) stringComparison = StringComparison.OrdinalIgnoreCase;
             foreach (TreeListNode node in treeList.GetNodeList())
             {
                 switch (find_Method_Enum)
                 {
                     case Find_Method_Enum.Check_Elements:
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.Checked = true;
+                        if (To4noe)
+                        {
+                            if(node.GetValue(ColumnName).ToString() == FindText)
+                                node.Checked = true;
+                            else
+                                node.Checked = false; 
+                        }
                         else
-                            node.Checked = false;
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.Checked = true;
+                            else
+                                node.Checked = false;
+                        }
                         break;
                     case Find_Method_Enum.Not_Check_Elements:
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.Checked = false; 
+                        if (To4noe)
+                        {
+                            if (node.GetValue(ColumnName).ToString() == FindText)
+                                node.Checked = false;
+                        }
+                        else
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.Checked = false;
+                        }
                         break;
                     case Find_Method_Enum.RepaceText:
-                        string Val = node.GetValue(ColumnName).ToString();
-                        if (node.GetValue(ColumnName).ToString().Contains(FindText))
-                            node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        if (To4noe)
+                        {
+                            if (node.GetValue(ColumnName).ToString() == FindText)
+                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        }
+                        else
+                        {
+                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                        }
                         break;
                 }
             }

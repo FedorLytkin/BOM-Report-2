@@ -1406,5 +1406,200 @@ namespace SaveDXF
             iDocument3D_1.close();
         }
         #endregion
+
+        #region копировать Проект
+        public void SetLinks(List<TreeListNode> AllComponents)
+        {
+            List<string> CopyFileList = new List<string>();
+            foreach(TreeListNode node in AllComponents)
+            {
+                if (node.Checked)
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    string CopyFileName = $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                    if (!Directory.Exists(Path.GetDirectoryName(CopyFileName)))
+                        Directory.CreateDirectory(Path.GetDirectoryName(CopyFileName));
+
+                    File.Copy(componentInfo.FFN, CopyFileName, true);
+                    CopyFileList.Add(CopyFileName);
+                }
+            }
+            foreach (string FileName in CopyFileList)
+            {
+                switch (Path.GetExtension(FileName).ToUpper())
+                {
+                    case ".SPW":
+                        SetLinkInSPDoc(FileName, AllComponents);
+                        break;
+                    case ".CDW":
+                        SetLinkInDRW(FileName, AllComponents);
+                        break;
+                    case ".A3D":
+                        SetSourseChancge_Model(FileName, AllComponents);
+                        break;
+                }
+            }
+        }
+        public void SetLinkInSPDoc(string FileName, List<TreeListNode> AllComponents)
+        {
+            ISpecificationDocument iKompasDocument = (ISpecificationDocument)_IApplication.Documents.Open(FileName, false, true);
+            SpecificationDescriptions iSpecificationDescriptions = iKompasDocument.SpecificationDescriptions;
+            SpecificationDescription iSpecificationDescription = iSpecificationDescriptions.Active;
+            dynamic Objects = iSpecificationDescription.Objects;
+            foreach (ISpecificationObject specificationObject in Objects)
+            {
+                ksSpecificationObjectTypeEnum ObjectType = specificationObject.ObjectType;
+                if ((int)ObjectType == 1 || (int)ObjectType == 2)
+                {
+                    AttachedDocuments attachedDocuments = specificationObject.AttachedDocuments;
+                    for (int ii = 0; ii < attachedDocuments.Count; ii++)
+                    {
+                        AttachedDocument attachedDocument = attachedDocuments[ii];
+                        string Name = attachedDocument.Name;
+                        attachedDocument.Delete();
+                        specificationObject.Update();
+                        foreach (TreeListNode node in AllComponents)
+                        {
+                            ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                            if (componentInfo.FFN == Name)
+                                attachedDocuments.Add($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}", true);
+                        }
+                        specificationObject.Update();
+                    }
+                }
+            }
+            ISpecificationBaseObjects ISpecificationBaseO = iSpecificationDescription.BaseObjects;
+            ISpecificationBaseObject specificationBaseObject = ISpecificationBaseO[0];
+            AttachedDocuments iAttachedDocuments = specificationBaseObject.AttachedDocuments;
+            for (int ii = 0; ii < iAttachedDocuments.Count; ii++)
+            {
+                AttachedDocument attachedDocument = iAttachedDocuments[ii];
+                string Name = attachedDocument.Name;
+                attachedDocument.Delete();
+                specificationBaseObject.Update();
+                foreach (TreeListNode node in AllComponents)
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    if (componentInfo.FFN == Name)
+                        iAttachedDocuments.Add($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}", true);
+                }
+                specificationBaseObject.Update();
+
+            }
+
+            iKompasDocument.RebuildDocument();
+            iKompasDocument.Save();
+            iKompasDocument.Close(DocumentCloseOptions.kdSaveChanges);
+        }
+        public void SetLinkInDRW(string FileName, List<TreeListNode> AllComponents)
+        {
+            IKompasDocument2D document2D = (IKompasDocument2D)_IApplication.Documents.Open(FileName, false, true);
+            IKompasDocument2D1 kompasDocument2D1 = (IKompasDocument2D1)document2D;
+            ViewsAndLayersManager viewsAndLayersManager = document2D.ViewsAndLayersManager;
+            Views views = viewsAndLayersManager.Views;
+            for (int ii = 0; ii < views.Count; ii++)
+            {
+                KompasAPI7.View view = (KompasAPI7.View)views[ii];
+                if (view.Type == KompasAPIObjectTypeEnum.ksObjectAssociationView)
+                {
+                    IAssociationView associationView = (IAssociationView)view;
+                    string Name = associationView.SourceFileName;
+                    foreach (TreeListNode node in AllComponents)
+                    {
+                        ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                        if (componentInfo.FFN == Name)
+                            associationView.SourceFileName = $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                    }
+                    view.Update();
+                }
+            }
+            kompasDocument2D1.RebuildDocument();
+        }
+        string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents)
+        {
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (componentInfo.FFN == DonorFileName && node.Checked)
+                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+            }
+            return null;
+        }
+        public void SetSourseChancge_Model(string DonorFileName, List<TreeListNode> AllComponents)
+        {
+            if (!AppVersNOTValidStrongMessage()) return;
+            try
+            {
+                //_IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
+                DonorFileName = DonorFileName.Replace("/", @"\");
+                //string SB_FilenameOUT = GetFileNameByAllComponents(DonorFileName, AllComponents);
+                //if (string.IsNullOrEmpty(SB_FilenameOUT)) return;
+
+                //if (!Directory.Exists(Path.GetDirectoryName(SB_FilenameOUT)))
+                //    Directory.CreateDirectory(Path.GetDirectoryName(SB_FilenameOUT));
+                bool docVis = true;
+                ksDocument3D iDocument3D = (ksDocument3D)_kompasObject.Document3D();
+                //if (iDocument3D.Open(DonorFileName, docVis))
+                //    iDocument3D.SaveAs(SB_FilenameOUT);
+                //else
+                //{
+                //    iDocument3D = (ksDocument3D)_kompasObject.ActiveDocument3D();
+                //    iDocument3D.SaveAs(SB_FilenameOUT);
+                //}
+                //File.Copy(SB_FilenameIN, SB_FilenameOUT, true);
+                iDocument3D.Open(DonorFileName, docVis);
+
+                //AddWaitStatus("Скопирован:" + Path.GetFileName(SB_FilenameOUT));
+
+                Dictionary<string, string> AssemblyParts = new Dictionary<string, string>();
+
+                var iPartCollection = iDocument3D.PartCollection(true);
+                ksPart iPart = iDocument3D.GetPart((short)Part_Type.pTop_Part);
+                int Count = iPartCollection.GetCount();
+                for (int j = 0; j < Count; j++)
+                {
+                    string OutPartFileName = null;
+                    try
+                    {
+                        var iPartIndex = iPartCollection.GetByIndex(j);
+                        string file = iPartIndex.fileName;
+                        OutPartFileName = GetFileNameByAllComponents(file, AllComponents);
+                        if (string.IsNullOrEmpty(OutPartFileName))
+                        {
+                            if (!Directory.Exists(Path.GetDirectoryName(OutPartFileName)))
+                                Directory.CreateDirectory(Path.GetDirectoryName(OutPartFileName));
+
+                            bool NeedSetlink = false;
+                            if (!File.Exists(OutPartFileName))
+                            {
+                                //AddWaitStatus("Скопирован:" + Path.GetFileName(OutPartFileName));
+                                File.Copy(file, OutPartFileName, true);
+                                NeedSetlink = true;
+                                if (!iPartIndex.IsDetail)
+                                    AssemblyParts.Add(iPartIndex.fileName, OutPartFileName);
+                            }
+                            iPartIndex.fileName = OutPartFileName;
+                            if (NeedSetlink) SetLinkInProperty(OutPartFileName, DonorFileName);
+                            iPartIndex.Update();
+                        }
+                    }
+                    catch
+                    {
+                        //AddWaitStatus("Ошибка при изменении файл-источника для детали: " + Path.GetFileName(OutPartFileName));
+                    }
+                }
+                iDocument3D.Save();
+                iDocument3D.close();
+                return;
+                foreach (KeyValuePair<string, string> IParam in AssemblyParts)
+                {
+                    SetSourseChancge_Model(IParam.Key, AllComponents);
+                    //SetLinkInProperty(IParam.Value, SB_FilenameOUT);
+                }
+            }
+            catch { }
+            //_IApplication.HideMessage = ksHideMessageEnum.ksShowMessage;
+        }
+        #endregion
     }
 }

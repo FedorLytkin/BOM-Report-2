@@ -363,6 +363,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_Save.Size = new System.Drawing.Size(70, 23);
             this.bt_Save.TabIndex = 25;
             this.bt_Save.Text = "Сохранить";
+            this.bt_Save.Click += new System.EventHandler(this.bt_Save_Click);
             // 
             // bt_Cancel
             // 
