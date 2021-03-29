@@ -1424,6 +1424,7 @@ namespace SaveDXF
                     CopyFileList.Add(CopyFileName);
                 }
             }
+            _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
             foreach (string FileName in CopyFileList)
             {
                 switch (Path.GetExtension(FileName).ToUpper())
@@ -1435,14 +1436,15 @@ namespace SaveDXF
                         SetLinkInDRW(FileName, AllComponents);
                         break;
                     case ".A3D":
-                        SetSourseChancge_Model(FileName, AllComponents);
+                        SetSourseChancge_ModelAPI7(FileName, AllComponents);
                         break;
                 }
             }
+            _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageYes; //отключаем все сообщения от компаса
         }
         public void SetLinkInSPDoc(string FileName, List<TreeListNode> AllComponents)
         {
-            ISpecificationDocument iKompasDocument = (ISpecificationDocument)_IApplication.Documents.Open(FileName, false, true);
+            ISpecificationDocument iKompasDocument = (ISpecificationDocument)_IApplication.Documents.Open(FileName, true, false);
             SpecificationDescriptions iSpecificationDescriptions = iKompasDocument.SpecificationDescriptions;
             SpecificationDescription iSpecificationDescription = iSpecificationDescriptions.Active;
             dynamic Objects = iSpecificationDescription.Objects;
@@ -1458,12 +1460,8 @@ namespace SaveDXF
                         string Name = attachedDocument.Name;
                         attachedDocument.Delete();
                         specificationObject.Update();
-                        foreach (TreeListNode node in AllComponents)
-                        {
-                            ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                            if (componentInfo.FFN == Name)
-                                attachedDocuments.Add($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}", true);
-                        }
+                        string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
+                        if (!string.IsNullOrEmpty(NewFileName)) attachedDocuments.Add(NewFileName, true);
                         specificationObject.Update();
                     }
                 }
@@ -1477,12 +1475,8 @@ namespace SaveDXF
                 string Name = attachedDocument.Name;
                 attachedDocument.Delete();
                 specificationBaseObject.Update();
-                foreach (TreeListNode node in AllComponents)
-                {
-                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                    if (componentInfo.FFN == Name)
-                        iAttachedDocuments.Add($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}", true);
-                }
+                string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
+                if(!string.IsNullOrEmpty(NewFileName)) iAttachedDocuments.Add(NewFileName, true);
                 specificationBaseObject.Update();
 
             }
@@ -1493,7 +1487,7 @@ namespace SaveDXF
         }
         public void SetLinkInDRW(string FileName, List<TreeListNode> AllComponents)
         {
-            IKompasDocument2D document2D = (IKompasDocument2D)_IApplication.Documents.Open(FileName, false, true);
+            IKompasDocument2D document2D = (IKompasDocument2D)_IApplication.Documents.Open(FileName, true, false);
             IKompasDocument2D1 kompasDocument2D1 = (IKompasDocument2D1)document2D;
             ViewsAndLayersManager viewsAndLayersManager = document2D.ViewsAndLayersManager;
             Views views = viewsAndLayersManager.Views;
@@ -1504,16 +1498,13 @@ namespace SaveDXF
                 {
                     IAssociationView associationView = (IAssociationView)view;
                     string Name = associationView.SourceFileName;
-                    foreach (TreeListNode node in AllComponents)
-                    {
-                        ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                        if (componentInfo.FFN == Name)
-                            associationView.SourceFileName = $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
-                    }
+                    string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                    if (!string.IsNullOrEmpty(New_FileName)) associationView.SourceFileName = New_FileName;
                     view.Update();
                 }
             }
             kompasDocument2D1.RebuildDocument();
+            document2D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents)
         {
@@ -1529,17 +1520,19 @@ namespace SaveDXF
         {
             IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
             IPart7 part7 = document3D.TopPart;
-            var Parts = part7.PartsEx[0];
+            var Parts = part7.PartsEx[1];
             foreach(IPart7 part in Parts)
             {
                 IFeature7 feature7 = (IFeature7)part;
-                if (feature7.Excluded)
+                if (!feature7.Excluded)
                 {
-                    string Name = part7.FileName;
-
-                    part7.Update();
+                    string Name = part.FileName;
+                    string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                    if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
+                    part.Update();
                 }
             }
+            part7.Update();
             document3D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         public void SetSourseChancge_Model(string DonorFileName, List<TreeListNode> AllComponents)

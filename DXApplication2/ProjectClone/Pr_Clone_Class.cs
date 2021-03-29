@@ -89,6 +89,7 @@ namespace VSNRM_Kompas.ProjectClone
                 } 
             }
             This_treeList.ExpandAll();
+            This_treeList.CheckAll();
             CalcComponentCout(This_treeList);
         }
         public void CalcComponentCout(TreeList treeList)
