@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraTreeList.ViewInfo;
+using VSNRM_Kompas.API_Toops;
+using System.IO;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -29,17 +31,28 @@ namespace VSNRM_Kompas.ProjectClone
             pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
             this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
             Pr_Clone = new Pr_Clone_Class();
+
             AddOptionInControls();
 
             Pr_Clone.Donor_treeList = Donor_treeList;
             Pr_Clone.This_treeList = treeList1;
-            
+
+            if(Donor_treeList != null && Donor_treeList.Nodes.Count != 0)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)Donor_treeList.Nodes[0].Tag;
+                Pr_Clone.FolderPath = $@"{Path.GetDirectoryName(componentInfo.FFN)}\{Path.GetFileNameWithoutExtension(componentInfo.FFN)}";
+                Pr_Clone.ZipFileName = $@"{Path.GetDirectoryName(componentInfo.FFN)}\{Path.GetFileNameWithoutExtension(componentInfo.FFN)}.ZIP";
+            }
+
             Pr_Clone.LB_Sborka = lb_Sborka;
             Pr_Clone.LB_Part = lb_Part;
             Pr_Clone.LB_Drw = lb_Drws;
             Pr_Clone.LB_SP = lb_SP;
             Pr_Clone.Bild_Tree();
             checkEdit = (RepositoryItemCheckEdit)treeList1.RepositoryItems.Add("CheckEdit");
+
+            tb_FolderPath.Text = Pr_Clone.FolderPath;
+            tb_ZipFileName.Text = Pr_Clone.ZipFileName;
         }
         private void Proj_Clone_Load(object sender, EventArgs e)
         {
@@ -50,7 +63,7 @@ namespace VSNRM_Kompas.ProjectClone
             cb_check_Drw.Checked = Pr_Clone.check_Drw;
             cb_check_SP.Checked = Pr_Clone.check_SP;
 
-            if(Pr_Clone.treeViewEnum == Pr_Clone_Class.TreeViewEnum.TreeView)
+            if (Pr_Clone.treeViewEnum == Pr_Clone_Class.TreeViewEnum.TreeView)
             {
                 rb_TreeList.Checked = true;
                 rb_GridView.Checked = false;
@@ -228,7 +241,7 @@ namespace VSNRM_Kompas.ProjectClone
             {
                 tb_Prefix.Enabled = false;
                 Pr_Clone.Prefix_Value = null;
-                Pr_Clone.Prefix_Value = null;
+                tb_Prefix.Text = null;
             } 
         }
 
@@ -244,7 +257,7 @@ namespace VSNRM_Kompas.ProjectClone
             {
                 tb_Sufix.Enabled = false;
                 Pr_Clone.Sufix_Value = null;
-                Pr_Clone.Sufix_Value = null;
+                tb_Sufix.Text = null;
             }
         }
 
@@ -317,6 +330,32 @@ namespace VSNRM_Kompas.ProjectClone
                     EmbeddedCheckBoxChecked(info.Column);
                     //EmbeddedCheckBoxChecked(tree);
                     //throw new DevExpress.Utils.HideException();
+                }
+            }
+        }
+
+        private void tb_Prefix_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            Pr_Clone.Prefix_Value = tb_Prefix.Text;
+            Pr_Clone.SetPrefixAndSufix();
+        }
+
+        private void tb_Sufix_EditValueChanged(object sender, EventArgs e)
+        {
+            Pr_Clone.Sufix_Value = tb_Sufix.Text;
+            Pr_Clone.SetPrefixAndSufix();
+        }
+
+        private void treeList1_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
+        {
+            if(e.Column.FieldName == "Сохранить в имени")
+            {
+                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+                if (componentInfo == null) return;
+                if (e.Node.GetValue("Сохранить в имени").ToString() != Path.GetFileNameWithoutExtension(componentInfo.FFN))
+                {
+                    e.Appearance.ForeColor = Color.Green;
+                    e.Appearance.Options.UseBackColor = true;
                 }
             }
         }

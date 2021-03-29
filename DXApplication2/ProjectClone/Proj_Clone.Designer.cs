@@ -108,6 +108,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.treeList1.OptionsCustomization.AllowQuickHideColumns = false;
             this.treeList1.Size = new System.Drawing.Size(643, 222);
             this.treeList1.TabIndex = 4;
+            this.treeList1.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeList1_NodeCellStyle);
             this.treeList1.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.treeList1_CustomDrawColumnHeader);
             this.treeList1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseUp);
             // 
@@ -341,6 +342,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.tb_Prefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tb_Prefix.Location = new System.Drawing.Point(175, 461);
             this.tb_Prefix.Name = "tb_Prefix";
+            this.tb_Prefix.Properties.EditValueChanged += new System.EventHandler(this.tb_Prefix_Properties_EditValueChanged);
             this.tb_Prefix.Size = new System.Drawing.Size(137, 20);
             this.tb_Prefix.TabIndex = 23;
             // 
@@ -351,6 +353,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.tb_Sufix.Name = "tb_Sufix";
             this.tb_Sufix.Size = new System.Drawing.Size(137, 20);
             this.tb_Sufix.TabIndex = 24;
+            this.tb_Sufix.EditValueChanged += new System.EventHandler(this.tb_Sufix_EditValueChanged);
             // 
             // bt_Save
             // 
@@ -409,6 +412,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.Controls.Add(this.rb_SaveInZIPFile);
             this.Controls.Add(this.rb_SaveInFolder);
             this.Controls.Add(this.groupControl1);
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Proj_Clone.IconOptions.SvgImage")));
             this.MinimumSize = new System.Drawing.Size(640, 590);
             this.Name = "Proj_Clone";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

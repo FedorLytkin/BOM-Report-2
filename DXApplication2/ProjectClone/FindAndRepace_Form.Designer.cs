@@ -171,6 +171,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.tb_FindText.Name = "tb_FindText";
             this.tb_FindText.Size = new System.Drawing.Size(123, 20);
             this.tb_FindText.TabIndex = 1;
+            this.tb_FindText.EditValueChanged += new System.EventHandler(this.tb_FindText_EditValueChanged);
             // 
             // cb_FindParams
             // 
@@ -189,6 +190,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_all.Size = new System.Drawing.Size(88, 23);
             this.bt_all.TabIndex = 2;
             this.bt_all.Text = "Проверить все";
+            this.bt_all.Click += new System.EventHandler(this.bt_all_Click);
             // 
             // bt_Next
             // 
@@ -197,6 +199,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_Next.Size = new System.Drawing.Size(75, 23);
             this.bt_Next.TabIndex = 3;
             this.bt_Next.Text = "Проверить";
+            this.bt_Next.Click += new System.EventHandler(this.bt_Next_Click);
             // 
             // bt_close
             // 

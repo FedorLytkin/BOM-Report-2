@@ -20,17 +20,17 @@ namespace VSNRM_Kompas.ProjectClone
         {
             InitializeComponent();
             FindAndRepace = new FindAndRepace_Class();
-            AddControls();
         }
         private void FindAndRepace_Form_Load(object sender, EventArgs e)
         {
-            
+            AddControls();
         }
         private void AddControls()
         {
-            foreach(string ColName in FindAndRepace.GetTreeListColumnsName())
+            FindAndRepace.treeList = treeList;
+            foreach (string ColName in FindAndRepace.GetTreeListColumnsName())
                 cb_FindParams.Properties.Items.Add(ColName);
-
+            if (cb_FindParams.Properties.Items.Count > 0) cb_FindParams.SelectedIndex = 0;
             cb_NotCheckRegister.Checked = FindAndRepace.Register_Without;
             cb_To4noe.Checked = FindAndRepace.To4noe;
 
@@ -149,6 +149,21 @@ namespace VSNRM_Kompas.ProjectClone
                         break;
                 }
             }
+        }
+
+        private void bt_all_Click(object sender, EventArgs e)
+        {
+            FindAndRepace.FindAll(cb_FindParams.Text, tb_FindText.Text, tb_ReplceText.Text);
+        }
+
+        private void tb_FindText_EditValueChanged(object sender, EventArgs e)
+        {
+            FindAndRepace.FindTextList(cb_FindParams.Text, tb_FindText.Text);
+        }
+
+        private void bt_Next_Click(object sender, EventArgs e)
+        {
+            FindAndRepace.FindNext(cb_FindParams.Text, tb_FindText.Text, tb_ReplceText.Text);
         }
     }
 }

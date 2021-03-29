@@ -171,7 +171,7 @@ namespace VSNRM_Kompas.ProjectClone
                     switch (ParamName)
                     {
                         case "Сохранить в имени":
-                            ParamVal = f.Name;
+                            ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
                             break;
                         case "Расположение":
                             ParamVal = f.DirectoryName;
@@ -180,7 +180,10 @@ namespace VSNRM_Kompas.ProjectClone
                             ParamVal = f.Length;
                             break;
                         case "Тип":
-                            ParamVal = f.GetType();
+                            ParamVal = f.Extension;
+                            break;
+                        case "Сохранить в папке":
+                            ParamVal = FolderPath;
                             break;
                     }
                 }
@@ -221,7 +224,7 @@ namespace VSNRM_Kompas.ProjectClone
                     switch (ParamName)
                     {
                         case "Сохранить в имени":
-                            ParamVal = f.Name;
+                            ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
                             break;
                         case "Расположение":
                             ParamVal = f.DirectoryName;
@@ -230,7 +233,10 @@ namespace VSNRM_Kompas.ProjectClone
                             ParamVal = f.Length;
                             break;
                         case "Тип":
-                            ParamVal = f.GetType();
+                            ParamVal = f.Extension;
+                            break;
+                        case "Сохранить в папке":
+                            ParamVal = FolderPath;
                             break;
                     }
                 }
@@ -270,6 +276,19 @@ namespace VSNRM_Kompas.ProjectClone
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 return saveFileDialog.FileName;
             return null;
+        }
+        public void SetPrefixAndSufix()
+        {
+            foreach(TreeListNode node in This_treeList.GetNodeList())
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()))
+                    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                //if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()) || string.IsNullOrEmpty(Prefix_Value) || string.IsNullOrEmpty(Sufix_Value))
+                //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                //else
+                //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{node.GetValue("Сохранить в имени").ToString()}{Sufix_Value}");
+            }
         }
     }
 }
