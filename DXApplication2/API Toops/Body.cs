@@ -1527,6 +1527,7 @@ namespace SaveDXF
         }
         string GetDonorFileNameByAllComponents(string ExportFileName, List<TreeListNode> AllComponents)
         {
+            if (string.IsNullOrEmpty(ExportFileName)) return null;
             foreach (TreeListNode node in AllComponents)
             {
                 if(node.GetValue("Сохранить в имени").ToString() == Path.GetFileNameWithoutExtension(ExportFileName))
@@ -1539,6 +1540,7 @@ namespace SaveDXF
         }
         bool IsExportFileName(string ExportFileName, List<TreeListNode> AllComponents)
         {
+            if (string.IsNullOrEmpty(ExportFileName)) return false;
             foreach (TreeListNode node in AllComponents)
             { 
                 if ($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}" == ExportFileName && node.Checked)
@@ -1548,6 +1550,7 @@ namespace SaveDXF
         }
         string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents)
         {
+            if (string.IsNullOrEmpty(DonorFileName)) return null;
             foreach (TreeListNode node in AllComponents)
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
@@ -1565,71 +1568,51 @@ namespace SaveDXF
         }
         public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
         {
-            //IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, true, false);
-            //IPart7 part7 = document3D.TopPart;
-            //var Parts = part7.PartsEx[0];
-            //if(Parts != null)
-            //{
-            //    foreach (IPart7 part in Parts)
-            //    {
-            //        IFeature7 feature7 = (IFeature7)part;
-            //        if (!feature7.Excluded)
-            //        {
-            //            string Name = part.FileName;
-            //            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-            //            if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
-            //            part.Update();
-            //            if (!part.Detail)
-            //            {
-            //                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
-            //                SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-            //            }
-            //        }
-            //    }
-            //}
-            //part7.Update();
-            //document3D.Close(DocumentCloseOptions.kdSaveChanges);
-            //if(Parts == null)
-            //{
-                IKompasDocument3D document3D_1 = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
-                document3D_1.SaveAs(ExportFileName);
-                document3D_1 = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, true, false);
-                IPart7 part7_1 = document3D_1.TopPart;
-                var Parts_1 = part7_1.PartsEx[0];
-                if(Parts_1 != null)
+            IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
+            document3D.SaveAs(ExportFileName);
+            document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, true, false); 
+            IPart7 part7 = document3D.TopPart;
+            //if (part7 != null) SetLinkInProperty_ModelAPI7(part7, ExportFileName, AllComponents, ExportFileName);
+            var Parts = part7.PartsEx[0];
+            if(Parts != null)
+            {
+                foreach (IPart7 part in Parts)
                 {
-                    foreach (IPart7 part in Parts_1)
+                    IFeature7 feature7 = (IFeature7)part;
+                    if (!feature7.Excluded)
                     {
-                        IFeature7 feature7 = (IFeature7)part;
-                        if (!feature7.Excluded)
+                        string Name = part.FileName;
+                        string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                        if (!string.IsNullOrEmpty(New_FileName))
                         {
-                            string Name = part.FileName;
-                            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-                            if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
+                            part.FileName = New_FileName;
+                            SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
                             part.Update();
-                            if (!part.Detail)
-                            {
-                                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
-                                if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+                        }
+                        if (!part.Detail)
+                        {
+                            string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
+                            if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
 
-                                if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-                                //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-                            }
+                            if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName); 
+                            //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
                         }
                     }
                 }
-                part7_1.Update();
-                document3D_1.Close(DocumentCloseOptions.kdSaveChanges);
-            //}
+            }
+            part7.Update();
+            document3D.Close(DocumentCloseOptions.kdSaveChanges);
+            SetLinkInProperty_ModelAPI7(ExportFileName, AllComponents);
         }
-        public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents, string ProjFileName)
+        public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents)
         {
             string ParamName = null;
-            //ksDocument3D iDocument3D_1 = (ksDocument3D)_kompasObject.Document3D();
-            //bool op = iDocument3D_1.Open(PartFileName, true);
+            ksDocument3D iDocument3D_1 = (ksDocument3D)_kompasObject.Document3D();
+            bool op = iDocument3D_1.Open(PartFileName, true);
 
             IKompasDocument3D kompasDocument3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, true, false);
             IPart7 part7 = kompasDocument3D.TopPart;
+            string ffn = part7.FileName;
             IFeature7 feature7 = (IFeature7)part7;
             var VariableCollection = feature7.Variables[false, true];
             foreach(Variable7 variable7 in VariableCollection)
@@ -1637,7 +1620,9 @@ namespace SaveDXF
                 ParamName = variable7.Name;
                 if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
                 {
-                    variable7.SetLink(ProjFileName, variable7.LinkVariableName);
+                    string link_FileName = variable7.LinkDocumentName;
+                    string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
+                    if(!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
                     part7.RebuildModel(true);
                 }
             }
