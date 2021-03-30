@@ -183,7 +183,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // tb_FolderPath
             // 
-            this.tb_FolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tb_FolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_FolderPath.Location = new System.Drawing.Point(168, 392);
             this.tb_FolderPath.Name = "tb_FolderPath";
             this.tb_FolderPath.Size = new System.Drawing.Size(215, 20);
@@ -281,7 +282,7 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // bt_FolderObzor
             // 
-            this.bt_FolderObzor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bt_FolderObzor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_FolderObzor.Location = new System.Drawing.Point(389, 390);
             this.bt_FolderObzor.Name = "bt_FolderObzor";
             this.bt_FolderObzor.Size = new System.Drawing.Size(48, 23);
@@ -291,7 +292,7 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // bt_ZipFileObzor
             // 
-            this.bt_ZipFileObzor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bt_ZipFileObzor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_ZipFileObzor.Location = new System.Drawing.Point(389, 419);
             this.bt_ZipFileObzor.Name = "bt_ZipFileObzor";
             this.bt_ZipFileObzor.Size = new System.Drawing.Size(48, 23);
@@ -301,7 +302,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // tb_ZipFileName
             // 
-            this.tb_ZipFileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tb_ZipFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_ZipFileName.Location = new System.Drawing.Point(168, 421);
             this.tb_ZipFileName.Name = "tb_ZipFileName";
             this.tb_ZipFileName.Size = new System.Drawing.Size(215, 20);

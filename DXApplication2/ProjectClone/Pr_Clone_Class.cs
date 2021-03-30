@@ -263,8 +263,8 @@ namespace VSNRM_Kompas.ProjectClone
         }
         public string GetFolderName()
         {
-            FolderBrowserDialogEx folderdialog = new FolderBrowserDialogEx();
-            
+            XtraFolderBrowserDialog folderdialog = new XtraFolderBrowserDialog();
+            folderdialog.DialogStyle = DevExpress.Utils.CommonDialogs.FolderBrowserDialogStyle.Wide;
             if (folderdialog.ShowDialog() == DialogResult.OK)
             {
                 SetFolderPath(folderdialog.SelectedPath);

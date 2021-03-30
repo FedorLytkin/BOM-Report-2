@@ -646,8 +646,18 @@ namespace VSNRM_Kompas
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
-            List<string> ls = body.GetExternal(componentInfo.FFN);
+            //ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
+            List<string> ls = new List<string>();
+            ls.Add("1");
+            ls.Add("2");
+            int jj = ls.Count - 1;
+            while (ls.Count > 0)
+            {
+                ls.RemoveAt(jj);
+                jj--;
+            }
+
+            //body.SetLinkInSPDoc(@"C:\Users\admin_veza\Desktop\Новая папка (3)\1Корпус _ ЦИУЛ.123.45.0002.spw", new List<TreeListNode>());
             //body.getSP();
             //body.SetPropertyIPart7(componentInfo.FFN, "Обозначение", "2222");
             //body.SetPropertyIPart7(componentInfo.FFN, "Наименование", "1111");

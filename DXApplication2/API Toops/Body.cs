@@ -1429,15 +1429,24 @@ namespace SaveDXF
             {
                 switch (Path.GetExtension(FileName).ToUpper())
                 {
-                    case ".SPW":
-                        SetLinkInSPDoc(FileName, AllComponents);
-                        break;
+                    //case ".SPW":
+                    //    SetLinkInSPDoc(FileName, AllComponents);
+                    //    break;
                     case ".CDW":
                         SetLinkInDRW(FileName, AllComponents);
                         break;
                     case ".A3D":
-                        SetSourseChancge_ModelAPI7(FileName, AllComponents);
+                        SetSourseChancge_ModelAPI7(FileName, AllComponents, GetDonorFileNameByAllComponents(FileName, AllComponents));
                         break;
+                }
+            }
+            foreach (string FileName in CopyFileList)
+            {
+                switch (Path.GetExtension(FileName).ToUpper())
+                {
+                    case ".SPW":
+                        SetLinkInSPDoc(FileName, AllComponents);
+                        break; 
                 }
             }
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageYes; //отключаем все сообщения от компаса
@@ -1448,37 +1457,47 @@ namespace SaveDXF
             SpecificationDescriptions iSpecificationDescriptions = iKompasDocument.SpecificationDescriptions;
             SpecificationDescription iSpecificationDescription = iSpecificationDescriptions.Active;
             dynamic Objects = iSpecificationDescription.Objects;
-            foreach (ISpecificationObject specificationObject in Objects)
+            if (Objects != null)
             {
-                ksSpecificationObjectTypeEnum ObjectType = specificationObject.ObjectType;
-                if ((int)ObjectType == 1 || (int)ObjectType == 2)
+                foreach (ISpecificationObject specificationObject in Objects)
                 {
-                    AttachedDocuments attachedDocuments = specificationObject.AttachedDocuments;
-                    for (int ii = 0; ii < attachedDocuments.Count; ii++)
+                    ksSpecificationObjectTypeEnum ObjectType = specificationObject.ObjectType;
+                    if ((int)ObjectType == 1 || (int)ObjectType == 2)
                     {
-                        AttachedDocument attachedDocument = attachedDocuments[ii];
-                        string Name = attachedDocument.Name;
-                        attachedDocument.Delete();
+                        AttachedDocuments attachedDocuments = specificationObject.AttachedDocuments;
+                        List<string> ReplaceFileList = new List<string>();
+                        foreach (AttachedDocument attachedDocument in attachedDocuments)
+                            ReplaceFileList.Add(attachedDocument.Name);
+
+
+                        int jj = attachedDocuments.Count - 1;
+                        while (attachedDocuments.Count > 0)
+                        {
+                            AttachedDocument attachedDocument = attachedDocuments[jj];
+                            if (attachedDocument != null) attachedDocument.Delete();
+                            jj--;
+                        }
                         specificationObject.Update();
-                        string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
-                        if (!string.IsNullOrEmpty(NewFileName)) attachedDocuments.Add(NewFileName, true);
-                        specificationObject.Update();
+                        foreach (string ReplaceFile in ReplaceFileList)
+                        {
+                            string NewFileName = GetFileNameByAllComponents(ReplaceFile, AllComponents);
+                            if (string.IsNullOrEmpty(NewFileName) && IsExportFileName(ReplaceFile, AllComponents)) attachedDocuments.Add(ReplaceFile, true);
+
+                            if (!string.IsNullOrEmpty(NewFileName)) attachedDocuments.Add(NewFileName, true);
+                            specificationObject.Update();
+                        }
                     }
                 }
             }
-            ISpecificationBaseObjects ISpecificationBaseO = iSpecificationDescription.BaseObjects;
-            ISpecificationBaseObject specificationBaseObject = ISpecificationBaseO[0];
-            AttachedDocuments iAttachedDocuments = specificationBaseObject.AttachedDocuments;
-            for (int ii = 0; ii < iAttachedDocuments.Count; ii++)
+            AttachedDocuments ModelattachedDocuments = iKompasDocument.AttachedDocuments;
+            foreach (AttachedDocument attachedDocument in ModelattachedDocuments)
             {
-                AttachedDocument attachedDocument = iAttachedDocuments[ii];
                 string Name = attachedDocument.Name;
-                attachedDocument.Delete();
-                specificationBaseObject.Update();
                 string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
-                if(!string.IsNullOrEmpty(NewFileName)) iAttachedDocuments.Add(NewFileName, true);
-                specificationBaseObject.Update();
+                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
 
+                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
+                attachedDocument.Delete();
             }
 
             iKompasDocument.RebuildDocument();
@@ -1506,6 +1525,27 @@ namespace SaveDXF
             kompasDocument2D1.RebuildDocument();
             document2D.Close(DocumentCloseOptions.kdSaveChanges);
         }
+        string GetDonorFileNameByAllComponents(string ExportFileName, List<TreeListNode> AllComponents)
+        {
+            foreach (TreeListNode node in AllComponents)
+            {
+                if(node.GetValue("Сохранить в имени").ToString() == Path.GetFileNameWithoutExtension(ExportFileName))
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    return componentInfo.FFN;
+                }   
+            }
+            return null;
+        }
+        bool IsExportFileName(string ExportFileName, List<TreeListNode> AllComponents)
+        {
+            foreach (TreeListNode node in AllComponents)
+            { 
+                if ($@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}" == ExportFileName && node.Checked)
+                    return true;
+            }
+            return false;
+        }
         string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents)
         {
             foreach (TreeListNode node in AllComponents)
@@ -1514,26 +1554,95 @@ namespace SaveDXF
                 if (componentInfo.FFN == DonorFileName && node.Checked)
                     return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
             }
+
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName))
+                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+            }
             return null;
         }
-        public void SetSourseChancge_ModelAPI7(string DonorFileName, List<TreeListNode> AllComponents)
+        public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
         {
-            IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
-            IPart7 part7 = document3D.TopPart;
-            var Parts = part7.PartsEx[1];
-            foreach(IPart7 part in Parts)
-            {
-                IFeature7 feature7 = (IFeature7)part;
-                if (!feature7.Excluded)
+            //IKompasDocument3D document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, true, false);
+            //IPart7 part7 = document3D.TopPart;
+            //var Parts = part7.PartsEx[0];
+            //if(Parts != null)
+            //{
+            //    foreach (IPart7 part in Parts)
+            //    {
+            //        IFeature7 feature7 = (IFeature7)part;
+            //        if (!feature7.Excluded)
+            //        {
+            //            string Name = part.FileName;
+            //            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+            //            if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
+            //            part.Update();
+            //            if (!part.Detail)
+            //            {
+            //                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
+            //                SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+            //            }
+            //        }
+            //    }
+            //}
+            //part7.Update();
+            //document3D.Close(DocumentCloseOptions.kdSaveChanges);
+            //if(Parts == null)
+            //{
+                IKompasDocument3D document3D_1 = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, true, false);
+                document3D_1.SaveAs(ExportFileName);
+                document3D_1 = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, true, false);
+                IPart7 part7_1 = document3D_1.TopPart;
+                var Parts_1 = part7_1.PartsEx[0];
+                if(Parts_1 != null)
                 {
-                    string Name = part.FileName;
-                    string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-                    if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
-                    part.Update();
+                    foreach (IPart7 part in Parts_1)
+                    {
+                        IFeature7 feature7 = (IFeature7)part;
+                        if (!feature7.Excluded)
+                        {
+                            string Name = part.FileName;
+                            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                            if (!string.IsNullOrEmpty(New_FileName)) part.FileName = New_FileName;
+                            part.Update();
+                            if (!part.Detail)
+                            {
+                                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
+                                if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+
+                                if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                            }
+                        }
+                    }
+                }
+                part7_1.Update();
+                document3D_1.Close(DocumentCloseOptions.kdSaveChanges);
+            //}
+        }
+        public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents, string ProjFileName)
+        {
+            string ParamName = null;
+            //ksDocument3D iDocument3D_1 = (ksDocument3D)_kompasObject.Document3D();
+            //bool op = iDocument3D_1.Open(PartFileName, true);
+
+            IKompasDocument3D kompasDocument3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, true, false);
+            IPart7 part7 = kompasDocument3D.TopPart;
+            IFeature7 feature7 = (IFeature7)part7;
+            var VariableCollection = feature7.Variables[false, true];
+            foreach(Variable7 variable7 in VariableCollection)
+            {
+                ParamName = variable7.Name;
+                if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                {
+                    variable7.SetLink(ProjFileName, variable7.LinkVariableName);
+                    part7.RebuildModel(true);
                 }
             }
-            part7.Update();
-            document3D.Close(DocumentCloseOptions.kdSaveChanges);
+            kompasDocument3D.Save();
+            kompasDocument3D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         public void SetSourseChancge_Model(string DonorFileName, List<TreeListNode> AllComponents)
         {
