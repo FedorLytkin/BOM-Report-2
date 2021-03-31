@@ -23,6 +23,7 @@ namespace VSNRM_Kompas.ProjectClone
 
         public SaveEnum saveEnum = SaveEnum.InFolder;
         public string FolderPath;
+        public string SourseFolderPath;
         public string ZipFileName;
         
         public string Prefix_Value;
@@ -73,6 +74,7 @@ namespace VSNRM_Kompas.ProjectClone
             {
                 foreach (TreeListNode Donor_Node in Donor_treeList.Nodes)
                 {
+                    SourseFolderPath = Path.GetDirectoryName(((ComponentInfo)Donor_Node.Tag).FFN);
                     TreeListNode New_Node = This_treeList.Nodes.Add();
                     AddCellNode(Donor_Node, New_Node);
                     AddNodeDrw((ComponentInfo)Donor_Node.Tag, Donor_Node, New_Node);
@@ -81,7 +83,9 @@ namespace VSNRM_Kompas.ProjectClone
             }
             else
             {
-                foreach (TreeListNode Donor_Node in Donor_treeList.GetNodeList())
+                List <TreeListNode> AllNodes = Donor_treeList.GetNodeList();
+                if (AllNodes.Count > 0) SourseFolderPath = Path.GetDirectoryName(((ComponentInfo)AllNodes[0].Tag).FFN);
+                foreach (TreeListNode Donor_Node in AllNodes)
                 {
                     TreeListNode New_Node = This_treeList.Nodes.Add();
                     AddCellNode(Donor_Node, New_Node);
@@ -91,6 +95,17 @@ namespace VSNRM_Kompas.ProjectClone
             This_treeList.ExpandAll();
             This_treeList.CheckAll();
             CalcComponentCout(This_treeList);
+        }
+        public void SetOutFolderPathInComponents()
+        {
+            if (This_treeList == null) return;
+            foreach (TreeListNode node in This_treeList.GetNodeList())
+            {
+                if(SaveInOneFolder)
+                    node.SetValue("Сохранить в папке", FolderPath);
+                else
+                    node.SetValue("Сохранить в папке", getResultFolderPath(FolderPath, SourseFolderPath, ((ComponentInfo)node.Tag).FFN));
+            }
         }
         public void CalcComponentCout(TreeList treeList)
         {
@@ -178,13 +193,16 @@ namespace VSNRM_Kompas.ProjectClone
                             ParamVal = f.DirectoryName;
                             break;
                         case "Размер":
-                            ParamVal = f.Length;
+                            ParamVal = $"{f.Length/1024} КБ";
                             break;
                         case "Тип":
                             ParamVal = f.Extension;
                             break;
                         case "Сохранить в папке":
-                            ParamVal = FolderPath;
+                            if(SaveInOneFolder)
+                                ParamVal = FolderPath;
+                            else
+                                ParamVal = getResultFolderPath(FolderPath, SourseFolderPath, Drw_Info.FFN);
                             break;
                     }
                 }
@@ -231,7 +249,7 @@ namespace VSNRM_Kompas.ProjectClone
                             ParamVal = f.DirectoryName;
                             break;
                         case "Размер":
-                            ParamVal = f.Length;
+                            ParamVal = $"{f.Length / 1024} КБ";
                             break;
                         case "Тип":
                             ParamVal = f.Extension;
@@ -267,7 +285,8 @@ namespace VSNRM_Kompas.ProjectClone
             folderdialog.DialogStyle = DevExpress.Utils.CommonDialogs.FolderBrowserDialogStyle.Wide;
             if (folderdialog.ShowDialog() == DialogResult.OK)
             {
-                SetFolderPath(folderdialog.SelectedPath);
+                FolderPath = folderdialog.SelectedPath;
+                SetOutFolderPathInComponents();
                 return folderdialog.SelectedPath;
             }
             return null;
@@ -293,6 +312,17 @@ namespace VSNRM_Kompas.ProjectClone
                 //else
                 //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{node.GetValue("Сохранить в имени").ToString()}{Sufix_Value}");
             }
+        }
+        private string getResultFolderPath(string OutFolderPath, string SoursFolderPath, string PartFileName)
+        {
+            string ResultFolderPath = null;
+            foreach (string FolderName in Path.GetDirectoryName(PartFileName).Split('\\'))
+            {
+                ResultFolderPath += $@"{FolderName}\";
+                if (ResultFolderPath.Trim('\\') == SoursFolderPath)
+                    return Path.GetDirectoryName(PartFileName).Replace(SoursFolderPath, OutFolderPath);
+            }
+            return OutFolderPath;
         }
         private void SetFolderPath(string FolderPath)
         {

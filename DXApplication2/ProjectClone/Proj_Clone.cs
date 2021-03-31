@@ -266,6 +266,7 @@ namespace VSNRM_Kompas.ProjectClone
         private void cb_SaveInOneFolder_CheckedChanged(object sender, EventArgs e)
         {
             Pr_Clone.SaveInOneFolder = cb_SaveInOneFolder.Checked;
+            Pr_Clone.SetOutFolderPathInComponents();
         }
         private void treeList1_CustomNodeCellEdit(object sender, GetCustomNodeCellEditEventArgs e)
         {

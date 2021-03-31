@@ -1408,8 +1408,10 @@ namespace SaveDXF
         #endregion
 
         #region копировать Проект
+        List<string> SetLinkVariableCompeteFile_Lise;
         public void SetLinks(List<TreeListNode> AllComponents)
         {
+            SetLinkVariableCompeteFile_Lise = new List<string>();
             List<string> CopyFileList = new List<string>();
             foreach(TreeListNode node in AllComponents)
             {
@@ -1604,8 +1606,17 @@ namespace SaveDXF
             document3D.Close(DocumentCloseOptions.kdSaveChanges);
             SetLinkInProperty_ModelAPI7(ExportFileName, AllComponents);
         }
+        private bool IsLinkVariableCompeteFile(string PartFileName)
+        {
+            if (SetLinkVariableCompeteFile_Lise.Contains(PartFileName))
+                return true;
+            else
+                SetLinkVariableCompeteFile_Lise.Add(PartFileName);
+            return false;
+        }
         public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents)
         {
+            if (IsLinkVariableCompeteFile(PartFileName)) return;
             string ParamName = null;
             ksDocument3D iDocument3D_1 = (ksDocument3D)_kompasObject.Document3D();
             bool op = iDocument3D_1.Open(PartFileName, true);
@@ -1615,15 +1626,18 @@ namespace SaveDXF
             string ffn = part7.FileName;
             IFeature7 feature7 = (IFeature7)part7;
             var VariableCollection = feature7.Variables[false, true];
-            foreach(Variable7 variable7 in VariableCollection)
+            if(VariableCollection != null)
             {
-                ParamName = variable7.Name;
-                if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                foreach (Variable7 variable7 in VariableCollection)
                 {
-                    string link_FileName = variable7.LinkDocumentName;
-                    string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
-                    if(!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                    part7.RebuildModel(true);
+                    ParamName = variable7.Name;
+                    if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                    {
+                        string link_FileName = variable7.LinkDocumentName;
+                        string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
+                        if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                        part7.RebuildModel(true);
+                    }
                 }
             }
             kompasDocument3D.Save();
