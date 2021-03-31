@@ -23,7 +23,8 @@ using VSNRM_Kompas.Options;
 using DevExpress.XtraSplashScreen;
 using VSNRM_Kompas.Dump;
 using VSNRM_Kompas.Options.Column_Options;
-using Microsoft.WindowsAPICodePack.Shell; 
+using Microsoft.WindowsAPICodePack.Shell;
+using System.IO.Compression;
 
 namespace SaveDXF
 {

@@ -294,10 +294,13 @@ namespace VSNRM_Kompas.ProjectClone
         public string GetZipFileName()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Укажите место хранения и имя ZIP-файла";
+            saveFileDialog.Title = "Укажите имя ZIP-файла и место его хранения";
             saveFileDialog.Filter = "ZIP файлы (*.ZIP)|*.ZIP";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ZipFileName = saveFileDialog.FileName;
                 return saveFileDialog.FileName;
+            }
             return null;
         }
         public void SetPrefixAndSufix()

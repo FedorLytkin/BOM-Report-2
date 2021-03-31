@@ -15,6 +15,7 @@ using DevExpress.XtraTreeList.ViewInfo;
 using VSNRM_Kompas.API_Toops;
 using System.IO;
 using SaveDXF;
+using System.IO.Compression;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -129,14 +130,22 @@ namespace VSNRM_Kompas.ProjectClone
         {
             string folderPuth = Pr_Clone.GetFolderName();
             if (!string.IsNullOrEmpty(folderPuth))
+            {
                 tb_FolderPath.Text = folderPuth;
+                Pr_Clone.ZipFileName = $@"{folderPuth}.ZIP";
+                tb_ZipFileName.Text = Pr_Clone.ZipFileName;
+            }   
         }
 
         private void bt_ZipFileObzor_Click(object sender, EventArgs e)
         {
             string ZipFileName = Pr_Clone.GetZipFileName();
             if (!string.IsNullOrEmpty(ZipFileName))
+            {
                 tb_ZipFileName.Text = ZipFileName;
+                Pr_Clone.FolderPath = $@"{Path.GetDirectoryName(ZipFileName)}\{Path.GetFileNameWithoutExtension(ZipFileName)}";
+                tb_FolderPath.Text = Pr_Clone.FolderPath;
+            }   
         }
 
         private void rb_SaveInFolder_CheckedChanged(object sender, EventArgs e)
@@ -366,6 +375,10 @@ namespace VSNRM_Kompas.ProjectClone
         private void bt_Save_Click(object sender, EventArgs e)
         {
             body.SetLinks(treeList1.GetAllCheckedNodes());
+            if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
+            {
+                ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.ZipFileName);
+            }
         }
     }
 }
