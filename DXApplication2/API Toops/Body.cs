@@ -1556,7 +1556,6 @@ namespace SaveDXF
                     productDataMenager.DeleteProductObject(fn);
                     iKompasDocument.RebuildDocument();
                 }
-                    
                 string ffn = @"C: \Users\admin_veza\Desktop\Новая папка(3)\01 - ЕЛГ 02.01.10.000 СБ Стойка нижняя.cdw";
                 productDataMenager.AddProductObject((IPropertyKeeper)part7, ffn, ksProductObjectTypeEnum.ksPOTAllObjects);
                 

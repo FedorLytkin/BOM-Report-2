@@ -74,18 +74,24 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.Not_Check_Elements:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.RepaceText:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        bt_all.Text = "Заменить все";
+                        bt_Next.Text = "Заменить";
                         break;
                 }
             }
@@ -104,18 +110,24 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.Not_Check_Elements:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.RepaceText:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        bt_all.Text = "Заменить все";
+                        bt_Next.Text = "Заменить";
                         break;
                 }
             }
@@ -134,18 +146,24 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.Not_Check_Elements:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        bt_all.Text = "Проверить все";
+                        bt_Next.Text = "Проверить";
                         break;
                     case FindAndRepace_Class.Find_Method_Enum.RepaceText:
                         rb_CheckElement.Checked = false;
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        bt_all.Text = "Заменить все";
+                        bt_Next.Text = "Заменить";
                         break;
                 }
             }
