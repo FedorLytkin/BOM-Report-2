@@ -371,14 +371,21 @@ namespace VSNRM_Kompas.ProjectClone
                 }
             }
         }
-
+        
         private void bt_Save_Click(object sender, EventArgs e)
         {
+            if (MainForm.thisDemo)
+            {
+                MessageBox.Show("Вы используете DEMO-версию продукта " + Application.ProductName + Environment.NewLine +
+                                "В DEMO-версии не доступна опция Сохранение/Копирование проекта" + Environment.NewLine +
+                                "Для использования всех функций программы, обратитесь к разработчику приложения (Справка - Контакты - Email)", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             body.SetLinks(treeList1.GetAllCheckedNodes());
             if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
-            {
-                ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.ZipFileName);
-            }
+                ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));
+            MessageBox.Show("Копирование проекта завершено!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

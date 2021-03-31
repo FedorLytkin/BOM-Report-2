@@ -327,10 +327,11 @@ namespace VSNRM_Kompas.ProjectClone
             }
             return OutFolderPath;
         }
-        private void SetFolderPath(string FolderPath)
+        public string getFreeFileName(string FileName)
         {
-            foreach (TreeListNode node in This_treeList.GetNodeList())
-                node.SetValue("Сохранить в папке", FolderPath);
+            while (File.Exists(FileName))
+                FileName = $@"{Path.GetDirectoryName(FileName)}\{Path.GetFileNameWithoutExtension(FileName)}_1{Path.GetExtension(FileName)}";
+            return FileName;
         }
     }
 }
