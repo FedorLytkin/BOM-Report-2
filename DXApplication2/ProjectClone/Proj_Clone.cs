@@ -16,6 +16,7 @@ using VSNRM_Kompas.API_Toops;
 using System.IO;
 using SaveDXF;
 using System.IO.Compression;
+using System.Diagnostics;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -386,6 +387,11 @@ namespace VSNRM_Kompas.ProjectClone
             if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
                 ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));
             MessageBox.Show("Копирование проекта завершено!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void bt_Help_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://youtu.be/Hkf844D2z64");
         }
     }
 }

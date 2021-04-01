@@ -385,6 +385,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_Help.Size = new System.Drawing.Size(70, 23);
             this.bt_Help.TabIndex = 27;
             this.bt_Help.Text = "Справка";
+            this.bt_Help.Click += new System.EventHandler(this.bt_Help_Click);
             // 
             // Proj_Clone
             // 
