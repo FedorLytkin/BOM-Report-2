@@ -273,33 +273,39 @@ namespace SaveDXF
         }
         private void getBodyResoure(IPart7 Part, ComponentInfo componentInfo, TreeListNode node)
         {
+            bool IsOpen = false;
+            IKompasDocument3D kompasDocument = (IKompasDocument3D)_IApplication.Documents[Part.FileName];
+            if(kompasDocument != null) IsOpen = true; 
+            else
+                kompasDocument = (IKompasDocument3D)_IApplication.Documents.Open(Part.FileName, true, true);
+            Part = kompasDocument.TopPart;
             IFeature7 feature = (IFeature7)Part;
             var RB = feature.ResultBodies;
-            if (RB == null) return;
-            try
-            {
-                foreach (IBody7 _body in RB)
+            if (RB != null) 
+                try
                 {
-                    try
+                    foreach (IBody7 _body in RB)
                     {
-                        ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
+                        try
+                        {
+                            ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
 
-                        TreeListNode TempNode;
-                        TempNode = AddNode(node, componentInfo_Copy, true);
-                        //TempNode.Tag = componentInfo_Copy;
+                            TreeListNode TempNode;
+                            TempNode = AddNode(node, componentInfo_Copy, true); 
+                        }
+                        catch { }
                     }
-                    catch { }
                 }
-            }
-            catch 
-            {
-                IBody7 _body = (IBody7)RB; 
-                ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
+                catch
+                {
+                    IBody7 _body = (IBody7)RB;
+                    ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
 
-                TreeListNode TempNode;
-                TempNode = AddNode(node, componentInfo_Copy, true);
-                //TempNode.Tag = componentInfo_Copy; 
-            }
+                    TreeListNode TempNode;
+                    TempNode = AddNode(node, componentInfo_Copy, true);
+                } 
+            if (!IsOpen)
+                kompasDocument.Close(DocumentCloseOptions.kdDoNotSaveChanges);
         }
         private double GetQNTInParts(IPart7 Find_Item, IPart7 TopPart)
         {
@@ -1586,24 +1592,31 @@ namespace SaveDXF
             if (document2D != null) OpenDoc = true;
             else
                 document2D = (IKompasDocument2D)_IApplication.Documents.Open(FileName, true, false);
-            if (document2D == null) return;
-            IKompasDocument2D1 kompasDocument2D1 = (IKompasDocument2D1)document2D;
-            ViewsAndLayersManager viewsAndLayersManager = document2D.ViewsAndLayersManager;
-            Views views = viewsAndLayersManager.Views;
-            for (int ii = 0; ii < views.Count; ii++)
+            IKompasDocument2D1 kompasDocument2D1 = null;
+            try
             {
-                KompasAPI7.View view = (KompasAPI7.View)views[ii];
-                if (view.Type == KompasAPIObjectTypeEnum.ksObjectAssociationView)
+                kompasDocument2D1 = (IKompasDocument2D1)document2D;
+                ViewsAndLayersManager viewsAndLayersManager = document2D.ViewsAndLayersManager;
+                Views views = viewsAndLayersManager.Views;
+                for (int ii = 0; ii < views.Count; ii++)
                 {
-                    IAssociationView associationView = (IAssociationView)view;
-                    string Name = associationView.SourceFileName;
-                    string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-                    if (!string.IsNullOrEmpty(New_FileName)) associationView.SourceFileName = New_FileName;
-                    view.Update();
+                    KompasAPI7.View view = (KompasAPI7.View)views[ii];
+                    if (view.Type == KompasAPIObjectTypeEnum.ksObjectAssociationView)
+                    {
+                        IAssociationView associationView = (IAssociationView)view;
+                        string Name = associationView.SourceFileName;
+                        string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                        if (!string.IsNullOrEmpty(New_FileName)) associationView.SourceFileName = New_FileName;
+                        view.Update();
+                    }
                 }
             }
-            kompasDocument2D1.RebuildDocument();
-            if(!OpenDoc) document2D.Close(DocumentCloseOptions.kdSaveChanges);
+            catch (Exception Ex)
+            {
+                ShowMsgBox("Ошибка при изменении связанных файлов у документа" + FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+            }
+            if(kompasDocument2D1!=null) kompasDocument2D1.RebuildDocument();
+            if(!OpenDoc && document2D!=null) document2D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         string GetDonorFileNameByAllComponents(string ExportFileName, List<TreeListNode> AllComponents)
         {
@@ -1663,25 +1676,32 @@ namespace SaveDXF
             {
                 foreach (IPart7 part in Parts)
                 {
-                    IFeature7 feature7 = (IFeature7)part;
-                    if (!feature7.Excluded)
+                    try
                     {
-                        string Name = part.FileName;
-                        string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-                        if (!string.IsNullOrEmpty(New_FileName))
+                        IFeature7 feature7 = (IFeature7)part;
+                        if (!feature7.Excluded)
                         {
-                            part.FileName = New_FileName;
-                            SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
-                            part.Update();
-                        }
-                        if (!part.Detail)
-                        {
-                            string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
-                            if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+                            string Name = part.FileName;
+                            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                            if (!string.IsNullOrEmpty(New_FileName))
+                            {
+                                part.FileName = New_FileName;
+                                SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
+                                part.Update();
+                            }
+                            if (!part.Detail)
+                            {
+                                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
+                                if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
 
-                            if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName); 
-                            //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                            }
                         }
+                    }
+                    catch (Exception Ex)
+                    {
+                        ShowMsgBox("Ошибка при изменении связанных файлов у документа" + part.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -1707,103 +1727,33 @@ namespace SaveDXF
             else
                 document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, true, false);
             string ParamName = null;
-
-            if (document3D == null) return;
-            IPart7 part7 = document3D.TopPart;
-            string ffn = part7.FileName;
-            IFeature7 feature7 = (IFeature7)part7;
-            var VariableCollection = feature7.Variables[false, true];
-            if(VariableCollection != null)
-            {
-                foreach (Variable7 variable7 in VariableCollection)
-                {
-                    ParamName = variable7.Name;
-                    if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
-                    {
-                        string link_FileName = variable7.LinkDocumentName;
-                        string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
-                        if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                        part7.RebuildModel(true);
-                    }
-                }
-            }
-            document3D.Save();
-            if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
-        }
-        public void SetSourseChancge_Model(string DonorFileName, List<TreeListNode> AllComponents)
-        {
-            if (!AppVersNOTValidStrongMessage()) return;
             try
             {
-                //_IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
-                DonorFileName = DonorFileName.Replace("/", @"\");
-                //string SB_FilenameOUT = GetFileNameByAllComponents(DonorFileName, AllComponents);
-                //if (string.IsNullOrEmpty(SB_FilenameOUT)) return;
-
-                //if (!Directory.Exists(Path.GetDirectoryName(SB_FilenameOUT)))
-                //    Directory.CreateDirectory(Path.GetDirectoryName(SB_FilenameOUT));
-                bool docVis = true;
-                ksDocument3D iDocument3D = (ksDocument3D)_kompasObject.Document3D();
-                //if (iDocument3D.Open(DonorFileName, docVis))
-                //    iDocument3D.SaveAs(SB_FilenameOUT);
-                //else
-                //{
-                //    iDocument3D = (ksDocument3D)_kompasObject.ActiveDocument3D();
-                //    iDocument3D.SaveAs(SB_FilenameOUT);
-                //}
-                //File.Copy(SB_FilenameIN, SB_FilenameOUT, true);
-                iDocument3D.Open(DonorFileName, docVis);
-
-                //AddWaitStatus("Скопирован:" + Path.GetFileName(SB_FilenameOUT));
-
-                Dictionary<string, string> AssemblyParts = new Dictionary<string, string>();
-
-                var iPartCollection = iDocument3D.PartCollection(true);
-                ksPart iPart = iDocument3D.GetPart((short)Part_Type.pTop_Part);
-                int Count = iPartCollection.GetCount();
-                for (int j = 0; j < Count; j++)
+                IPart7 part7 = document3D.TopPart;
+                string ffn = part7.FileName;
+                IFeature7 feature7 = (IFeature7)part7;
+                var VariableCollection = feature7.Variables[false, true];
+                if (VariableCollection != null)
                 {
-                    string OutPartFileName = null;
-                    try
+                    foreach (Variable7 variable7 in VariableCollection)
                     {
-                        var iPartIndex = iPartCollection.GetByIndex(j);
-                        string file = iPartIndex.fileName;
-                        OutPartFileName = GetFileNameByAllComponents(file, AllComponents);
-                        if (string.IsNullOrEmpty(OutPartFileName))
+                        ParamName = variable7.Name;
+                        if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
                         {
-                            if (!Directory.Exists(Path.GetDirectoryName(OutPartFileName)))
-                                Directory.CreateDirectory(Path.GetDirectoryName(OutPartFileName));
-
-                            bool NeedSetlink = false;
-                            if (!File.Exists(OutPartFileName))
-                            {
-                                //AddWaitStatus("Скопирован:" + Path.GetFileName(OutPartFileName));
-                                File.Copy(file, OutPartFileName, true);
-                                NeedSetlink = true;
-                                if (!iPartIndex.IsDetail)
-                                    AssemblyParts.Add(iPartIndex.fileName, OutPartFileName);
-                            }
-                            iPartIndex.fileName = OutPartFileName;
-                            if (NeedSetlink) SetLinkInProperty(OutPartFileName, DonorFileName);
-                            iPartIndex.Update();
+                            string link_FileName = variable7.LinkDocumentName;
+                            string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
+                            if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                            part7.RebuildModel(true);
                         }
                     }
-                    catch
-                    {
-                        //AddWaitStatus("Ошибка при изменении файл-источника для детали: " + Path.GetFileName(OutPartFileName));
-                    }
                 }
-                iDocument3D.Save();
-                iDocument3D.close();
-                return;
-                foreach (KeyValuePair<string, string> IParam in AssemblyParts)
-                {
-                    SetSourseChancge_Model(IParam.Key, AllComponents);
-                    //SetLinkInProperty(IParam.Value, SB_FilenameOUT);
-                }
+                document3D.Save();
             }
-            catch { }
-            //_IApplication.HideMessage = ksHideMessageEnum.ksShowMessage;
+            catch (Exception Ex)
+            {
+                ShowMsgBox("Ошибка при изменении связанных файлов у документа" + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+            } 
+            if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         #endregion
     }

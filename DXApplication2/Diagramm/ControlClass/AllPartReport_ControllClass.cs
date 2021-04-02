@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
@@ -52,23 +53,42 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             SetColumnsVisible();
             Main_gridView.Columns[System_ColumnName].Visible = false;
         }
-        private void SetColumnsVisible()
+        public bool AddColumn(TreeListColumn column)
         {
-            foreach (TreeListColumn column in treeView.Columns)
+            try
             {
                 switch (column.Name)
                 {
                     case System_Total_Count_ColumnName:
                         break;
                     default:
-                        Main_gridView.Columns[column.Name].Visible = column.Visible;
-                        Main_gridView.Columns[column.Name].FieldName = column.Name;
-                        Main_gridView.Columns[column.Name].Caption = column.Name;
-                        Main_gridView.Columns[column.Name].Name = column.Name;
-                        Main_gridView.Columns[column.Name].VisibleIndex = column.VisibleIndex;
-                        break;
+                        GridColumn gridColumn = Main_gridView.Columns[column.Name];
+                        if (gridColumn == null) gridColumn = Main_gridView.Columns.Add();
+                        gridColumn.Visible = column.Visible;
+                        gridColumn.FieldName = column.Name;
+                        gridColumn.Caption = column.Name;
+                        gridColumn.Name = column.Name;
+                        gridColumn.VisibleIndex = column.VisibleIndex;
+                        return true;
                 }
             }
+            catch
+            {
+                return false;
+            }
+            return false;
+        }
+        public bool DeleteColumn(TreeListColumn column)
+        {
+            GridColumn gridColumn = Main_gridView.Columns[column.Name];
+            if (gridColumn == null) return true;
+            Main_gridView.Columns.Remove(gridColumn);
+            return false;
+        }
+        private void SetColumnsVisible()
+        {
+            foreach (TreeListColumn column in treeView.Columns)
+                AddColumn(column);
         }
         private void addColumns(DataTable dataTable)
         {

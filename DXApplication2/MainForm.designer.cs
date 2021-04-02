@@ -3654,8 +3654,7 @@
             this.treeList1.Location = new System.Drawing.Point(0, 0);
             this.treeList1.MenuManager = this.mainRibbonControl;
             this.treeList1.Name = "treeList1";
-            this.treeList1.OptionsBehavior.Editable = false;
-            this.treeList1.OptionsBehavior.ReadOnly = true;
+            this.treeList1.OptionsBehavior.EditingMode = DevExpress.XtraTreeList.TreeListEditingMode.EditForm;
             this.treeList1.OptionsCustomization.CustomizationFormSearchBoxVisible = true;
             this.treeList1.OptionsCustomization.CustomizationFormSnapMode = DevExpress.Utils.Controls.SnapMode.Screens;
             this.treeList1.OptionsView.ShowPreview = true;
