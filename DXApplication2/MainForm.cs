@@ -227,6 +227,7 @@ namespace VSNRM_Kompas
 
                 AddOneColumns(listColumn, column);
                 AddItem_In_Combobox();
+                allPartReport.AddColumn(listColumn);
                 if (MainForm.thisDemo)
                 {
                     Lock_Column_Class lock_Column_Class = new Lock_Column_Class();
@@ -366,8 +367,11 @@ namespace VSNRM_Kompas
             if (listColumn != null)
             {
                 Column_Class column_Class = (Column_Class)listColumn.Tag;
-                if(!column_Class.System)
+                if (!column_Class.System)
+                {
                     treeList1.Columns.Remove(listColumn);
+                    allPartReport.DeleteColumn(listColumn);
+                }
             }
             Col_List_CB.EditValue = "";
             AddItem_In_Combobox();
