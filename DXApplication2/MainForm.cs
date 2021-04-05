@@ -134,6 +134,7 @@ namespace VSNRM_Kompas
         private void DeleteTreeListNodes()
         {
             treeList1.Nodes.Clear();
+            UpdateData();
         }
         private void DeleteAllSourse()
         {
