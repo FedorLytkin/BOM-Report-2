@@ -61,6 +61,7 @@ namespace VSNRM_Kompas
             //    Thread.Sleep(100); 
             DemoVers_StartWindows();
             All_Level_Check_CH_B.Checked = !(thisDemo);
+            barCheckItem1.Checked = All_Level_Check_CH_B.Checked;
             bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
             Bt_NaimSpletter.Checked = true;
             Body.AppVersNOTValidStrongMessage();
@@ -118,13 +119,17 @@ namespace VSNRM_Kompas
                 Licence_Manager_ribbonPageGroup1.Visible = false;
             }
         }
-        private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        { 
+        private void FindBOM()
+        {
             body.All_Level_Search = All_Level_Check_CH_B.Checked;
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenDocumentParam_API7();
             splashScreenManager2.CloseWaitForm();
+        }
+        private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FindBOM();
         }
 
         private void bbiSaveAndClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -306,17 +311,24 @@ namespace VSNRM_Kompas
         //        controller.Set_Column_Option(column_);
         //    }
         //}
-        private void barToggleSwitch_All_Level_Check_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private bool All_Level_Check_CheckedChanged(bool ResChecked)
         {
-            if (thisDemo )
+            if (thisDemo)
             {
                 MessageBox.Show("Вы используете DEMO-версию продукта " + Application.ProductName + Environment.NewLine +
                                 "В DEMO-версии не доступна опция Структура - Все уровни" + Environment.NewLine +
                                 "Для использования всех функций программы, обратитесь к разработчику приложения (Справка - Контакты - Email)", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                All_Level_Check_CH_B.Checked = false;
-                return;
+                body.All_Level_Search = false;
+                return false;
             }
-            body.All_Level_Search = All_Level_Check_CH_B.Checked;
+            body.All_Level_Search = ResChecked;
+            return ResChecked;
+        }
+
+        private void barToggleSwitch_All_Level_Check_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            All_Level_Check_CH_B.Checked = All_Level_Check_CheckedChanged(All_Level_Check_CH_B.Checked);
+            barCheckItem1.Checked = All_Level_Check_CH_B.Checked;
         }
 
         private void treeList1_DragDrop(object sender, DragEventArgs e)
@@ -352,13 +364,16 @@ namespace VSNRM_Kompas
             Process.Start("https://www.youtube.com/watch?v=zlS-UA3r4TU");
         }
 
-
-        private void Update_Tree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void UpdateBOM()
         {
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.UpDateTreeList();
             splashScreenManager2.CloseWaitForm();
+        }
+        private void Update_Tree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UpdateBOM();
         }
 
         private void DeleteColumn_Bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -378,8 +393,7 @@ namespace VSNRM_Kompas
             Col_List_CB.EditValue = "";
             AddItem_In_Combobox();
         }
-
-        private void bbiFindBOM_AcriveDoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void BOM_ActiveDocum()
         {
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
@@ -388,6 +402,10 @@ namespace VSNRM_Kompas
             UpdateData();
 
             splashScreenManager2.CloseWaitForm();
+        }
+        private void bbiFindBOM_AcriveDoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BOM_ActiveDocum();
         }
 
         private void Bt_Preview_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -672,5 +690,81 @@ namespace VSNRM_Kompas
             proj_Clone.ShowDialog();
         }
 
+        private void treeList1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+                radialMenu1.ShowPopup(MousePosition);
+        }
+
+        private void barCheckItem1_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            barCheckItem1.Checked = All_Level_Check_CheckedChanged(barCheckItem1.Checked);
+            All_Level_Check_CH_B.Checked = barCheckItem1.Checked;
+        }
+
+        private void barCheckItem3_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            Bt_NaimSpletter.Checked = barCheckItem3.Checked;
+        }
+
+        private void barCheckItem2_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            Add_Drw_In_Tree_CH_B.Checked = barCheckItem2.Checked;
+        }
+
+        private void BOM_ActiveDoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BOM_ActiveDocum();
+        }
+
+        private void BOM_OpenDoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FindBOM();
+        }
+
+        private void BOM_Update_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UpdateBOM();
+        }
+
+        private void TreeListPanel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            navigationPane1.SelectedPageIndex = 0;
+        }
+
+        private void DeleteTreeList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DeleteTreeListNodes();
+        }
+
+        private void ShowColumns_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            treeList1.ColumnsCustomization();
+        }
+
+        private void OpenDocument_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void Export_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ExportToCSV();
+        }
+
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            treeList1.ShowRibbonPrintPreview();
+        }
+
+        private void GridViiewPanel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            navigationPane1.SelectedPageIndex = 1;
+        }
+
+        private void DiagramPanel_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            navigationPane1.SelectedPageIndex = 2;
+        }
     }
 }

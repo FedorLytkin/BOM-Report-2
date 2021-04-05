@@ -171,11 +171,6 @@
             DevExpress.Utils.ToolTipItem toolTipItem27 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem27 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem54 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip72 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem109 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem39 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem38 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem110 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem57 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem29 = new DevExpress.Utils.ToolTipItem();
@@ -296,6 +291,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem38 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem37 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem108 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip72 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem109 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem39 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem38 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem110 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip73 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem111 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem40 = new DevExpress.Utils.ToolTipItem();
@@ -372,7 +372,6 @@
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.Bt_AllParts = new DevExpress.XtraBars.BarButtonItem();
             this.bt_LinkVis = new DevExpress.XtraBars.BarButtonItem();
-            this.Bt_ProjClone = new DevExpress.XtraBars.BarButtonItem();
             this.bt_SplitButton = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
@@ -552,8 +551,28 @@
             this.bt_ShowColumns_InAllReport = new DevExpress.XtraBars.BarButtonItem();
             this.Bt_VideoAboutLink = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.Bt_ProjClone = new DevExpress.XtraBars.BarButtonItem();
             this.Bt_Copy = new DevExpress.XtraBars.BarButtonItem();
             this.Add_Drw_In_Tree_CH_B = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.BOM_Scan_Menu = new DevExpress.XtraBars.BarSubItem();
+            this.BOM_ActiveDoc = new DevExpress.XtraBars.BarButtonItem();
+            this.BOM_OpenDoc = new DevExpress.XtraBars.BarButtonItem();
+            this.BOM_Update = new DevExpress.XtraBars.BarButtonItem();
+            this.Navigator_Menu = new DevExpress.XtraBars.BarSubItem();
+            this.TreeListPanel = new DevExpress.XtraBars.BarButtonItem();
+            this.GridViiewPanel = new DevExpress.XtraBars.BarButtonItem();
+            this.DiagramPanel = new DevExpress.XtraBars.BarButtonItem();
+            this.OpenDocument = new DevExpress.XtraBars.BarButtonItem();
+            this.DeleteTreeList = new DevExpress.XtraBars.BarButtonItem();
+            this.ShowColumns = new DevExpress.XtraBars.BarButtonItem();
+            this.Export_Menu = new DevExpress.XtraBars.BarSubItem();
+            this.Export = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
+            this.Options_Menu = new DevExpress.XtraBars.BarSubItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItem2 = new DevExpress.XtraBars.BarCheckItem();
+            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItem3 = new DevExpress.XtraBars.BarCheckItem();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -682,6 +701,7 @@
             this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -711,6 +731,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.diagramBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radialMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -942,9 +963,28 @@
             this.barButtonItem8,
             this.Bt_ProjClone,
             this.Bt_Copy,
-            this.Add_Drw_In_Tree_CH_B});
+            this.Add_Drw_In_Tree_CH_B,
+            this.BOM_Scan_Menu,
+            this.BOM_ActiveDoc,
+            this.BOM_OpenDoc,
+            this.BOM_Update,
+            this.Navigator_Menu,
+            this.TreeListPanel,
+            this.GridViiewPanel,
+            this.DiagramPanel,
+            this.OpenDocument,
+            this.DeleteTreeList,
+            this.ShowColumns,
+            this.Export_Menu,
+            this.Export,
+            this.barButtonItem19,
+            this.Options_Menu,
+            this.barCheckItem1,
+            this.barCheckItem2,
+            this.barButtonItem20,
+            this.barCheckItem3});
             this.mainRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbonControl.MaxItemId = 229;
+            this.mainRibbonControl.MaxItemId = 248;
             this.mainRibbonControl.Name = "mainRibbonControl";
             this.mainRibbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory2,
@@ -964,7 +1004,7 @@
             this.repositoryItemDiagramFontSizeEdit1});
             this.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2019;
             this.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.mainRibbonControl.Size = new System.Drawing.Size(1200, 158);
+            this.mainRibbonControl.Size = new System.Drawing.Size(1049, 158);
             this.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // bbiFindBOM
@@ -1223,7 +1263,9 @@
             // 
             this.All_Level_Check_CH_B.Caption = " Структура - Все уровни  ";
             this.All_Level_Check_CH_B.Id = 26;
+            this.All_Level_Check_CH_B.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("All_Level_Check_CH_B.ImageOptions.SvgImage")));
             this.All_Level_Check_CH_B.Name = "All_Level_Check_CH_B";
+            this.All_Level_Check_CH_B.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             toolTipTitleItem17.Text = "Структура - Все уровни";
             toolTipItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage8")));
             toolTipItem9.LeftIndent = 6;
@@ -1488,7 +1530,9 @@
             // 
             this.Bt_NaimSpletter.Caption = "Разделить Наименование";
             this.Bt_NaimSpletter.Id = 39;
+            this.Bt_NaimSpletter.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_NaimSpletter.ImageOptions.SvgImage")));
             this.Bt_NaimSpletter.Name = "Bt_NaimSpletter";
+            this.Bt_NaimSpletter.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             toolTipTitleItem39.Text = "Разделить Наименование";
             toolTipItem20.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage18")));
             toolTipItem20.LeftIndent = 6;
@@ -1681,26 +1725,6 @@
             superToolTip27.Items.Add(toolTipTitleItem54);
             this.bt_LinkVis.SuperTip = superToolTip27;
             this.bt_LinkVis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_LinkVis_ItemClick);
-            // 
-            // Bt_ProjClone
-            // 
-            this.Bt_ProjClone.Caption = "Клонировать проект";
-            this.Bt_ProjClone.Id = 226;
-            this.Bt_ProjClone.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_ProjClone.ImageOptions.SvgImage")));
-            this.Bt_ProjClone.Name = "Bt_ProjClone";
-            toolTipTitleItem109.Text = "Клонировать проект";
-            toolTipItem39.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage32")));
-            toolTipItem39.LeftIndent = 6;
-            toolTipItem39.Text = "Инструмент позволяет копировать все элементы узла в указанную папку.\r\nПри этом, в" +
-    " компонентах, будут изменены все ссылки на новые компоненты";
-            toolTipTitleItem110.LeftIndent = 6;
-            toolTipTitleItem110.Text = "BOM-Report";
-            superToolTip72.Items.Add(toolTipTitleItem109);
-            superToolTip72.Items.Add(toolTipItem39);
-            superToolTip72.Items.Add(toolTipSeparatorItem38);
-            superToolTip72.Items.Add(toolTipTitleItem110);
-            this.Bt_ProjClone.SuperTip = superToolTip72;
-            this.Bt_ProjClone.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_ProjClone_ItemClick);
             // 
             // bt_SplitButton
             // 
@@ -3344,6 +3368,26 @@
             this.barButtonItem8.Name = "barButtonItem8";
             this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
             // 
+            // Bt_ProjClone
+            // 
+            this.Bt_ProjClone.Caption = "Клонировать проект";
+            this.Bt_ProjClone.Id = 226;
+            this.Bt_ProjClone.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Bt_ProjClone.ImageOptions.SvgImage")));
+            this.Bt_ProjClone.Name = "Bt_ProjClone";
+            toolTipTitleItem109.Text = "Клонировать проект";
+            toolTipItem39.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage32")));
+            toolTipItem39.LeftIndent = 6;
+            toolTipItem39.Text = "Инструмент позволяет копировать все элементы узла в указанную папку.\r\nПри этом, в" +
+    " компонентах, будут изменены все ссылки на новые компоненты";
+            toolTipTitleItem110.LeftIndent = 6;
+            toolTipTitleItem110.Text = "BOM-Report";
+            superToolTip72.Items.Add(toolTipTitleItem109);
+            superToolTip72.Items.Add(toolTipItem39);
+            superToolTip72.Items.Add(toolTipSeparatorItem38);
+            superToolTip72.Items.Add(toolTipTitleItem110);
+            this.Bt_ProjClone.SuperTip = superToolTip72;
+            this.Bt_ProjClone.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_ProjClone_ItemClick);
+            // 
             // Bt_Copy
             // 
             this.Bt_Copy.Caption = "Копировать проект";
@@ -3368,7 +3412,9 @@
             // 
             this.Add_Drw_In_Tree_CH_B.Caption = "Чертежи в состав             ";
             this.Add_Drw_In_Tree_CH_B.Id = 228;
+            this.Add_Drw_In_Tree_CH_B.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Add_Drw_In_Tree_CH_B.ImageOptions.SvgImage")));
             this.Add_Drw_In_Tree_CH_B.Name = "Add_Drw_In_Tree_CH_B";
+            this.Add_Drw_In_Tree_CH_B.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             toolTipTitleItem113.Text = "Включить в Дерево состава КД";
             toolTipItem41.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage34")));
             toolTipItem41.LeftIndent = 6;
@@ -3382,6 +3428,168 @@
             superToolTip74.Items.Add(toolTipTitleItem114);
             this.Add_Drw_In_Tree_CH_B.SuperTip = superToolTip74;
             this.Add_Drw_In_Tree_CH_B.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.Add_Drw_In_Tree_CH_B_CheckedChanged);
+            // 
+            // BOM_Scan_Menu
+            // 
+            this.BOM_Scan_Menu.Caption = "Дерево состава";
+            this.BOM_Scan_Menu.Id = 229;
+            this.BOM_Scan_Menu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BOM_Scan_Menu.ImageOptions.SvgImage")));
+            this.BOM_Scan_Menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiFindBOM_AcriveDoc),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiFindBOM),
+            new DevExpress.XtraBars.LinkPersistInfo(this.Update_Tree)});
+            this.BOM_Scan_Menu.Name = "BOM_Scan_Menu";
+            // 
+            // BOM_ActiveDoc
+            // 
+            this.BOM_ActiveDoc.Caption = "BOM Активной сборки";
+            this.BOM_ActiveDoc.Id = 230;
+            this.BOM_ActiveDoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BOM_ActiveDoc.ImageOptions.SvgImage")));
+            this.BOM_ActiveDoc.Name = "BOM_ActiveDoc";
+            this.BOM_ActiveDoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BOM_ActiveDoc_ItemClick);
+            // 
+            // BOM_OpenDoc
+            // 
+            this.BOM_OpenDoc.Caption = "Открыть BOM";
+            this.BOM_OpenDoc.Id = 231;
+            this.BOM_OpenDoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BOM_OpenDoc.ImageOptions.SvgImage")));
+            this.BOM_OpenDoc.Name = "BOM_OpenDoc";
+            this.BOM_OpenDoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BOM_OpenDoc_ItemClick);
+            // 
+            // BOM_Update
+            // 
+            this.BOM_Update.Caption = "Обновить состав";
+            this.BOM_Update.Id = 232;
+            this.BOM_Update.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BOM_Update.ImageOptions.SvgImage")));
+            this.BOM_Update.Name = "BOM_Update";
+            this.BOM_Update.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BOM_Update_ItemClick);
+            // 
+            // Navigator_Menu
+            // 
+            this.Navigator_Menu.Caption = "Навигатор";
+            this.Navigator_Menu.Id = 233;
+            this.Navigator_Menu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Navigator_Menu.ImageOptions.SvgImage")));
+            this.Navigator_Menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.TreeListPanel),
+            new DevExpress.XtraBars.LinkPersistInfo(this.GridViiewPanel),
+            new DevExpress.XtraBars.LinkPersistInfo(this.DiagramPanel)});
+            this.Navigator_Menu.Name = "Navigator_Menu";
+            // 
+            // TreeListPanel
+            // 
+            this.TreeListPanel.Caption = "Дерево состава";
+            this.TreeListPanel.Id = 234;
+            this.TreeListPanel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TreeListPanel.ImageOptions.SvgImage")));
+            this.TreeListPanel.Name = "TreeListPanel";
+            this.TreeListPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.TreeListPanel_ItemClick);
+            // 
+            // GridViiewPanel
+            // 
+            this.GridViiewPanel.Caption = "Обозреватель состава";
+            this.GridViiewPanel.Id = 235;
+            this.GridViiewPanel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("GridViiewPanel.ImageOptions.SvgImage")));
+            this.GridViiewPanel.Name = "GridViiewPanel";
+            this.GridViiewPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.GridViiewPanel_ItemClick);
+            // 
+            // DiagramPanel
+            // 
+            this.DiagramPanel.Caption = "Визуализатор связей";
+            this.DiagramPanel.Id = 236;
+            this.DiagramPanel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("DiagramPanel.ImageOptions.SvgImage")));
+            this.DiagramPanel.Name = "DiagramPanel";
+            this.DiagramPanel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DiagramPanel_ItemClick);
+            // 
+            // OpenDocument
+            // 
+            this.OpenDocument.Caption = "Открыть";
+            this.OpenDocument.Id = 237;
+            this.OpenDocument.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("OpenDocument.ImageOptions.SvgImage")));
+            this.OpenDocument.Name = "OpenDocument";
+            this.OpenDocument.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.OpenDocument_ItemClick);
+            // 
+            // DeleteTreeList
+            // 
+            this.DeleteTreeList.Caption = "Очистить";
+            this.DeleteTreeList.Id = 238;
+            this.DeleteTreeList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("DeleteTreeList.ImageOptions.SvgImage")));
+            this.DeleteTreeList.Name = "DeleteTreeList";
+            this.DeleteTreeList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DeleteTreeList_ItemClick);
+            // 
+            // ShowColumns
+            // 
+            this.ShowColumns.Caption = "Выбор колонок";
+            this.ShowColumns.Id = 239;
+            this.ShowColumns.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ShowColumns.ImageOptions.SvgImage")));
+            this.ShowColumns.Name = "ShowColumns";
+            this.ShowColumns.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ShowColumns_ItemClick);
+            // 
+            // Export_Menu
+            // 
+            this.Export_Menu.Caption = "Экпорт";
+            this.Export_Menu.Id = 240;
+            this.Export_Menu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Export_Menu.ImageOptions.SvgImage")));
+            this.Export_Menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bt_SaveAndNew_InAllReport),
+            new DevExpress.XtraBars.LinkPersistInfo(this.Bt_Preview)});
+            this.Export_Menu.Name = "Export_Menu";
+            // 
+            // Export
+            // 
+            this.Export.Caption = "Экпорт";
+            this.Export.Id = 241;
+            this.Export.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Export.ImageOptions.SvgImage")));
+            this.Export.Name = "Export";
+            this.Export.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Export_ItemClick);
+            // 
+            // barButtonItem19
+            // 
+            this.barButtonItem19.Caption = "Просмотр и Печать";
+            this.barButtonItem19.Id = 242;
+            this.barButtonItem19.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem19.ImageOptions.SvgImage")));
+            this.barButtonItem19.Name = "barButtonItem19";
+            this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
+            // 
+            // Options_Menu
+            // 
+            this.Options_Menu.Caption = "Конфигурации";
+            this.Options_Menu.Id = 243;
+            this.Options_Menu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Options_Menu.ImageOptions.SvgImage")));
+            this.Options_Menu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.All_Level_Check_CH_B),
+            new DevExpress.XtraBars.LinkPersistInfo(this.Add_Drw_In_Tree_CH_B),
+            new DevExpress.XtraBars.LinkPersistInfo(this.Bt_NaimSpletter)});
+            this.Options_Menu.Name = "Options_Menu";
+            // 
+            // barCheckItem1
+            // 
+            this.barCheckItem1.Caption = "Все уровни";
+            this.barCheckItem1.Id = 244;
+            this.barCheckItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barCheckItem1.ImageOptions.SvgImage")));
+            this.barCheckItem1.Name = "barCheckItem1";
+            this.barCheckItem1.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem1_CheckedChanged);
+            // 
+            // barCheckItem2
+            // 
+            this.barCheckItem2.Caption = "Связанные чертежи";
+            this.barCheckItem2.Id = 245;
+            this.barCheckItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barCheckItem2.ImageOptions.SvgImage")));
+            this.barCheckItem2.Name = "barCheckItem2";
+            this.barCheckItem2.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem2_CheckedChanged);
+            // 
+            // barButtonItem20
+            // 
+            this.barButtonItem20.Caption = "Разделить Наименование";
+            this.barButtonItem20.Id = 246;
+            this.barButtonItem20.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem20.ImageOptions.SvgImage")));
+            this.barButtonItem20.Name = "barButtonItem20";
+            // 
+            // barCheckItem3
+            // 
+            this.barCheckItem3.Caption = "Разделить Наименование";
+            this.barCheckItem3.Id = 247;
+            this.barCheckItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barCheckItem3.ImageOptions.SvgImage")));
+            this.barCheckItem3.Name = "barCheckItem3";
+            this.barCheckItem3.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItem3_CheckedChanged);
             // 
             // ribbonPageCategory2
             // 
@@ -3660,13 +3868,14 @@
             this.treeList1.OptionsCustomization.CustomizationFormSearchBoxVisible = true;
             this.treeList1.OptionsCustomization.CustomizationFormSnapMode = DevExpress.Utils.Controls.SnapMode.Screens;
             this.treeList1.OptionsView.ShowPreview = true;
-            this.treeList1.Size = new System.Drawing.Size(1113, 342);
+            this.treeList1.Size = new System.Drawing.Size(962, 342);
             this.treeList1.StateImageList = this.Section_IL;
             this.treeList1.TabIndex = 1;
             this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
             this.treeList1.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeList1_PopupMenuShowing);
             this.treeList1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeList1_DragDrop);
             this.treeList1.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeList1_DragEnter);
+            this.treeList1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseClick);
             // 
             // Section_IL
             // 
@@ -3708,9 +3917,9 @@
             this.TreeList_Page,
             this.AllPart_Page,
             this.LinkVis_Page});
-            this.navigationPane1.RegularSize = new System.Drawing.Size(1200, 406);
+            this.navigationPane1.RegularSize = new System.Drawing.Size(1049, 406);
             this.navigationPane1.SelectedPage = this.TreeList_Page;
-            this.navigationPane1.Size = new System.Drawing.Size(1200, 406);
+            this.navigationPane1.Size = new System.Drawing.Size(1049, 406);
             this.navigationPane1.TabIndex = 3;
             this.navigationPane1.Text = "navigationPane1";
             this.navigationPane1.StateChanging += new DevExpress.XtraBars.Navigation.StateChangingEventHandler(this.navigationPane1_StateChanging);
@@ -3722,7 +3931,7 @@
             this.TreeList_Page.Controls.Add(this.treeList1);
             this.TreeList_Page.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("TreeList_Page.ImageOptions.SvgImage")));
             this.TreeList_Page.Name = "TreeList_Page";
-            this.TreeList_Page.Size = new System.Drawing.Size(1113, 342);
+            this.TreeList_Page.Size = new System.Drawing.Size(962, 342);
             // 
             // AllPart_Page
             // 
@@ -6040,13 +6249,27 @@
             // 
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             // 
+            // radialMenu1
+            // 
+            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
+            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
+            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
+            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
+            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
+            this.radialMenu1.ItemLinks.Add(this.skinDropDownButtonItem1);
+            this.radialMenu1.Name = "radialMenu1";
+            this.radialMenu1.Ribbon = this.mainRibbonControl;
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1200, 564);
+            this.ClientSize = new System.Drawing.Size(1049, 564);
             this.Controls.Add(this.navigationPane1);
             this.Controls.Add(this.mainRibbonControl);
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("MainForm.IconOptions.SvgImage")));
@@ -6084,6 +6307,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.diagramBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1.TemplateDiagram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diagramDataBindingController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radialMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6452,5 +6676,25 @@
         private DevExpress.XtraBars.BarButtonItem Bt_ProjClone;
         private DevExpress.XtraBars.BarButtonItem Bt_Copy;
         private DevExpress.XtraBars.BarToggleSwitchItem Add_Drw_In_Tree_CH_B;
+        private DevExpress.XtraBars.Ribbon.RadialMenu radialMenu1;
+        private DevExpress.XtraBars.BarSubItem BOM_Scan_Menu;
+        private DevExpress.XtraBars.BarButtonItem BOM_ActiveDoc;
+        private DevExpress.XtraBars.BarButtonItem BOM_OpenDoc;
+        private DevExpress.XtraBars.BarButtonItem BOM_Update;
+        private DevExpress.XtraBars.BarSubItem Navigator_Menu;
+        private DevExpress.XtraBars.BarButtonItem TreeListPanel;
+        private DevExpress.XtraBars.BarButtonItem GridViiewPanel;
+        private DevExpress.XtraBars.BarButtonItem DiagramPanel;
+        private DevExpress.XtraBars.BarButtonItem OpenDocument;
+        private DevExpress.XtraBars.BarButtonItem DeleteTreeList;
+        private DevExpress.XtraBars.BarButtonItem ShowColumns;
+        private DevExpress.XtraBars.BarSubItem Export_Menu;
+        private DevExpress.XtraBars.BarButtonItem Export;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
+        private DevExpress.XtraBars.BarSubItem Options_Menu;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem3;
     }
 }
