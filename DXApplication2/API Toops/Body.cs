@@ -38,6 +38,7 @@ namespace SaveDXF
         public static IApplication _IApplication;
         public List<string> FindParam_Model;
         public List<object> FindModel_List;
+        public List<string> OpenDocsPERED_Start;
         public bool All_Level_Search = false;
         public bool Split_Naim = false;
         public bool Add_Drw = false;
@@ -86,35 +87,8 @@ namespace SaveDXF
         public void OpenDocument(string FullFileName)
         {
             //процедура открывает документ из списка
-            if(Path.GetExtension(FullFileName).ToUpper() == ".CDW")
-            {
-                IKompasDocument2D _IKompasDocument2d = (IKompasDocument2D)_IApplication.Documents[FullFileName];
-                if(_IKompasDocument2d == null) _IKompasDocument2d = (IKompasDocument2D)_IApplication.Documents.Open(FullFileName, true, false);
-                _IKompasDocument2d.Active = true;
-                if (!_IKompasDocument2d.Visible)
-                {
-                    _IKompasDocument2d.Close(DocumentCloseOptions.kdDoNotSaveChanges);
-                    _IKompasDocument2d = (IKompasDocument2D)_IApplication.Documents.Open(FullFileName, true, false);
-                    _IKompasDocument2d.Active = true;
-                }
-            }
-            else if (Path.GetExtension(FullFileName).ToUpper() == ".SPW")
-            {
-                ISpecificationDocument _IKompasDocument2d = (ISpecificationDocument)_IApplication.Documents[FullFileName];
-                if (_IKompasDocument2d == null) _IKompasDocument2d = (ISpecificationDocument)_IApplication.Documents.Open(FullFileName, true, false);
-                _IKompasDocument2d.Active = true;
-                if (!_IKompasDocument2d.Visible)
-                {
-                    _IKompasDocument2d.Close(DocumentCloseOptions.kdDoNotSaveChanges);
-                    _IKompasDocument2d = (ISpecificationDocument)_IApplication.Documents.Open(FullFileName, true, false);
-                    _IKompasDocument2d.Active = true;
-                }
-            }
-            else
-            {
-                IKompasDocument _IKompasDocument = (IKompasDocument)_IApplication.Documents.Open(FullFileName, true, false);
-                _IKompasDocument.Active = true;
-            }
+            IKompasDocument _IKompasDocument = (IKompasDocument)_IApplication.Documents.Open(FullFileName, true, false);
+            _IKompasDocument.Active = true;
         }
         public void OpenDocumentParam_API7()
         {
@@ -162,7 +136,7 @@ namespace SaveDXF
             FindParam_Model = ColumnsConf_Save_Read.FindParams();   //получаем список искомых параметров
             FindModel_List = new List<object>();                    //обнуляем список обработанных файлов
             optionClassInBody = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).Main_Options;
-
+            OpenDocsPERED_Start = GetInvisibleDocument();
             if (MainForm.thisDemo)
             {
                 Lock_Column_Class lock_Column_ = new Lock_Column_Class();
@@ -610,6 +584,7 @@ namespace SaveDXF
                 Drw_Component.drw_Info = drw_Info;
                 Drw_Component.Key += Drw_Component.drw_Info.FFN + "|" + _componentInfo.FFN;
                 Drw_Component.FFN = Drw_Component.drw_Info.FFN;
+                FindModel_List.Add(Drw_Component);
                 TreeListNode Drw_Node = ThisNode.Nodes.Add();
                 AddCellsInNode(Drw_Node, drw_Info);
                 Drw_Node.Tag = Drw_Component;
@@ -906,8 +881,33 @@ namespace SaveDXF
             {
                 CloseInvisibleDocument(component.FFN);
             }
+            foreach (IKompasDocument document in _IApplication.Documents)
+            {
+                bool find = false;
+                foreach (string FileName in OpenDocsPERED_Start)
+                    if (document.PathName == FileName)
+                    {
+                        find = true;
+                        break;
+                    }
+                if (!find)
+                    document.Close(DocumentCloseOptions.kdDoNotSaveChanges);
+            }
+            
         }
+        public List<string> GetInvisibleDocument()
+        {
+            List<string> docs = new List<string>();
+            for(int doc_id = 0; doc_id <_IApplication.Documents.Count; doc_id++)
+            {
+                IKompasDocument document = (IKompasDocument)_IApplication.Documents[doc_id];
+                docs.Add(document.PathName);
+            }
+            //foreach(IKompasDocument document in _IApplication.Documents)
+            //    document.Close(DocumentCloseOptions.kdDoNotSaveChanges);
 
+            return docs;
+        }
         public static void CloseInvisibleDocument(string FullFileName)
         {
             //процедура закрывает документ
@@ -930,13 +930,13 @@ namespace SaveDXF
             if (iMSH != null) return iMSH;
 
             IMassInertiaParam7 massInertiaParam = (IMassInertiaParam7)part;
-            //try
-            //{
-            //    massInertiaParam.Calculate();
-            //    massInertiaParam.LengthUnits = ksLengthUnitsEnum.ksLUnMM;
-            //    massInertiaParam.MassUnits = ksMassUnitsEnum.ksMUnKG;
-            //}
-            //catch { }
+            try
+            {
+                massInertiaParam.Calculate();
+                massInertiaParam.LengthUnits = ksLengthUnitsEnum.ksLUnMM;
+                massInertiaParam.MassUnits = ksMassUnitsEnum.ksMUnKG;
+            }
+            catch { }
 
             iMSH = new ComponentInfo();
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
@@ -1097,49 +1097,12 @@ namespace SaveDXF
                         break;
                     case "Расположение файла":
                         ParamValue = System.IO.Path.GetDirectoryName(drw_Name);
-                        break;
-                    //case "Наименование":
-                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
-                    //    if (Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
-                    //    break;
-                    //case "Масса":
-                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
-                    //    break;
-                    //case "Материал":
-                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
-                    //    break;
-                    //case "Толщина":
-                    //    ParamValue = Convert.ToString(GetThicknessPart(part, true));
-                    //    break;
-                    //case "Количество":
-                    //    ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                    //    if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
-                    //    break;
-                    //case "Количество общ.":
-                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                        //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
-                        break;
-                    //case "Площадь":
-                    //    ParamValue = Math.Round(massInertiaParam.Area, 3).ToString();
-                    //    break;
-                    //case "Объем":
-                    //    ParamValue = Math.Round(massInertiaParam.Volume, 3).ToString();
-                    //    break;
-                    //case "Xc":
-                    //    ParamValue = massInertiaParam.Xc.ToString();
-                    //    break;
-                    //case "Yc":
-                    //    ParamValue = massInertiaParam.Yc.ToString();
-                    //    break;
-                    //case "Zc":
-                    //    ParamValue = massInertiaParam.Zc.ToString();
-                    //    break;
+                        break; 
                     case "Полное имя файла":
                         ParamValue = drw_Name;
                         break;
                     default:
                         ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, ParamName), "");
-                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
                         break;
                 }
                 ParamValueList.Add(ParamName, ParamValue);

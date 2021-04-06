@@ -670,8 +670,8 @@ namespace VSNRM_Kompas
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
             //ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
-
-            body.SetAttachedDoc(@"C:\Users\admin_veza\Desktop\Новая папка (3)\01-ЕЛГ 02.01.10.000 СБ Стойка нижняя.a3d");
+            body.GetInvisibleDocument();
+            //body.SetAttachedDoc(@"C:\Users\admin_veza\Desktop\Новая папка (3)\01-ЕЛГ 02.01.10.000 СБ Стойка нижняя.a3d");
             //body.getSP();
             //body.SetPropertyIPart7(componentInfo.FFN, "Обозначение", "2222");
             //body.SetPropertyIPart7(componentInfo.FFN, "Наименование", "1111");

@@ -6259,7 +6259,6 @@
             this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
             this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
             this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
-            this.radialMenu1.ItemLinks.Add(this.skinDropDownButtonItem1);
             this.radialMenu1.Name = "radialMenu1";
             this.radialMenu1.Ribbon = this.mainRibbonControl;
             // 
