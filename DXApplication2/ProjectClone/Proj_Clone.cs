@@ -389,7 +389,7 @@ namespace VSNRM_Kompas.ProjectClone
                 return;
             }
             body._Pr_Clone_Class = Pr_Clone;
-            body.SetLinks(treeList1.GetAllCheckedNodes());
+            body.SetLinks(treeList1.GetNodeList());
             if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
                 ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));
             MessageBox.Show("Копирование проекта завершено!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);

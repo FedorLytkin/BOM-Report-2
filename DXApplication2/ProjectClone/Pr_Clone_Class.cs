@@ -345,5 +345,14 @@ namespace VSNRM_Kompas.ProjectClone
                 return getResultFolderPath(FolderPath, SourseFolderPath, FullFileName) + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
             return FullFileName;
         }
+        public string getSourceFileNameByExpFN(string ExportFileName)
+        {
+            foreach (TreeListNode Node in This_treeList.GetNodeList())
+            {
+                if(Node.GetValue("Имя файла").ToString() == Path.GetFileNameWithoutExtension(ExportFileName)) 
+                    return ((ComponentInfo)Node.Tag).FFN; 
+            }
+            return null;
+        }
     }
 }

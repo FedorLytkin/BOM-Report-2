@@ -1666,7 +1666,7 @@ namespace SaveDXF
             if (document3D != null) OpenDoc = true;
             else
                 document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, OpenVisible, false);
-            if (document3D == null) return;
+            //if (document3D == null) return;
             document3D.SaveAs(ExportFileName);
             document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, OpenVisible, false); 
 
@@ -1681,7 +1681,7 @@ namespace SaveDXF
                 tmp_Embodiment = _IEmbodimentsManager.Embodiment[ii];
                 if (tmp_Embodiment.IsCurrent == true) { currentEmbody = ii; break; }
             }
-
+            
             for (int j = 0; j < EmbodyCount; j++)
             {
                 Embodiment tmp_Embodiment;
@@ -1704,7 +1704,7 @@ namespace SaveDXF
 
                             if (!string.IsNullOrEmpty(New_FileName))
                             {
-                                if (!File.Exists(Path.GetDirectoryName(New_FileName)))
+                                if (!File.Exists(New_FileName))
                                     File.Copy(Name, New_FileName, true);
                                 part.FileName = New_FileName;
                                 SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
@@ -1766,8 +1766,15 @@ namespace SaveDXF
                         {
                             string link_FileName = variable7.LinkDocumentName;
                             string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
-                            if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents)) variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                            part7.RebuildModel(true);
+                            if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents))
+                            {
+                                if (!File.Exists(New_link_FileName))
+                                {
+                                    New_link_FileName = link_FileName;
+                                }
+                                variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                                part7.RebuildModel(true);
+                            }
                         }
                     }
                 }
