@@ -14,12 +14,12 @@ namespace VSNRM_Kompas.ProjectClone
 {
     public partial class FindAndRepace_Form : DevExpress.XtraEditors.XtraForm
     {
-        FindAndRepace_Class FindAndRepace;
+        public FindAndRepace_Class FindAndRepace;
         public TreeList treeList;
         public FindAndRepace_Form()
         {
             InitializeComponent();
-            FindAndRepace = new FindAndRepace_Class();
+            if(FindAndRepace == null) FindAndRepace = new FindAndRepace_Class();
         }
         private void FindAndRepace_Form_Load(object sender, EventArgs e)
         {

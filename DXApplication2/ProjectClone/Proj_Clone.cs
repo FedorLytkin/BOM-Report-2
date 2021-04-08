@@ -24,6 +24,8 @@ namespace VSNRM_Kompas.ProjectClone
     {
         RepositoryItemPictureEdit pictureEdit;
         Pr_Clone_Class Pr_Clone;
+        FindAndRepace_Form findAndRepace_Form;
+        FindAndRepace_Class findAndRepace_Class;
         RepositoryItemCheckEdit checkEdit;
         Dictionary<TreeListColumn, bool> checkedColumns = new Dictionary<TreeListColumn, bool>();
         public Body body;
@@ -57,6 +59,11 @@ namespace VSNRM_Kompas.ProjectClone
 
             tb_FolderPath.Text = Pr_Clone.FolderPath;
             tb_ZipFileName.Text = Pr_Clone.ZipFileName;
+            findAndRepace_Form = new FindAndRepace_Form();
+            findAndRepace_Class = new FindAndRepace_Class();
+
+            findAndRepace_Form.FindAndRepace  = findAndRepace_Class;
+            Pr_Clone.FindAndRepace = findAndRepace_Class;
         }
         private void Proj_Clone_Load(object sender, EventArgs e)
         {
@@ -122,7 +129,6 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void bt_FinndAndReplase_Click(object sender, EventArgs e)
         {
-            FindAndRepace_Form findAndRepace_Form = new FindAndRepace_Form();
             findAndRepace_Form.treeList = treeList1;
             findAndRepace_Form.ShowDialog();
         }
@@ -382,7 +388,7 @@ namespace VSNRM_Kompas.ProjectClone
                                 "Для использования всех функций программы, обратитесь к разработчику приложения (Справка - Контакты - Email)", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            body._Pr_Clone_Class = Pr_Clone;
             body.SetLinks(treeList1.GetAllCheckedNodes());
             if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
                 ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));

@@ -17,6 +17,7 @@ namespace VSNRM_Kompas.ProjectClone
     {
         public TreeList Donor_treeList;
         public TreeList This_treeList;
+        public FindAndRepace_Class FindAndRepace;
         public bool check_Drw = false;
         public bool check_SP = false;
         public TreeViewEnum treeViewEnum = TreeViewEnum.TreeView;
@@ -332,6 +333,17 @@ namespace VSNRM_Kompas.ProjectClone
             while (File.Exists(FileName))
                 FileName = $@"{Path.GetDirectoryName(FileName)}\{Path.GetFileNameWithoutExtension(FileName)}_1{Path.GetExtension(FileName)}";
             return FileName;
+        }
+        public string getFileNameWithFindOptions(string FullFileName)
+        {
+            //if (FindAndRepace.To4noe)
+            //    if(FullFileName == FindAndRepace.fin)
+
+            if (SaveInOneFolder)
+                return FolderPath + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
+            else
+                return getResultFolderPath(FolderPath, SourseFolderPath, FullFileName) + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
+            return FullFileName;
         }
     }
 }

@@ -1415,6 +1415,7 @@ namespace SaveDXF
 
         #region копировать Проект
         List<string> SetLinkVariableCompeteFile_Lise;
+        public VSNRM_Kompas.ProjectClone.Pr_Clone_Class _Pr_Clone_Class;
         bool OpenVisible = true;
         public void SetLinks(List<TreeListNode> AllComponents)
         {
@@ -1698,10 +1699,13 @@ namespace SaveDXF
                             IFeature7 feature7 = (IFeature7)part; 
                             string Name = part.FileName;
                             string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                            if (string.IsNullOrEmpty(New_FileName)) 
+                                New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
+
                             if (!string.IsNullOrEmpty(New_FileName))
                             {
-                                if (!Directory.Exists(Path.GetDirectoryName(New_FileName)))
-                                    Directory.CreateDirectory(Path.GetDirectoryName(New_FileName));
+                                if (!File.Exists(Path.GetDirectoryName(New_FileName)))
+                                    File.Copy(Name, New_FileName, true);
                                 part.FileName = New_FileName;
                                 SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
                                 part.Update();
