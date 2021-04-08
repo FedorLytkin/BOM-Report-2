@@ -1418,7 +1418,7 @@ namespace SaveDXF
         bool OpenVisible = true;
         public void SetLinks(List<TreeListNode> AllComponents)
         {
-            _IApplication.Visible = false;
+            //_IApplication.Visible = false;
             SetLinkVariableCompeteFile_Lise = new List<string>();
             List<string> CopyFileList = new List<string>();
             waitMng = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).splashScreenManager2;
@@ -1467,7 +1467,7 @@ namespace SaveDXF
             }
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageYes; //отключаем все сообщения от компаса
             waitMng.CloseWaitForm();
-            _IApplication.Visible = true;
+            //_IApplication.Visible = true;
         }
         public void SetLinkInSPDoc(string FileName, List<TreeListNode> AllComponents)
         {
@@ -1668,21 +1668,40 @@ namespace SaveDXF
             if (document3D == null) return;
             document3D.SaveAs(ExportFileName);
             document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, OpenVisible, false); 
+
             IPart7 part7 = document3D.TopPart;
-            var Parts = part7.PartsEx[0];
-            if(Parts != null)
+            if (part7 == null) { IPart7NothingMsg(ExportFileName); return; }
+            int currentEmbody = 0;
+            IEmbodimentsManager _IEmbodimentsManager = (IEmbodimentsManager)part7;
+            int EmbodyCount = _IEmbodimentsManager.EmbodimentCount;
+            for (int ii = 0; ii < EmbodyCount; ii++)
             {
-                foreach (IPart7 part in Parts)
+                Embodiment tmp_Embodiment;
+                tmp_Embodiment = _IEmbodimentsManager.Embodiment[ii];
+                if (tmp_Embodiment.IsCurrent == true) { currentEmbody = ii; break; }
+            }
+
+            for (int j = 0; j < EmbodyCount; j++)
+            {
+                Embodiment tmp_Embodiment;
+                tmp_Embodiment = _IEmbodimentsManager.Embodiment[j];
+                //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
+                tmp_Embodiment.IsCurrent = true;
+                if (tmp_Embodiment.Part == null) { IPart7NothingMsg(ExportFileName); return; }
+                var Parts = tmp_Embodiment.Part.PartsEx[0];
+                if (Parts != null)
                 {
-                    try
+                    foreach (IPart7 part in Parts)
                     {
-                        IFeature7 feature7 = (IFeature7)part;
-                        if (!feature7.Excluded)
+                        try
                         {
+                            IFeature7 feature7 = (IFeature7)part; 
                             string Name = part.FileName;
                             string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
                             if (!string.IsNullOrEmpty(New_FileName))
                             {
+                                if (!Directory.Exists(Path.GetDirectoryName(New_FileName)))
+                                    Directory.CreateDirectory(Path.GetDirectoryName(New_FileName));
                                 part.FileName = New_FileName;
                                 SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
                                 part.Update();
@@ -1694,16 +1713,19 @@ namespace SaveDXF
 
                                 if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
                                 //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-                            }
+                            } 
+                        }
+                        catch (Exception Ex)
+                        {
+                            ShowMsgBox("Ошибка при изменении связанных файлов у документа" + part.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception Ex)
-                    {
-                        ShowMsgBox("Ошибка при изменении связанных файлов у документа" + part.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
-                    }
                 }
-            }
-            part7.Update();
+                _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
+                part7.Update();
+            }   
+
+            
             if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
             SetLinkInProperty_ModelAPI7(ExportFileName, AllComponents);
         }
