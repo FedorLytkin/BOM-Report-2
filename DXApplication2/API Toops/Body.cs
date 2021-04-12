@@ -584,6 +584,7 @@ namespace SaveDXF
                 Drw_Component.drw_Info = drw_Info;
                 Drw_Component.Key += Drw_Component.drw_Info.FFN + "|" + _componentInfo.FFN;
                 Drw_Component.FFN = Drw_Component.drw_Info.FFN;
+                Drw_Component.Referense_Variable_List = null;
                 FindModel_List.Add(Drw_Component);
                 TreeListNode Drw_Node = ThisNode.Nodes.Add();
                 AddCellsInNode(Drw_Node, drw_Info);
@@ -1046,6 +1047,7 @@ namespace SaveDXF
             ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
             iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
             iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+            iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
             List<string> DrwList = GetDrwDocs(part);
             if(DrwList != null)
             {
@@ -1066,6 +1068,40 @@ namespace SaveDXF
                 return fileInfo.Length;
             }
             return -1;
+        } 
+        private List<ComponentInfo.Variable_Class> GetLinkProertiList(string PartFileName)
+        {
+            List<ComponentInfo.Variable_Class> linkVars = new List<ComponentInfo.Variable_Class>();
+            bool OpenDoc = false;
+            IKompasDocument3D document3D;
+            document3D = (IKompasDocument3D)_IApplication.Documents[PartFileName];
+            if (document3D != null) OpenDoc = true;
+            else
+                document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
+            string ParamName = null;
+            try
+            {
+                IPart7 part7 = document3D.TopPart;
+                string ffn = part7.FileName;
+                IFeature7 feature7 = (IFeature7)part7;
+                var VariableCollection = feature7.Variables[false, true];
+                if (VariableCollection != null)
+                {
+                    foreach (Variable7 variable7 in VariableCollection)
+                    {
+                        ParamName = variable7.Name;
+                        if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                            linkVars.Add(new ComponentInfo.Variable_Class { Name = ParamName, SourceFileName = variable7.LinkDocumentName });
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                ShowMsgBox("Ошибка при изменении связанных файлов у документа" + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+            }
+            if (!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
+
+            return linkVars;
         }
         private ComponentInfo.Drw_Info_Class getDrwParam(string drw_Name)
         {

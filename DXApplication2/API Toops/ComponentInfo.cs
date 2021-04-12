@@ -32,6 +32,7 @@ namespace VSNRM_Kompas.API_Toops
         public bool HaveDrw { get; set; }
         public bool HaveSP { get; set; }
         public List<Drw_Info_Class> drw_List = new List<Drw_Info_Class>();
+        public List<Variable_Class> Referense_Variable_List = new List<Variable_Class>();
         public long FL_Size { get; set; }
 
         public Drw_Info_Class drw_Info = new Drw_Info_Class();
@@ -55,6 +56,12 @@ namespace VSNRM_Kompas.API_Toops
             public bool QNT_False { get; set; }
             public Dictionary<string, string> ParamValueList { get; set; }
         }
+        public class Variable_Class
+        {
+            public string Name { get; set; }
+            public string SourceFileName { get; set; }
+        }
+
         public class Drw_Info_Class
         {
             public string FFN { get; set; }
