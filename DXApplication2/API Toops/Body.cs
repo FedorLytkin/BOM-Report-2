@@ -1044,9 +1044,13 @@ namespace SaveDXF
             iMSH.standardComponent = part.Standard;
             iMSH.Key = ComponentKey;
             //4555
+            //int newWidth = 32;
+            //int newHeight = newWidth;
             ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
             iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
             iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+            //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
+            //iMSH.Slide.SetResolution(newWidth * 3, newWidth * 3);
             iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
             List<string> DrwList = GetDrwDocs(part);
             if(DrwList != null)
@@ -1806,13 +1810,30 @@ namespace SaveDXF
                             {
                                 if (!File.Exists(New_link_FileName))
                                 {
-                                    New_link_FileName = link_FileName;
+                                    foreach(TreeListNode node in AllComponents)
+                                    {
+                                        bool findVar = false;
+                                        if (node.GetValue("Имя файла").ToString() == Path.GetFileNameWithoutExtension(PartFileName))
+                                        {
+                                            ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                                            foreach(ComponentInfo.Variable_Class Link_Variable in componentInfo.Referense_Variable_List)
+                                            {
+                                                if(Link_Variable.Name == ParamName)
+                                                {
+                                                    New_link_FileName = Link_Variable.SourceFileName;
+                                                    findVar = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (findVar) break;
+                                    }
                                 }
                                 variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                                part7.RebuildModel(true);
                             }
                         }
                     }
+                    part7.RebuildModel(true);
                 }
                 document3D.Save();
             }
