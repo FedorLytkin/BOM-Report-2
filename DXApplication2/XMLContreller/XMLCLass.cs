@@ -18,20 +18,39 @@ namespace VSNRM_Kompas.XMLContreller
         public SystemInformation ISystemInformation = new SystemInformation();
         public class Columns_Option
         {
-            public void SaveColums(List<Column_Class> columns)
+            public void SaveColums(List<Column_Class> columns,bool askOptFileName)
             {
+                string path = null;
+                if (!askOptFileName)
+                    path = OptionPath.Columns_FileXML;
+                else
+                {
+                    System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+                    saveFileDialog.Filter = "XML files (*.XML)|*.XML";
+                    if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) 
+                        path = saveFileDialog.FileName; 
+                    else return;
+                }
                 XmlSerializer writer =
                 new XmlSerializer(typeof(List<Column_Class>));
-
-                var path = OptionPath.Columns_FileXML;
                 FileStream file = File.Create(path);
 
                 writer.Serialize(file, columns);
                 file.Close();
             }
-            public List<Column_Class> GetColumns()
+            public List<Column_Class> GetColumns(bool askFileName)
             {
-                string path = OptionPath.Columns_FileXML;
+                string path = null ;
+                if (askFileName)
+                {
+                    System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+                    openFileDialog.Filter = "XML files (*.XML)|*.XML";
+                    if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        path = openFileDialog.FileName;
+                    else return null;
+                }
+                else
+                    path = OptionPath.Columns_FileXML;
                 List<Column_Class> column_s = new List<Column_Class>();
 
                 XmlDocument xmlDocument = new XmlDocument();

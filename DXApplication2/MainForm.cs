@@ -43,7 +43,7 @@ namespace VSNRM_Kompas
             controller = new XMLContreller.XMLCLass();
             InitializeComponent();
             Body.Init();
-            AddColumns();
+            AddColumns(false);
             UpdateData();
             pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
         }
@@ -69,15 +69,15 @@ namespace VSNRM_Kompas
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
         }
-        private void AddColumns()
+        private void AddColumns(bool askCFGFileName)
         {
-            List<Column_Class> column_List = controller.IColumns.GetColumns();
+            List<Column_Class> column_List = controller.IColumns.GetColumns(askCFGFileName);
             Options.Column_options.AddNewColumns_Class ColumnsUpdate = new Options.Column_options.AddNewColumns_Class();
             ColumnsUpdate.GetUpdateColumnList(column_List);
 
             column_List.Sort(delegate (Column_Class column_1, Column_Class column_2) { return column_1.Index.CompareTo(column_2.Index); });
-
             treeList1.Nodes.Clear();
+            treeList1.Columns.Clear();
             foreach (Column_Class column in column_List)
             {
                 TreeListColumn listColumn = new TreeListColumn();
@@ -298,7 +298,7 @@ namespace VSNRM_Kompas
             //Main_Options.SaveColumnCFG(columnsConf_Save_Read.GetColumnsConfig());
 
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
-            xMLCLass.IColumns.SaveColums(columnsConf_Save_Read.GetColumnsConfig());
+            xMLCLass.IColumns.SaveColums(columnsConf_Save_Read.GetColumnsConfig(), false); ;
 
             splashScreenManager2.CloseWaitForm();
         }
@@ -670,8 +670,8 @@ namespace VSNRM_Kompas
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
             //ComponentInfo componentInfo = (ComponentInfo)treeList1.Nodes[0].Tag;
-            body.GetInvisibleDocument();
-            //body.SetAttachedDoc(@"C:\Users\admin_veza\Desktop\Новая папка (3)\01-ЕЛГ 02.01.10.000 СБ Стойка нижняя.a3d");
+            //body.GetInvisibleDocument();
+            body.SetAttachedDoc(@"C:\Users\admin_veza\Desktop\Новая папка (3)\сборка\ПВ.000.000.165.000 _ Сборка Поддон.a3d");
             //body.getSP();
             //body.SetPropertyIPart7(componentInfo.FFN, "Обозначение", "2222");
             //body.SetPropertyIPart7(componentInfo.FFN, "Наименование", "1111");
@@ -765,6 +765,26 @@ namespace VSNRM_Kompas
         private void DiagramPanel_ItemClick(object sender, ItemClickEventArgs e)
         {
             navigationPane1.SelectedPageIndex = 2;
+        }
+
+        private void bt_ExportColOpt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            splashScreenManager2.ShowWaitForm();
+            splashScreenManager2.SetWaitFormCaption("Сохранение настроек");
+            splashScreenManager2.SetWaitFormDescription("Настройка столбцов");
+            ColumnsConf_Save_Read columnsConf_Save_Read = new ColumnsConf_Save_Read();
+
+            //Main_Options.SaveColumnCFG(columnsConf_Save_Read.GetColumnsConfig());
+
+            XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
+            xMLCLass.IColumns.SaveColums(columnsConf_Save_Read.GetColumnsConfig(), true); ;
+
+            splashScreenManager2.CloseWaitForm();
+        }
+
+        private void Bt_ImportColOpt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddColumns(true);
         }
     }
 }

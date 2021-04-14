@@ -1454,13 +1454,15 @@ namespace SaveDXF
         #endregion
 
         #region копировать Проект
-        List<string> SetLinkVariableCompeteFile_Lise;
+        List<string> SetLinkVariableCompeteFile_List;
+        List<string> SetSourseCompeteFile_List;
         public VSNRM_Kompas.ProjectClone.Pr_Clone_Class _Pr_Clone_Class;
         bool OpenVisible = true;
         public void SetLinks(List<TreeListNode> AllComponents)
         {
             //_IApplication.Visible = false;
-            SetLinkVariableCompeteFile_Lise = new List<string>();
+            SetLinkVariableCompeteFile_List = new List<string>();
+            SetSourseCompeteFile_List = new List<string>();
             List<string> CopyFileList = new List<string>();
             waitMng = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).splashScreenManager2;
             waitMng.ShowWaitForm();
@@ -1559,10 +1561,10 @@ namespace SaveDXF
             {
                 string Name = attachedDocument.Name;
                 string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
-                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
-
-                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
                 attachedDocument.Delete();
+                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
+                iKompasDocument.RebuildDocument();
+                
             }
 
             iKompasDocument.RebuildDocument();
@@ -1581,6 +1583,11 @@ namespace SaveDXF
             try
             {
                 IPart7 part7 = iKompasDocument.TopPart;
+                IUserDataStorage userDataStorage = iKompasDocument as IUserDataStorage;
+                if (userDataStorage == null) return;
+                {
+
+                }
                 IProductDataManager productDataMenager = iKompasDocument as IProductDataManager;
                 if (productDataMenager == null) return;
 
@@ -1591,10 +1598,7 @@ namespace SaveDXF
                 if (arrAttachDoc != null)
                     foreach (var tDoc in arrAttachDoc)
                     {
-                        //if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
-                        //{
-                            drwS.Add(tDoc.ToString());
-                        //}
+                        drwS.Add(tDoc.ToString());
                     }
                 foreach(string fn in drwS)
                 {
@@ -1700,6 +1704,7 @@ namespace SaveDXF
         }
         public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
         {
+            if (IsSourseCompeteFile(ExportFileName)) return;
             bool OpenDoc = false;
             IKompasDocument3D document3D;
             document3D = (IKompasDocument3D)_IApplication.Documents[DonorFileName];
@@ -1738,6 +1743,8 @@ namespace SaveDXF
                         {
                             IFeature7 feature7 = (IFeature7)part; 
                             string Name = part.FileName;
+
+                            waitMng.SetWaitFormDescription($"{Path.GetFileName(Name)}");
                             string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
                             if (string.IsNullOrEmpty(New_FileName)) 
                                 New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
@@ -1775,10 +1782,18 @@ namespace SaveDXF
         }
         private bool IsLinkVariableCompeteFile(string PartFileName)
         {
-            if (SetLinkVariableCompeteFile_Lise.Contains(PartFileName))
+            if (SetLinkVariableCompeteFile_List.Contains(PartFileName))
                 return true;
             else
-                SetLinkVariableCompeteFile_Lise.Add(PartFileName);
+                SetLinkVariableCompeteFile_List.Add(PartFileName);
+            return false;
+        }
+        private bool IsSourseCompeteFile(string PartFileName)
+        {
+            if (SetSourseCompeteFile_List.Contains(PartFileName))
+                return true;
+            else
+                SetSourseCompeteFile_List.Add(PartFileName);
             return false;
         }
         public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents)
@@ -1793,48 +1808,53 @@ namespace SaveDXF
             string ParamName = null;
             try
             {
-                IPart7 part7 = document3D.TopPart;
-                string ffn = part7.FileName;
-                IFeature7 feature7 = (IFeature7)part7;
-                var VariableCollection = feature7.Variables[false, true];
-                if (VariableCollection != null)
+                int currentEmbody = 0;
+                IEmbodimentsManager _IEmbodimentsManager = (IEmbodimentsManager)document3D.TopPart;
+                int EmbodyCount = _IEmbodimentsManager.EmbodimentCount;
+                for (int ii = 0; ii < EmbodyCount; ii++)
                 {
-                    foreach (Variable7 variable7 in VariableCollection)
+                    Embodiment tmp_Embodiment;
+                    tmp_Embodiment = _IEmbodimentsManager.Embodiment[ii];
+                    if (tmp_Embodiment.IsCurrent == true) { currentEmbody = ii; break; }
+                }
+
+                for (int j = 0; j < EmbodyCount; j++)
+                {
+                    Embodiment tmp_Embodiment;
+                    tmp_Embodiment = _IEmbodimentsManager.Embodiment[j];
+                    //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
+                    tmp_Embodiment.IsCurrent = true;
+                    if (tmp_Embodiment.Part == null) { IPart7NothingMsg(PartFileName); return; }
+                    IPart7 part7 = tmp_Embodiment.Part;
+                    string ffn = part7.FileName;
+                    IFeature7 feature7 = (IFeature7)part7;
+                    var VariableCollection = feature7.Variables[false, true];
+                    if (VariableCollection != null)
                     {
-                        ParamName = variable7.Name;
-                        if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                        foreach (Variable7 variable7 in VariableCollection)
                         {
-                            string link_FileName = variable7.LinkDocumentName;
-                            string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
-                            if (!string.IsNullOrEmpty(New_link_FileName) && !IsExportFileName(link_FileName, AllComponents))
+                            ParamName = variable7.Name;
+                            if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
                             {
-                                if (!File.Exists(New_link_FileName))
+                                string link_FileName = variable7.LinkDocumentName;
+                                string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
+                                if (!string.IsNullOrEmpty(New_link_FileName))
                                 {
-                                    foreach(TreeListNode node in AllComponents)
-                                    {
-                                        bool findVar = false;
-                                        if (node.GetValue("Имя файла").ToString() == Path.GetFileNameWithoutExtension(PartFileName))
-                                        {
-                                            ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                                            foreach(ComponentInfo.Variable_Class Link_Variable in componentInfo.Referense_Variable_List)
-                                            {
-                                                if(Link_Variable.Name == ParamName)
-                                                {
-                                                    New_link_FileName = Link_Variable.SourceFileName;
-                                                    findVar = true;
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (findVar) break;
-                                    }
+                                    if (!IsExportFileName(link_FileName, AllComponents))
+                                        if (!File.Exists(New_link_FileName))
+                                            New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
                                 }
-                                variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                                else
+                                    New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+
+                                if (File.Exists(New_link_FileName))
+                                    variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
                             }
                         }
+                        part7.RebuildModel(true);
                     }
-                    part7.RebuildModel(true);
                 }
+                _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
                 document3D.Save();
             }
             catch (Exception Ex)
@@ -1842,6 +1862,25 @@ namespace SaveDXF
                 ShowMsgBox("Ошибка при изменении связанных файлов у документа" + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
             } 
             if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
+        }
+        private string getSousrFilaName(string PartFileName, List<TreeListNode> AllComponents, string ParamName)
+        {
+            foreach (TreeListNode node in AllComponents)
+            {
+                if (node.GetValue("Имя файла").ToString() == Path.GetFileNameWithoutExtension(PartFileName))
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    foreach (ComponentInfo.Variable_Class Link_Variable in componentInfo.Referense_Variable_List)
+                    {
+                        if (Link_Variable.Name == ParamName)
+                        {
+                            return Link_Variable.SourceFileName;
+                        }
+                    }
+                    return componentInfo.FFN;
+                }
+            }
+            return null;
         }
         #endregion
     }
