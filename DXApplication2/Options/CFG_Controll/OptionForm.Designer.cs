@@ -29,54 +29,54 @@ namespace VSNRM_Kompas.Options.CFG_Controll
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionForm));
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cb_Length = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.cb_Mass = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cb_Volume = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.cb_Area = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cb_Count = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_Area = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_Volume = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_Mass = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_Length = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TP_MU.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Mass.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Volume.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Area.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_Count.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Area.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Volume.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Mass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cancel_Bt
@@ -85,17 +85,17 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.Cancel_Bt.Location = new System.Drawing.Point(427, 288);
             this.Cancel_Bt.Name = "Cancel_Bt";
             this.Cancel_Bt.Size = new System.Drawing.Size(75, 23);
-            toolTipTitleItem1.Text = "Отмена";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Отменить и выйти";
-            toolTipTitleItem2.LeftIndent = 6;
-            toolTipTitleItem2.Text = "DXF-Auto. Настройки";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            superToolTip1.Items.Add(toolTipSeparatorItem1);
-            superToolTip1.Items.Add(toolTipTitleItem2);
-            this.Cancel_Bt.SuperTip = superToolTip1;
+            toolTipTitleItem9.Text = "Отмена";
+            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "Отменить и выйти";
+            toolTipTitleItem10.LeftIndent = 6;
+            toolTipTitleItem10.Text = "DXF-Auto. Настройки";
+            superToolTip5.Items.Add(toolTipTitleItem9);
+            superToolTip5.Items.Add(toolTipItem5);
+            superToolTip5.Items.Add(toolTipSeparatorItem5);
+            superToolTip5.Items.Add(toolTipTitleItem10);
+            this.Cancel_Bt.SuperTip = superToolTip5;
             this.Cancel_Bt.TabIndex = 4;
             this.Cancel_Bt.Text = "Отмена";
             this.Cancel_Bt.Click += new System.EventHandler(this.Cancel_Bt_Click);
@@ -106,19 +106,20 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.OK_Bt.Location = new System.Drawing.Point(319, 288);
             this.OK_Bt.Name = "OK_Bt";
             this.OK_Bt.Size = new System.Drawing.Size(75, 23);
-            toolTipTitleItem3.Text = "Сохранить";
-            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Сохранить текущую конфигурацию настроек";
-            toolTipTitleItem4.LeftIndent = 6;
-            toolTipTitleItem4.Text = "DXF-Auto. Настройки";
-            superToolTip2.Items.Add(toolTipTitleItem3);
-            superToolTip2.Items.Add(toolTipItem2);
-            superToolTip2.Items.Add(toolTipSeparatorItem2);
-            superToolTip2.Items.Add(toolTipTitleItem4);
-            this.OK_Bt.SuperTip = superToolTip2;
+            toolTipTitleItem11.Text = "Сохранить";
+            toolTipItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            toolTipItem6.LeftIndent = 6;
+            toolTipItem6.Text = "Сохранить текущую конфигурацию настроек";
+            toolTipTitleItem12.LeftIndent = 6;
+            toolTipTitleItem12.Text = "DXF-Auto. Настройки";
+            superToolTip6.Items.Add(toolTipTitleItem11);
+            superToolTip6.Items.Add(toolTipItem6);
+            superToolTip6.Items.Add(toolTipSeparatorItem6);
+            superToolTip6.Items.Add(toolTipTitleItem12);
+            this.OK_Bt.SuperTip = superToolTip6;
             this.OK_Bt.TabIndex = 3;
             this.OK_Bt.Text = "Сохранить";
+            this.OK_Bt.Click += new System.EventHandler(this.OK_Bt_Click);
             // 
             // TP_MU
             // 
@@ -126,83 +127,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.TP_MU.Name = "TP_MU";
             this.TP_MU.Size = new System.Drawing.Size(488, 245);
             this.TP_MU.Text = "Единицы измерения";
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(12, 12);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.TP_MU;
-            this.xtraTabControl1.Size = new System.Drawing.Size(490, 270);
-            this.xtraTabControl1.TabIndex = 0;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.TP_MU});
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(103, 48);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(32, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Длина";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(5, 26);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(130, 13);
-            toolTipTitleItem5.Text = "Включать в состав Скрытые компоненты?";
-            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
-    "компоненты";
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "DXF-Auto";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem3);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.labelControl7.SuperTip = superToolTip3;
-            this.labelControl7.TabIndex = 15;
-            this.labelControl7.Text = "Наименование единиц";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(164, 26);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(116, 13);
-            toolTipTitleItem7.Text = "Включать в состав Скрытые компоненты?";
-            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
-    "компоненты";
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "DXF-Auto";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem4);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.labelControl2.SuperTip = superToolTip4;
-            this.labelControl2.TabIndex = 16;
-            this.labelControl2.Text = "Единицы измерения";
-            // 
-            // cb_Length
-            // 
-            this.cb_Length.Location = new System.Drawing.Point(164, 45);
-            this.cb_Length.Name = "cb_Length";
-            this.cb_Length.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_Length.Properties.Items.AddRange(new object[] {
-            "Сантиметры",
-            "Миллиметры",
-            "Дециметры",
-            "Настройки документа"});
-            this.cb_Length.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cb_Length.Size = new System.Drawing.Size(116, 20);
-            this.cb_Length.TabIndex = 17;
             // 
             // groupControl1
             // 
@@ -225,9 +149,77 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.groupControl1.TabIndex = 18;
             this.groupControl1.Text = "ЕИ в МЦХ";
             // 
+            // cb_Count
+            // 
+            this.cb_Count.Location = new System.Drawing.Point(164, 149);
+            this.cb_Count.Name = "cb_Count";
+            this.cb_Count.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_Count.Properties.Items.AddRange(new object[] {
+            "Штуки"});
+            this.cb_Count.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_Count.Size = new System.Drawing.Size(116, 20);
+            this.cb_Count.TabIndex = 25;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(101, 152);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(34, 13);
+            this.labelControl6.TabIndex = 24;
+            this.labelControl6.Text = "Штуки";
+            // 
+            // cb_Area
+            // 
+            this.cb_Area.Location = new System.Drawing.Point(164, 97);
+            this.cb_Area.Name = "cb_Area";
+            this.cb_Area.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_Area.Properties.Items.AddRange(new object[] {
+            "Сантиметры кв.",
+            "Миллиметры кв.",
+            "Дециметры кв.",
+            "Метры кв.",
+            "Настройки документа"});
+            this.cb_Area.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_Area.Size = new System.Drawing.Size(116, 20);
+            this.cb_Area.TabIndex = 23;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(88, 100);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(47, 13);
+            this.labelControl5.TabIndex = 22;
+            this.labelControl5.Text = "Площадь";
+            // 
+            // cb_Volume
+            // 
+            this.cb_Volume.Location = new System.Drawing.Point(164, 123);
+            this.cb_Volume.Name = "cb_Volume";
+            this.cb_Volume.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_Volume.Properties.Items.AddRange(new object[] {
+            "Сантиметры куб.",
+            "Миллиметры куб.",
+            "Дециметры куб.",
+            "Метры куб.",
+            "Настройки документа"});
+            this.cb_Volume.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_Volume.Size = new System.Drawing.Size(116, 20);
+            this.cb_Volume.TabIndex = 21;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(102, 126);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(33, 13);
+            this.labelControl4.TabIndex = 20;
+            this.labelControl4.Text = "Объем";
+            // 
             // cb_Mass
             // 
-            this.cb_Mass.Location = new System.Drawing.Point(164, 71);
+            this.cb_Mass.Location = new System.Drawing.Point(164, 45);
             this.cb_Mass.Name = "cb_Mass";
             this.cb_Mass.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -241,75 +233,92 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(105, 74);
+            this.labelControl3.Location = new System.Drawing.Point(105, 48);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(30, 13);
             this.labelControl3.TabIndex = 18;
             this.labelControl3.Text = "Масса";
             // 
-            // cb_Volume
+            // labelControl7
             // 
-            this.cb_Volume.Location = new System.Drawing.Point(164, 97);
-            this.cb_Volume.Name = "cb_Volume";
-            this.cb_Volume.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(5, 26);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(130, 13);
+            toolTipTitleItem13.Text = "Включать в состав Скрытые компоненты?";
+            toolTipItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem7.LeftIndent = 6;
+            toolTipItem7.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
+    "компоненты";
+            toolTipTitleItem14.LeftIndent = 6;
+            toolTipTitleItem14.Text = "DXF-Auto";
+            superToolTip7.Items.Add(toolTipTitleItem13);
+            superToolTip7.Items.Add(toolTipItem7);
+            superToolTip7.Items.Add(toolTipSeparatorItem7);
+            superToolTip7.Items.Add(toolTipTitleItem14);
+            this.labelControl7.SuperTip = superToolTip7;
+            this.labelControl7.TabIndex = 15;
+            this.labelControl7.Text = "Наименование единиц";
+            // 
+            // cb_Length
+            // 
+            this.cb_Length.Location = new System.Drawing.Point(164, 71);
+            this.cb_Length.Name = "cb_Length";
+            this.cb_Length.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_Volume.Properties.Items.AddRange(new object[] {
-            "Сантиметры куб.",
-            "Миллиметры куб.",
-            "Дециметры куб.",
+            this.cb_Length.Properties.Items.AddRange(new object[] {
+            "Сантиметры",
+            "Миллиметры",
+            "Дециметры",
+            "Метры",
             "Настройки документа"});
-            this.cb_Volume.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cb_Volume.Size = new System.Drawing.Size(116, 20);
-            this.cb_Volume.TabIndex = 21;
+            this.cb_Length.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_Length.Size = new System.Drawing.Size(116, 20);
+            this.cb_Length.TabIndex = 17;
             // 
-            // labelControl4
+            // labelControl1
             // 
-            this.labelControl4.Location = new System.Drawing.Point(102, 100);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(33, 13);
-            this.labelControl4.TabIndex = 20;
-            this.labelControl4.Text = "Объем";
+            this.labelControl1.Location = new System.Drawing.Point(103, 74);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(32, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Длина";
             // 
-            // cb_Area
+            // labelControl2
             // 
-            this.cb_Area.Location = new System.Drawing.Point(164, 123);
-            this.cb_Area.Name = "cb_Area";
-            this.cb_Area.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_Area.Properties.Items.AddRange(new object[] {
-            "Сантиметры кв.",
-            "Миллиметры кв.",
-            "Дециметры кв.",
-            "Настройки документа"});
-            this.cb_Area.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cb_Area.Size = new System.Drawing.Size(116, 20);
-            this.cb_Area.TabIndex = 23;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(164, 26);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(116, 13);
+            toolTipTitleItem15.Text = "Включать в состав Скрытые компоненты?";
+            toolTipItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem8.LeftIndent = 6;
+            toolTipItem8.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
+    "компоненты";
+            toolTipTitleItem16.LeftIndent = 6;
+            toolTipTitleItem16.Text = "DXF-Auto";
+            superToolTip8.Items.Add(toolTipTitleItem15);
+            superToolTip8.Items.Add(toolTipItem8);
+            superToolTip8.Items.Add(toolTipSeparatorItem8);
+            superToolTip8.Items.Add(toolTipTitleItem16);
+            this.labelControl2.SuperTip = superToolTip8;
+            this.labelControl2.TabIndex = 16;
+            this.labelControl2.Text = "Единицы измерения";
             // 
-            // labelControl5
+            // xtraTabControl1
             // 
-            this.labelControl5.Location = new System.Drawing.Point(88, 126);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(47, 13);
-            this.labelControl5.TabIndex = 22;
-            this.labelControl5.Text = "Площадь";
-            // 
-            // cb_Count
-            // 
-            this.cb_Count.Location = new System.Drawing.Point(164, 149);
-            this.cb_Count.Name = "cb_Count";
-            this.cb_Count.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cb_Count.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cb_Count.Size = new System.Drawing.Size(116, 20);
-            this.cb_Count.TabIndex = 25;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(101, 152);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(34, 13);
-            this.labelControl6.TabIndex = 24;
-            this.labelControl6.Text = "Штуки";
+            this.xtraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.xtraTabControl1.Location = new System.Drawing.Point(12, 12);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.TP_MU;
+            this.xtraTabControl1.Size = new System.Drawing.Size(490, 270);
+            this.xtraTabControl1.TabIndex = 0;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.TP_MU});
             // 
             // OptionForm
             // 
@@ -320,20 +329,21 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.Controls.Add(this.OK_Bt);
             this.Controls.Add(this.xtraTabControl1);
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("OptionForm.IconOptions.SvgImage")));
+            this.MinimumSize = new System.Drawing.Size(516, 355);
             this.Name = "OptionForm";
             this.Text = "Конфигурации";
             this.Load += new System.EventHandler(this.OptionForm_Load);
             this.TP_MU.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Mass.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Volume.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cb_Area.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_Count.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Area.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Volume.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Mass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

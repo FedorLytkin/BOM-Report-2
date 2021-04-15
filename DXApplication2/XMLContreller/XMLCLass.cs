@@ -17,7 +17,7 @@ namespace VSNRM_Kompas.XMLContreller
         public INILists IList = new INILists();
         public SystemInformation ISystemInformation = new SystemInformation();
         public class Columns_Option
-        {
+        { 
             public void SaveColums(List<Column_Class> columns,bool askOptFileName)
             {
                 string path = null;
@@ -159,6 +159,57 @@ namespace VSNRM_Kompas.XMLContreller
                     if (variable.Name == FieldName)
                         return variable.Value.ToString();
                 return FieldValue;
+            }
+            public void SaveOptions(Option_Class IOptions, bool askOptFileName)
+            {
+                string path = null;
+                if (!askOptFileName)
+                    path = OptionPath.MUOptions_FileXML;
+                else
+                {
+                    System.Windows.Forms.SaveFileDialog saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+                    saveFileDialog.Filter = "XML files (*.XML)|*.XML";
+                    if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        path = saveFileDialog.FileName;
+                    else return;
+                }
+                XmlSerializer writer =
+                new XmlSerializer(typeof(Option_Class));
+                FileStream file = File.Create(path);
+
+                writer.Serialize(file, IOptions);
+                file.Close();
+            }
+            public Option_Class GetOptions(bool askFileName)
+            {
+                string path = null;
+                if (askFileName)
+                {
+                    System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+                    openFileDialog.Filter = "XML files (*.XML)|*.XML";
+                    if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        path = openFileDialog.FileName;
+                    else return null;
+                }
+                else
+                    path = OptionPath.MUOptions_FileXML;
+                Option_Class IOption_Class = new Option_Class();
+
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(path);
+                string xmlString = xmlDocument.OuterXml;
+                using (StringReader read = new StringReader(xmlString))
+                {
+                    Type outType = typeof(Option_Class);
+                    XmlSerializer serializer = new XmlSerializer(outType);
+                    using (XmlReader reader = new XmlTextReader(read))
+                    {
+                        IOption_Class = (Option_Class)serializer.Deserialize(reader);
+                        reader.Close();
+                    }
+                    read.Close();
+                }
+                return IOption_Class;
             }
         }
     }

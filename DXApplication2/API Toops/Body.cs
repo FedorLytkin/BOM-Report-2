@@ -45,6 +45,7 @@ namespace SaveDXF
         public bool OnlySheetMetalls = false;
         public static bool thisFirstMessage = false;
         CFG_Class optionClassInBody;
+        Option_Class IOption_Class;
         TreeList treeView;
         SplashScreenManager waitMng;
 
@@ -136,6 +137,7 @@ namespace SaveDXF
             FindParam_Model = ColumnsConf_Save_Read.FindParams();   //получаем список искомых параметров
             FindModel_List = new List<object>();                    //обнуляем список обработанных файлов
             optionClassInBody = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).Main_Options;
+            IOption_Class = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).option_Class;
             OpenDocsPERED_Start = GetInvisibleDocument();
             if (MainForm.thisDemo)
             {
@@ -960,8 +962,8 @@ namespace SaveDXF
             try
             {
                 massInertiaParam.Calculate();
-                massInertiaParam.LengthUnits = ksLengthUnitsEnum.ksLUnMM;
-                massInertiaParam.MassUnits = ksMassUnitsEnum.ksMUnKG;
+                massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value; //ksLengthUnitsEnum.ksLUnMM;
+                massInertiaParam.MassUnits = (ksMassUnitsEnum)IOption_Class.Mass_MU_Value;  //ksMassUnitsEnum.ksMUnKG; 
             }
             catch { }
 
@@ -1007,18 +1009,23 @@ namespace SaveDXF
                         //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
                         break;
                     case "Площадь":
+                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Area_MU_Value;  
                         ParamValue = Math.Round(massInertiaParam.Area, 3).ToString();
                         break;
                     case "Объем":
+                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Volume_MU_Value;  
                         ParamValue = Math.Round(massInertiaParam.Volume, 3).ToString();
                         break;
                     case "Xc":
+                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
                         ParamValue = massInertiaParam.Xc.ToString();
                         break;
                     case "Yc":
+                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
                         ParamValue = massInertiaParam.Yc.ToString();
                         break;
                     case "Zc":
+                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
                         ParamValue = massInertiaParam.Zc.ToString();
                         break;
                     case "Полное имя файла":
@@ -1035,6 +1042,7 @@ namespace SaveDXF
                         //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
                         break;
                 }
+                massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
                 ParamValueList.Add(ParamName, ParamValue);
             }
             iMSH.ParamValueList = ParamValueList;

@@ -24,6 +24,8 @@ using System.Xml.Serialization;
 using DiagramDataControllerBehavior.Data;
 using VSNRM_Kompas.Diagramm.ControlClass;
 using VSNRM_Kompas.Diagramm;
+using VSNRM_Kompas.Options.CFG_Controll;
+using VSNRM_Kompas.XMLContreller;
 
 namespace VSNRM_Kompas
 {
@@ -34,6 +36,7 @@ namespace VSNRM_Kompas
         public Body body = new Body();
         XMLContreller.XMLCLass controller;
         public CFG_Class Main_Options;
+        public Option_Class option_Class;
         RepositoryItemPictureEdit pictureEdit;
         DiagrammForm_ControllClass diagrammForm;
         AllPartReport_ControllClass allPartReport;
@@ -51,6 +54,7 @@ namespace VSNRM_Kompas
         {
             Main_Options = new CFG_Class();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name.Value);
+            option_Class = controller.IOptions.GetOptions(false);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -796,6 +800,13 @@ namespace VSNRM_Kompas
             if (!e.Node1.HasChildren && e.Node2.HasChildren)
                 e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
 
+        }
+
+        private void bt_CFG_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OptionForm optionForm = new OptionForm();
+            optionForm.IOption_Class = option_Class;
+            optionForm.ShowDialog();
         }
     }
 }

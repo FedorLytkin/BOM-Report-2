@@ -58,6 +58,7 @@ namespace VSNRM_Kompas.Options
     public class OptionPath
     {
         public static string Columns_FileXML = $@"C:\Users\Public\Documents\NSoft\{Application.ProductName}\CFG\Columns.XML";
+        public static string MUOptions_FileXML = $@"C:\Users\Public\Documents\NSoft\{Application.ProductName}\CFG\MUOptions.XML";
         public static string Options_FileXML = $@"C:\Users\Public\Documents\NSoft\{Application.ProductName}\CFG\Options.XML";
         public static string SystemInformation_ForUser_FileXML = $@"C:\Users\Public\Documents\NSoft\{Application.ProductName}\CFG\SystemInformation.XML";
         public static string SystemInformation_FileXML = $@"{Application.StartupPath}\CFG\SystemInformation.XML";
