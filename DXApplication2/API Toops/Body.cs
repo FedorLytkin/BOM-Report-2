@@ -218,8 +218,13 @@ namespace SaveDXF
                             {
                                 ComponentInfo componentInfo = GetParam(item);
                                 AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
+                                string itemKey = null;
+                                if (string.IsNullOrEmpty(item.Marking))
+                                    itemKey = item.FileName + "|" + item.Name;
+                                else
+                                    itemKey = item.FileName + "|" + item.Marking;
                                 if (!componentInfo.QNT_False)
-                                    componentInfo.QNT = GetQNTIn_PartsList(item.FileName + "|" + item.Marking, GetPartList(TopPart));
+                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, GetPartList(TopPart));
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
                                 
                                 TreeListNode TempNode;
@@ -260,7 +265,10 @@ namespace SaveDXF
                 componentInfo_Copy.Body.QNT_False = false;
             }
             componentInfo_Copy.isBody = true;
-            componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
+            if(string.IsNullOrEmpty(Part.Marking))
+                componentInfo_Copy.Key = Part.FileName + "|" + Part.Name + "|" + _body.Marking;
+            else
+                componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             foreach (string ParamName in FindParam_Model)
             {
@@ -325,8 +333,16 @@ namespace SaveDXF
                     if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
                     if (ItemHidden != true)
                     {
-                        if (Find_Item.FileName + "|" + Find_Item.Marking == item.FileName + "|" + item.Marking) 
-                            QNT += 1;
+                        if (string.IsNullOrEmpty(Find_Item.Marking))
+                        {
+                            if (Find_Item.FileName + "|" + Find_Item.Name == item.FileName + "|" + item.Name)
+                                QNT += 1;
+                        }
+                        else
+                        {
+                            if (Find_Item.FileName + "|" + Find_Item.Marking == item.FileName + "|" + item.Marking)
+                                QNT += 1;
+                        }
                     }
                 }
                 catch{}
@@ -353,7 +369,13 @@ namespace SaveDXF
                     bool ItemHidden = item.Hidden;
                     if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
                     if (ItemHidden != true)
-                        PartList.Add(item.FileName + "|" + item.Marking);
+                    {
+                        if(string.IsNullOrEmpty(item.Marking))
+                            PartList.Add(item.FileName + "|" + item.Name);
+                        else
+                            PartList.Add(item.FileName + "|" + item.Marking);
+                    }
+                        
                 }
                 catch { }
             }
@@ -924,7 +946,11 @@ namespace SaveDXF
         }
         private ComponentInfo GetParam(IPart7 part)
         {
-            string ComponentKey = part.FileName + "|" + part.Marking;
+            string ComponentKey = null;
+            if(string.IsNullOrEmpty(part.Marking))
+                ComponentKey = part.FileName + "|" + part.Name;
+            else
+                ComponentKey = part.FileName + "|" + part.Marking;
 
             //FindModel_List
             ComponentInfo iMSH = GetExistNode_By_ComponentKey(ComponentKey);
@@ -1523,6 +1549,21 @@ namespace SaveDXF
             if (iKompasDocument == null) return;
             SpecificationDescriptions iSpecificationDescriptions = iKompasDocument.SpecificationDescriptions;
             SpecificationDescription iSpecificationDescription = iSpecificationDescriptions.Active;
+
+
+            AttachedDocuments ModelattachedDocuments = iKompasDocument.AttachedDocuments;
+            foreach (AttachedDocument attachedDocument in ModelattachedDocuments)
+            {
+                string Name = attachedDocument.Name;
+                string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
+                attachedDocument.Delete();
+                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
+                iKompasDocument.RebuildDocument();
+            }
+
+            //iKompasDocument.Save();
+            iKompasDocument.RebuildDocument();
+
             dynamic Objects = iSpecificationDescription.Objects;
             if (Objects != null)
             {
@@ -1556,18 +1597,6 @@ namespace SaveDXF
                     }
                 }
             }
-            AttachedDocuments ModelattachedDocuments = iKompasDocument.AttachedDocuments;
-            foreach (AttachedDocument attachedDocument in ModelattachedDocuments)
-            {
-                string Name = attachedDocument.Name;
-                string NewFileName = GetFileNameByAllComponents(Name, AllComponents);
-                attachedDocument.Delete();
-                if (!string.IsNullOrEmpty(NewFileName)) ModelattachedDocuments.Add(NewFileName, true);
-                iKompasDocument.RebuildDocument();
-                
-            }
-
-            iKompasDocument.RebuildDocument();
             iKompasDocument.Save();
             if(!OpenDoc) iKompasDocument.Close(DocumentCloseOptions.kdSaveChanges);
         }
@@ -1583,17 +1612,10 @@ namespace SaveDXF
             try
             {
                 IPart7 part7 = iKompasDocument.TopPart;
-                IUserDataStorage userDataStorage = iKompasDocument as IUserDataStorage;
-                if (userDataStorage == null) return;
-                {
-
-                }
                 IProductDataManager productDataMenager = iKompasDocument as IProductDataManager;
                 if (productDataMenager == null) return;
 
                 dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
-
-                arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
                 List<string> drwS = new List<string>();
                 if (arrAttachDoc != null)
                     foreach (var tDoc in arrAttachDoc)
@@ -1605,20 +1627,23 @@ namespace SaveDXF
                     productDataMenager.DeleteProductObject(fn);
                     iKompasDocument.RebuildDocument();
                 }
-                string ffn = @"C: \Users\admin_veza\Desktop\Новая папка(3)\01 - ЕЛГ 02.01.10.000 СБ Стойка нижняя.cdw";
-                productDataMenager.AddProductObject((IPropertyKeeper)part7, ffn, ksProductObjectTypeEnum.ksPOTAllObjects);
+                //ICustom
+                iKompasDocument.Save();
+                //productDataMenager.DeleteReferenceData
+                //string ffn = @"C: \Users\admin_veza\Desktop\Новая папка(3)\01 - ЕЛГ 02.01.10.000 СБ Стойка нижняя.cdw";
+                //productDataMenager.AddProductObject((IPropertyKeeper)part7, ffn, ksProductObjectTypeEnum.ksPOTAllObjects);
                 
 
-                arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
-                drwS = new List<string>();
-                if (arrAttachDoc != null)
-                    foreach (var tDoc in arrAttachDoc)
-                    {
-                        if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
-                        {
-                            drwS.Add(tDoc.ToString());
-                        }
-                    }
+                //arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
+                //drwS = new List<string>();
+                //if (arrAttachDoc != null)
+                //    foreach (var tDoc in arrAttachDoc)
+                //    {
+                //        if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
+                //        {
+                //            drwS.Add(tDoc.ToString());
+                //        }
+                //    }
             }
             catch(Exception Ex)
             {

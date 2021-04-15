@@ -87,6 +87,8 @@ namespace VSNRM_Kompas
                 if (!column.System)
                     (Col_List_CB.Edit as RepositoryItemComboBox).Items.Add(column.Name);
             }
+            if (treeList1.Columns["Раздел спецификации"] != null) 
+                treeList1.Columns["Раздел спецификации"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;  
         }
         public void AddItem_In_Combobox()
         {
@@ -785,6 +787,15 @@ namespace VSNRM_Kompas
         private void Bt_ImportColOpt_ItemClick(object sender, ItemClickEventArgs e)
         {
             AddColumns(true);
+        }
+
+        private void treeList1_CustomColumnSort(object sender, CustomColumnSortEventArgs e)
+        {
+            if (e.Node1.HasChildren && !e.Node2.HasChildren)
+                e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+            if (!e.Node1.HasChildren && e.Node2.HasChildren)
+                e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+
         }
     }
 }

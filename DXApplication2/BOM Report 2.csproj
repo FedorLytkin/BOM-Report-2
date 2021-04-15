@@ -134,6 +134,13 @@
     <Compile Include="Diagramm\Project_Clone.Designer.cs">
       <DependentUpon>Project_Clone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\CFG_Controll\OptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\CFG_Controll\OptionForm.Designer.cs">
+      <DependentUpon>OptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\CFG_Controll\Option_Class.cs" />
     <Compile Include="ProjectClone\FindAndRepace_Class.cs" />
     <Compile Include="ProjectClone\FindAndRepace_Form.cs">
       <SubType>Form</SubType>
@@ -200,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Diagramm\Project_Clone.resx">
       <DependentUpon>Project_Clone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CFG_Controll\OptionForm.resx">
+      <DependentUpon>OptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectClone\FindAndRepace_Form.resx">
       <DependentUpon>FindAndRepace_Form.cs</DependentUpon>
