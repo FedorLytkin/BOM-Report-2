@@ -42,7 +42,7 @@ namespace VSNRM_Kompas.Options.Column_options
             NewSystemColumnsList = new List<Column_Class>();
             NewCustomColumnsList = new List<Column_Class>();
             string[] sys_colNames = new string[] {"Путь файла", "Расположение файла"};
-            string[] custom_colNames = new string[] {"Тест"};
+            string[] custom_colNames = new string[] {"Раздел спецификации"};
 
 
             foreach (string ColName in sys_colNames)

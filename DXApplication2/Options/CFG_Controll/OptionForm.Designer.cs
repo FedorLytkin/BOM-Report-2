@@ -29,27 +29,17 @@ namespace VSNRM_Kompas.Options.CFG_Controll
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionForm));
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
@@ -82,20 +72,21 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             // Cancel_Bt
             // 
             this.Cancel_Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancel_Bt.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel_Bt.Location = new System.Drawing.Point(427, 288);
             this.Cancel_Bt.Name = "Cancel_Bt";
             this.Cancel_Bt.Size = new System.Drawing.Size(75, 23);
-            toolTipTitleItem9.Text = "Отмена";
-            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "Отменить и выйти";
-            toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "DXF-Auto. Настройки";
-            superToolTip5.Items.Add(toolTipTitleItem9);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem5);
-            superToolTip5.Items.Add(toolTipTitleItem10);
-            this.Cancel_Bt.SuperTip = superToolTip5;
+            toolTipTitleItem1.Text = "Отмена";
+            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Отменить и выйти";
+            toolTipTitleItem2.LeftIndent = 6;
+            toolTipTitleItem2.Text = "DXF-Auto. Настройки";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            superToolTip1.Items.Add(toolTipSeparatorItem1);
+            superToolTip1.Items.Add(toolTipTitleItem2);
+            this.Cancel_Bt.SuperTip = superToolTip1;
             this.Cancel_Bt.TabIndex = 4;
             this.Cancel_Bt.Text = "Отмена";
             this.Cancel_Bt.Click += new System.EventHandler(this.Cancel_Bt_Click);
@@ -106,17 +97,17 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.OK_Bt.Location = new System.Drawing.Point(319, 288);
             this.OK_Bt.Name = "OK_Bt";
             this.OK_Bt.Size = new System.Drawing.Size(75, 23);
-            toolTipTitleItem11.Text = "Сохранить";
-            toolTipItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "Сохранить текущую конфигурацию настроек";
-            toolTipTitleItem12.LeftIndent = 6;
-            toolTipTitleItem12.Text = "DXF-Auto. Настройки";
-            superToolTip6.Items.Add(toolTipTitleItem11);
-            superToolTip6.Items.Add(toolTipItem6);
-            superToolTip6.Items.Add(toolTipSeparatorItem6);
-            superToolTip6.Items.Add(toolTipTitleItem12);
-            this.OK_Bt.SuperTip = superToolTip6;
+            toolTipTitleItem3.Text = "Сохранить";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Сохранить текущую конфигурацию настроек";
+            toolTipTitleItem4.LeftIndent = 6;
+            toolTipTitleItem4.Text = "DXF-Auto. Настройки";
+            superToolTip2.Items.Add(toolTipTitleItem3);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem2);
+            superToolTip2.Items.Add(toolTipTitleItem4);
+            this.OK_Bt.SuperTip = superToolTip2;
             this.OK_Bt.TabIndex = 3;
             this.OK_Bt.Text = "Сохранить";
             this.OK_Bt.Click += new System.EventHandler(this.OK_Bt_Click);
@@ -246,18 +237,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl7.Location = new System.Drawing.Point(5, 26);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(130, 13);
-            toolTipTitleItem13.Text = "Включать в состав Скрытые компоненты?";
-            toolTipItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
-    "компоненты";
-            toolTipTitleItem14.LeftIndent = 6;
-            toolTipTitleItem14.Text = "DXF-Auto";
-            superToolTip7.Items.Add(toolTipTitleItem13);
-            superToolTip7.Items.Add(toolTipItem7);
-            superToolTip7.Items.Add(toolTipSeparatorItem7);
-            superToolTip7.Items.Add(toolTipTitleItem14);
-            this.labelControl7.SuperTip = superToolTip7;
             this.labelControl7.TabIndex = 15;
             this.labelControl7.Text = "Наименование единиц";
             // 
@@ -292,18 +271,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl2.Location = new System.Drawing.Point(164, 26);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(116, 13);
-            toolTipTitleItem15.Text = "Включать в состав Скрытые компоненты?";
-            toolTipItem8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            toolTipItem8.LeftIndent = 6;
-            toolTipItem8.Text = "При Вкл данной опции, DXF-Auto при сканировании состава, будет учитывать скрытые " +
-    "компоненты";
-            toolTipTitleItem16.LeftIndent = 6;
-            toolTipTitleItem16.Text = "DXF-Auto";
-            superToolTip8.Items.Add(toolTipTitleItem15);
-            superToolTip8.Items.Add(toolTipItem8);
-            superToolTip8.Items.Add(toolTipSeparatorItem8);
-            superToolTip8.Items.Add(toolTipTitleItem16);
-            this.labelControl2.SuperTip = superToolTip8;
             this.labelControl2.TabIndex = 16;
             this.labelControl2.Text = "Единицы измерения";
             // 
@@ -324,6 +291,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Cancel_Bt;
             this.ClientSize = new System.Drawing.Size(514, 323);
             this.Controls.Add(this.Cancel_Bt);
             this.Controls.Add(this.OK_Bt);

@@ -194,6 +194,7 @@ namespace VSNRM_Kompas.XMLContreller
                 else
                     path = OptionPath.MUOptions_FileXML;
                 Option_Class IOption_Class = new Option_Class();
+                if (!File.Exists(path)) return IOption_Class;
 
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(path);

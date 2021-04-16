@@ -16,6 +16,20 @@ public class Option_Class
     public int Area_MU_Value { get; set; }
     public int Volume_MU_Value { get; set; }
     public int Count_MU_Value { get; set; }
+    public Option_Class()
+    {
+        Mass_MU_Value = 1;
+        Length_MU_Value = 1;
+        Area_MU_Value = 1;
+        Volume_MU_Value = 1;
+        Count_MU_Value = 0;
+
+        Mass_MU_Name = "Килограммы";
+        Length_MU_Name = "Миллиметры";
+        Area_MU_Name = "Миллиметры кв.";
+        Volume_MU_Name = "Миллиметры куб.";
+        Count_MU_Name = "Штуки";
+    }
     public enum MU_Length
     {
         ksLUnSM = 0,

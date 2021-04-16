@@ -76,6 +76,7 @@ namespace VSNRM_Kompas
         private void AddColumns(bool askCFGFileName)
         {
             List<Column_Class> column_List = controller.IColumns.GetColumns(askCFGFileName);
+            if (column_List == null) return;
             Options.Column_options.AddNewColumns_Class ColumnsUpdate = new Options.Column_options.AddNewColumns_Class();
             ColumnsUpdate.GetUpdateColumnList(column_List);
 

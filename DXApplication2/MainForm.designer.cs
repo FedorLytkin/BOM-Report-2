@@ -612,10 +612,10 @@
             this.ribbonPageGroup_Columns_Property = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -3427,6 +3427,7 @@
             superToolTip73.Items.Add(toolTipSeparatorItem39);
             superToolTip73.Items.Add(toolTipTitleItem112);
             this.Bt_Copy.SuperTip = superToolTip73;
+            this.Bt_Copy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.Bt_Copy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Copy_ItemClick);
             // 
             // Add_Drw_In_Tree_CH_B
@@ -3873,6 +3874,7 @@
             this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Visible = false;
             // 
             // ribbonPage2
             // 
@@ -3883,6 +3885,19 @@
             this.ribbonPageGroup1});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Перед началом";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.bt_CFG);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Сервис";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.skinDropDownButtonItem1);
+            this.ribbonPageGroup7.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem1);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "Внешний вид";
             // 
             // ribbonPageGroup4
             // 
@@ -3896,19 +3911,6 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bt_ServiseDXFAuto_View);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Другие программы";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.skinDropDownButtonItem1);
-            this.ribbonPageGroup7.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem1);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Внешний вид";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.bt_CFG);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "Сервис";
             // 
             // ribbonPage1
             // 
