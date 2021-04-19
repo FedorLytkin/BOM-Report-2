@@ -68,7 +68,9 @@ namespace VSNRM_Kompas.ProjectClone
                 Par_column.FieldName = colName;
                 Par_column.Name = colName;
                 Par_column.VisibleIndex = i;
-                Par_column.Visible = true; 
+                Par_column.Visible = true;
+                Par_column.OptionsColumn.ReadOnly = true;
+                Par_column.OptionsColumn.AllowEdit = false;
             }
             This_treeList.StateImageList = Donor_treeList.StateImageList;
             if (treeViewEnum == TreeViewEnum.TreeView)
@@ -96,6 +98,8 @@ namespace VSNRM_Kompas.ProjectClone
             This_treeList.ExpandAll();
             This_treeList.CheckAll();
             CalcComponentCout(This_treeList);
+            This_treeList.Columns["Сохранить в имени"].OptionsColumn.ReadOnly = false;
+            This_treeList.Columns["Сохранить в имени"].OptionsColumn.AllowEdit = true;
         }
         public void SetOutFolderPathInComponents()
         {

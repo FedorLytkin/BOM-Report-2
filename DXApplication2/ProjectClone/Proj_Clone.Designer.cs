@@ -100,8 +100,6 @@ namespace VSNRM_Kompas.ProjectClone
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeList1.Location = new System.Drawing.Point(5, 78);
             this.treeList1.Name = "treeList1";
-            this.treeList1.OptionsBehavior.Editable = false;
-            this.treeList1.OptionsBehavior.ReadOnly = true;
             this.treeList1.OptionsCustomization.AllowBandMoving = false;
             this.treeList1.OptionsCustomization.AllowBandResizing = false;
             this.treeList1.OptionsCustomization.AllowColumnMoving = false;
@@ -109,6 +107,7 @@ namespace VSNRM_Kompas.ProjectClone
             this.treeList1.Size = new System.Drawing.Size(643, 222);
             this.treeList1.TabIndex = 4;
             this.treeList1.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeList1_NodeCellStyle);
+            this.treeList1.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterCheckNode);
             this.treeList1.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.treeList1_CustomDrawColumnHeader);
             this.treeList1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseUp);
             // 

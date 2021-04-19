@@ -17,6 +17,7 @@ using System.IO;
 using SaveDXF;
 using System.IO.Compression;
 using System.Diagnostics;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -376,6 +377,8 @@ namespace VSNRM_Kompas.ProjectClone
                     e.Appearance.ForeColor = Color.Green;
                     e.Appearance.Options.UseBackColor = true;
                 }
+                if (string.IsNullOrWhiteSpace(e.Node.GetValue("Сохранить в имени").ToString()))
+                    e.Node.SetValue("Сохранить в имени", e.Node.GetValue("Имя файла"));
             }
         }
         
@@ -398,6 +401,16 @@ namespace VSNRM_Kompas.ProjectClone
         private void bt_Help_Click(object sender, EventArgs e)
         {
             Process.Start("https://youtu.be/Hkf844D2z64");
+        }
+
+        private void treeList1_AfterCheckNode(object sender, NodeEventArgs e)
+        {
+            TreeListNode TLN = e.Node;
+            foreach(TreeListNode node in TLN.Nodes)
+            {
+                if (node.GetValue("Тип").ToString().ToUpper() == ".CDW" || node.GetValue("Тип").ToString().ToUpper() == ".SPW")
+                    node.Checked = TLN.Checked;
+            }
         }
     }
 }
