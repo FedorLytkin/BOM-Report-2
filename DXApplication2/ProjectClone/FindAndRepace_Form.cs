@@ -28,6 +28,7 @@ namespace VSNRM_Kompas.ProjectClone
         private void AddControls()
         {
             FindAndRepace.treeList = treeList;
+            cb_FindParams.Properties.Items.Clear();
             foreach (string ColName in FindAndRepace.GetTreeListColumnsName())
                 cb_FindParams.Properties.Items.Add(ColName);
             if (cb_FindParams.Properties.Items.Count > 0) cb_FindParams.SelectedIndex = 0;

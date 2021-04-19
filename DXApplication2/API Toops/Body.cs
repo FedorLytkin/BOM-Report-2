@@ -32,7 +32,7 @@ namespace SaveDXF
     {
         public static string KompasVersion;
         public static string KompasVersionFlag= "КОМПАС-3D v18";
-        public static bool AppVersNOTValid; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/
+        //public static bool AppVersNOTValid; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/
         public static bool AppVersNOTValidStrong; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/ 
         public static KompasObject _kompasObject;
         public static IApplication _IApplication;
@@ -75,7 +75,7 @@ namespace SaveDXF
                 _IApplication = _kompasObject.ksGetApplication7();
             }
             KompasVersion = _IApplication.ApplicationName[true];
-            AppVersNOTValid = Convert.ToBoolean(string.Compare(KompasVersion, KompasVersionFlag));
+            AppVersNOTValidStrong = Convert.ToBoolean(string.Compare(KompasVersion, KompasVersionFlag));
             AppVersNOTValidStrong = System.Text.RegularExpressions.Regex.IsMatch(KompasVersion, KompasVersionFlag);
         }
         public static bool AppVersNOTValidStrongMessage()
@@ -1199,7 +1199,7 @@ namespace SaveDXF
                 }
                 else
                 {
-                    if (AppVersNOTValid) return GetThickBeVarible(Part_, true);/*если версия компаса не валидна*/
+                    if (AppVersNOTValidStrong) return GetThickBeVarible(Part_, true);/*если версия компаса не валидна*/
                     if (pSheetMetalContainer.SheetMetalRuledShells.Count != 0)
                     {
                         ISheetMetalBody obech = pSheetMetalContainer.SheetMetalRuledShells.SheetMetalBody[0];
@@ -1278,7 +1278,7 @@ namespace SaveDXF
             //проверка на существование развертки в детали
             //если есть развертка - возвращает 1, если нет - -
             //для версии компас ниже 18, выдается ошибка и возвращается 1
-            if (!AppVersNOTValid) return true;
+            if (!AppVersNOTValidStrong) return true;
             try
             {
                 ISheetMetalContainer _ISheetMetalContainer = (ISheetMetalContainer)part;
