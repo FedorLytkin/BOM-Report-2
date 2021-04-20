@@ -366,21 +366,6 @@ namespace VSNRM_Kompas.ProjectClone
             Pr_Clone.SetPrefixAndSufix();
         }
 
-        private void treeList1_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
-        {
-            if(e.Column.FieldName == "Сохранить в имени")
-            {
-                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
-                if (componentInfo == null) return;
-                if (e.Node.GetValue("Сохранить в имени").ToString() != Path.GetFileNameWithoutExtension(componentInfo.FFN))
-                {
-                    e.Appearance.ForeColor = Color.Green;
-                    e.Appearance.Options.UseBackColor = true;
-                }
-                if (string.IsNullOrWhiteSpace(e.Node.GetValue("Сохранить в имени").ToString()))
-                    e.Node.SetValue("Сохранить в имени", e.Node.GetValue("Имя файла"));
-            }
-        }
         
         private void bt_Save_Click(object sender, EventArgs e)
         {
@@ -406,10 +391,50 @@ namespace VSNRM_Kompas.ProjectClone
         private void treeList1_AfterCheckNode(object sender, NodeEventArgs e)
         {
             TreeListNode TLN = e.Node;
-            foreach(TreeListNode node in TLN.Nodes)
+            ComponentInfo componentInfo = (ComponentInfo)TLN.Tag;
+            foreach (TreeListNode node in TLN.Nodes)
             {
                 if (node.GetValue("Тип").ToString().ToUpper() == ".CDW" || node.GetValue("Тип").ToString().ToUpper() == ".SPW")
                     node.Checked = TLN.Checked;
+            }
+            foreach (TreeListNode node in treeList1.GetNodeList())
+            {
+                ComponentInfo tmp_componentInfo = (ComponentInfo)node.Tag;
+                if (tmp_componentInfo.FFN == componentInfo.FFN)
+                    node.Checked = TLN.Checked;
+            }
+        }
+
+        private void treeList1_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
+        {
+            if (e.Column.FieldName == "Сохранить в имени")
+            {
+                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+                if (componentInfo == null) return;
+                string EditText = e.Node.GetValue("Сохранить в имени").ToString();
+                if (EditText != Path.GetFileNameWithoutExtension(componentInfo.FFN))
+                {
+                    e.Appearance.ForeColor = Color.Green;
+                    e.Appearance.Options.UseBackColor = true;
+                }
+            }
+        }
+        private void treeList1_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "Сохранить в имени")
+            {
+                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+                if (componentInfo == null) return;
+                string EditText = e.Node.GetValue("Сохранить в имени").ToString();
+
+                if (string.IsNullOrWhiteSpace(EditText))
+                    e.Node.SetValue("Сохранить в имени", e.Node.GetValue("Имя файла"));
+                foreach (TreeListNode node in treeList1.GetNodeList())
+                {
+                    ComponentInfo tmp_componentInfo = (ComponentInfo)node.Tag;
+                    if (tmp_componentInfo.FFN == componentInfo.FFN)
+                        node.SetValue("Сохранить в имени", EditText);
+                }
             }
         }
     }

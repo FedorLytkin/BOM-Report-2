@@ -340,9 +340,6 @@ namespace VSNRM_Kompas.ProjectClone
         }
         public string getFileNameWithFindOptions(string FullFileName)
         {
-            //if (FindAndRepace.To4noe)
-            //    if(FullFileName == FindAndRepace.fin)
-
             if (SaveInOneFolder)
                 return FolderPath + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
             else

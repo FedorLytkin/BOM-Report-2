@@ -1515,15 +1515,13 @@ namespace SaveDXF
                     CopyFileList.Add(CopyFileName);
                 }
             }
+            CopyFileList = CopyFileList.Distinct().ToList();  //удаляю дубликаты
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
             foreach (string FileName in CopyFileList)
             {
                 waitMng.SetWaitFormDescription($"{Path.GetFileName(FileName)}");
                 switch (Path.GetExtension(FileName).ToUpper())
                 {
-                    //case ".SPW":
-                    //    SetLinkInSPDoc(FileName, AllComponents);
-                    //    break;
                     case ".CDW":
                         SetLinkInDRW(FileName, AllComponents);
                         break;
@@ -1584,7 +1582,6 @@ namespace SaveDXF
                         List<string> ReplaceFileList = new List<string>();
                         foreach (AttachedDocument attachedDocument in attachedDocuments)
                             ReplaceFileList.Add(attachedDocument.Name);
-
 
                         int jj = attachedDocuments.Count - 1;
                         while (attachedDocuments.Count > 0)
@@ -1730,10 +1727,35 @@ namespace SaveDXF
             foreach (TreeListNode node in AllComponents)
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName))
+                if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
                     return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
             }
-            return null;
+            return DonorFileName;
+        }
+        string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents, string ParentFileNamee)
+        {
+            if (string.IsNullOrEmpty(DonorFileName)) return null;
+
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (componentInfo.FFN == ParentFileNamee && !node.Checked)
+                    return DonorFileName;
+            }
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (componentInfo.FFN == DonorFileName && node.Checked)
+                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+            }
+
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
+                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+            }
+            return DonorFileName;
         }
         public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
         {
@@ -1783,12 +1805,12 @@ namespace SaveDXF
                                 New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
 
                             if (!string.IsNullOrEmpty(New_FileName))
-                            {
+                            { 
                                 if (!File.Exists(New_FileName))
                                     File.Copy(Name, New_FileName, true);
                                 part.FileName = New_FileName;
                                 SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
-                                part.Update();
+                                part.Update(); 
                             }
                             if (!part.Detail)
                             {
@@ -1870,7 +1892,7 @@ namespace SaveDXF
                             if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
                             {
                                 string link_FileName = variable7.LinkDocumentName;
-                                string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents);
+                                string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
                                 if (!string.IsNullOrEmpty(New_link_FileName))
                                 {
                                     if (!IsExportFileName(link_FileName, AllComponents))
