@@ -401,7 +401,14 @@ namespace VSNRM_Kompas.ProjectClone
             {
                 ComponentInfo tmp_componentInfo = (ComponentInfo)node.Tag;
                 if (tmp_componentInfo.FFN == componentInfo.FFN)
+                {
                     node.Checked = TLN.Checked;
+                    foreach (TreeListNode subnode in node.Nodes)
+                    {
+                        if (subnode.GetValue("Тип").ToString().ToUpper() == ".CDW" || subnode.GetValue("Тип").ToString().ToUpper() == ".SPW")
+                            subnode.Checked = TLN.Checked;
+                    }
+                }
             }
         }
 
