@@ -1516,6 +1516,7 @@ namespace SaveDXF
                 }
             }
             CopyFileList = CopyFileList.Distinct().ToList();  //удаляю дубликаты
+            CopyFileList.Reverse(); //массив в обратном порядке, начинаю с самых маленьких компонентов
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
             foreach (string FileName in CopyFileList)
             {

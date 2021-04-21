@@ -454,9 +454,10 @@ namespace VSNRM_Kompas.ProjectClone
             TreeList tL = sender as TreeList;
             if (tL.Nodes.Count == 0) return;
             TreeListNode SelNode = tL.FocusedNode;
+            if (!SelNode.HasChildren) return;
             TreeListHitInfo hitInfo = tL.CalcHitInfo(e.Point);
             
-            DXMenuItem menuItem = new DXMenuItem(SelNode.Checked ?  "Вкл подузлы" : "Выкл подузлы", this.SetCheckedSubNodes);
+            DXMenuItem menuItem = new DXMenuItem(SelNode.Checked ?  "ВКЛ подузлы" : "ВЫКЛ подузлы", this.SetCheckedSubNodes);
             menuItem.Tag = hitInfo.Column;
             e.Menu.Items.Add(menuItem);
         }
