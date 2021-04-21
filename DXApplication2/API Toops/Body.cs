@@ -128,7 +128,7 @@ namespace SaveDXF
             }
             Recource(TopPart, node);
             node.ExpandAll();
-            CloseDocs();
+            CloseDocs(DocumentCloseOptions.kdDoNotSaveChanges);
         }
         private void CheckMainControl()
         {
@@ -181,7 +181,7 @@ namespace SaveDXF
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
 
                 //_IKompasDocument.Close(DocumentCloseOptions.kdDoNotSaveChanges);
-                CloseDocs();
+                CloseDocs(DocumentCloseOptions.kdDoNotSaveChanges);
             }
             catch { }
         }
@@ -900,7 +900,7 @@ namespace SaveDXF
             IKompasDocument _IKompasDocument = (IKompasDocument)_IApplication.Documents.Open(FullFileName, Visible, ReadOnly);
             return _IKompasDocument;
         }
-        private void CloseDocs()
+        private void CloseDocs(DocumentCloseOptions closeOptions)
         {
             foreach (ComponentInfo component in FindModel_List)
             {
@@ -916,7 +916,7 @@ namespace SaveDXF
                         break;
                     }
                 if (!find)
-                    document.Close(DocumentCloseOptions.kdDoNotSaveChanges);
+                    document.Close(closeOptions); //(DocumentCloseOptions.kdDoNotSaveChanges);
             }
             
         }
@@ -1502,6 +1502,7 @@ namespace SaveDXF
             waitMng.ShowWaitForm();
             waitMng.SetWaitFormCaption("Копирование проекта");
             waitMng.SetWaitFormDescription("Копирование файлов проекта");
+            OpenDocsPERED_Start = GetInvisibleDocument();
             foreach (TreeListNode node in AllComponents)
             {
                 if (node.Checked)
@@ -1517,17 +1518,29 @@ namespace SaveDXF
             }
             CopyFileList = CopyFileList.Distinct().ToList();  //удаляю дубликаты
             CopyFileList.Reverse(); //массив в обратном порядке, начинаю с самых маленьких компонентов
+
+            DateTime now = DateTime.Now;
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
             foreach (string FileName in CopyFileList)
             {
                 waitMng.SetWaitFormDescription($"{Path.GetFileName(FileName)}");
                 switch (Path.GetExtension(FileName).ToUpper())
                 {
-                    case ".CDW":
-                        SetLinkInDRW(FileName, AllComponents);
-                        break;
+                    //case ".CDW":
+                    //    SetLinkInDRW(FileName, AllComponents);
+                    //    break;
                     case ".A3D": 
                         SetSourseChancge_ModelAPI7(FileName, AllComponents, GetDonorFileNameByAllComponents(FileName, AllComponents));
+                        break;
+                }
+            }
+            foreach (string FileName in CopyFileList)
+            {
+                switch (Path.GetExtension(FileName).ToUpper())
+                {
+                    case ".CDW":
+                        waitMng.SetWaitFormDescription($"{Path.GetFileName(FileName)}");
+                        SetLinkInDRW(FileName, AllComponents);
                         break;
                 }
             }
@@ -1541,9 +1554,12 @@ namespace SaveDXF
                         break; 
                 }
             }
+            CloseDocs(DocumentCloseOptions.kdSaveChanges);
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageYes; //отключаем все сообщения от компаса
             waitMng.CloseWaitForm();
             //_IApplication.Visible = true;
+            double dT = (DateTime.Now - now).TotalSeconds;
+            MessageBox.Show(dT.ToString());
         }
         public void SetLinkInSPDoc(string FileName, List<TreeListNode> AllComponents)
         {
@@ -1830,10 +1846,10 @@ namespace SaveDXF
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
                 part7.Update();
-            }   
+            }
 
-            
-            if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
+            document3D.Save();
+            if (!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
             SetLinkInProperty_ModelAPI7(ExportFileName, AllComponents);
         }
         private bool IsLinkVariableCompeteFile(string PartFileName)
@@ -1916,8 +1932,8 @@ namespace SaveDXF
             catch (Exception Ex)
             {
                 ShowMsgBox("Ошибка при изменении связанных файлов у документа" + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
-            } 
-            if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
+            }
+            if (!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         private string getSousrFilaName(string PartFileName, List<TreeListNode> AllComponents, string ParamName)
         {
