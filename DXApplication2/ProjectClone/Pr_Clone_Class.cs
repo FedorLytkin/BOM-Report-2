@@ -4,6 +4,7 @@ using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -93,13 +94,16 @@ namespace VSNRM_Kompas.ProjectClone
                     TreeListNode New_Node = This_treeList.Nodes.Add();
                     AddCellNode(Donor_Node, New_Node);
                     AddNodeDrw((ComponentInfo)Donor_Node.Tag, Donor_Node, New_Node);
-                } 
+                }
             }
             This_treeList.ExpandAll();
             This_treeList.CheckAll();
             CalcComponentCout(This_treeList);
             This_treeList.Columns["Сохранить в имени"].OptionsColumn.ReadOnly = false;
             This_treeList.Columns["Сохранить в имени"].OptionsColumn.AllowEdit = true;
+            foreach (TreeListColumn column in This_treeList.Columns) 
+                if (column.ReadOnly)
+                    column.AppearanceCell.ForeColor = Color.DarkGray; 
         }
         public void SetOutFolderPathInComponents()
         {

@@ -32,6 +32,7 @@ namespace VSNRM_Kompas.ProjectClone
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proj_Clone));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.rb_GridView = new System.Windows.Forms.RadioButton();
             this.rb_TreeList = new System.Windows.Forms.RadioButton();
             this.cb_check_SP = new DevExpress.XtraEditors.CheckEdit();
@@ -98,6 +99,8 @@ namespace VSNRM_Kompas.ProjectClone
             this.treeList1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
             this.treeList1.Location = new System.Drawing.Point(5, 78);
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsCustomization.AllowBandMoving = false;
@@ -109,8 +112,17 @@ namespace VSNRM_Kompas.ProjectClone
             this.treeList1.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.treeList1_NodeCellStyle);
             this.treeList1.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeList1_AfterCheckNode);
             this.treeList1.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.treeList1_CustomDrawColumnHeader);
+            this.treeList1.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeList1_PopupMenuShowing);
             this.treeList1.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeList1_CellValueChanged);
             this.treeList1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseUp);
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "treeListColumn1";
+            this.treeListColumn1.FieldName = "treeListColumn1";
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
             // 
             // rb_GridView
             // 
@@ -187,6 +199,7 @@ namespace VSNRM_Kompas.ProjectClone
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_FolderPath.Location = new System.Drawing.Point(168, 392);
             this.tb_FolderPath.Name = "tb_FolderPath";
+            this.tb_FolderPath.Properties.ReadOnly = true;
             this.tb_FolderPath.Size = new System.Drawing.Size(215, 20);
             this.tb_FolderPath.TabIndex = 6;
             // 
@@ -306,6 +319,7 @@ namespace VSNRM_Kompas.ProjectClone
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_ZipFileName.Location = new System.Drawing.Point(168, 421);
             this.tb_ZipFileName.Name = "tb_ZipFileName";
+            this.tb_ZipFileName.Properties.ReadOnly = true;
             this.tb_ZipFileName.Size = new System.Drawing.Size(215, 20);
             this.tb_ZipFileName.TabIndex = 18;
             // 
@@ -475,5 +489,6 @@ namespace VSNRM_Kompas.ProjectClone
         private DevExpress.XtraEditors.SimpleButton bt_Save;
         private DevExpress.XtraEditors.SimpleButton bt_Cancel;
         private DevExpress.XtraEditors.SimpleButton bt_Help;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     }
 }

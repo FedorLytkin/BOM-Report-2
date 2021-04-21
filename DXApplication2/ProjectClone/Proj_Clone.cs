@@ -18,6 +18,7 @@ using SaveDXF;
 using System.IO.Compression;
 using System.Diagnostics;
 using DevExpress.XtraTreeList.Nodes;
+using DevExpress.Utils.Menu;
 
 namespace VSNRM_Kompas.ProjectClone
 {
@@ -387,10 +388,8 @@ namespace VSNRM_Kompas.ProjectClone
         {
             Process.Start("https://youtu.be/Hkf844D2z64");
         }
-
-        private void treeList1_AfterCheckNode(object sender, NodeEventArgs e)
-        {
-            TreeListNode TLN = e.Node;
+        private void check_Drawing_Nodes_In_Parent_Node(TreeListNode TLN)
+        { 
             ComponentInfo componentInfo = (ComponentInfo)TLN.Tag;
             foreach (TreeListNode node in TLN.Nodes)
             {
@@ -410,6 +409,11 @@ namespace VSNRM_Kompas.ProjectClone
                     }
                 }
             }
+        }
+        private void treeList1_AfterCheckNode(object sender, NodeEventArgs e)
+        {
+            TreeListNode TLN = e.Node;
+            check_Drawing_Nodes_In_Parent_Node(TLN);
         }
 
         private void treeList1_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
@@ -442,6 +446,42 @@ namespace VSNRM_Kompas.ProjectClone
                     if (tmp_componentInfo.FFN == componentInfo.FFN)
                         node.SetValue("Сохранить в имени", EditText);
                 }
+            }
+        }
+
+        private void treeList1_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            TreeList tL = sender as TreeList;
+            if (tL.Nodes.Count == 0) return;
+            TreeListNode SelNode = tL.FocusedNode;
+            TreeListHitInfo hitInfo = tL.CalcHitInfo(e.Point);
+            
+            DXMenuItem menuItem = new DXMenuItem(SelNode.Checked ?  "Вкл подузлы" : "Выкл подузлы", this.SetCheckedSubNodes);
+            menuItem.Tag = hitInfo.Column;
+            e.Menu.Items.Add(menuItem);
+        }
+        private void SetCheckedSubNodes(object sender, EventArgs e)
+        {
+            TreeListColumn clickedColumn = (sender as DXMenuItem).Tag as TreeListColumn;
+            TreeList tl = clickedColumn.TreeList;
+            TreeListNode node = tl.FocusedNode;
+            if (node == null) return;
+            bool checkResult = node.Checked;
+
+            foreach(TreeListNode tmp_node in node.Nodes)
+            {
+                tmp_node.Checked = checkResult;
+                check_Drawing_Nodes_In_Parent_Node(tmp_node);
+                if (tmp_node.HasChildren) SetCheckedSubNodes(tmp_node, checkResult);
+            }
+        }
+        private void SetCheckedSubNodes(TreeListNode node, bool checkResult)
+        {
+            foreach (TreeListNode tmp_node in node.Nodes)
+            {
+                tmp_node.Checked = checkResult;
+                check_Drawing_Nodes_In_Parent_Node(tmp_node);
+                if (tmp_node.HasChildren) SetCheckedSubNodes(tmp_node, checkResult);
             }
         }
     }
