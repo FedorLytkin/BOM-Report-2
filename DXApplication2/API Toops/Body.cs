@@ -31,7 +31,7 @@ namespace SaveDXF
     public class Body
     {
         public static string KompasVersion;
-        public static string KompasVersionFlag= "КОМПАС-3D v18";
+        public static string KompasVersionFlag= "КОМПАС-3D v19";
         //public static bool AppVersNOTValid; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/
         public static bool AppVersNOTValidStrong; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/ 
         public static KompasObject _kompasObject;
@@ -221,10 +221,11 @@ namespace SaveDXF
                                 ComponentInfo componentInfo = GetParam(item);
                                 AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
                                 string itemKey = null;
-                                if (string.IsNullOrEmpty(item.Marking))
-                                    itemKey = item.FileName + "|" + item.Name;
-                                else
-                                    itemKey = item.FileName + "|" + item.Marking;
+                                itemKey = item.FileName + "|" + (string.IsNullOrEmpty(item.Marking)? item.Name : item.Marking);
+                                //if (string.IsNullOrEmpty(item.Marking))
+                                //    itemKey = item.FileName + "|" + item.Name;
+                                //else
+                                //    itemKey = item.FileName + "|" + item.Marking;
                                 if (!componentInfo.QNT_False)
                                     componentInfo.QNT = GetQNTIn_PartsList(itemKey, GetPartList(TopPart));
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
@@ -267,10 +268,11 @@ namespace SaveDXF
                 componentInfo_Copy.Body.QNT_False = false;
             }
             componentInfo_Copy.isBody = true;
-            if(string.IsNullOrEmpty(Part.Marking))
-                componentInfo_Copy.Key = Part.FileName + "|" + Part.Name + "|" + _body.Marking;
-            else
-                componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
+            componentInfo_Copy.Key = Part.FileName + "|" + ((string.IsNullOrEmpty(Part.Marking)) ? Part.Name : Part.Marking) + "|" + ((string.IsNullOrEmpty(_body.Marking)) ? _body.Name : _body.Marking);
+            //if (string.IsNullOrEmpty(Part.Marking))
+            //    componentInfo_Copy.Key = Part.FileName + "|" + Part.Name + "|" + _body.Marking;
+            //else
+            //    componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             foreach (string ParamName in FindParam_Model)
             {

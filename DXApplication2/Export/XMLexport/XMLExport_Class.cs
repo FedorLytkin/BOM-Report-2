@@ -25,7 +25,7 @@ namespace VSNRM_Kompas.Export.XMLexport
             sr.WriteLine("\t<Columns>");
             foreach (TreeListColumn Column in ThisTreelist.Columns)
             {
-                if(Column.Caption != "Миниатюра")
+                if(Column.Caption != "Миниатюра" && Column.Visible)
                 {
                     sr.WriteLine($"\t\t<Column>{Column.Caption}</Column>");
                     ParamList.Add(Column.Caption);
@@ -51,6 +51,38 @@ namespace VSNRM_Kompas.Export.XMLexport
                 sr.WriteLine("\t\t</Node>");
             }
             sr.WriteLine("\t</Nodes>");
+
+            sr.Close();
+        }
+        private void AddThisNodes(TreeListNodes ThisNodes, List<string> ParamList, int tabInd)
+        {
+            //add nodes info
+            foreach (TreeListNode node in ThisNodes)
+            {
+                sr.WriteLine($"{new string('\t', tabInd)}<Object Name={node.Id}>");
+                foreach (string ParamName in ParamList)
+                    if(!string.IsNullOrWhiteSpace(node.GetValue(ParamName).ToString()))
+                        sr.WriteLine($"{new string('\t', tabInd + 1)}<Attribute Name=\"{ParamName}\">{node.GetValue(ParamName)}</Attribute>");
+
+                if (node.HasChildren)
+                    AddThisNodes(node.Nodes, ParamList, tabInd + 1);
+                sr.WriteLine($"{new string('\t', tabInd)}</Object>");
+            }
+        }
+        public void exportToXml2(TreeList ThisTreelist, string filename)
+        {
+            sr = new StreamWriter(filename, false, System.Text.Encoding.UTF8);
+            //Write the header
+            sr.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            List<string> ParamList = new List<string>();
+            //add columns info
+            //sr.WriteLine("\t<Columns>");
+            foreach (TreeListColumn Column in ThisTreelist.Columns)
+                if (Column.Caption != "Миниатюра" && Column.Visible)
+                    ParamList.Add(Column.Caption);
+            sr.WriteLine("<Root>");
+            AddThisNodes(ThisTreelist.Nodes, ParamList, 1);
+            sr.WriteLine("</Root>");
 
             sr.Close();
         }
