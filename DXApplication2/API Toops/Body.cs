@@ -735,8 +735,43 @@ namespace SaveDXF
             }
             return null;
         }
+        public string GetPropertyIPart7_(IPart7 part_, string PropertyName)
+        {
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+
+                    IPropertyKeeper propertyKeeper = (IPropertyKeeper)part_;
+                    //propertyKeeper.GetPropertyValue()
+
+                    int count = _IPropertyMng.PropertyCount[part_];
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(_IApplication, i);
+
+                        if (PropertyName == Property.Name)
+                        {
+                            object returnObject;
+                            if (GetValueProperty(part_, Property, out returnObject))
+                            {
+                                if (returnObject.GetType().Name == "Double") returnObject = Math.Round(Convert.ToDouble(returnObject), 3);
+                                if (!string.IsNullOrEmpty(returnObject.ToString()))
+                                {
+                                    return returnObject.ToString();
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            return GetPropertyIPart7(part_, PropertyName);
+        }
         public string GetPropertyIPart7(IPart7 part_, string PropertyName)
         {
+            if (PropertyName == "Миниатюра") return null;
             IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
             if (_IApplication != null)
             {
@@ -1033,15 +1068,9 @@ namespace SaveDXF
                     case "Полное имя файла":
                         ParamValue = part.FileName;
                         break;
-                    //case "Наличие развертки":
-                    //    if (GetHasFlatPattern(part))
-                    //        ParamValue = "1";
-                    //    else
-                    //        ParamValue = "-1";
-                    //    break;
                     default:
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                        if(string.IsNullOrEmpty(ParamValue))
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
                         break;
                 }
                 massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
@@ -1127,12 +1156,16 @@ namespace SaveDXF
                 var VariableCollection = feature7.Variables[false, true];
                 if (VariableCollection != null)
                 {
-                    foreach (Variable7 variable7 in VariableCollection)
+                    try
                     {
-                        ParamName = variable7.Name;
-                        if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
-                            linkVars.Add(new ComponentInfo.Variable_Class { Name = ParamName, SourceFileName = variable7.LinkDocumentName });
+                        foreach (Variable7 variable7 in VariableCollection)
+                        {
+                            ParamName = variable7.Name;
+                            if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                                linkVars.Add(new ComponentInfo.Variable_Class { Name = ParamName, SourceFileName = variable7.LinkDocumentName });
+                        }
                     }
+                    catch { }
                 }
             }
             catch (Exception Ex)
