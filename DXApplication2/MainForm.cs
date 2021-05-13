@@ -195,7 +195,7 @@ namespace VSNRM_Kompas
                         break;
                     case ".XML":
                         VSNRM_Kompas.Export.XMLexport.XMLExport_Class xMLExport_ = new Export.XMLexport.XMLExport_Class();
-                        xMLExport_.exportToXml2(treeList1, ExportFileName);
+                        xMLExport_.exportToXml(treeList1, ExportFileName);
                         //ExportXML(ExportFileName);
                         //treeList1.ExportToXml(ExportFileName);
                         break;

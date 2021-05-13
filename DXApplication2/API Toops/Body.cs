@@ -909,7 +909,11 @@ namespace SaveDXF
                     Object[] ars = null;
                     if (IF != null && IF.VariablesCount[false, true] > 0)
                     {
-                        ars = IF.Variables[false, true];
+                        try
+                        {
+                            ars = IF.Variables[false, true];
+                        }
+                        catch { }
                     }
                     if (ars != null)
                     {
@@ -922,7 +926,6 @@ namespace SaveDXF
                                 break;
                             }
                         }
-
                     }
                 }
             }
