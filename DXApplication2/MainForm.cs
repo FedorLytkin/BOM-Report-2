@@ -809,5 +809,10 @@ namespace VSNRM_Kompas
             optionForm.IOption_Class = option_Class;
             optionForm.ShowDialog();
         }
+
+        private void bt_Prop_trans_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            body.TransProp_St1();
+        }
     }
 }

@@ -735,40 +735,6 @@ namespace SaveDXF
             }
             return null;
         }
-        public string GetPropertyIPart7_(IPart7 part_, string PropertyName)
-        {
-            if (_IApplication != null)
-            {
-                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
-                if (_IPropertyMng != null)
-                {
-
-                    IPropertyKeeper propertyKeeper = (IPropertyKeeper)part_;
-                    //propertyKeeper.GetPropertyValue()
-
-                    int count = _IPropertyMng.PropertyCount[part_];
-                    for (int i = 0; i < count; i++)
-                    {
-                        IProperty Property = _IPropertyMng.GetProperty(_IApplication, i);
-
-                        if (PropertyName == Property.Name)
-                        {
-                            object returnObject;
-                            if (GetValueProperty(part_, Property, out returnObject))
-                            {
-                                if (returnObject.GetType().Name == "Double") returnObject = Math.Round(Convert.ToDouble(returnObject), 3);
-                                if (!string.IsNullOrEmpty(returnObject.ToString()))
-                                {
-                                    return returnObject.ToString();
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
-            return GetPropertyIPart7(part_, PropertyName);
-        }
         public string GetPropertyIPart7(IPart7 part_, string PropertyName)
         {
             if (PropertyName == "Миниатюра") return null;
@@ -1375,6 +1341,106 @@ namespace SaveDXF
         {
 
         }
+        #region "Транслировать параметры" 
+        public void TransProp_St1()
+        {
+            if (!AppVersNOTValidStrongMessage()) return;
+            if ((_IApplication.ActiveDocument is IKompasDocument3D) != true)
+                return;
+            IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
+            if (_IKompasDocument == null) return;
+            IPart7 TopPart = _IKompasDocument.TopPart;
+            if (TopPart == null) { IPart7NothingMsg(_IKompasDocument.Path); return; }
+
+            TransProp_AddProp(TopPart, _IKompasDocument);
+            TransPropTravelByAssemly2(TopPart, _IKompasDocument); 
+            CloseDocs();
+        }
+        private void TransPropTravelByAssemly2(IPart7 TopPart, IKompasDocument3D _IKompasDocument)
+        //процедура перебирает компоненты в сборке
+        {
+            if (TopPart != null)
+            { 
+                var Parts = TopPart.PartsEx[1];
+                if (Parts != null)
+                {
+                    foreach (IPart7 item in Parts)
+                    {
+                        try
+                        {
+                            bool ItemHidden = item.Hidden;
+                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
+                            if (ItemHidden != true)
+                            {
+                                TransProp_AddProp(item, _IKompasDocument);
+                                if (!item.Detail && All_Level_Search)
+                                {
+                                    TransPropTravelByAssemly2(item, _IKompasDocument);
+                                }
+                            }
+                        }
+                        catch (Exception Ex)
+                        {
+                            ShowMsgBox("Ошибка при обработке компонента " + item.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+        private void TransProp_AddProp(IPart7 part_, IKompasDocument3D Parent_IKompasDocument)
+        {
+            IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    int count = _IPropertyMng.PropertyCount[Parent_IKompasDocument];
+                    for (int i = 0; i < count; i++)
+                    {
+                        bool find_Prop = false;
+                        IProperty Property = _IPropertyMng.GetProperty(Parent_IKompasDocument, i);
+                        object returnObject = GetValueProperty(part_, Property, out returnObject);
+                        int count_thisPart = _IPropertyMng.PropertyCount[This_IKompasDocument3D];
+                        for (int y = 0; y < count; y++)
+                        {
+                            IProperty Property_thisPart = _IPropertyMng.GetProperty(This_IKompasDocument3D, y);
+                            if (Property_thisPart.Name == Property.Name)
+                            {
+                                find_Prop = true;
+                                if (returnObject != null)
+                                    TransProp_SetValueProperty(part_, Property_thisPart, returnObject);
+                                break;
+                            }
+                        }
+                        if (!find_Prop)
+                        {
+                            IProperty Property_new = _IPropertyMng.AddProperty(This_IKompasDocument3D, returnObject);
+                            Property_new.Name = Property.Name;
+                            Property_new.Update();
+                        }
+                    }
+                }
+            }
+        }
+        public static bool TransProp_SetValueProperty(IPart7 part, IProperty Property, object Val)
+        {
+            bool res = false; 
+            if (Property != null)
+            {
+                IPropertyKeeper Prop = (IPropertyKeeper)part;
+
+                if (Prop != null)
+                {
+                    _Property classresProperty = (_Property)Property;
+                    if (classresProperty != null)
+                        Prop.SetPropertyValue((_Property)classresProperty, Val, true);
+                }
+            }
+            return res;
+        }
+        #endregion 
         #region копировать модель
 
         public void SetSourseChancge(string SB_FilenameIN, string SB_FilenameOUT)
