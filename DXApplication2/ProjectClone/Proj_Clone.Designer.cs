@@ -59,6 +59,10 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_Save = new DevExpress.XtraEditors.SimpleButton();
             this.bt_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.bt_Help = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_EditName_PRE = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cb_EditName_SUF = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
@@ -75,6 +79,8 @@ namespace VSNRM_Kompas.ProjectClone
             ((System.ComponentModel.ISupportInitialize)(this.cb_SaveInOneFolder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_Prefix.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_Sufix.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName_PRE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName_SUF.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -312,7 +318,7 @@ namespace VSNRM_Kompas.ProjectClone
             // cb_AddPrefix
             // 
             this.cb_AddPrefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_AddPrefix.Location = new System.Drawing.Point(43, 461);
+            this.cb_AddPrefix.Location = new System.Drawing.Point(36, 447);
             this.cb_AddPrefix.Name = "cb_AddPrefix";
             this.cb_AddPrefix.Properties.Caption = "Добавить префикс:";
             this.cb_AddPrefix.Size = new System.Drawing.Size(126, 20);
@@ -322,7 +328,7 @@ namespace VSNRM_Kompas.ProjectClone
             // cb_AddSufix
             // 
             this.cb_AddSufix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_AddSufix.Location = new System.Drawing.Point(349, 461);
+            this.cb_AddSufix.Location = new System.Drawing.Point(36, 473);
             this.cb_AddSufix.Name = "cb_AddSufix";
             this.cb_AddSufix.Properties.Caption = "Добавить суффикс:";
             this.cb_AddSufix.Size = new System.Drawing.Size(126, 20);
@@ -332,7 +338,7 @@ namespace VSNRM_Kompas.ProjectClone
             // cb_SaveInOneFolder
             // 
             this.cb_SaveInOneFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_SaveInOneFolder.Location = new System.Drawing.Point(43, 487);
+            this.cb_SaveInOneFolder.Location = new System.Drawing.Point(36, 499);
             this.cb_SaveInOneFolder.Name = "cb_SaveInOneFolder";
             this.cb_SaveInOneFolder.Properties.Caption = "Уложить в одну папку";
             this.cb_SaveInOneFolder.Size = new System.Drawing.Size(140, 20);
@@ -342,18 +348,18 @@ namespace VSNRM_Kompas.ProjectClone
             // tb_Prefix
             // 
             this.tb_Prefix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tb_Prefix.Location = new System.Drawing.Point(175, 461);
+            this.tb_Prefix.Location = new System.Drawing.Point(168, 447);
             this.tb_Prefix.Name = "tb_Prefix";
             this.tb_Prefix.Properties.EditValueChanged += new System.EventHandler(this.tb_Prefix_Properties_EditValueChanged);
-            this.tb_Prefix.Size = new System.Drawing.Size(137, 20);
+            this.tb_Prefix.Size = new System.Drawing.Size(60, 20);
             this.tb_Prefix.TabIndex = 23;
             // 
             // tb_Sufix
             // 
             this.tb_Sufix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tb_Sufix.Location = new System.Drawing.Point(481, 461);
+            this.tb_Sufix.Location = new System.Drawing.Point(168, 473);
             this.tb_Sufix.Name = "tb_Sufix";
-            this.tb_Sufix.Size = new System.Drawing.Size(137, 20);
+            this.tb_Sufix.Size = new System.Drawing.Size(60, 20);
             this.tb_Sufix.TabIndex = 24;
             this.tb_Sufix.EditValueChanged += new System.EventHandler(this.tb_Sufix_EditValueChanged);
             // 
@@ -387,11 +393,55 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_Help.Text = "Справка";
             this.bt_Help.Click += new System.EventHandler(this.bt_Help_Click);
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl5.Location = new System.Drawing.Point(234, 450);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(88, 13);
+            this.labelControl5.TabIndex = 29;
+            this.labelControl5.Text = "Заменять в поле:";
+            // 
+            // cb_EditName_PRE
+            // 
+            this.cb_EditName_PRE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_EditName_PRE.Location = new System.Drawing.Point(328, 447);
+            this.cb_EditName_PRE.Name = "cb_EditName_PRE";
+            this.cb_EditName_PRE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_EditName_PRE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_EditName_PRE.Size = new System.Drawing.Size(180, 20);
+            this.cb_EditName_PRE.TabIndex = 28;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl1.Location = new System.Drawing.Point(234, 476);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(88, 13);
+            this.labelControl1.TabIndex = 31;
+            this.labelControl1.Text = "Заменять в поле:";
+            // 
+            // cb_EditName_SUF
+            // 
+            this.cb_EditName_SUF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_EditName_SUF.Location = new System.Drawing.Point(328, 473);
+            this.cb_EditName_SUF.Name = "cb_EditName_SUF";
+            this.cb_EditName_SUF.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_EditName_SUF.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_EditName_SUF.Size = new System.Drawing.Size(180, 20);
+            this.cb_EditName_SUF.TabIndex = 30;
+            // 
             // Proj_Clone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 558);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.cb_EditName_SUF);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.cb_EditName_PRE);
             this.Controls.Add(this.bt_Help);
             this.Controls.Add(this.bt_Cancel);
             this.Controls.Add(this.bt_Save);
@@ -439,6 +489,8 @@ namespace VSNRM_Kompas.ProjectClone
             ((System.ComponentModel.ISupportInitialize)(this.cb_SaveInOneFolder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_Prefix.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_Sufix.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName_PRE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName_SUF.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,5 +527,9 @@ namespace VSNRM_Kompas.ProjectClone
         private DevExpress.XtraEditors.SimpleButton bt_Save;
         private DevExpress.XtraEditors.SimpleButton bt_Cancel;
         private DevExpress.XtraEditors.SimpleButton bt_Help;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.ComboBoxEdit cb_EditName_PRE;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.ComboBoxEdit cb_EditName_SUF;
     }
 }

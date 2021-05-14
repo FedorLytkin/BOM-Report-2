@@ -3427,7 +3427,6 @@
             superToolTip73.Items.Add(toolTipSeparatorItem39);
             superToolTip73.Items.Add(toolTipTitleItem112);
             this.Bt_Copy.SuperTip = superToolTip73;
-            this.Bt_Copy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.Bt_Copy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Copy_ItemClick);
             // 
             // Add_Drw_In_Tree_CH_B

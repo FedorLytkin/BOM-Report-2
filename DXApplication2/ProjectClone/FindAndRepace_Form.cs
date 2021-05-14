@@ -32,6 +32,12 @@ namespace VSNRM_Kompas.ProjectClone
             foreach (string ColName in FindAndRepace.GetTreeListColumnsName())
                 cb_FindParams.Properties.Items.Add(ColName);
             if (cb_FindParams.Properties.Items.Count > 0) cb_FindParams.SelectedIndex = 0;
+
+            cb_EditName.Properties.Items.Clear();
+            foreach (string ColName in FindAndRepace.GetTreeListColumnsName(true))
+                cb_EditName.Properties.Items.Add(ColName);
+            if (cb_EditName.Properties.Items.Count > 0) cb_EditName.SelectedIndex = 0;
+
             cb_NotCheckRegister.Checked = FindAndRepace.Register_Without;
             cb_To4noe.Checked = FindAndRepace.To4noe;
 
@@ -75,6 +81,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -83,6 +90,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -91,6 +99,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        cb_EditName.Enabled = true;
                         bt_all.Text = "Заменить все";
                         bt_Next.Text = "Заменить";
                         break;
@@ -111,6 +120,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -119,6 +129,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -127,6 +138,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        cb_EditName.Enabled = true;
                         bt_all.Text = "Заменить все";
                         bt_Next.Text = "Заменить";
                         break;
@@ -147,6 +159,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -155,6 +168,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = true;
                         rb_ReplaceText.Checked = false;
                         tb_ReplceText.Enabled = false;
+                        cb_EditName.Enabled = false;
                         bt_all.Text = "Проверить все";
                         bt_Next.Text = "Проверить";
                         break;
@@ -163,6 +177,7 @@ namespace VSNRM_Kompas.ProjectClone
                         rb_NotCheckElements.Checked = false;
                         rb_ReplaceText.Checked = true;
                         tb_ReplceText.Enabled = true;
+                        cb_EditName.Enabled = true;
                         bt_all.Text = "Заменить все";
                         bt_Next.Text = "Заменить";
                         break;
@@ -172,7 +187,7 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void bt_all_Click(object sender, EventArgs e)
         {
-            FindAndRepace.FindAll(cb_FindParams.Text, tb_FindText.Text, tb_ReplceText.Text);
+            FindAndRepace.FindAll(cb_FindParams.Text, cb_EditName.Text, tb_FindText.Text, tb_ReplceText.Text);
         }
 
         private void tb_FindText_EditValueChanged(object sender, EventArgs e)

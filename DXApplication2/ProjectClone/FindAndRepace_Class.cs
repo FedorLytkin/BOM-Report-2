@@ -37,6 +37,19 @@ namespace VSNRM_Kompas.ProjectClone
 
             return Col_List;
         }
+        public List<string> GetTreeListColumnsName(bool EditColumn)
+        {
+            List<string> Col_List = new List<string>();
+            if (treeList == null) return Col_List;
+
+            foreach (TreeListColumn Column in treeList.Columns)
+            {
+                if (Column.FieldName != "Миниатюра" && Column.FieldName != "Размер" && Column.FieldName != "Тип" && !Column.OptionsColumn.ReadOnly)
+                    Col_List.Add(Column.Caption);
+            }
+            Col_List.Add("Все перечисленные");
+            return Col_List;
+        }
         public void FindTextList(string ColumnName, string FindText)
         {
             StringComparison stringComparison = StringComparison.Ordinal;
@@ -106,7 +119,7 @@ namespace VSNRM_Kompas.ProjectClone
                 return;
             }
         }
-        public void FindAll(string ColumnName, string FindText, string ReplaceText)
+        public void FindAll(string GetColumnName, string SetColumnName, string FindText, string ReplaceText)
         {
             if (string.IsNullOrEmpty(FindText)) return;
             StringComparison stringComparison = StringComparison.Ordinal;
@@ -118,14 +131,14 @@ namespace VSNRM_Kompas.ProjectClone
                     case Find_Method_Enum.Check_Elements:
                         if (To4noe)
                         {
-                            if(node.GetValue(ColumnName).ToString() == FindText)
+                            if(node.GetValue(GetColumnName).ToString() == FindText)
                                 node.Checked = true;
                             else
                                 node.Checked = false; 
                         }
                         else
                         {
-                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                            if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
                                 node.Checked = true;
                             else
                                 node.Checked = false;
@@ -134,25 +147,25 @@ namespace VSNRM_Kompas.ProjectClone
                     case Find_Method_Enum.Not_Check_Elements:
                         if (To4noe)
                         {
-                            if (node.GetValue(ColumnName).ToString() == FindText)
+                            if (node.GetValue(GetColumnName).ToString() == FindText)
                                 node.Checked = false;
                         }
                         else
                         {
-                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                            if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
                                 node.Checked = false;
                         }
                         break;
                     case Find_Method_Enum.RepaceText:
                         if (To4noe)
                         {
-                            if (node.GetValue(ColumnName).ToString() == FindText)
-                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                            if (node.GetValue(GetColumnName).ToString() == FindText)
+                                node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
                         }
                         else
                         {
-                            if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
-                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                            if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
                         }
                         break;
                 }

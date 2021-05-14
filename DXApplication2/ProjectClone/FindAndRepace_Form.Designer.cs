@@ -45,6 +45,8 @@ namespace VSNRM_Kompas.ProjectClone
             this.bt_all = new DevExpress.XtraEditors.SimpleButton();
             this.bt_Next = new DevExpress.XtraEditors.SimpleButton();
             this.bt_close = new DevExpress.XtraEditors.SimpleButton();
+            this.cb_EditName = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cb_To4noe.Properties)).BeginInit();
@@ -52,10 +54,13 @@ namespace VSNRM_Kompas.ProjectClone
             ((System.ComponentModel.ISupportInitialize)(this.cb_NotCheckRegister.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_FindText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_FindParams.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl5);
+            this.groupControl1.Controls.Add(this.cb_EditName);
             this.groupControl1.Controls.Add(this.cb_To4noe);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.tb_ReplceText);
@@ -70,13 +75,14 @@ namespace VSNRM_Kompas.ProjectClone
             this.groupControl1.Controls.Add(this.cb_FindParams);
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(344, 176);
+            this.groupControl1.Size = new System.Drawing.Size(344, 187);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Критерий поиска";
             // 
             // cb_To4noe
             // 
-            this.cb_To4noe.Location = new System.Drawing.Point(204, 149);
+            this.cb_To4noe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_To4noe.Location = new System.Drawing.Point(204, 160);
             this.cb_To4noe.Name = "cb_To4noe";
             this.cb_To4noe.Properties.Caption = "Точное соответствие";
             this.cb_To4noe.Size = new System.Drawing.Size(133, 20);
@@ -85,7 +91,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 152);
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl1.Location = new System.Drawing.Point(5, 163);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(61, 13);
             this.labelControl1.TabIndex = 2;
@@ -148,7 +155,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // cb_NotCheckRegister
             // 
-            this.cb_NotCheckRegister.Location = new System.Drawing.Point(72, 149);
+            this.cb_NotCheckRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_NotCheckRegister.Location = new System.Drawing.Point(72, 160);
             this.cb_NotCheckRegister.Name = "cb_NotCheckRegister";
             this.cb_NotCheckRegister.Properties.Caption = "Без учета регистра";
             this.cb_NotCheckRegister.Size = new System.Drawing.Size(126, 20);
@@ -187,7 +195,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // bt_all
             // 
-            this.bt_all.Location = new System.Drawing.Point(93, 194);
+            this.bt_all.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bt_all.Location = new System.Drawing.Point(93, 205);
             this.bt_all.Name = "bt_all";
             this.bt_all.Size = new System.Drawing.Size(88, 23);
             this.bt_all.TabIndex = 2;
@@ -196,7 +205,8 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // bt_Next
             // 
-            this.bt_Next.Location = new System.Drawing.Point(12, 194);
+            this.bt_Next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bt_Next.Location = new System.Drawing.Point(12, 205);
             this.bt_Next.Name = "bt_Next";
             this.bt_Next.Size = new System.Drawing.Size(75, 23);
             this.bt_Next.TabIndex = 3;
@@ -205,27 +215,46 @@ namespace VSNRM_Kompas.ProjectClone
             // 
             // bt_close
             // 
+            this.bt_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_close.Location = new System.Drawing.Point(281, 194);
+            this.bt_close.Location = new System.Drawing.Point(281, 205);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
             this.bt_close.TabIndex = 4;
             this.bt_close.Text = "Закрыть";
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
             // 
+            // cb_EditName
+            // 
+            this.cb_EditName.Location = new System.Drawing.Point(158, 135);
+            this.cb_EditName.Name = "cb_EditName";
+            this.cb_EditName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_EditName.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_EditName.Size = new System.Drawing.Size(179, 20);
+            this.cb_EditName.TabIndex = 12;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(64, 138);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(88, 13);
+            this.labelControl5.TabIndex = 13;
+            this.labelControl5.Text = "Заменять в поле:";
+            // 
             // FindAndRepace_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(368, 230);
+            this.ClientSize = new System.Drawing.Size(368, 240);
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.bt_Next);
             this.Controls.Add(this.bt_all);
             this.Controls.Add(this.groupControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.MaximumSize = new System.Drawing.Size(370, 262);
-            this.MinimumSize = new System.Drawing.Size(370, 262);
+            this.MaximumSize = new System.Drawing.Size(370, 272);
+            this.MinimumSize = new System.Drawing.Size(370, 272);
             this.Name = "FindAndRepace_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Найти / Заменить";
@@ -238,6 +267,7 @@ namespace VSNRM_Kompas.ProjectClone
             ((System.ComponentModel.ISupportInitialize)(this.cb_NotCheckRegister.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_FindText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cb_FindParams.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_EditName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,5 +290,7 @@ namespace VSNRM_Kompas.ProjectClone
         private DevExpress.XtraEditors.SimpleButton bt_all;
         private DevExpress.XtraEditors.SimpleButton bt_Next;
         private DevExpress.XtraEditors.SimpleButton bt_close;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.ComboBoxEdit cb_EditName;
     }
 }

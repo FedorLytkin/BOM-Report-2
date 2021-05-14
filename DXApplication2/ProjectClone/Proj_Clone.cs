@@ -65,10 +65,28 @@ namespace VSNRM_Kompas.ProjectClone
 
             findAndRepace_Form.FindAndRepace  = findAndRepace_Class;
             Pr_Clone.FindAndRepace = findAndRepace_Class;
+
         }
         private void Proj_Clone_Load(object sender, EventArgs e)
         {
+            addEdits_In_Cb_EditControl(cb_EditName_PRE);
+            addEdits_In_Cb_EditControl(cb_EditName_SUF);
+        }
+        private void addEdits_In_Cb_EditControl(ComboBoxEdit comboBox)
+        {
+            List<string> EditList = new List<string>();
 
+            foreach (TreeListColumn Column in treeList1.Columns)
+            {
+                if (Column.FieldName != "Миниатюра" && Column.FieldName != "Размер" && Column.FieldName != "Тип" && !Column.OptionsColumn.ReadOnly)
+                    EditList.Add(Column.Caption);
+            }
+            EditList.Add("Все перечисленные");
+
+            comboBox.Properties.Items.Clear();
+            foreach (string EditName in EditList)
+                comboBox.Properties.Items.Add(EditName);
+            if (comboBox.Properties.Items.Count > 0) comboBox.SelectedIndex = 0;
         }
         private void AddOptionInControls()
         {
@@ -109,16 +127,28 @@ namespace VSNRM_Kompas.ProjectClone
             }
 
             cb_AddPrefix.Checked = Pr_Clone.AddPrefix;
-            if (Pr_Clone.AddPrefix) 
+            if (Pr_Clone.AddPrefix)
+            {
                 tb_Prefix.Enabled = true;
+                cb_EditName_PRE.Enabled = true;
+            }
             else
+            {
                 tb_Prefix.Enabled = false;
+                cb_EditName_PRE.Enabled = false;
+            }
 
             cb_AddSufix.Checked = Pr_Clone.AddSufix;
             if (Pr_Clone.AddSufix)
+            {
                 tb_Sufix.Enabled = true;
+                cb_EditName_SUF.Enabled = true;
+            }
             else
+            {
                 tb_Sufix.Enabled = false;
+                cb_EditName_SUF.Enabled = false;
+            }
 
             cb_SaveInOneFolder.Checked = Pr_Clone.SaveInOneFolder;
         }
@@ -254,11 +284,13 @@ namespace VSNRM_Kompas.ProjectClone
             if (Pr_Clone.AddPrefix)
             {
                 tb_Prefix.Enabled = true;
+                cb_EditName_PRE.Enabled = true;
                 Pr_Clone.Prefix_Value = tb_Prefix.Text;
             }
             else
             {
                 tb_Prefix.Enabled = false;
+                cb_EditName_PRE.Enabled = false;
                 Pr_Clone.Prefix_Value = null;
                 tb_Prefix.Text = null;
             } 
@@ -270,11 +302,13 @@ namespace VSNRM_Kompas.ProjectClone
             if (Pr_Clone.AddSufix)
             {
                 tb_Sufix.Enabled = true;
+                cb_EditName_SUF.Enabled = true;
                 Pr_Clone.Sufix_Value= tb_Sufix.Text;
             }
             else
             {
-                tb_Sufix.Enabled = false;
+                tb_Sufix.Enabled = false; 
+                cb_EditName_SUF.Enabled = false;
                 Pr_Clone.Sufix_Value = null;
                 tb_Sufix.Text = null;
             }
@@ -357,13 +391,13 @@ namespace VSNRM_Kompas.ProjectClone
         private void tb_Prefix_Properties_EditValueChanged(object sender, EventArgs e)
         {
             Pr_Clone.Prefix_Value = tb_Prefix.Text;
-            Pr_Clone.SetPrefixAndSufix();
+            Pr_Clone.SetPrefixAndSufix(cb_EditName_PRE.Text);
         }
 
         private void tb_Sufix_EditValueChanged(object sender, EventArgs e)
         {
             Pr_Clone.Sufix_Value = tb_Sufix.Text;
-            Pr_Clone.SetPrefixAndSufix();
+            Pr_Clone.SetPrefixAndSufix(cb_EditName_SUF.Text);
         }
 
         
@@ -414,16 +448,40 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void treeList1_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
         {
-            if (e.Column.FieldName == "Сохранить в имени")
+            ComponentInfo componentInfo;
+            string EditText = null;
+            switch (e.Column.FieldName)
             {
-                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
-                if (componentInfo == null) return;
-                string EditText = e.Node.GetValue("Сохранить в имени").ToString();
-                if (EditText != Path.GetFileNameWithoutExtension(componentInfo.FFN))
-                {
-                    e.Appearance.ForeColor = Color.Green;
-                    e.Appearance.Options.UseBackColor = true;
-                }
+                case "Сохранить в имени":
+                    componentInfo = (ComponentInfo)e.Node.Tag;
+                    if (componentInfo == null) return;
+                    EditText = e.Node.GetValue(e.Column.FieldName).ToString();
+                    if (EditText != Path.GetFileNameWithoutExtension(componentInfo.FFN))
+                    {
+                        e.Appearance.ForeColor = Color.Green;
+                        e.Appearance.Options.UseBackColor = true;
+                    }
+                    break;
+                case "Сохранить в Обозначении":
+                    componentInfo = (ComponentInfo)e.Node.Tag;
+                    if (componentInfo == null) return;
+                    if(e.Node.GetValue(e.Column.FieldName) != null) EditText = e.Node.GetValue(e.Column.FieldName).ToString();
+                    if (EditText != componentInfo.Oboz)
+                    {
+                        e.Appearance.ForeColor = Color.Green;
+                        e.Appearance.Options.UseBackColor = true;
+                    }
+                    break;
+                case "Сохранить в Наименовании":
+                    componentInfo = (ComponentInfo)e.Node.Tag;
+                    if (componentInfo == null) return;
+                    if (e.Node.GetValue(e.Column.FieldName) != null)  EditText = e.Node.GetValue(e.Column.FieldName).ToString();
+                    if (EditText != componentInfo.Naim)
+                    {
+                        e.Appearance.ForeColor = Color.Green;
+                        e.Appearance.Options.UseBackColor = true;
+                    }
+                    break;
             }
         }
         private void treeList1_CellValueChanged(object sender, CellValueChangedEventArgs e)
@@ -444,5 +502,6 @@ namespace VSNRM_Kompas.ProjectClone
                 }
             }
         }
+
     }
 }

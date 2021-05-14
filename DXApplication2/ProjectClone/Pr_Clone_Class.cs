@@ -4,6 +4,7 @@ using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,7 @@ namespace VSNRM_Kompas.ProjectClone
 
         public bool SaveInOneFolder = true;
         List<string> ColList;
+        List<string> EditColList;
         public LabelControl LB_Sborka;
         public LabelControl LB_Part;
         public LabelControl LB_Drw;
@@ -98,8 +100,17 @@ namespace VSNRM_Kompas.ProjectClone
             This_treeList.ExpandAll();
             This_treeList.CheckAll();
             CalcComponentCout(This_treeList);
-            This_treeList.Columns["Сохранить в имени"].OptionsColumn.ReadOnly = false;
-            This_treeList.Columns["Сохранить в имени"].OptionsColumn.AllowEdit = true;
+            foreach(string ColName in EditColList)
+            {
+                This_treeList.Columns[ColName].OptionsColumn.ReadOnly = false;
+                This_treeList.Columns[ColName].OptionsColumn.AllowEdit = true;
+            }
+            foreach (TreeListColumn treeListColumn in This_treeList.Columns)
+                if (treeListColumn.OptionsColumn.ReadOnly)
+                {
+                    treeListColumn.AppearanceCell.BackColor = Color.WhiteSmoke;
+                    treeListColumn.AppearanceHeader.BackColor = Color.WhiteSmoke;
+                }
         }
         public void SetOutFolderPathInComponents()
         {
@@ -250,6 +261,12 @@ namespace VSNRM_Kompas.ProjectClone
                         case "Сохранить в имени":
                             ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
                             break;
+                        case "Сохранить в Обозначении":
+                            ParamVal = $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}";
+                            break;
+                        case "Сохранить в Наименовании":
+                            ParamVal = $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}";
+                            break;
                         case "Расположение":
                             ParamVal = f.DirectoryName;
                             break;
@@ -279,10 +296,19 @@ namespace VSNRM_Kompas.ProjectClone
             ColList.Add("Миниатюра");
             ColList.Add("Имя файла");
             ColList.Add("Расположение");
+            ColList.Add("Обозначение");
+            ColList.Add("Наименование");
+            ColList.Add("Сохранить в Обозначении");
+            ColList.Add("Сохранить в Наименовании");
             ColList.Add("Сохранить в имени");
             ColList.Add("Сохранить в папке");
             ColList.Add("Размер");
             ColList.Add("Тип");
+
+            EditColList = new List<string>();
+            EditColList.Add("Сохранить в Обозначении");
+            EditColList.Add("Сохранить в Наименовании");
+            EditColList.Add("Сохранить в имени");
         }
         public string GetFolderName()
         {
@@ -308,13 +334,31 @@ namespace VSNRM_Kompas.ProjectClone
             }
             return null;
         }
-        public void SetPrefixAndSufix()
+        public void SetPrefixAndSufix(string ColumnName)
         {
             foreach(TreeListNode node in This_treeList.GetNodeList())
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                if (!string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()))
-                    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                switch (ColumnName)
+                {
+                    case "Сохранить в имени":
+                        if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
+                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                        break;
+                    case "Сохранить в Обозначении":
+                        if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
+                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.Oboz)}{Sufix_Value}");
+                        break;
+                    case "Сохранить в Наименовании":
+                        if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
+                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.Naim)}{Sufix_Value}");
+                        break;
+                    default:
+                        node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                        node.SetValue("Сохранить в Обозначении", $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}");
+                        node.SetValue("Сохранить в Наименовании", $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}"); 
+                        break;
+                } 
                 //if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()) || string.IsNullOrEmpty(Prefix_Value) || string.IsNullOrEmpty(Sufix_Value))
                 //    node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
                 //else
