@@ -30,6 +30,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             cb_Volume.Text = IOption_Class.Volume_MU_Name;
             cb_Area.Text = IOption_Class.Area_MU_Name;
             cb_Count.Text = IOption_Class.Count_MU_Name;
+            chb_Positio_Split.Text = IOption_Class.Positio_Split_Value;
+            toggleSwitch_ON_Position_Transl.IsOn = IOption_Class.Positio_On_Value;
         }
 
         private void Cancel_Bt_Click(object sender, EventArgs e)
@@ -44,6 +46,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.Set_MU_Length(cb_Length.Text);
             IOption_Class.Set_MU_Volume(cb_Volume.Text);
             IOption_Class.Set_MU_Count(cb_Count.Text);
+            IOption_Class.Positio_Split_Value = chb_Positio_Split.Text;
+            IOption_Class.Positio_On_Value = toggleSwitch_ON_Position_Transl.IsOn;
 
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
             xMLCLass.IOptions.SaveOptions(IOption_Class, false);

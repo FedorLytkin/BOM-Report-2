@@ -40,6 +40,21 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
@@ -57,6 +72,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.TP_Other = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.chb_Positio_Split = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.toggleSwitch_ON_Position_Transl = new DevExpress.XtraEditors.ToggleSwitch();
             this.TP_MU.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -67,6 +87,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
+            this.TP_Other.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Cancel_Bt
@@ -285,7 +310,98 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.xtraTabControl1.Size = new System.Drawing.Size(490, 270);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.TP_MU});
+            this.TP_MU,
+            this.TP_Other});
+            // 
+            // TP_Other
+            // 
+            this.TP_Other.Controls.Add(this.groupControl2);
+            this.TP_Other.Name = "TP_Other";
+            this.TP_Other.Size = new System.Drawing.Size(488, 245);
+            this.TP_Other.Text = "Прочее";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl2.Controls.Add(this.labelControl10);
+            this.groupControl2.Controls.Add(this.chb_Positio_Split);
+            this.groupControl2.Controls.Add(this.toggleSwitch_ON_Position_Transl);
+            this.groupControl2.Location = new System.Drawing.Point(3, 3);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(254, 85);
+            this.groupControl2.TabIndex = 19;
+            this.groupControl2.Text = "Настройка позиций";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(5, 52);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(132, 13);
+            toolTipTitleItem5.Text = "Выбрать растровый формат";
+            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Выбрать формат для растровой копии развертки\r\n\r\nПри сохранении развертки DXF, про" +
+    "грамма создаст растровуую копию в выбранном формате";
+            toolTipTitleItem6.LeftIndent = 6;
+            toolTipTitleItem6.Text = "DXF-Auto";
+            superToolTip3.Items.Add(toolTipTitleItem5);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem3);
+            superToolTip3.Items.Add(toolTipTitleItem6);
+            this.labelControl10.SuperTip = superToolTip3;
+            this.labelControl10.TabIndex = 12;
+            this.labelControl10.Text = "Выбрать Разделитель";
+            // 
+            // chb_Positio_Split
+            // 
+            this.chb_Positio_Split.Location = new System.Drawing.Point(143, 48);
+            this.chb_Positio_Split.Name = "chb_Positio_Split";
+            this.chb_Positio_Split.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.chb_Positio_Split.Properties.Items.AddRange(new object[] {
+            ".",
+            ",",
+            ":",
+            "\\",
+            "/"});
+            this.chb_Positio_Split.Size = new System.Drawing.Size(100, 20);
+            toolTipTitleItem7.Text = "Выбрать растровый формат";
+            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = "Выбрать формат для растровой копии развертки\r\n\r\nПри сохранении развертки DXF, про" +
+    "грамма создаст растровуую копию в выбранном формате";
+            toolTipTitleItem8.LeftIndent = 6;
+            toolTipTitleItem8.Text = "DXF-Auto";
+            superToolTip4.Items.Add(toolTipTitleItem7);
+            superToolTip4.Items.Add(toolTipItem4);
+            superToolTip4.Items.Add(toolTipSeparatorItem4);
+            superToolTip4.Items.Add(toolTipTitleItem8);
+            this.chb_Positio_Split.SuperTip = superToolTip4;
+            this.chb_Positio_Split.TabIndex = 1;
+            // 
+            // toggleSwitch_ON_Position_Transl
+            // 
+            this.toggleSwitch_ON_Position_Transl.Location = new System.Drawing.Point(5, 28);
+            this.toggleSwitch_ON_Position_Transl.Name = "toggleSwitch_ON_Position_Transl";
+            this.toggleSwitch_ON_Position_Transl.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.toggleSwitch_ON_Position_Transl.Properties.OffText = "Не передавать позицию родителя";
+            this.toggleSwitch_ON_Position_Transl.Properties.OnText = "Передавать позицию родителя";
+            this.toggleSwitch_ON_Position_Transl.Size = new System.Drawing.Size(238, 18);
+            toolTipTitleItem9.Text = "Сохранять в растровый формат?";
+            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage4")));
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "При Вкл данной опции, DXF-Auto создаст копию развертки в растровом формате";
+            toolTipTitleItem10.LeftIndent = 6;
+            toolTipTitleItem10.Text = "DXF-Auto";
+            superToolTip5.Items.Add(toolTipTitleItem9);
+            superToolTip5.Items.Add(toolTipItem5);
+            superToolTip5.Items.Add(toolTipSeparatorItem5);
+            superToolTip5.Items.Add(toolTipTitleItem10);
+            this.toggleSwitch_ON_Position_Transl.SuperTip = superToolTip5;
+            this.toggleSwitch_ON_Position_Transl.TabIndex = 0;
             // 
             // OptionForm
             // 
@@ -312,6 +428,12 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.cb_Length.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
+            this.TP_Other.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,5 +456,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage TP_Other;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.ComboBoxEdit chb_Positio_Split;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_ON_Position_Transl;
     }
 }

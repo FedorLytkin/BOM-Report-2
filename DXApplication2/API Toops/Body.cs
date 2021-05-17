@@ -25,6 +25,7 @@ using VSNRM_Kompas.Dump;
 using VSNRM_Kompas.Options.Column_Options;
 using Microsoft.WindowsAPICodePack.Shell;
 using System.IO.Compression;
+using DevExpress.XtraTreeList.Columns;
 
 namespace SaveDXF
 {
@@ -458,6 +459,22 @@ namespace SaveDXF
                     Node.StateImageIndex = 8;
                 }
             }
+            if (IOption_Class.Positio_On_Value)
+            {
+                TreeListColumn Positio = treeView.Columns["Позиция"];
+                if (Positio != null)
+                {
+                    string ThisPosition = Convert.ToString(Node.GetValue("Позиция"));
+                    string ParentPosition = Convert.ToString(GetParentPositio(Node));
+                    Node.SetValue("Позиция", Node.ParentNode == null ? ThisPosition : ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);  ;
+                }
+            }
+        }
+        private string GetParentPositio(TreeListNode Node)
+        {
+            TreeListNode ParentNode = Node.ParentNode;
+            if (ParentNode == null) return "";
+            return Convert.ToString(ParentNode.GetValue("Позиция"));
         }
         private void AddCellsInNode(TreeListNode Node, ComponentInfo.Get_Body _Body)
         {
