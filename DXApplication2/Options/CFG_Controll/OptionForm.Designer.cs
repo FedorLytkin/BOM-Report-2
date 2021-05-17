@@ -322,7 +322,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             // 
             // groupControl2
             // 
-            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Controls.Add(this.labelControl10);
             this.groupControl2.Controls.Add(this.chb_Positio_Split);
             this.groupControl2.Controls.Add(this.toggleSwitch_ON_Position_Transl);
