@@ -321,6 +321,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem44 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem43 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem120 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip78 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem121 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem45 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem44 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem122 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip79 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem123 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
@@ -336,11 +341,6 @@
             DevExpress.Utils.ToolTipItem toolTipItem48 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem47 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem128 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip78 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem121 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem45 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem44 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem122 = new DevExpress.Utils.ToolTipTitleItem();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.mainRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiFindBOM = new DevExpress.XtraBars.BarButtonItem();
@@ -596,6 +596,7 @@
             this.bt_ExportColOpt = new DevExpress.XtraBars.BarButtonItem();
             this.Bt_ImportColOpt = new DevExpress.XtraBars.BarButtonItem();
             this.bt_CFG = new DevExpress.XtraBars.BarButtonItem();
+            this.bt_Prop_trans = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -615,6 +616,7 @@
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup_Columns_Property = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -726,8 +728,6 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
-            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bt_Prop_trans = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -3679,6 +3679,26 @@
             this.bt_CFG.SuperTip = superToolTip77;
             this.bt_CFG.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_CFG_ItemClick);
             // 
+            // bt_Prop_trans
+            // 
+            this.bt_Prop_trans.Caption = "Транслировать в узлы";
+            this.bt_Prop_trans.Id = 251;
+            this.bt_Prop_trans.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Prop_trans.ImageOptions.SvgImage")));
+            this.bt_Prop_trans.Name = "bt_Prop_trans";
+            toolTipTitleItem121.Text = "Транслировать свойства в входящие узлы";
+            toolTipItem45.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage38")));
+            toolTipItem45.LeftIndent = 6;
+            toolTipItem45.Text = "Инструмент позволит записывать параметры из Свойства компонента активной сборки, " +
+    "транслировать в Свойства соответствующей модели";
+            toolTipTitleItem122.LeftIndent = 6;
+            toolTipTitleItem122.Text = "BOM-Report";
+            superToolTip78.Items.Add(toolTipTitleItem121);
+            superToolTip78.Items.Add(toolTipItem45);
+            superToolTip78.Items.Add(toolTipSeparatorItem44);
+            superToolTip78.Items.Add(toolTipTitleItem122);
+            this.bt_Prop_trans.SuperTip = superToolTip78;
+            this.bt_Prop_trans.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Prop_trans_ItemClick);
+            // 
             // ribbonPageCategory2
             // 
             this.ribbonPageCategory2.Name = "ribbonPageCategory2";
@@ -3876,6 +3896,13 @@
             superToolTip81.Items.Add(toolTipTitleItem128);
             this.ribbonPageGroup_Columns_Property.SuperTip = superToolTip81;
             this.ribbonPageGroup_Columns_Property.Text = "Настройка столбцов";
+            // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.ItemLinks.Add(this.bt_Prop_trans);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.Text = "Специальные команды";
+            this.ribbonPageGroup16.Visible = false;
             // 
             // ribbonPageGroup8
             // 
@@ -6359,32 +6386,6 @@
             this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
             this.radialMenu1.Name = "radialMenu1";
             this.radialMenu1.Ribbon = this.mainRibbonControl;
-            // 
-            // ribbonPageGroup16
-            // 
-            this.ribbonPageGroup16.ItemLinks.Add(this.bt_Prop_trans);
-            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
-            this.ribbonPageGroup16.Text = "Специальные команды";
-            // 
-            // bt_Prop_trans
-            // 
-            this.bt_Prop_trans.Caption = "Троанслировать в узлы";
-            this.bt_Prop_trans.Id = 251;
-            this.bt_Prop_trans.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
-            this.bt_Prop_trans.Name = "bt_Prop_trans";
-            toolTipTitleItem121.Text = "Транслировать свойства в входящие узлы";
-            toolTipItem45.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage38")));
-            toolTipItem45.LeftIndent = 6;
-            toolTipItem45.Text = "Инструмент позволит записывать параметры из Свойства компонента активной сборки, " +
-    "транслировать в Свойства соответствующей модели";
-            toolTipTitleItem122.LeftIndent = 6;
-            toolTipTitleItem122.Text = "BOM-Report";
-            superToolTip78.Items.Add(toolTipTitleItem121);
-            superToolTip78.Items.Add(toolTipItem45);
-            superToolTip78.Items.Add(toolTipSeparatorItem44);
-            superToolTip78.Items.Add(toolTipTitleItem122);
-            this.bt_Prop_trans.SuperTip = superToolTip78;
-            this.bt_Prop_trans.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Prop_trans_ItemClick);
             // 
             // MainForm
             // 

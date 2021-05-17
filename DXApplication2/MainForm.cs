@@ -195,7 +195,7 @@ namespace VSNRM_Kompas
                         break;
                     case ".XML":
                         VSNRM_Kompas.Export.XMLexport.XMLExport_Class xMLExport_ = new Export.XMLexport.XMLExport_Class();
-                        xMLExport_.exportToXml(treeList1, ExportFileName);
+                        xMLExport_.exportToXml2(treeList1, ExportFileName);
                         //ExportXML(ExportFileName);
                         //treeList1.ExportToXml(ExportFileName);
                         break;
@@ -812,7 +812,11 @@ namespace VSNRM_Kompas
 
         private void bt_Prop_trans_ItemClick(object sender, ItemClickEventArgs e)
         {
+            splashScreenManager2.ShowWaitForm();
+            splashScreenManager2.SetWaitFormCaption("Трансляция в узлы");
             body.TransProp_St1();
+            splashScreenManager2.CloseWaitForm();
+            MessageBox.Show("Процесс передачи данных завершен!", "Трансляция параметров в узлы", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

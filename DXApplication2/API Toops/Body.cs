@@ -286,11 +286,6 @@ namespace SaveDXF
         }
         private void getBodyResoure(IPart7 Part, ComponentInfo componentInfo, TreeListNode node)
         {
-            //bool IsOpen = false;
-            //IKompasDocument3D kompasDocument = (IKompasDocument3D)_IApplication.Documents[Part.FileName];
-            //if(kompasDocument != null) IsOpen = true; 
-            //else
-            //    kompasDocument = (IKompasDocument3D)_IApplication.Documents.Open(Part.FileName, true, true);
             try
             {
                 Part = ((IKompasDocument3D)_IApplication.Documents[Part.FileName]).TopPart;
@@ -1336,11 +1331,7 @@ namespace SaveDXF
                 }
             }
             return res;
-        }
-        public void SetFieldValue(string FFN, string FieldValue)
-        {
-
-        }
+        } 
         #region "Транслировать параметры" 
         public void TransProp_St1()
         {
@@ -1349,6 +1340,7 @@ namespace SaveDXF
                 return;
             IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
             if (_IKompasDocument == null) return;
+            CheckMainControl();
             IPart7 TopPart = _IKompasDocument.TopPart;
             if (TopPart == null) { IPart7NothingMsg(_IKompasDocument.Path); return; }
 
@@ -1360,24 +1352,18 @@ namespace SaveDXF
         //процедура перебирает компоненты в сборке
         {
             if (TopPart != null)
-            { 
-                var Parts = TopPart.PartsEx[1];
+            {
+                var Parts = TopPart.PartsEx[0];
                 if (Parts != null)
                 {
                     foreach (IPart7 item in Parts)
                     {
                         try
                         {
-                            bool ItemHidden = item.Hidden;
-                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                            if (ItemHidden != true)
-                            {
-                                TransProp_AddProp(item, _IKompasDocument);
-                                if (!item.Detail && All_Level_Search)
-                                {
-                                    TransPropTravelByAssemly2(item, _IKompasDocument);
-                                }
-                            }
+                            TransProp_AddProp(item, _IKompasDocument); 
+                            AddWaitStatus(Path.GetFileNameWithoutExtension(item.FileName));
+                            if (!item.Detail)
+                                TransPropTravelByAssemly2(item, _IKompasDocument);
                         }
                         catch (Exception Ex)
                         {
@@ -1387,9 +1373,35 @@ namespace SaveDXF
                 }
             }
         }
+        public string TransProp_SetPropertyBodyIPart7(IPart7 part_, IBody7 Body, string PropertyName)
+        {
+            object res = "";
+            IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    bool Baseunit, FromSource;
+                    Baseunit = false;
+                    IPropertyKeeper propertyKeeper = (IPropertyKeeper)Body;
+                    if (propertyKeeper != null)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(_IKompasDocument3D, PropertyName);
+                        if (Property != null)
+                        {
+                            propertyKeeper.GetPropertyValue((_Property)Property, out res, Baseunit, out FromSource);
+                        }
+                    }
+                }
+            }
+            if (res != null) { if (res.GetType().Name == "Double") res = Math.Round(Convert.ToDouble(res), 3); } else { return null; }
+            return res.ToString();
+        }
         private void TransProp_AddProp(IPart7 part_, IKompasDocument3D Parent_IKompasDocument)
         {
             IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            if (This_IKompasDocument3D == Parent_IKompasDocument) return;
             IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
             if (_IApplication != null)
             {
@@ -1401,24 +1413,30 @@ namespace SaveDXF
                     {
                         bool find_Prop = false;
                         IProperty Property = _IPropertyMng.GetProperty(Parent_IKompasDocument, i);
-                        object returnObject = GetValueProperty(part_, Property, out returnObject);
-                        int count_thisPart = _IPropertyMng.PropertyCount[This_IKompasDocument3D];
-                        for (int y = 0; y < count; y++)
+                        object returnObject;
+                        GetValueProperty(part_, Property, out returnObject);
+                        if (!string.IsNullOrEmpty(Convert.ToString(returnObject)))
                         {
-                            IProperty Property_thisPart = _IPropertyMng.GetProperty(This_IKompasDocument3D, y);
-                            if (Property_thisPart.Name == Property.Name)
+                            int count_thisPart = _IPropertyMng.PropertyCount[This_IKompasDocument3D];
+                            for (int y = 0; y < count_thisPart; y++)
                             {
-                                find_Prop = true;
-                                if (returnObject != null)
-                                    TransProp_SetValueProperty(part_, Property_thisPart, returnObject);
-                                break;
+                                IProperty Property_thisPart = _IPropertyMng.GetProperty(This_IKompasDocument3D, y);
+                                if (Property_thisPart.Name == Property.Name)
+                                {
+                                    find_Prop = true;
+                                    if (returnObject != null)
+                                        TransProp_SetValueProperty(part_thisDetal, Property_thisPart, returnObject);
+                                    break;
+                                }
                             }
-                        }
-                        if (!find_Prop)
-                        {
-                            IProperty Property_new = _IPropertyMng.AddProperty(This_IKompasDocument3D, returnObject);
-                            Property_new.Name = Property.Name;
-                            Property_new.Update();
+                            if (!find_Prop)
+                            {
+                                object obj = null;
+                                IProperty Property_new = _IPropertyMng.AddProperty(This_IKompasDocument3D, obj);
+                                Property_new.Name = Property.Name;
+                                Property_new.Update();
+                                TransProp_SetValueProperty(part_thisDetal, Property_new, returnObject);
+                            }
                         }
                     }
                 }
@@ -1435,7 +1453,7 @@ namespace SaveDXF
                 {
                     _Property classresProperty = (_Property)Property;
                     if (classresProperty != null)
-                        Prop.SetPropertyValue((_Property)classresProperty, Val, true);
+                        res = Prop.SetPropertyValue((_Property)classresProperty, Val, true);
                 }
             }
             return res;
@@ -1861,6 +1879,60 @@ namespace SaveDXF
             }
             return DonorFileName;
         }
+        private void GetParamsByObozAndNaim(string NewFileName, string OldOboz, string OldName, out string ReturnOboz, out string ReturnNaim, List<TreeListNode> AllComponents)
+        {
+            ReturnOboz = null;
+            ReturnNaim = null;
+            if (string.IsNullOrEmpty(NewFileName)) return;
+            foreach (TreeListNode node in AllComponents)
+            {
+                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                if (node.GetValue("Сохранить в имени").ToString() == Path.GetFileNameWithoutExtension(NewFileName) && componentInfo.Oboz == OldOboz && componentInfo.Naim == OldName && node.Checked)
+                {
+                    ReturnOboz = node.GetValue("Сохранить в Обозначении").ToString();
+                    ReturnNaim = node.GetValue("Сохранить в Наименовании").ToString();
+                    return;
+                }
+            }
+            if (ReturnOboz == null) ReturnOboz = OldOboz;
+            if (ReturnNaim == null) ReturnNaim = OldName;
+        }
+        private void SetCloneProperty(IKompasDocument3D document3D, IPart7 part7, string New_FileName, List<TreeListNode> AllComponents)
+        {
+            //процедура изменяет Обозначение и Наименование у нового компонента
+            if (document3D == null) return;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    string NewOboz;
+                    string NewNaim;
+                    GetParamsByObozAndNaim(New_FileName, part7.Marking, part7.Name, out NewOboz, out NewNaim, AllComponents);
+                    if (NewOboz == part7.Marking && NewNaim == part7.Name ) return;
+                    int count = _IPropertyMng.PropertyCount[document3D];
+                    int SetObozAndName = 0;
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(document3D, i);
+                        if(Property.Name == "Обозначение" || Property.Name == "Наименование")
+                        {
+                            IPropertyKeeper Prop = (IPropertyKeeper)part7;
+
+                            if (Prop != null)
+                            {
+                                bool res;
+                                _Property classresProperty = (_Property)Property;
+                                if (classresProperty != null)
+                                    res = Prop.SetPropertyValue((_Property)classresProperty, (Property.Name == "Обозначение" ? NewOboz : NewNaim), true);
+                                SetObozAndName += 1;
+                            }
+                        }
+                        if (SetObozAndName == 2) break;
+                    }
+                }
+            }
+        }
         public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
         {
             if (IsSourseCompeteFile(ExportFileName)) return;
@@ -1879,12 +1951,7 @@ namespace SaveDXF
             int currentEmbody = 0;
             IEmbodimentsManager _IEmbodimentsManager = (IEmbodimentsManager)part7;
             int EmbodyCount = _IEmbodimentsManager.EmbodimentCount;
-            for (int ii = 0; ii < EmbodyCount; ii++)
-            {
-                Embodiment tmp_Embodiment;
-                tmp_Embodiment = _IEmbodimentsManager.Embodiment[ii];
-                if (tmp_Embodiment.IsCurrent == true) { currentEmbody = ii; break; }
-            }
+            currentEmbody = _IEmbodimentsManager.CurrentEmbodimentIndex;
             
             for (int j = 0; j < EmbodyCount; j++)
             {
@@ -1970,12 +2037,7 @@ namespace SaveDXF
                 int currentEmbody = 0;
                 IEmbodimentsManager _IEmbodimentsManager = (IEmbodimentsManager)document3D.TopPart;
                 int EmbodyCount = _IEmbodimentsManager.EmbodimentCount;
-                for (int ii = 0; ii < EmbodyCount; ii++)
-                {
-                    Embodiment tmp_Embodiment;
-                    tmp_Embodiment = _IEmbodimentsManager.Embodiment[ii];
-                    if (tmp_Embodiment.IsCurrent == true) { currentEmbody = ii; break; }
-                }
+                currentEmbody = _IEmbodimentsManager.CurrentEmbodimentIndex;
 
                 for (int j = 0; j < EmbodyCount; j++)
                 {
@@ -1985,6 +2047,11 @@ namespace SaveDXF
                     tmp_Embodiment.IsCurrent = true;
                     if (tmp_Embodiment.Part == null) { IPart7NothingMsg(PartFileName); return; }
                     IPart7 part7 = tmp_Embodiment.Part;
+                    try
+                    {
+                        SetCloneProperty(document3D, part7, PartFileName, AllComponents);
+                    }
+                    catch { }
                     string ffn = part7.FileName;
                     IFeature7 feature7 = (IFeature7)part7;
                     var VariableCollection = feature7.Variables[false, true];
