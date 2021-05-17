@@ -205,6 +205,12 @@ namespace VSNRM_Kompas.ProjectClone
                         case "Сохранить в имени":
                             ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
                             break;
+                        case "Сохранить в Обозначении":
+                            ParamVal = $@"{Prefix_Value}{Drw_Info.Oboz}{Sufix_Value}";
+                            break;
+                        case "Сохранить в Наименовании":
+                            ParamVal = $@"{Prefix_Value}{Drw_Info.Naim}{Sufix_Value}";
+                            break;
                         case "Расположение":
                             ParamVal = f.DirectoryName;
                             break;
@@ -242,7 +248,7 @@ namespace VSNRM_Kompas.ProjectClone
             ComponentInfo Drw_componentInfo = (ComponentInfo)componentInfo.Clone();
             Drw_componentInfo.FFN = Drw_Info.FFN;
             Drw_componentInfo.Slide = Drw_Info.Slide;
-            Drw_componentInfo.Key = Drw_Info.FFN + "|" + Drw_Info.Oboz;
+            Drw_componentInfo.Key = Drw_Info.FFN + "|" + (string.IsNullOrEmpty(Drw_Info.Oboz) ? Drw_Info.Naim : Drw_Info.Oboz);
             Drw_componentInfo.drw_Info  = Drw_Info;
 
             New_Node.Tag = Drw_componentInfo;
@@ -347,11 +353,11 @@ namespace VSNRM_Kompas.ProjectClone
                         break;
                     case "Сохранить в Обозначении":
                         if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
-                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.Oboz)}{Sufix_Value}");
+                            node.SetValue(ColumnName, $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}");
                         break;
                     case "Сохранить в Наименовании":
                         if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
-                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.Naim)}{Sufix_Value}");
+                            node.SetValue(ColumnName, $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}");
                         break;
                     default:
                         node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");

@@ -501,6 +501,36 @@ namespace VSNRM_Kompas.ProjectClone
                         node.SetValue("Сохранить в имени", EditText);
                 }
             }
+            if (e.Column.FieldName == "Сохранить в Обозначении")
+            {
+                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+                if (componentInfo == null) return;
+                string EditText = Convert.ToString(e.Node.GetValue("Сохранить в Обозначении"));
+
+                if (string.IsNullOrWhiteSpace(EditText))
+                    e.Node.SetValue("Сохранить в Обозначении", e.Node.GetValue("Обозначение"));
+                foreach (TreeListNode node in treeList1.GetNodeList())
+                {
+                    ComponentInfo tmp_componentInfo = (ComponentInfo)node.Tag;
+                    if (tmp_componentInfo.FFN == componentInfo.FFN && tmp_componentInfo.Oboz == componentInfo.Oboz)
+                        node.SetValue("Сохранить в Обозначении", EditText);
+                }
+            }
+            if (e.Column.FieldName == "Сохранить в Наименовании")
+            {
+                ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+                if (componentInfo == null) return;
+                string EditText = Convert.ToString(e.Node.GetValue("Сохранить в Наименовании"));
+
+                if (string.IsNullOrWhiteSpace(EditText))
+                    e.Node.SetValue("Сохранить в Наименовании", e.Node.GetValue("Наименование"));
+                foreach (TreeListNode node in treeList1.GetNodeList())
+                {
+                    ComponentInfo tmp_componentInfo = (ComponentInfo)node.Tag;
+                    if (tmp_componentInfo.FFN == componentInfo.FFN && tmp_componentInfo.Oboz == componentInfo.Oboz)
+                        node.SetValue("Сохранить в Наименовании", EditText);
+                }
+            }
         }
 
     }
