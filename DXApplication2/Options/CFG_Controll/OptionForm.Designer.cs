@@ -367,13 +367,12 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             "\\",
             "/"});
             this.chb_Positio_Split.Size = new System.Drawing.Size(100, 20);
-            toolTipTitleItem7.Text = "Выбрать растровый формат";
+            toolTipTitleItem7.Text = "Разделитель";
             toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
             toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "Выбрать формат для растровой копии развертки\r\n\r\nПри сохранении развертки DXF, про" +
-    "грамма создаст растровуую копию в выбранном формате";
+            toolTipItem4.Text = "Разделитель между позициями";
             toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "DXF-Auto";
+            toolTipTitleItem8.Text = "BOM-Report";
             superToolTip4.Items.Add(toolTipTitleItem7);
             superToolTip4.Items.Add(toolTipItem4);
             superToolTip4.Items.Add(toolTipSeparatorItem4);
@@ -389,12 +388,13 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_ON_Position_Transl.Properties.OffText = "Не передавать позицию родителя";
             this.toggleSwitch_ON_Position_Transl.Properties.OnText = "Передавать позицию родителя";
             this.toggleSwitch_ON_Position_Transl.Size = new System.Drawing.Size(238, 18);
-            toolTipTitleItem9.Text = "Сохранять в растровый формат?";
+            toolTipTitleItem9.Text = "Структурированные позийии";
             toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage4")));
             toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "При Вкл данной опции, DXF-Auto создаст копию развертки в растровом формате";
+            toolTipItem5.Text = "При Вкл данной опции, Позиции родительского узла будут передаваться в позиции пот" +
+    "омка\r\nПри Выкл опции, Позиции наследоваться не будут";
             toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "DXF-Auto";
+            toolTipTitleItem10.Text = "BOM-Report";
             superToolTip5.Items.Add(toolTipTitleItem9);
             superToolTip5.Items.Add(toolTipItem5);
             superToolTip5.Items.Add(toolTipSeparatorItem5);
