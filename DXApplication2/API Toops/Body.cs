@@ -466,7 +466,10 @@ namespace SaveDXF
                 {
                     string ThisPosition = Convert.ToString(Node.GetValue("Позиция"));
                     string ParentPosition = Convert.ToString(GetParentPositio(Node));
-                    Node.SetValue("Позиция", Node.ParentNode == null ? ThisPosition : ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);  ;
+                    if(Node.Level == 1 || Node.Level == 0)
+                        Node.SetValue("Позиция", ThisPosition);
+                    else
+                        Node.SetValue("Позиция", ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);
                 }
             }
         }
