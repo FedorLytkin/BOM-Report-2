@@ -157,16 +157,40 @@ namespace VSNRM_Kompas.ProjectClone
                         }
                         break;
                     case Find_Method_Enum.RepaceText:
-                        if (To4noe)
+                        if(SetColumnName != "Все перечисленные")
                         {
-                            if (node.GetValue(GetColumnName).ToString() == FindText)
-                                node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
+                            if (To4noe)
+                            {
+                                if (node.GetValue(GetColumnName).ToString() == FindText)
+                                    node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
+                            }
+                            else
+                            {
+                                if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                    node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
+                            };
                         }
                         else
                         {
-                            if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
-                                node.SetValue(SetColumnName, node.GetValue(SetColumnName).ToString().Replace(FindText, ReplaceText));
-                        }
+                            if (To4noe)
+                            {
+                                if (node.GetValue(GetColumnName).ToString() == FindText)
+                                {
+                                    node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                                    node.SetValue("Сохранить в Обозначении", node.GetValue("Сохранить в Обозначении").ToString().Replace(FindText, ReplaceText));
+                                    node.SetValue("Сохранить в Наименовании", node.GetValue("Сохранить в Наименовании").ToString().Replace(FindText, ReplaceText));
+                                }
+                            }
+                            else
+                            {
+                                if (node.GetValue(GetColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
+                                {
+                                    node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                                    node.SetValue("Сохранить в Обозначении", node.GetValue("Сохранить в Обозначении").ToString().Replace(FindText, ReplaceText));
+                                    node.SetValue("Сохранить в Наименовании", node.GetValue("Сохранить в Наименовании").ToString().Replace(FindText, ReplaceText));
+                                } 
+                            }
+                        } 
                         break;
                 }
             }

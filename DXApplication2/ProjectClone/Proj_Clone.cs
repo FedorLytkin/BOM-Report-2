@@ -428,7 +428,7 @@ namespace VSNRM_Kompas.ProjectClone
             ComponentInfo componentInfo = (ComponentInfo)TLN.Tag;
             foreach (TreeListNode node in TLN.Nodes)
             {
-                if (node.GetValue("Тип").ToString().ToUpper() == ".CDW" || node.GetValue("Тип").ToString().ToUpper() == ".SPW")
+                //if (node.GetValue("Тип").ToString().ToUpper() == ".CDW" || node.GetValue("Тип").ToString().ToUpper() == ".SPW")
                     node.Checked = TLN.Checked;
             }
             foreach (TreeListNode node in treeList1.GetNodeList())

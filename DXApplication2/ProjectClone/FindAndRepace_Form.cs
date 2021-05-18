@@ -209,5 +209,24 @@ namespace VSNRM_Kompas.ProjectClone
         {
             FindAndRepace.To4noe = cb_To4noe.Checked;
         }
+
+        private void cb_FindParams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cb_FindParams.Text)
+            {
+                case "Имя файла":
+                case "Сохранить в имени":
+                    cb_EditName.Text = "Сохранить в имени";
+                    break;
+                case "Обозначение":
+                case "Сохранить в Обозначении":
+                    cb_EditName.Text = "Сохранить в Обозначении";
+                    break;
+                case "Наименование":
+                case "Сохранить в Наименовании":
+                    cb_EditName.Text = "Сохранить в Наименовании";
+                    break;
+            }
+        }
     }
 }
