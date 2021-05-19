@@ -415,6 +415,7 @@ namespace VSNRM_Kompas
         private void bbiFindBOM_AcriveDoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             BOM_ActiveDocum();
+            MessageBox.Show(sw.ElapsedMilliseconds.ToString());
         }
 
         private void Bt_Preview_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -808,7 +809,10 @@ namespace VSNRM_Kompas
                 else
                     poz1 = string.IsNullOrEmpty(Convert.ToString(NodeVal)) ? 9999 : Convert.ToInt32(NodeVal);
             }
-
+            else
+            {
+                poz1 = string.IsNullOrEmpty(Convert.ToString(NodeVal)) ? 9999 : Convert.ToInt32(NodeVal);
+            }
             return poz1;
         }
         private void treeList1_CustomColumnSort(object sender, CustomColumnSortEventArgs e)
