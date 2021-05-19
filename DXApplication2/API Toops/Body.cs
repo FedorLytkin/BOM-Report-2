@@ -211,6 +211,7 @@ namespace SaveDXF
                 var Parts = TopPart.PartsEx[1];
                 if (Parts != null)
                 {
+                    List<string> PartList = GetPartList(TopPart);
                     foreach (IPart7 item in Parts)
                     {
                         try
@@ -223,13 +224,8 @@ namespace SaveDXF
                                 AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
                                 string itemKey = null;
                                 itemKey = GetComponentKey(item);
-                                //itemKey = item.FileName + "|" + (string.IsNullOrEmpty(item.Marking)? item.Name : item.Marking);
-                                //if (string.IsNullOrEmpty(item.Marking))
-                                //    itemKey = item.FileName + "|" + item.Name;
-                                //else
-                                //    itemKey = item.FileName + "|" + item.Marking;
                                 if (!componentInfo.QNT_False)
-                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, GetPartList(TopPart));
+                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
                                 
                                 TreeListNode TempNode;
@@ -271,10 +267,6 @@ namespace SaveDXF
             }
             componentInfo_Copy.isBody = true;
             componentInfo_Copy.Key = GetComponentKey(Part, _body);
-            //if (string.IsNullOrEmpty(Part.Marking))
-            //    componentInfo_Copy.Key = Part.FileName + "|" + Part.Name + "|" + _body.Marking;
-            //else
-            //    componentInfo_Copy.Key = Part.FileName + "|" + Part.Marking + "|" + _body.Marking;
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             foreach (string ParamName in FindParam_Model)
             {
@@ -322,34 +314,6 @@ namespace SaveDXF
             //if (!IsOpen)
             //    kompasDocument.Close(DocumentCloseOptions.kdDoNotSaveChanges);
         }
-        private double GetQNTInParts(IPart7 Find_Item, IPart7 TopPart)
-        {
-            double QNT = 0;
-            var Parts = TopPart.Parts;
-            foreach (IPart7 item in Parts)
-            {
-                try
-                {
-                    bool ItemHidden = item.Hidden;
-                    if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                    if (ItemHidden != true)
-                    {
-                        if (string.IsNullOrEmpty(Find_Item.Marking))
-                        {
-                            if (Find_Item.FileName + "|" + Find_Item.Name == item.FileName + "|" + item.Name)
-                                QNT += 1;
-                        }
-                        else
-                        {
-                            if (Find_Item.FileName + "|" + Find_Item.Marking == item.FileName + "|" + item.Marking)
-                                QNT += 1;
-                        }
-                    }
-                }
-                catch{}
-            }
-            return QNT;
-        }
         private double GetQNTIn_PartsList(string Find_Item_Key, List<string> PartList)
         {
             double QNT = 0;
@@ -371,10 +335,7 @@ namespace SaveDXF
                     if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
                     if (ItemHidden != true)
                     {
-                        if(string.IsNullOrEmpty(item.Marking))
-                            PartList.Add(item.FileName + "|" + item.Name);
-                        else
-                            PartList.Add(item.FileName + "|" + item.Marking);
+                        PartList.Add(GetComponentKey(item));
                     }
                         
                 }
