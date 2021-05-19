@@ -93,7 +93,9 @@ namespace VSNRM_Kompas
                     (Col_List_CB.Edit as RepositoryItemComboBox).Items.Add(column.Name);
             }
             if (treeList1.Columns["Раздел спецификации"] != null) 
-                treeList1.Columns["Раздел спецификации"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;  
+                treeList1.Columns["Раздел спецификации"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;
+            if (treeList1.Columns["Позиция"] != null)
+                treeList1.Columns["Позиция"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;
         }
         public void AddItem_In_Combobox()
         {
@@ -793,14 +795,70 @@ namespace VSNRM_Kompas
         {
             AddColumns(true);
         }
-
-        private void treeList1_CustomColumnSort(object sender, CustomColumnSortEventArgs e)
+        private int GetPosition(object NodeVal)
         {
+            int poz1 = -1;
+            if (option_Class.Positio_On_Value)
+            {
+                if (Convert.ToString(NodeVal).IndexOf(Convert.ToChar(option_Class.Positio_Split_Value)) >= 0)
+                {
+                    string[] arr = (Convert.ToString(NodeVal)).Split(Convert.ToChar(option_Class.Positio_Split_Value));
+                    poz1 = string.IsNullOrEmpty(arr[arr.Length - 1]) ? 9999 : Convert.ToInt32(arr[arr.Length - 1]);
+                }
+                else
+                    poz1 = string.IsNullOrEmpty(Convert.ToString(NodeVal)) ? 9999 : Convert.ToInt32(NodeVal);
+            }
+
+            return poz1;
+        }
+        private void treeList1_CustomColumnSort(object sender, CustomColumnSortEventArgs e)
+        { 
             if (e.Node1.HasChildren && !e.Node2.HasChildren)
                 e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
             if (!e.Node1.HasChildren && e.Node2.HasChildren)
-                e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+                e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1; 
 
+            if(e.Column.Caption == "Позиция")
+            {
+                int poz1, poz2;
+                poz1 = GetPosition(e.NodeValue1);
+                poz2 = GetPosition(e.NodeValue2);
+                if(e.SortOrder == SortOrder.Ascending)
+                {
+                    if (poz1 < poz2)
+                        e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+                    else
+                        e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+                }
+                if(e.SortOrder == SortOrder.Descending)
+                {
+                    if (poz1 < poz2)
+                        e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+                    else
+                        e.Result = e.SortOrder == SortOrder.Descending ? 1 : -1;
+                }
+                //if (poz1 > poz2 && e.SortOrder == SortOrder.Ascending)
+                //    e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+                //if (poz1 < poz2 && e.SortOrder == SortOrder.Descending)
+                //    e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+                //if (poz1 > poz2 && e.SortOrder == SortOrder.Descending)
+                //    e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+                //if (poz1 < poz2 && e.SortOrder == SortOrder.Descending)
+                //    e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+            }
+            //switch (e.Column.Caption)
+            //{
+            //    case "Позиция":
+            //        int poz1, poz2;
+            //        poz1 = GetPosition(e.NodeValue1);
+            //        poz2 = GetPosition(e.NodeValue2);
+            //        if (poz1 > poz2)
+            //            e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+            //            e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
+            //        else
+            //            e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
+            //        break;
+            //}
         }
 
         private void bt_CFG_ItemClick(object sender, ItemClickEventArgs e)

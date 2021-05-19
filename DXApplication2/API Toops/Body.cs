@@ -222,7 +222,8 @@ namespace SaveDXF
                                 ComponentInfo componentInfo = GetParam(item);
                                 AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
                                 string itemKey = null;
-                                itemKey = item.FileName + "|" + (string.IsNullOrEmpty(item.Marking)? item.Name : item.Marking);
+                                itemKey = GetComponentKey(item);
+                                //itemKey = item.FileName + "|" + (string.IsNullOrEmpty(item.Marking)? item.Name : item.Marking);
                                 //if (string.IsNullOrEmpty(item.Marking))
                                 //    itemKey = item.FileName + "|" + item.Name;
                                 //else
@@ -269,7 +270,7 @@ namespace SaveDXF
                 componentInfo_Copy.Body.QNT_False = false;
             }
             componentInfo_Copy.isBody = true;
-            componentInfo_Copy.Key = Part.FileName + "|" + ((string.IsNullOrEmpty(Part.Marking)) ? Part.Name : Part.Marking) + "|" + ((string.IsNullOrEmpty(_body.Marking)) ? _body.Name : _body.Marking);
+            componentInfo_Copy.Key = GetComponentKey(Part, _body);
             //if (string.IsNullOrEmpty(Part.Marking))
             //    componentInfo_Copy.Key = Part.FileName + "|" + Part.Name + "|" + _body.Marking;
             //else
@@ -466,10 +467,12 @@ namespace SaveDXF
                 {
                     string ThisPosition = Convert.ToString(Node.GetValue("Позиция"));
                     string ParentPosition = Convert.ToString(GetParentPositio(Node));
-                    if(Node.Level == 1 || Node.Level == 0)
-                        Node.SetValue("Позиция", ThisPosition);
-                    else
-                        Node.SetValue("Позиция", ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);
+                    Node.SetValue("Позиция", string.IsNullOrEmpty(ParentPosition) ? ThisPosition : ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);
+
+                    //if (Node.Level == 1 || Node.Level == 0)
+                    //    Node.SetValue("Позиция", ThisPosition);
+                    //else
+                    //    Node.SetValue("Позиция", ParentPosition + IOption_Class.Positio_Split_Value + ThisPosition);
                 }
             }
         }
@@ -602,7 +605,6 @@ namespace SaveDXF
             _componentInfo.Total_QNT = GetTotalQNT(ChildNode);
             ChildNode.SetValue("Количество общ.", _componentInfo.Total_QNT);
             ChildNode.Tag = _componentInfo;
-
             if (Add_Drw) AddDrwNode(ChildNode, _componentInfo);
 
             return ChildNode;
@@ -967,13 +969,23 @@ namespace SaveDXF
             _Body.Oboz = body.Marking;
             return _Body;
         }
+        private string GetComponentKey(IPart7 part, IBody7 body)
+        {
+            if (IOption_Class.Positio_On_Value)
+                return part.FileName + "|" + ((string.IsNullOrEmpty(part.Marking)) ? part.Name : part.Marking) + "|" + ((string.IsNullOrEmpty(body.Marking)) ? body.Name : body.Marking) + "|" + OptionsFold.tools_class.FixInvalidChars_St(GetPropertyBodyIPart7(part, body, "Позиция"), "");
+            else
+                return part.FileName + "|" + ((string.IsNullOrEmpty(part.Marking)) ? part.Name : part.Marking) + "|" + ((string.IsNullOrEmpty(body.Marking)) ? body.Name : body.Marking);
+        }
+        private string GetComponentKey(IPart7 part)
+        {
+            if(IOption_Class.Positio_On_Value)
+                return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking) + "|" + OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, "Позиция"), "");
+            else
+                return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking);
+        }
         private ComponentInfo GetParam(IPart7 part)
         {
-            string ComponentKey = null;
-            if(string.IsNullOrEmpty(part.Marking))
-                ComponentKey = part.FileName + "|" + part.Name;
-            else
-                ComponentKey = part.FileName + "|" + part.Marking;
+            string ComponentKey = GetComponentKey(part);
 
             //FindModel_List
             ComponentInfo iMSH = GetExistNode_By_ComponentKey(ComponentKey);
