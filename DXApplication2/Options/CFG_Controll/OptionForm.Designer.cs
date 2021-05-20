@@ -40,11 +40,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
@@ -55,6 +50,16 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
@@ -77,6 +82,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.chb_Positio_Split = new DevExpress.XtraEditors.ComboBoxEdit();
             this.toggleSwitch_ON_Position_Transl = new DevExpress.XtraEditors.ToggleSwitch();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.toggleSwitch_Material_In_Assembly = new DevExpress.XtraEditors.ToggleSwitch();
             this.TP_MU.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -92,6 +99,9 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_Material_In_Assembly.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Cancel_Bt
@@ -315,6 +325,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             // 
             // TP_Other
             // 
+            this.TP_Other.Controls.Add(this.groupControl3);
             this.TP_Other.Controls.Add(this.groupControl2);
             this.TP_Other.Name = "TP_Other";
             this.TP_Other.Size = new System.Drawing.Size(488, 245);
@@ -339,18 +350,18 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl10.Location = new System.Drawing.Point(5, 52);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(132, 13);
-            toolTipTitleItem5.Text = "Выбрать растровый формат";
-            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "Выбрать формат для растровой копии развертки\r\n\r\nПри сохранении развертки DXF, про" +
+            toolTipTitleItem7.Text = "Выбрать растровый формат";
+            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = "Выбрать формат для растровой копии развертки\r\n\r\nПри сохранении развертки DXF, про" +
     "грамма создаст растровуую копию в выбранном формате";
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "DXF-Auto";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem3);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.labelControl10.SuperTip = superToolTip3;
+            toolTipTitleItem8.LeftIndent = 6;
+            toolTipTitleItem8.Text = "DXF-Auto";
+            superToolTip4.Items.Add(toolTipTitleItem7);
+            superToolTip4.Items.Add(toolTipItem4);
+            superToolTip4.Items.Add(toolTipSeparatorItem4);
+            superToolTip4.Items.Add(toolTipTitleItem8);
+            this.labelControl10.SuperTip = superToolTip4;
             this.labelControl10.TabIndex = 12;
             this.labelControl10.Text = "Выбрать Разделитель";
             // 
@@ -367,17 +378,17 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             "\\",
             "/"});
             this.chb_Positio_Split.Size = new System.Drawing.Size(100, 20);
-            toolTipTitleItem7.Text = "Разделитель";
-            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "Разделитель между позициями";
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "BOM-Report";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem4);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.chb_Positio_Split.SuperTip = superToolTip4;
+            toolTipTitleItem9.Text = "Разделитель";
+            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage4")));
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "Разделитель между позициями";
+            toolTipTitleItem10.LeftIndent = 6;
+            toolTipTitleItem10.Text = "BOM-Report";
+            superToolTip5.Items.Add(toolTipTitleItem9);
+            superToolTip5.Items.Add(toolTipItem5);
+            superToolTip5.Items.Add(toolTipSeparatorItem5);
+            superToolTip5.Items.Add(toolTipTitleItem10);
+            this.chb_Positio_Split.SuperTip = superToolTip5;
             this.chb_Positio_Split.TabIndex = 1;
             // 
             // toggleSwitch_ON_Position_Transl
@@ -388,19 +399,50 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_ON_Position_Transl.Properties.OffText = "Не передавать позицию родителя";
             this.toggleSwitch_ON_Position_Transl.Properties.OnText = "Передавать позицию родителя";
             this.toggleSwitch_ON_Position_Transl.Size = new System.Drawing.Size(238, 18);
-            toolTipTitleItem9.Text = "Структурированные позийии";
-            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage4")));
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "При Вкл данной опции, Позиции родительского узла будут передаваться в позиции пот" +
+            toolTipTitleItem11.Text = "Структурированные позийии";
+            toolTipItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage5")));
+            toolTipItem6.LeftIndent = 6;
+            toolTipItem6.Text = "При Вкл данной опции, Позиции родительского узла будут передаваться в позиции пот" +
     "омка\r\nПри Выкл опции, Позиции наследоваться не будут";
-            toolTipTitleItem10.LeftIndent = 6;
-            toolTipTitleItem10.Text = "BOM-Report";
-            superToolTip5.Items.Add(toolTipTitleItem9);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem5);
-            superToolTip5.Items.Add(toolTipTitleItem10);
-            this.toggleSwitch_ON_Position_Transl.SuperTip = superToolTip5;
+            toolTipTitleItem12.LeftIndent = 6;
+            toolTipTitleItem12.Text = "BOM-Report";
+            superToolTip6.Items.Add(toolTipTitleItem11);
+            superToolTip6.Items.Add(toolTipItem6);
+            superToolTip6.Items.Add(toolTipSeparatorItem6);
+            superToolTip6.Items.Add(toolTipTitleItem12);
+            this.toggleSwitch_ON_Position_Transl.SuperTip = superToolTip6;
             this.toggleSwitch_ON_Position_Transl.TabIndex = 0;
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.toggleSwitch_Material_In_Assembly);
+            this.groupControl3.Location = new System.Drawing.Point(263, 3);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(222, 85);
+            this.groupControl3.TabIndex = 20;
+            this.groupControl3.Text = "Материал в сборках";
+            // 
+            // toggleSwitch_Material_In_Assembly
+            // 
+            this.toggleSwitch_Material_In_Assembly.Location = new System.Drawing.Point(5, 28);
+            this.toggleSwitch_Material_In_Assembly.Name = "toggleSwitch_Material_In_Assembly";
+            this.toggleSwitch_Material_In_Assembly.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.toggleSwitch_Material_In_Assembly.Properties.OffText = "Не записывать";
+            this.toggleSwitch_Material_In_Assembly.Properties.OnText = "Записывать";
+            this.toggleSwitch_Material_In_Assembly.Size = new System.Drawing.Size(217, 18);
+            toolTipTitleItem5.Text = "Материал в сборках";
+            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "При ВКЛ опции, для моделей-сборок будеть браться материал из Свойства модели\r\nПри" +
+    " ВЫКЛ материал браться не будет";
+            toolTipTitleItem6.LeftIndent = 6;
+            toolTipTitleItem6.Text = "BOM-Report";
+            superToolTip3.Items.Add(toolTipTitleItem5);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem3);
+            superToolTip3.Items.Add(toolTipTitleItem6);
+            this.toggleSwitch_Material_In_Assembly.SuperTip = superToolTip3;
+            this.toggleSwitch_Material_In_Assembly.TabIndex = 0;
             // 
             // OptionForm
             // 
@@ -433,6 +475,9 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_Material_In_Assembly.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -460,5 +505,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.ComboBoxEdit chb_Positio_Split;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_ON_Position_Transl;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_Material_In_Assembly;
     }
 }

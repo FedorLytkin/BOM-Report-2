@@ -10,8 +10,6 @@ public class Option_Class
     public string Area_MU_Name { get; set; }
     public string Volume_MU_Name { get; set; }
     public string Count_MU_Name { get; set; }
-    public string Positio_On_Name { get; set; }
-    public string Positio_Split_Value_Name { get; set; }
 
     public int Mass_MU_Value { get; set; }
     public int Length_MU_Value { get; set; }
@@ -19,6 +17,7 @@ public class Option_Class
     public int Volume_MU_Value { get; set; }
     public int Count_MU_Value { get; set; }
     public bool Positio_On_Value { get; set; }
+    public bool Material_In_Assemly { get; set; }
     public string Positio_Split_Value { get; set; }
     public Option_Class()
     {

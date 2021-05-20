@@ -989,7 +989,10 @@ namespace SaveDXF
                         ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
                         break;
                     case "Материал":
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
+                        if(part.Detail)
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
+                        if (IOption_Class.Material_In_Assemly && !part.Detail)
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
                         break;
                     case "Толщина":
                         ParamValue = Convert.ToString(GetThicknessPart(part, true));
