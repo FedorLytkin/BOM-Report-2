@@ -41,8 +41,6 @@ namespace SaveDXF
         public List<object> FindModel_List;
         public List<string> OpenDocsPERED_Start;
         public bool All_Level_Search = false;
-        public bool Split_Naim = false;
-        public bool Add_Drw = false;
         public bool OnlySheetMetalls = false;
         public static bool thisFirstMessage = false;
         CFG_Class optionClassInBody;
@@ -124,12 +122,27 @@ namespace SaveDXF
             if (node.Tag == null)
             {
                 node.Tag = GetParam(TopPart);
-                if(Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
+                if(IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
             Recource(TopPart, node);
-            node.ExpandAll();
+            NodeExpand(node);
             CloseDocs();
+        }
+        private void NodeExpand(TreeListNode node)
+        {
+            switch ((Option_Class.TreeStatus_Enum)IOption_Class.TreeStatus_Value)
+            {
+                case Option_Class.TreeStatus_Enum.treeStatus_Expand:
+                    node.Expand();
+                    break;
+                case Option_Class.TreeStatus_Enum.treeStatus_ExpandAll:
+                    node.ExpandAll();
+                    break;
+                case Option_Class.TreeStatus_Enum.treeStatus_None:
+                    node.Collapse();
+                    break;
+            }
         }
         private void CheckMainControl()
         {
@@ -173,11 +186,11 @@ namespace SaveDXF
                     {
                         if (tmp_Embodiment.Part == null) { IPart7NothingMsg(FFN); return; }
                         node.Tag = GetParam(tmp_Embodiment.Part);
-                        if (Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
+                        if (IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
                     Recource(tmp_Embodiment.Part, node);
-                    node.ExpandAll();
+                    NodeExpand(node);
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
 
@@ -272,7 +285,7 @@ namespace SaveDXF
             {
                 string ParamValue = null;
                 ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyBodyIPart7(Part, _body, ParamName), "");
-                if (Split_Naim && ParamName == "Наименование") { ParamValue = OptionsFold.tools_class.SplitString(ParamValue); componentInfo_Copy.Body.Naim = ParamValue; }
+                if (IOption_Class.Split_Naim && ParamName == "Наименование") { ParamValue = OptionsFold.tools_class.SplitString(ParamValue); componentInfo_Copy.Body.Naim = ParamValue; }
                 ParamValueList.Add(ParamName, ParamValue);
             }
             componentInfo_Copy.Body.ParamValueList = ParamValueList;
@@ -566,7 +579,7 @@ namespace SaveDXF
             _componentInfo.Total_QNT = GetTotalQNT(ChildNode);
             ChildNode.SetValue("Количество общ.", _componentInfo.Total_QNT);
             ChildNode.Tag = _componentInfo;
-            if (Add_Drw) AddDrwNode(ChildNode, _componentInfo);
+            if (IOption_Class.Add_Drw) AddDrwNode(ChildNode, _componentInfo);
 
             return ChildNode;
         }
@@ -983,16 +996,16 @@ namespace SaveDXF
                         break;
                     case "Наименование":
                         ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
-                        if (Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
+                        if (IOption_Class.Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
                         break;
                     case "Масса":
                         ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
                         break;
                     case "Материал":
-                        if(part.Detail)
+                        if(part.Detail && !part.Standard)
                             ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
-                        if (IOption_Class.Material_In_Assemly && !part.Detail)
-                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
+                        if (IOption_Class.Material_In_Assemly)
+                            ParamValue = (!part.Detail | part.Standard) ? OptionsFold.tools_class.FixInvalidChars_St(part.Material, "") : "";
                         break;
                     case "Толщина":
                         ParamValue = Convert.ToString(GetThicknessPart(part, true));
@@ -1052,7 +1065,7 @@ namespace SaveDXF
             iMSH.Oboz = part.Marking;
             iMSH.Mass = part.Mass;
             iMSH.Naim = part.Name;
-            if (Split_Naim) iMSH.Naim = OptionsFold.tools_class.SplitString(part.Name);
+            if (IOption_Class.Split_Naim) iMSH.Naim = OptionsFold.tools_class.SplitString(part.Name);
             iMSH._MCH.Xc = massInertiaParam.Xc;
             iMSH._MCH.Yc = massInertiaParam.Yc;
             iMSH._MCH.Zc = massInertiaParam.Zc; 
@@ -1558,6 +1571,7 @@ namespace SaveDXF
             }
             return startPath + $@"\{res_path.Trim(Convert.ToChar(@"\"))}\{Path.GetFileName(PartFileName)}";
         }
+
         public void SetLinkInProperty(string OutPartFileName, string SB_FilenameOUT)
         {
             string ParamName = null;
@@ -1602,6 +1616,48 @@ namespace SaveDXF
             }
             iDocument3D_1.Save();
             iDocument3D_1.close();
+        }
+
+        public void SetLinkInVariable()
+        {
+            //процедура запускается из Детали
+            //находит переменную с именем "Имя_ссылочной_переменной_в_детали"
+            //делает ссылочным данную переменную, SetLink(DOC, NAME), где DOC = "Модель сборки.a3d", NAME = "Имя_ссылочной_переменной_в_сборке"
+
+            //ОПИСАНИЕ ВОПРОСА!
+            //Компас не дает возможности, создать ссылку на значение переменной, находящейся не в "00" исполнении
+            //при использовании процедуры SetLink(DOC, NAME), ссылка "привязывается" к "00" исполнению
+            //невозможно программано задать исполнение, к которой необходимо сослаться
+
+            ksDocument3D iDocument3D = (ksDocument3D)_kompasObject.ActiveDocument3D();
+
+            ksPart iPart = (ksPart)iDocument3D.GetPart((int)Part_Type.pTop_Part);
+            ksVariableCollection VariableCollection;
+
+            // получаем интерфейс объекта дерева построения
+            ksFeature iFeature = iPart.GetFeature();
+            //получаем коллекцию переменных
+            VariableCollection = iFeature.VariableCollection;
+            // обновляем коллекцию переменных
+            VariableCollection.refresh();
+            //считаем количество переменных в детали
+            int count_1 = VariableCollection.GetCount();
+            for (int i = 0; i < count_1; i++)
+            {
+                //Получаем интерфейс переменной по её имени
+                ksVariable Variable = VariableCollection.GetByIndex(i);
+                string ParamName = Variable.name;
+                if (ParamName == "Имя_ссылочной_переменной_в_детали")
+                {
+                    //ВОПРОС!!!(ОПИСАНИЕ СМ. ВЫШЕ)
+                    Variable.SetLink("c:\\Модель сборки.a3d", "Имя_ссылочной_переменной_в_сборке");
+                    //ВОПРОС!!!(ОПИСАНИЕ СМ. ВЫШЕ)
+                    iPart.RebuildModel();
+                    break;
+                }
+            }
+            iDocument3D.Save();
+            iDocument3D.close();
         }
         #endregion
 

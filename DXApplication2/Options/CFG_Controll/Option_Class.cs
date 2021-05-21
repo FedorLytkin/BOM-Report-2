@@ -16,9 +16,15 @@ public class Option_Class
     public int Area_MU_Value { get; set; }
     public int Volume_MU_Value { get; set; }
     public int Count_MU_Value { get; set; }
+    public int TreeStatus_Value { get; set; }
     public bool Positio_On_Value { get; set; }
     public bool Material_In_Assemly { get; set; }
     public string Positio_Split_Value { get; set; }
+    public bool Split_Naim { get; set; } = false;
+    public bool Add_Drw { get; set; } = false;
+    public bool Qnt_On_Line_In_Visual { get; set; } = false;
+    public bool Dublicate_In_Visual { get; set; } = false;
+    public bool All_Level_In_AllReport { get; set; } = false;
     public Option_Class()
     {
         Mass_MU_Value = 1;
@@ -26,6 +32,7 @@ public class Option_Class
         Area_MU_Value = 1;
         Volume_MU_Value = 1;
         Count_MU_Value = 0;
+        TreeStatus_Value = 2;
 
         Mass_MU_Name = "Килограммы";
         Length_MU_Name = "Миллиметры";
@@ -46,6 +53,38 @@ public class Option_Class
         ksMUnGR = 0,
         ksMUnKG = 1,
         ksMUnDocument = 4
+    }
+    public enum TreeStatus_Enum
+    {
+        treeStatus_None = 0,
+        treeStatus_Expand = 1,
+        treeStatus_ExpandAll = 2
+    }
+    public string GetTreeStatusNameByStatusEnum(TreeStatus_Enum TreeStatus)
+    {
+        switch (TreeStatus)
+        {
+            case TreeStatus_Enum.treeStatus_Expand:
+                return "Раскрыть";
+            case TreeStatus_Enum.treeStatus_ExpandAll:
+                return "Раскрыть все";
+            case TreeStatus_Enum.treeStatus_None:
+                return "Свернуть";
+        }
+        return null;
+    }
+    public TreeStatus_Enum GetTreeStatusEnumByStatusName(string TreeStatusName)
+    {
+        switch (TreeStatusName)
+        {
+            case "Раскрыть":
+                return TreeStatus_Enum.treeStatus_Expand;
+            case "Раскрыть все":
+                return TreeStatus_Enum.treeStatus_ExpandAll;
+            case "Свернуть":
+                return TreeStatus_Enum.treeStatus_None;
+        }
+        return TreeStatus_Enum.treeStatus_None;
     }
     public enum MU_Count
     {

@@ -47,7 +47,6 @@ namespace VSNRM_Kompas
             InitializeComponent();
             Body.Init();
             AddColumns(false);
-            UpdateData();
             pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
         }
         private void AddOptionControls()
@@ -55,6 +54,7 @@ namespace VSNRM_Kompas
             Main_Options = new CFG_Class();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name.Value);
             option_Class = controller.IOptions.GetOptions(false);
+            UpdateData();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -67,11 +67,16 @@ namespace VSNRM_Kompas
             All_Level_Check_CH_B.Checked = !(thisDemo);
             barCheckItem1.Checked = All_Level_Check_CH_B.Checked;
             bt_SplitButton.SuperTip = bt_LinkVis.SuperTip;
-            Bt_NaimSpletter.Checked = true;
+            Bt_NaimSpletter.Checked = option_Class.Split_Naim;
+            Add_Drw_In_Tree_CH_B.Checked = option_Class.Add_Drw;
+            All_Level_Check_CH_B_InAllReport.Checked = option_Class.All_Level_In_AllReport;
+            bt_Dublicate.Down = option_Class.Dublicate_In_Visual;
+            Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
+
             Body.AppVersNOTValidStrongMessage();
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
-            mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
+            mainRibbonControl.PageCategories["Визуализатор"].Visible = false; 
         }
         private void AddColumns(bool askCFGFileName)
         {
@@ -444,12 +449,19 @@ namespace VSNRM_Kompas
 
         private void Bt_NaimSpletter_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            body.Split_Naim = Bt_NaimSpletter.Checked;
+            option_Class.Split_Naim = Bt_NaimSpletter.Checked;
+            SaveOptions();
         }
 
         private void Add_Drw_In_Tree_CH_B_CheckedChanged(object sender, ItemClickEventArgs e)
         {
-            body.Add_Drw = Add_Drw_In_Tree_CH_B.Checked;
+            option_Class.Add_Drw = Add_Drw_In_Tree_CH_B.Checked;
+            SaveOptions();
+        }
+        private void SaveOptions()
+        {
+            XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
+            xMLCLass.IOptions.SaveOptions(option_Class, false);
         }
         private void treeList1_PopupMenuShowing(object sender, DevExpress.XtraTreeList.PopupMenuShowingEventArgs e)
         {
@@ -583,8 +595,8 @@ namespace VSNRM_Kompas
         }
         private void UpdateData()
         {
-            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, All_Level_Check_CH_B_InAllReport.Checked);
-            diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, bt_Dublicate.Down, Bt_Qnt_On_Line.Down);
+            allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, option_Class.All_Level_In_AllReport);
+            diagrammForm = new DiagrammForm_ControllClass(treeList1, diagramDataBindingController1, option_Class.Dublicate_In_Visual, option_Class.Qnt_On_Line_In_Visual);
         }
 
         #region "Визуализатор связей"
@@ -623,19 +635,24 @@ namespace VSNRM_Kompas
                 }
             }
         }
-
+        private void Dublicate_And_Qnt_On_Line()
+        {
+            option_Class.Qnt_On_Line_In_Visual = Bt_Qnt_On_Line.Down;
+            option_Class.Dublicate_In_Visual = bt_Dublicate.Down;
+            SaveOptions();
+        }
         private void bt_Dublicate_ItemClick(object sender, ItemClickEventArgs e)
         {
-            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
-            diagrammForm.AddElements(bt_Dublicate.Down);
+            Dublicate_And_Qnt_On_Line();
+            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = option_Class.Qnt_On_Line_In_Visual;
+            diagrammForm.AddElements(option_Class.Dublicate_In_Visual);
         }
 
         private void Bt_Qnt_On_Line_ItemClick(object sender, ItemClickEventArgs e)
         {
-            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
-            diagrammForm.AddConnectionList(bt_Dublicate.Down);
-            //classStructureGenerator.Create_Qnt_On_Line = Bt_Qnt_On_Line.Down;
-            //diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
+            Dublicate_And_Qnt_On_Line();
+            diagrammForm.classStructureGenerator.Create_Qnt_On_Line = option_Class.Qnt_On_Line_In_Visual;
+            diagrammForm.AddConnectionList(option_Class.Dublicate_In_Visual);
         }
 
         private void Bt_VideoAboutLink_ItemClick(object sender, ItemClickEventArgs e)
@@ -672,7 +689,9 @@ namespace VSNRM_Kompas
 
         private void All_Level_Check_CH_B_InAllReport_CheckedChanged(object sender, ItemClickEventArgs e)
         {
-            allPartReport.LevelChange(All_Level_Check_CH_B_InAllReport.Checked);
+            option_Class.All_Level_In_AllReport = All_Level_Check_CH_B_InAllReport.Checked;
+            allPartReport.LevelChange(option_Class.All_Level_In_AllReport);
+            SaveOptions();
         }
         #endregion
 
