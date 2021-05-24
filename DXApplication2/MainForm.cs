@@ -901,7 +901,10 @@ namespace VSNRM_Kompas
 
         private void bt_CutLenth_ItemClick(object sender, ItemClickEventArgs e)
         {
+            splashScreenManager2.ShowWaitForm();
+            splashScreenManager2.SetWaitFormCaption("Подсчет листового тела");
             body.getSheeteMetalBends();
+            splashScreenManager2.CloseWaitForm(); 
         }
     }
 }

@@ -1451,41 +1451,92 @@ namespace SaveDXF
                 }
             }
         }
+         
         public void getSheeteMetalBends()
-        {
+        { 
+            CheckMainControl();
             if (!AppVersNOTValidStrongMessage()) return;
             if ((_IApplication.ActiveDocument is IKompasDocument3D) != true)
                 return;
             IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
             IPart7 part = _IKompasDocument.TopPart;
+            if (part == null) return;
             if (!part.Detail) return;
-            
+            Document3D document3D = _kompasObject.ActiveDocument3D();
+
+            ksPart kPart = document3D.GetPart(-1);
+            if (kPart == null) return;
+
             ISheetMetalContainer sheetMetalContainer = (ISheetMetalContainer)part;
             if (sheetMetalContainer == null) return;
-            MessageBox.Show(GetBend(sheetMetalContainer).ToString());
-        }
-        private int GetBend(ISheetMetalContainer sheetMetalContainer)
-        {
             int BendCount = 0;
+            int CutCount = 0;
+            double CutLentgth = 0;
+            GetBend(sheetMetalContainer, kPart, out BendCount, out CutCount, out CutLentgth);
+            MessageBox.Show($"Колво сгибов: {BendCount}\nКолво вырезов: {CutCount}\nДлина реза: {CutLentgth}");
+            CloseDocs();
+        }
+        private void GetBend(ISheetMetalContainer sheetMetalContainer, ksPart kPart, out int BendCount, out int CutCount, out double CutLentgth)
+        {
+            BendCount = 0;
+            CutCount = 0;
+            CutLentgth = 0;
             SheetMetalBends sheetMetalBends = sheetMetalContainer.SheetMetalBends;
             ISheetMetalBendedStraightens sheetMetalBendedStraightens = sheetMetalContainer.SheetMetalBendedStraightens;
             BendCount = sheetMetalBendedStraightens.Count;
-            //sheetMetalBendedStraightens.Count;
+            AddWaitStatus($"Сгибы в {Path.GetFileNameWithoutExtension( kPart.fileName)}");
             for (int ii = 0; ii < sheetMetalBends.Count; ii++)
             {
                 SheetMetalBend sheetMetalBend = (SheetMetalBend)sheetMetalBends[ii];
                 if (sheetMetalBend.BendObjects != null)
                 {
-                    if (sheetMetalBend.BendObjects is SheetMetalBend)
-                        BendCount += 1;
-                    else
+                    try
                     {
-                        foreach(object bend in sheetMetalBend.BendObjects)
+                        foreach (object bend in sheetMetalBend.BendObjects)
                             BendCount += 1;
+                    }
+                    catch
+                    {
+                        BendCount += 1;
+                    } 
+                } 
+                else
+                    BendCount += 1;
+            }
+            SheetMetalBodies sheetMetalBodies = sheetMetalContainer.SheetMetalBodies;
+            SheetMetalBody sheetMetalBody = (SheetMetalBody)sheetMetalBodies[0];
+            
+            ksBodyCollection iBodyCollection = kPart.BodyCollection();
+            ksBody body = iBodyCollection.GetByIndex(0);
+            ksFaceCollection faceCollection = body.FaceCollection();
+
+            AddWaitStatus($"Контур в {Path.GetFileNameWithoutExtension(kPart.fileName)}");
+            for (int yy = 0; yy < faceCollection.GetCount(); yy++)
+            {
+                ksFaceDefinition faceDefinition = faceCollection.GetByIndex(yy);
+                ksSurface surface = faceDefinition.GetSurface();
+                CutCount += surface.BoundaryCount;
+
+                ksEdgeCollection edgeCollection = faceDefinition.EdgeCollection();
+                for (int ee = 0; ee < edgeCollection.GetCount(); ee++)
+                {
+                    ksEdgeDefinition edgeDefinition = edgeCollection.GetByIndex(ee);
+                    double length = edgeDefinition.GetLength(0x1);
+                    if(length == sheetMetalBody.Thickness)
+                    {
+                        for (int zz = 0; zz < edgeCollection.GetCount(); zz++)
+                        {
+                            ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
+                            double length2 = edgeDefinition2.GetLength(0x1);
+                            if(length2 != sheetMetalBody.Thickness)
+                                CutLentgth += length2;
+                        }
+                        break;
                     }
                 }
             }
-            return BendCount;
+            CutCount -= faceCollection.GetCount();
+           Math.Round(CutLentgth /= 2, 3);
         }
         public static bool TransProp_SetValueProperty(IPart7 part, IProperty Property, object Val)
         {
