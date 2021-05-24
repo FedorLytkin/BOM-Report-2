@@ -898,5 +898,10 @@ namespace VSNRM_Kompas
             splashScreenManager2.CloseWaitForm();
             MessageBox.Show("Процесс передачи данных завершен!", "Трансляция параметров в узлы", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void bt_CutLenth_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            body.getSheeteMetalBends();
+        }
     }
 }

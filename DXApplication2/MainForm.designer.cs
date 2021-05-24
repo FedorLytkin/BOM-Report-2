@@ -597,6 +597,7 @@
             this.Bt_ImportColOpt = new DevExpress.XtraBars.BarButtonItem();
             this.bt_CFG = new DevExpress.XtraBars.BarButtonItem();
             this.bt_Prop_trans = new DevExpress.XtraBars.BarButtonItem();
+            this.bt_CutLenth = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -1012,9 +1013,10 @@
             this.bt_ExportColOpt,
             this.Bt_ImportColOpt,
             this.bt_CFG,
-            this.bt_Prop_trans});
+            this.bt_Prop_trans,
+            this.bt_CutLenth});
             this.mainRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbonControl.MaxItemId = 252;
+            this.mainRibbonControl.MaxItemId = 253;
             this.mainRibbonControl.Name = "mainRibbonControl";
             this.mainRibbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory2,
@@ -3393,7 +3395,7 @@
             // 
             // barButtonItem8
             // 
-            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Caption = "Длина реза";
             this.barButtonItem8.Id = 225;
             this.barButtonItem8.Name = "barButtonItem8";
             this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
@@ -3699,6 +3701,14 @@
             this.bt_Prop_trans.SuperTip = superToolTip78;
             this.bt_Prop_trans.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Prop_trans_ItemClick);
             // 
+            // bt_CutLenth
+            // 
+            this.bt_CutLenth.Caption = "Длина реза";
+            this.bt_CutLenth.Id = 252;
+            this.bt_CutLenth.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_CutLenth.ImageOptions.SvgImage")));
+            this.bt_CutLenth.Name = "bt_CutLenth";
+            this.bt_CutLenth.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_CutLenth_ItemClick);
+            // 
             // ribbonPageCategory2
             // 
             this.ribbonPageCategory2.Name = "ribbonPageCategory2";
@@ -3900,9 +3910,9 @@
             // ribbonPageGroup16
             // 
             this.ribbonPageGroup16.ItemLinks.Add(this.bt_Prop_trans);
+            this.ribbonPageGroup16.ItemLinks.Add(this.bt_CutLenth);
             this.ribbonPageGroup16.Name = "ribbonPageGroup16";
             this.ribbonPageGroup16.Text = "Специальные команды";
-            this.ribbonPageGroup16.Visible = false;
             // 
             // ribbonPageGroup8
             // 
@@ -6826,5 +6836,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem bt_Prop_trans;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
+        private DevExpress.XtraBars.BarButtonItem bt_CutLenth;
     }
 }

@@ -1451,6 +1451,42 @@ namespace SaveDXF
                 }
             }
         }
+        public void getSheeteMetalBends()
+        {
+            if (!AppVersNOTValidStrongMessage()) return;
+            if ((_IApplication.ActiveDocument is IKompasDocument3D) != true)
+                return;
+            IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
+            IPart7 part = _IKompasDocument.TopPart;
+            if (!part.Detail) return;
+            
+            ISheetMetalContainer sheetMetalContainer = (ISheetMetalContainer)part;
+            if (sheetMetalContainer == null) return;
+            MessageBox.Show(GetBend(sheetMetalContainer).ToString());
+        }
+        private int GetBend(ISheetMetalContainer sheetMetalContainer)
+        {
+            int BendCount = 0;
+            SheetMetalBends sheetMetalBends = sheetMetalContainer.SheetMetalBends;
+            ISheetMetalBendedStraightens sheetMetalBendedStraightens = sheetMetalContainer.SheetMetalBendedStraightens;
+            BendCount = sheetMetalBendedStraightens.Count;
+            //sheetMetalBendedStraightens.Count;
+            for (int ii = 0; ii < sheetMetalBends.Count; ii++)
+            {
+                SheetMetalBend sheetMetalBend = (SheetMetalBend)sheetMetalBends[ii];
+                if (sheetMetalBend.BendObjects != null)
+                {
+                    if (sheetMetalBend.BendObjects is SheetMetalBend)
+                        BendCount += 1;
+                    else
+                    {
+                        foreach(object bend in sheetMetalBend.BendObjects)
+                            BendCount += 1;
+                    }
+                }
+            }
+            return BendCount;
+        }
         public static bool TransProp_SetValueProperty(IPart7 part, IProperty Property, object Val)
         {
             bool res = false; 
