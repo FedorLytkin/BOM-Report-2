@@ -72,9 +72,10 @@ namespace VSNRM_Kompas
             All_Level_Check_CH_B_InAllReport.Checked = option_Class.All_Level_In_AllReport;
             bt_Dublicate.Down = option_Class.Dublicate_In_Visual;
             Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
-            bt_CutLenth.Visibility = option_Class.VisibleButton_CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
-            bt_Prop_trans.Visibility = option_Class.VisibleButton_PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
-            ribbonPageGroup_SpecialPan.Visible = option_Class.VisiblePanel_SpecialPan;
+            bt_CutLenth.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            bt_Prop_trans.Visibility = option_Class.IVC.PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
+            ribbonPageGroup_SpecialPan.Visible = option_Class.IVC.SpecialPan;
+            Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
 
             Body.AppVersNOTValidStrongMessage();
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;

@@ -82,6 +82,7 @@ namespace VSNRM_Kompas.PromoCods
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.bt_ok);
             this.Controls.Add(this.tb_PromoIn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("PromoForm.IconOptions.SvgImage")));
             this.Name = "PromoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

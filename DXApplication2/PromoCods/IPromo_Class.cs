@@ -17,8 +17,9 @@ namespace VSNRM_Kompas.PromoCods
         private void AddPromoList()
         {
             PromoCodeList = new List<string>();
-            PromoCodeList.Add("cut_length");
-            PromoCodeList.Add("PropertyTranslator");
+            PromoCodeList.Add("icut_length");
+            PromoCodeList.Add("iproperty_translator");
+            PromoCodeList.Add("iproject_clone");
         }
         public bool checkPromo(string SetPromoText)
         {
@@ -29,13 +30,16 @@ namespace VSNRM_Kompas.PromoCods
                     if (IOption_Class == null) return false;
                     switch (SetPromoText)
                     {
-                        case "cut_length":
-                            IOption_Class.VisiblePanel_SpecialPan = true;
-                            IOption_Class.VisibleButton_CutLength = true;
+                        case "icut_length":
+                            IOption_Class.IVC.SpecialPan = true;
+                            IOption_Class.IVC.CutLength = true;
                             break;
-                        case "PropertyTranslator":
-                            IOption_Class.VisiblePanel_SpecialPan = true;
-                            IOption_Class.VisibleButton_PropertyTranslation = true;
+                        case "iproperty_translator":
+                            IOption_Class.IVC.SpecialPan = true;
+                            IOption_Class.IVC.PropertyTranslation = true;
+                            break;
+                        case "iproject_clone":
+                            IOption_Class.IVC.ProjectClone = true;
                             break;
                     }
                     XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 public class Option_Class
 {
+    public VisibleControls IVC = new VisibleControls();
     public string Mass_MU_Name { get; set; }
     public string Length_MU_Name { get; set; }
     public string Area_MU_Name { get; set; }
@@ -25,9 +26,6 @@ public class Option_Class
     public bool Qnt_On_Line_In_Visual { get; set; } = false;
     public bool Dublicate_In_Visual { get; set; } = false;
     public bool All_Level_In_AllReport { get; set; } = false;
-    public bool VisiblePanel_SpecialPan { get; set; } = false;
-    public bool VisibleButton_CutLength { get; set; } = false;
-    public bool VisibleButton_PropertyTranslation { get; set; } = false;
     public Option_Class()
     {
         Mass_MU_Value = 1;
@@ -185,5 +183,12 @@ public class Option_Class
                 break;
         }
         this.Volume_MU_Name = Volume_MU_text;
+    }
+    public class VisibleControls
+    {
+        public bool SpecialPan { get; set; } = false;
+        public bool CutLength { get; set; } = false;
+        public bool PropertyTranslation { get; set; } = false;
+        public bool ProjectClone { get; set; } = false;
     }
     }

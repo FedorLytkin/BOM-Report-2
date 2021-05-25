@@ -1451,7 +1451,139 @@ namespace SaveDXF
                 }
             }
         }
-         
+        private void WalkAssembly(IPart7 TopPart)
+        {
+            if (TopPart != null)
+            {
+                var Parts = TopPart.PartsEx[0];
+                if (Parts != null)
+                {
+                    foreach (IPart7 item in Parts)
+                    {
+                        try
+                        {
+                            AddWaitStatus(Path.GetFileNameWithoutExtension(item.FileName));
+                            if (!item.Detail)
+                                WalkAssembly(item);
+                            else
+                                PartCalc(item);
+                        }
+                        catch (Exception Ex)
+                        {
+                            ShowMsgBox("Ошибка при обработке компонента " + item.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+        private void PartCalc(IPart7 part)
+        {
+            if (part == null) return;
+            if (!part.Detail) return;
+            bool open = false;
+            Document3D document3D = _kompasObject.ActiveDocument3D();
+            if(document3D.fileName != part.FileName)
+            {
+                document3D = _kompasObject.Document3D();
+                open = document3D.Open(part.FileName, true);
+                if (!open)
+                {
+                    IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part.FileName, false, false);
+                    This_IKompasDocument3D.Active = true;
+                    document3D = _kompasObject.ActiveDocument3D();
+                }
+            }
+
+            if (document3D == null) return;
+            
+            ksPart kPart = (ksPart)document3D.GetPart((int)Part_Type.pTop_Part);
+            if (kPart == null) return;
+            ISheetMetalContainer sheetMetalContainer = (ISheetMetalContainer)part;
+            if (sheetMetalContainer == null) return;
+            string oboz = kPart.marking;
+            string name = kPart.name;
+            int BendCount = 0;
+            int CutCount = 0;
+            double CutLentgth = 0;
+            GetBend(sheetMetalContainer, kPart, out BendCount, out CutCount, out CutLentgth);
+            List<ShProperty> properties = new List<ShProperty>();
+            properties.Add(new ShProperty { Name = "Количество гибов", Value = BendCount });
+            properties.Add(new ShProperty { Name = "Количество врезок", Value = CutCount });
+            properties.Add(new ShProperty { Name = "Длина реза", Value = CutLentgth });
+            AddProperty(part, properties);
+            //MessageBox.Show($"Колво сгибов: {BendCount}\nКолво вырезов: {CutCount}\nДлина реза: {CutLentgth}");
+            if(open) document3D.close();
+        }
+        class ShProperty
+        {
+            public string Name { get; set; }
+            public object Value { get; set; }
+        }
+        private void AddProperty(IPart7 part_, string ParamName, object ParamValue)
+        {
+            IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    bool find_Prop = false;
+                    int count = _IPropertyMng.PropertyCount[This_IKompasDocument3D];
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(This_IKompasDocument3D, i);
+                        if(Property.Name == ParamName)
+                        {
+                            find_Prop = true;
+                            TransProp_SetValueProperty(part_thisDetal, Property, ParamValue);
+                        }
+                    } 
+                    if (!find_Prop)
+                    {
+                        object obj = null;
+                        IProperty Property_new = _IPropertyMng.AddProperty(This_IKompasDocument3D, obj);
+                        Property_new.Name = ParamName;
+                        Property_new.Update();
+                        TransProp_SetValueProperty(part_thisDetal, Property_new, ParamValue);
+                    }
+                }
+            }
+        }
+        private void AddProperty(IPart7 part_, List<ShProperty> shProperties)
+        {
+            IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+            IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    foreach(ShProperty shProperty in shProperties)
+                    {
+                        bool find_Prop = false;
+                        int count = _IPropertyMng.PropertyCount[This_IKompasDocument3D];
+                        for (int i = 0; i < count; i++)
+                        {
+                            IProperty Property = _IPropertyMng.GetProperty(This_IKompasDocument3D, i);
+                            if (Property.Name == shProperty.Name)
+                            {
+                                find_Prop = true;
+                                TransProp_SetValueProperty(part_thisDetal, Property, shProperty.Value);
+                            }
+                        }
+                        if (!find_Prop)
+                        {
+                            object obj = null;
+                            IProperty Property_new = _IPropertyMng.AddProperty(This_IKompasDocument3D, obj);
+                            Property_new.Name = shProperty.Name;
+                            Property_new.Update();
+                            TransProp_SetValueProperty(part_thisDetal, Property_new, shProperty.Value);
+                        }
+                    } 
+                }
+            }
+        }
         public void getSheeteMetalBends()
         { 
             CheckMainControl();
@@ -1461,19 +1593,11 @@ namespace SaveDXF
             IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
             IPart7 part = _IKompasDocument.TopPart;
             if (part == null) return;
-            if (!part.Detail) return;
-            Document3D document3D = _kompasObject.ActiveDocument3D();
+            if (!part.Detail)
+                WalkAssembly(part);
+            else
+                PartCalc(part);
 
-            ksPart kPart = document3D.GetPart(-1);
-            if (kPart == null) return;
-
-            ISheetMetalContainer sheetMetalContainer = (ISheetMetalContainer)part;
-            if (sheetMetalContainer == null) return;
-            int BendCount = 0;
-            int CutCount = 0;
-            double CutLentgth = 0;
-            GetBend(sheetMetalContainer, kPart, out BendCount, out CutCount, out CutLentgth);
-            MessageBox.Show($"Колво сгибов: {BendCount}\nКолво вырезов: {CutCount}\nДлина реза: {CutLentgth}");
             CloseDocs();
         }
         private void GetBend(ISheetMetalContainer sheetMetalContainer, ksPart kPart, out int BendCount, out int CutCount, out double CutLentgth)

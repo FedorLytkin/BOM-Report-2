@@ -331,6 +331,11 @@
             DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem45 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem124 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip80 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem125 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem46 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem126 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip81 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem127 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem48 = new DevExpress.Utils.ToolTipItem();
@@ -346,11 +351,6 @@
             DevExpress.Utils.ToolTipItem toolTipItem50 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem49 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem132 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip80 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem125 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem46 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem126 = new DevExpress.Utils.ToolTipTitleItem();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.mainRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiFindBOM = new DevExpress.XtraBars.BarButtonItem();
@@ -608,6 +608,7 @@
             this.bt_CFG = new DevExpress.XtraBars.BarButtonItem();
             this.bt_Prop_trans = new DevExpress.XtraBars.BarButtonItem();
             this.bt_CutLenth = new DevExpress.XtraBars.BarButtonItem();
+            this.bt_Promo = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -739,7 +740,6 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
-            this.bt_Promo = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -3449,6 +3449,7 @@
             superToolTip73.Items.Add(toolTipSeparatorItem39);
             superToolTip73.Items.Add(toolTipTitleItem112);
             this.Bt_Copy.SuperTip = superToolTip73;
+            this.Bt_Copy.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInCustomizing;
             this.Bt_Copy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Copy_ItemClick);
             // 
             // Add_Drw_In_Tree_CH_B
@@ -3733,6 +3734,25 @@
             this.bt_CutLenth.SuperTip = superToolTip79;
             this.bt_CutLenth.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_CutLenth_ItemClick);
             // 
+            // bt_Promo
+            // 
+            this.bt_Promo.Caption = "Промокоды";
+            this.bt_Promo.Id = 253;
+            this.bt_Promo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Promo.ImageOptions.SvgImage")));
+            this.bt_Promo.Name = "bt_Promo";
+            toolTipTitleItem125.Text = "Функционал по промокоду";
+            toolTipItem47.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage40")));
+            toolTipItem47.LeftIndent = 6;
+            toolTipItem47.Text = "Добавление скрытых функций по промокоду";
+            toolTipTitleItem126.LeftIndent = 6;
+            toolTipTitleItem126.Text = "BOM-Report";
+            superToolTip80.Items.Add(toolTipTitleItem125);
+            superToolTip80.Items.Add(toolTipItem47);
+            superToolTip80.Items.Add(toolTipSeparatorItem46);
+            superToolTip80.Items.Add(toolTipTitleItem126);
+            this.bt_Promo.SuperTip = superToolTip80;
+            this.bt_Promo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Promo_ItemClick);
+            // 
             // ribbonPageCategory2
             // 
             this.ribbonPageCategory2.Name = "ribbonPageCategory2";
@@ -3998,7 +4018,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.Bt_Telegram_Canal);
             this.ribbonPageGroup2.ItemLinks.Add(this.Bt_Telegram_Chat);
             this.ribbonPageGroup2.ItemLinks.Add(this.bt_Check_Update, true);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bt_Promo);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bt_Promo, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Контакты";
             // 
@@ -6421,25 +6441,6 @@
             this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
             this.radialMenu1.Name = "radialMenu1";
             this.radialMenu1.Ribbon = this.mainRibbonControl;
-            // 
-            // bt_Promo
-            // 
-            this.bt_Promo.Caption = "Промокоды";
-            this.bt_Promo.Id = 253;
-            this.bt_Promo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Promo.ImageOptions.SvgImage")));
-            this.bt_Promo.Name = "bt_Promo";
-            toolTipTitleItem125.Text = "Функционал по промокоду";
-            toolTipItem47.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage40")));
-            toolTipItem47.LeftIndent = 6;
-            toolTipItem47.Text = "Добавление скрытых функций по промокоду";
-            toolTipTitleItem126.LeftIndent = 6;
-            toolTipTitleItem126.Text = "BOM-Report";
-            superToolTip80.Items.Add(toolTipTitleItem125);
-            superToolTip80.Items.Add(toolTipItem47);
-            superToolTip80.Items.Add(toolTipSeparatorItem46);
-            superToolTip80.Items.Add(toolTipTitleItem126);
-            this.bt_Promo.SuperTip = superToolTip80;
-            this.bt_Promo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Promo_ItemClick);
             // 
             // MainForm
             // 
