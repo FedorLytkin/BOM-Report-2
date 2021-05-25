@@ -25,6 +25,9 @@ public class Option_Class
     public bool Qnt_On_Line_In_Visual { get; set; } = false;
     public bool Dublicate_In_Visual { get; set; } = false;
     public bool All_Level_In_AllReport { get; set; } = false;
+    public bool VisiblePanel_SpecialPan { get; set; } = false;
+    public bool VisibleButton_CutLength { get; set; } = false;
+    public bool VisibleButton_PropertyTranslation { get; set; } = false;
     public Option_Class()
     {
         Mass_MU_Value = 1;

@@ -72,6 +72,9 @@ namespace VSNRM_Kompas
             All_Level_Check_CH_B_InAllReport.Checked = option_Class.All_Level_In_AllReport;
             bt_Dublicate.Down = option_Class.Dublicate_In_Visual;
             Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
+            bt_CutLenth.Visibility = option_Class.VisibleButton_CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            bt_Prop_trans.Visibility = option_Class.VisibleButton_PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
+            ribbonPageGroup_SpecialPan.Visible = option_Class.VisiblePanel_SpecialPan;
 
             Body.AppVersNOTValidStrongMessage();
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
@@ -902,9 +905,16 @@ namespace VSNRM_Kompas
         private void bt_CutLenth_ItemClick(object sender, ItemClickEventArgs e)
         {
             splashScreenManager2.ShowWaitForm();
-            splashScreenManager2.SetWaitFormCaption("Подсчет листового тела");
+            splashScreenManager2.SetWaitFormCaption("Подсчет лист. тела");
             body.getSheeteMetalBends();
             splashScreenManager2.CloseWaitForm(); 
+        }
+
+        private void bt_Promo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PromoCods.PromoForm promoForm = new PromoCods.PromoForm();
+            promoForm.promo_Class.IOption_Class = option_Class;
+            promoForm.ShowDialog();
         }
     }
 }

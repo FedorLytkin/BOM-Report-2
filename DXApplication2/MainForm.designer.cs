@@ -331,16 +331,26 @@
             DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem45 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem124 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip80 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem125 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem46 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem126 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip81 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem127 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem48 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem47 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem128 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip82 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem129 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem49 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem48 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem130 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip83 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem131 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem50 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem49 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem132 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip80 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem125 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem46 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem126 = new DevExpress.Utils.ToolTipTitleItem();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.mainRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiFindBOM = new DevExpress.XtraBars.BarButtonItem();
@@ -617,7 +627,7 @@
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup_Columns_Property = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup_SpecialPan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -729,6 +739,7 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.bt_Promo = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -1014,9 +1025,10 @@
             this.Bt_ImportColOpt,
             this.bt_CFG,
             this.bt_Prop_trans,
-            this.bt_CutLenth});
+            this.bt_CutLenth,
+            this.bt_Promo});
             this.mainRibbonControl.Location = new System.Drawing.Point(0, 0);
-            this.mainRibbonControl.MaxItemId = 253;
+            this.mainRibbonControl.MaxItemId = 254;
             this.mainRibbonControl.Name = "mainRibbonControl";
             this.mainRibbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory2,
@@ -3703,10 +3715,22 @@
             // 
             // bt_CutLenth
             // 
-            this.bt_CutLenth.Caption = "Длина реза";
+            this.bt_CutLenth.Caption = "Параметры лист.тела";
             this.bt_CutLenth.Id = 252;
             this.bt_CutLenth.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_CutLenth.ImageOptions.SvgImage")));
             this.bt_CutLenth.Name = "bt_CutLenth";
+            toolTipTitleItem123.Text = "Получить параметры листового тела\r\n(Длина реза, Кол-во врезок, Кол-во сгибов)";
+            toolTipItem46.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage39")));
+            toolTipItem46.LeftIndent = 6;
+            toolTipItem46.Text = "Процедура получает параметры листового тела(Длина реза, Кол-во врезок, Кол-во сги" +
+    "бов) и записывает полученные значекния в Свойства модели";
+            toolTipTitleItem124.LeftIndent = 6;
+            toolTipTitleItem124.Text = "BOM-Report";
+            superToolTip79.Items.Add(toolTipTitleItem123);
+            superToolTip79.Items.Add(toolTipItem46);
+            superToolTip79.Items.Add(toolTipSeparatorItem45);
+            superToolTip79.Items.Add(toolTipTitleItem124);
+            this.bt_CutLenth.SuperTip = superToolTip79;
             this.bt_CutLenth.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_CutLenth_ItemClick);
             // 
             // ribbonPageCategory2
@@ -3835,7 +3859,7 @@
             this.mainRibbonPageGroup,
             this.ribbonPageGroup3,
             this.ribbonPageGroup_Columns_Property,
-            this.ribbonPageGroup16,
+            this.ribbonPageGroup_SpecialPan,
             this.ribbonPageGroup8});
             this.Tools_ToolBar.MergeOrder = 0;
             this.Tools_ToolBar.Name = "Tools_ToolBar";
@@ -3852,17 +3876,17 @@
             this.mainRibbonPageGroup.ItemLinks.Add(this.Bt_Preview);
             this.mainRibbonPageGroup.ItemLinks.Add(this.Bt_Copy);
             this.mainRibbonPageGroup.Name = "mainRibbonPageGroup";
-            toolTipTitleItem123.Text = "Интрументы Дерево состава";
-            toolTipItem46.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage39")));
-            toolTipItem46.LeftIndent = 6;
-            toolTipItem46.Text = "Набор инструментов, позволяющих загрудать и выгружать данные в Дереве состава";
-            toolTipTitleItem124.LeftIndent = 6;
-            toolTipTitleItem124.Text = "Bom-Report";
-            superToolTip79.Items.Add(toolTipTitleItem123);
-            superToolTip79.Items.Add(toolTipItem46);
-            superToolTip79.Items.Add(toolTipSeparatorItem45);
-            superToolTip79.Items.Add(toolTipTitleItem124);
-            this.mainRibbonPageGroup.SuperTip = superToolTip79;
+            toolTipTitleItem127.Text = "Интрументы Дерево состава";
+            toolTipItem48.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage41")));
+            toolTipItem48.LeftIndent = 6;
+            toolTipItem48.Text = "Набор инструментов, позволяющих загрудать и выгружать данные в Дереве состава";
+            toolTipTitleItem128.LeftIndent = 6;
+            toolTipTitleItem128.Text = "Bom-Report";
+            superToolTip81.Items.Add(toolTipTitleItem127);
+            superToolTip81.Items.Add(toolTipItem48);
+            superToolTip81.Items.Add(toolTipSeparatorItem47);
+            superToolTip81.Items.Add(toolTipTitleItem128);
+            this.mainRibbonPageGroup.SuperTip = superToolTip81;
             this.mainRibbonPageGroup.Text = "Дерево состава";
             // 
             // ribbonPageGroup3
@@ -3871,17 +3895,17 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.Add_Drw_In_Tree_CH_B);
             this.ribbonPageGroup3.ItemLinks.Add(this.Bt_NaimSpletter);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            toolTipTitleItem125.Text = "Уровни состава";
-            toolTipItem47.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage40")));
-            toolTipItem47.LeftIndent = 6;
-            toolTipItem47.Text = "Инструменты, которые позволяют управлять уровнем подробности Дерева состава";
-            toolTipTitleItem126.LeftIndent = 6;
-            toolTipTitleItem126.Text = "BOM-Report";
-            superToolTip80.Items.Add(toolTipTitleItem125);
-            superToolTip80.Items.Add(toolTipItem47);
-            superToolTip80.Items.Add(toolTipSeparatorItem46);
-            superToolTip80.Items.Add(toolTipTitleItem126);
-            this.ribbonPageGroup3.SuperTip = superToolTip80;
+            toolTipTitleItem129.Text = "Уровни состава";
+            toolTipItem49.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage42")));
+            toolTipItem49.LeftIndent = 6;
+            toolTipItem49.Text = "Инструменты, которые позволяют управлять уровнем подробности Дерева состава";
+            toolTipTitleItem130.LeftIndent = 6;
+            toolTipTitleItem130.Text = "BOM-Report";
+            superToolTip82.Items.Add(toolTipTitleItem129);
+            superToolTip82.Items.Add(toolTipItem49);
+            superToolTip82.Items.Add(toolTipSeparatorItem48);
+            superToolTip82.Items.Add(toolTipTitleItem130);
+            this.ribbonPageGroup3.SuperTip = superToolTip82;
             this.ribbonPageGroup3.Text = "Уровни Состава";
             // 
             // ribbonPageGroup_Columns_Property
@@ -3894,25 +3918,25 @@
             this.ribbonPageGroup_Columns_Property.ItemLinks.Add(this.bt_ExportColOpt);
             this.ribbonPageGroup_Columns_Property.ItemLinks.Add(this.Bt_ImportColOpt);
             this.ribbonPageGroup_Columns_Property.Name = "ribbonPageGroup_Columns_Property";
-            toolTipTitleItem127.Text = "Настройки столбцов";
-            toolTipItem48.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage41")));
-            toolTipItem48.LeftIndent = 6;
-            toolTipItem48.Text = "Инструменты для настройки отображения Дерево состава";
-            toolTipTitleItem128.LeftIndent = 6;
-            toolTipTitleItem128.Text = "BOM-Report";
-            superToolTip81.Items.Add(toolTipTitleItem127);
-            superToolTip81.Items.Add(toolTipItem48);
-            superToolTip81.Items.Add(toolTipSeparatorItem47);
-            superToolTip81.Items.Add(toolTipTitleItem128);
-            this.ribbonPageGroup_Columns_Property.SuperTip = superToolTip81;
+            toolTipTitleItem131.Text = "Настройки столбцов";
+            toolTipItem50.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage43")));
+            toolTipItem50.LeftIndent = 6;
+            toolTipItem50.Text = "Инструменты для настройки отображения Дерево состава";
+            toolTipTitleItem132.LeftIndent = 6;
+            toolTipTitleItem132.Text = "BOM-Report";
+            superToolTip83.Items.Add(toolTipTitleItem131);
+            superToolTip83.Items.Add(toolTipItem50);
+            superToolTip83.Items.Add(toolTipSeparatorItem49);
+            superToolTip83.Items.Add(toolTipTitleItem132);
+            this.ribbonPageGroup_Columns_Property.SuperTip = superToolTip83;
             this.ribbonPageGroup_Columns_Property.Text = "Настройка столбцов";
             // 
-            // ribbonPageGroup16
+            // ribbonPageGroup_SpecialPan
             // 
-            this.ribbonPageGroup16.ItemLinks.Add(this.bt_Prop_trans);
-            this.ribbonPageGroup16.ItemLinks.Add(this.bt_CutLenth);
-            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
-            this.ribbonPageGroup16.Text = "Специальные команды";
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_Prop_trans);
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_CutLenth);
+            this.ribbonPageGroup_SpecialPan.Name = "ribbonPageGroup_SpecialPan";
+            this.ribbonPageGroup_SpecialPan.Text = "Специальные команды";
             // 
             // ribbonPageGroup8
             // 
@@ -3974,6 +3998,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.Bt_Telegram_Canal);
             this.ribbonPageGroup2.ItemLinks.Add(this.Bt_Telegram_Chat);
             this.ribbonPageGroup2.ItemLinks.Add(this.bt_Check_Update, true);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bt_Promo);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Контакты";
             // 
@@ -6397,6 +6422,25 @@
             this.radialMenu1.Name = "radialMenu1";
             this.radialMenu1.Ribbon = this.mainRibbonControl;
             // 
+            // bt_Promo
+            // 
+            this.bt_Promo.Caption = "Промокоды";
+            this.bt_Promo.Id = 253;
+            this.bt_Promo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bt_Promo.ImageOptions.SvgImage")));
+            this.bt_Promo.Name = "bt_Promo";
+            toolTipTitleItem125.Text = "Функционал по промокоду";
+            toolTipItem47.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage40")));
+            toolTipItem47.LeftIndent = 6;
+            toolTipItem47.Text = "Добавление скрытых функций по промокоду";
+            toolTipTitleItem126.LeftIndent = 6;
+            toolTipTitleItem126.Text = "BOM-Report";
+            superToolTip80.Items.Add(toolTipTitleItem125);
+            superToolTip80.Items.Add(toolTipItem47);
+            superToolTip80.Items.Add(toolTipSeparatorItem46);
+            superToolTip80.Items.Add(toolTipTitleItem126);
+            this.bt_Promo.SuperTip = superToolTip80;
+            this.bt_Promo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bt_Promo_ItemClick);
+            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -6835,7 +6879,8 @@
         private DevExpress.XtraBars.BarButtonItem bt_CFG;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem bt_Prop_trans;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_SpecialPan;
         private DevExpress.XtraBars.BarButtonItem bt_CutLenth;
+        private DevExpress.XtraBars.BarButtonItem bt_Promo;
     }
 }

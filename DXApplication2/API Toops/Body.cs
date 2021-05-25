@@ -1522,21 +1522,21 @@ namespace SaveDXF
                 {
                     ksEdgeDefinition edgeDefinition = edgeCollection.GetByIndex(ee);
                     double length = edgeDefinition.GetLength(0x1);
-                    if(length == sheetMetalBody.Thickness)
+                    if(Math.Round(length, 1) == Math.Round(sheetMetalBody.Thickness, 1))
                     {
                         for (int zz = 0; zz < edgeCollection.GetCount(); zz++)
                         {
                             ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
                             double length2 = edgeDefinition2.GetLength(0x1);
-                            if(length2 != sheetMetalBody.Thickness)
+                            if(Math.Round(length2, 1) != Math.Round(sheetMetalBody.Thickness, 1))
                                 CutLentgth += length2;
                         }
                         break;
                     }
                 }
             }
-            CutCount -= faceCollection.GetCount();
-           Math.Round(CutLentgth /= 2, 3);
+            CutCount = (CutCount - faceCollection.GetCount())/2;
+            CutLentgth = Math.Round(CutLentgth /= 2, 3);
         }
         public static bool TransProp_SetValueProperty(IPart7 part, IProperty Property, object Val)
         {

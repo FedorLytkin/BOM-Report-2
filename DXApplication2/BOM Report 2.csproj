@@ -181,6 +181,13 @@
     <Compile Include="Options\Variable_Class.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectClone\Pr_Clone_Class.cs" />
+    <Compile Include="PromoCods\IPromo_Class.cs" />
+    <Compile Include="PromoCods\PromoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PromoCods\PromoForm.Designer.cs">
+      <DependentUpon>PromoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Splash Control\SplashScreen1.cs">
       <SubType>Form</SubType>
@@ -222,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromoCods\PromoForm.resx">
+      <DependentUpon>PromoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
