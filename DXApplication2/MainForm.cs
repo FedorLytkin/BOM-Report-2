@@ -26,6 +26,9 @@ using VSNRM_Kompas.Diagramm.ControlClass;
 using VSNRM_Kompas.Diagramm;
 using VSNRM_Kompas.Options.CFG_Controll;
 using VSNRM_Kompas.XMLContreller;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraVerticalGrid.Rows;
+using DevExpress.XtraEditors.Controls;
 
 namespace VSNRM_Kompas
 {
@@ -80,7 +83,7 @@ namespace VSNRM_Kompas
             Body.AppVersNOTValidStrongMessage();
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
-            mainRibbonControl.PageCategories["Визуализатор"].Visible = false; 
+            mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
         }
         private void AddColumns(bool askCFGFileName)
         {
@@ -105,6 +108,32 @@ namespace VSNRM_Kompas
                 treeList1.Columns["Раздел спецификации"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;
             if (treeList1.Columns["Позиция"] != null)
                 treeList1.Columns["Позиция"].SortMode = DevExpress.XtraGrid.ColumnSortMode.Custom;
+
+            if (treeList1.Columns["Тип объекта"] != null)
+            {
+                RepositoryItemImageComboBox rep = GetRepositoryItemImageComboBox();
+                treeList1.Columns["Тип объекта"].ColumnEdit = rep;
+            }
+        }
+
+        private RepositoryItemImageComboBox GetRepositoryItemImageComboBox()
+        {
+            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
+
+            rep.SmallImages = treeList1.StateImageList;
+            rep.Items.Add(new ImageComboBoxItem("Сборка", 0, 0));
+            rep.Items.Add(new ImageComboBoxItem("Документ", 1, 1));
+            rep.Items.Add(new ImageComboBoxItem("Комплект", 2, 2));
+            rep.Items.Add(new ImageComboBoxItem("Материал", 3, 3));
+            rep.Items.Add(new ImageComboBoxItem("Деталь", 4, 4));
+            rep.Items.Add(new ImageComboBoxItem("Прочее изделие", 6, 5));
+            rep.Items.Add(new ImageComboBoxItem("Комплекс", 6, 6));
+            rep.Items.Add(new ImageComboBoxItem("Стандартное изделие", 7, 7));
+            rep.Items.Add(new ImageComboBoxItem("Деталь листовая без развертки", 8, 8));
+            rep.Items.Add(new ImageComboBoxItem("Деталь листовая с разверткой", 9, 9));
+            rep.Items.Add(new ImageComboBoxItem("Чертеж", 10, 10));
+            rep.Items.Add(new ImageComboBoxItem("Спецификация", 11, 11));
+            return rep;
         }
         public void AddItem_In_Combobox()
         {
@@ -490,6 +519,50 @@ namespace VSNRM_Kompas
             //    column.SummaryFooter = SummaryItemType.None;
         }
 
+        DXMenuCheckItem CreateMenuItemOpenComponent(GridView view, int rowHandle)
+        {
+            DXMenuCheckItem checkItem = new DXMenuCheckItem("Открыть",
+              view.OptionsView.AllowCellMerge, null, new EventHandler(OnCellMergingClick));
+            checkItem.Tag = new RowInfo(view, rowHandle);
+            //checkItem.ImageOptions.Image = imageCollection1.Images[0];
+            return checkItem;
+        }
+        void OnCellMergingClick(object sender, EventArgs e)
+        {
+            var gv = MainGridControl.MainView as GridView;
+            var index = gv.FocusedRowHandle;
+            if (index < 0) return;
+
+            DataRow row = Main_gridView.GetDataRow(index);
+            ComponentInfo componentInfo = (ComponentInfo)row["System"];
+            if (componentInfo == null) return;
+
+            string FFN = componentInfo.FFN;
+            body.OpenDocument(componentInfo.FFN);
+        }
+        
+        class RowInfo
+        {
+            public RowInfo(GridView view, int rowHandle)
+            {
+                this.RowHandle = rowHandle;
+                this.View = view;
+            }
+            public GridView View;
+            public int RowHandle;
+        }
+
+        private void Main_gridView_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+            {
+                int rowHandle = e.HitInfo.RowHandle;
+                DXMenuItem item = CreateMenuItemOpenComponent(view, rowHandle);
+                item.BeginGroup = true;
+                e.Menu.Items.Add(item);
+            }
+        }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Main_Options.Skin_Name.Value = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName;
@@ -917,5 +990,6 @@ namespace VSNRM_Kompas
             promoForm.promo_Class.IOption_Class = option_Class;
             promoForm.ShowDialog();
         }
+
     }
 }

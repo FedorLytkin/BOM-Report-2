@@ -434,6 +434,7 @@ namespace SaveDXF
                     Node.StateImageIndex = 8;
                 }
             }
+            if (treeView.Columns["Тип объекта"] != null) Node.SetValue("Тип объекта", Node.ImageIndex);
             if (IOption_Class.Positio_On_Value)
             {
                 TreeListColumn Positio = treeView.Columns["Позиция"];
@@ -1041,6 +1042,8 @@ namespace SaveDXF
                         break;
                     case "Полное имя файла":
                         ParamValue = part.FileName;
+                        break;
+                    case "Тип объекта":
                         break;
                     default:
                         if(string.IsNullOrEmpty(ParamValue))

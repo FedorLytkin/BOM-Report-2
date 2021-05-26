@@ -29,6 +29,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
         public GridView Main_gridView;
         RepositoryItemPictureEdit pictureEdit;
         const string System_ColumnName = "system";
+        const string System_Object_Type_ColumnName = "Тип объекта";
         const string System_Count_ColumnName = "Количество";
         const string System_Total_Count_ColumnName = "Количество общ.";
         const string System_Slide_ColumnName = "Миниатюра";
@@ -45,11 +46,8 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             DataTable dataTable = new DataTable();
             addColumns(dataTable);
             MainGridControl.DataSource = GetComponents(dataTable);
-            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
-            rep.SmallImages = GetTreeView.StateImageList;
-            rep.Items.Add(new ImageComboBoxItem("Image1", 0, 0));
-            rep.Items.Add(new ImageComboBoxItem("Image2", 1, 9));
-            Main_gridView.Columns["Количество"].ColumnEdit = rep;
+            RepositoryItemImageComboBox rep = GetRepositoryItemImageComboBox();
+            Main_gridView.Columns[System_Object_Type_ColumnName].ColumnEdit = rep;
 
             pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
             Main_gridView.CustomRowCellEdit += Main_gridView_CustomRowCellEdit;
@@ -57,6 +55,25 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
 
             SetColumnsVisible();
             Main_gridView.Columns[System_ColumnName].Visible = false;
+        }
+        private RepositoryItemImageComboBox GetRepositoryItemImageComboBox()
+        {
+            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
+
+            rep.SmallImages = treeView.StateImageList;
+            rep.Items.Add(new ImageComboBoxItem("Сборка", 0, 0));
+            rep.Items.Add(new ImageComboBoxItem("Документ", 1, 1));
+            rep.Items.Add(new ImageComboBoxItem("Комплект", 2, 2));
+            rep.Items.Add(new ImageComboBoxItem("Материал", 3, 3));
+            rep.Items.Add(new ImageComboBoxItem("Деталь", 4, 4));
+            rep.Items.Add(new ImageComboBoxItem("Прочее изделие", 6, 5));
+            rep.Items.Add(new ImageComboBoxItem("Комплекс", 6, 6));
+            rep.Items.Add(new ImageComboBoxItem("Стандартное изделие", 7, 7));
+            rep.Items.Add(new ImageComboBoxItem("Деталь листовая без развертки", 8, 8));
+            rep.Items.Add(new ImageComboBoxItem("Деталь листовая с разверткой", 9, 9));
+            rep.Items.Add(new ImageComboBoxItem("Чертеж", 10, 10));
+            rep.Items.Add(new ImageComboBoxItem("Спецификация", 11, 11));
+            return rep;
         }
         public bool AddColumn(TreeListColumn column)
         {
@@ -108,6 +125,9 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
                         break;
                     case System_Count_ColumnName:
                         dataTable.Columns.Add(column.Name, typeof(double));
+                        break;
+                    case System_Object_Type_ColumnName:
+                        dataTable.Columns.Add(column.Name, typeof(int));
                         break;
                     default:
                         dataTable.Columns.Add(column.Name);
@@ -170,6 +190,9 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
                                         case System_Count_ColumnName:
                                             row[Param.Key] = componentInfo.QNT;
                                             break;
+                                        case System_Object_Type_ColumnName:
+                                            row[Param.Key] = node.ImageIndex;
+                                            break;
                                         case System_Total_Count_ColumnName:
                                             break;
                                         default:
@@ -178,6 +201,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
                                     }
                                 }
                                 row[System_Count_ColumnName] = node[System_Total_Count_ColumnName];
+                                //row[System_Object_Type_ColumnName] = node.ImageIndex;
                             }
                             else
                             {
