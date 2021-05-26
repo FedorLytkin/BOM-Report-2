@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
@@ -44,7 +45,11 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             DataTable dataTable = new DataTable();
             addColumns(dataTable);
             MainGridControl.DataSource = GetComponents(dataTable);
-
+            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
+            rep.SmallImages = GetTreeView.StateImageList;
+            rep.Items.Add(new ImageComboBoxItem("Image1", 0, 0));
+            rep.Items.Add(new ImageComboBoxItem("Image2", 1, 9));
+            Main_gridView.Columns["Количество"].ColumnEdit = rep;
 
             pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
             Main_gridView.CustomRowCellEdit += Main_gridView_CustomRowCellEdit;
