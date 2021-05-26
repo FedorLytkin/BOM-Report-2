@@ -1004,8 +1004,9 @@ namespace SaveDXF
                     case "Материал":
                         if(part.Detail && !part.Standard)
                             ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
-                        if (IOption_Class.Material_In_Assemly)
-                            ParamValue = (!part.Detail | part.Standard) ? OptionsFold.tools_class.FixInvalidChars_St(part.Material, "") : "";
+                        else
+                            if (IOption_Class.Material_In_Assemly)
+                                ParamValue = (!part.Detail | part.Standard) ? OptionsFold.tools_class.FixInvalidChars_St(part.Material, "") : "";
                         break;
                     case "Толщина":
                         ParamValue = Convert.ToString(GetThicknessPart(part, true));
@@ -1466,7 +1467,10 @@ namespace SaveDXF
                             if (!item.Detail)
                                 WalkAssembly(item);
                             else
-                                PartCalc(item);
+                            {
+                                bool isSheetMetal = IsSheetMetal(item, out isSheetMetal);
+                                if (isSheetMetal) PartCalc(item);
+                            }
                         }
                         catch (Exception Ex)
                         {
@@ -1479,29 +1483,13 @@ namespace SaveDXF
         private void PartCalc(IPart7 part)
         {
             if (part == null) return;
-            if (!part.Detail) return;
-            bool open = false;
-            Document3D document3D = _kompasObject.ActiveDocument3D();
-            if(document3D.fileName != part.FileName)
-            {
-                document3D = _kompasObject.Document3D();
-                open = document3D.Open(part.FileName, true);
-                if (!open)
-                {
-                    IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part.FileName, false, false);
-                    This_IKompasDocument3D.Active = true;
-                    document3D = _kompasObject.ActiveDocument3D();
-                }
-            }
-
-            if (document3D == null) return;
-            
-            ksPart kPart = (ksPart)document3D.GetPart((int)Part_Type.pTop_Part);
-            if (kPart == null) return;
+            if (!part.Detail || part.Standard) return;
             ISheetMetalContainer sheetMetalContainer = (ISheetMetalContainer)part;
             if (sheetMetalContainer == null) return;
-            string oboz = kPart.marking;
-            string name = kPart.name;
+
+            ksPart kPart = _kompasObject.TransferInterface(part, (int)Kompas6Constants.ksAPITypeEnum.ksAPI5Auto, 0);
+            if (kPart == null) return;
+            string marking = kPart.marking;
             int BendCount = 0;
             int CutCount = 0;
             double CutLentgth = 0;
@@ -1512,7 +1500,6 @@ namespace SaveDXF
             properties.Add(new ShProperty { Name = "Длина реза", Value = CutLentgth });
             AddProperty(part, properties);
             //MessageBox.Show($"Колво сгибов: {BendCount}\nКолво вырезов: {CutCount}\nДлина реза: {CutLentgth}");
-            if(open) document3D.close();
         }
         class ShProperty
         {
@@ -1553,7 +1540,16 @@ namespace SaveDXF
         private void AddProperty(IPart7 part_, List<ShProperty> shProperties)
         {
             IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
-            IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
+            IPart7 part_thisDetal = null; 
+            IEmbodimentsManager embodimentsManager = (IEmbodimentsManager)This_IKompasDocument3D.TopPart;
+            if (embodimentsManager.EmbodimentCount > 0)
+            {
+                Embodiment embodiment = embodimentsManager.Embodiment[part_.Marking];
+                if (embodiment != null) part_thisDetal = embodiment.Part;
+            }
+            else
+                part_thisDetal = This_IKompasDocument3D.TopPart;
+
             if (_IApplication != null)
             {
                 IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
@@ -1570,6 +1566,7 @@ namespace SaveDXF
                             {
                                 find_Prop = true;
                                 TransProp_SetValueProperty(part_thisDetal, Property, shProperty.Value);
+                                break;
                             }
                         }
                         if (!find_Prop)
@@ -1596,10 +1593,85 @@ namespace SaveDXF
             if (!part.Detail)
                 WalkAssembly(part);
             else
-                PartCalc(part);
+            {
+                bool isSheetMetal = IsSheetMetal(part, out isSheetMetal);
+                if (isSheetMetal) PartCalc(part);
+            }
 
             CloseDocs();
         }
+        public void test()
+        {
+            //Выполнение основной части программы
+            if (_kompasObject != null)
+            {
+                //получаем файл модели
+                IKompasDocument3D doc3D = (IKompasDocument3D)_IApplication.ActiveDocument;
+                //получаем верхний компонент
+                IPart7 top3D = doc3D.TopPart;
+                //перестраиваем документ
+                doc3D.RebuildDocument();
+                //получаем интерфейс дерева построения
+                IFeature7 pFeat = (IFeature7)top3D.Owner;
+                //получаем массив элементов дерева построения
+                Object[] featCol = pFeat.SubFeatures[0, false, false];
+                //получаем и выводим кол-во элементов в дереве построения
+                int featCount = featCol.Count();
+                Console.WriteLine(@"Всего компонентов дерева построения: {0}", featCount.ToString());
+                Console.WriteLine();
+                //определяем переменные для работы с компонентами дерева
+                IFeature7 curFeat = null;   //текущий элемент
+                int lcf = 0;                //кол-во переменных в текущем элементе
+                int i = 0;                  //счетчик компонентов дерева
+                int j = 0;                  //счетчик переменных компонента
+                string name_of_object = null;//имя компонента дерева
+                bool is_sheet = false;      //проверка на "листовое тело"
+                //перебираем компоненты дерева
+                do
+                {
+                    //получаем текущий компонент
+                    curFeat = (IFeature7)featCol[i];
+                    //получаем кол-во переменных в компоненте
+                    lcf = curFeat.VariablesCount[false, false];
+                    //получаем и выводим имя компонента
+                    name_of_object = curFeat.Name;
+                    Console.WriteLine(@"{0} - {1} переменных", name_of_object, lcf.ToString());
+                    Console.WriteLine();
+
+                    is_sheet = false;
+                    //перебираем переменные в текущем компоненте
+                    j = 0;
+                    do
+                    {
+                        Console.WriteLine(curFeat.Variable[false, false, j].Name + @" " +
+                            +curFeat.Variable[false, false, j].Value + @" " + curFeat.Variable[false, false, j].ParameterNote);
+                        if (curFeat.Variable[false, false, j].ParameterNote == @"Толщина листового тела") { is_sheet = true; }
+                        //Console.WriteLine(@"Имя переменной: {0}", curFeat.Variable[false,false,j].Name);
+                        //Console.WriteLine(@"Значение переменной: {0}", curFeat.Variable[false, false, j].Value);
+                        //Console.WriteLine(@"Комментарий к переменной: {0}", curFeat.Variable[false, false, j].ParameterNote);
+                        j++;
+                    } while (j < lcf);
+                    //проводим проверку на листовове тело
+                    if (is_sheet)
+                    {
+                        if (lcf == 4)
+                        {
+                            Console.WriteLine(@"Листовое тело построено по замкнутому контуру");
+                        }
+                        else { Console.WriteLine(@"Листовое тело построено по незамкнутому контуру"); }
+                        is_sheet = false;
+                    }
+                    else { Console.WriteLine(@"Элемент дерева не является листовым телом"); }
+                    Console.WriteLine();
+                    i++;
+                } while (i < featCount);
+
+                Console.ReadLine();
+            }
+            else { _IApplication.MessageBoxEx(@"Текущий документ не является моделью", @"Информация о документе", 0); }
+
+        }
+
         private void GetBend(ISheetMetalContainer sheetMetalContainer, ksPart kPart, out int BendCount, out int CutCount, out double CutLentgth)
         {
             BendCount = 0;
@@ -1614,22 +1686,20 @@ namespace SaveDXF
                 SheetMetalBend sheetMetalBend = (SheetMetalBend)sheetMetalBends[ii];
                 if (sheetMetalBend.BendObjects != null)
                 {
-                    try
-                    {
+                    try{
                         foreach (object bend in sheetMetalBend.BendObjects)
                             BendCount += 1;
                     }
-                    catch
-                    {
-                        BendCount += 1;
-                    } 
+                    catch{BendCount += 1;} 
                 } 
                 else
                     BendCount += 1;
             }
+            SheetMetalLineBends sheetMetalLineBends = sheetMetalContainer.SheetMetalLineBends;
+            BendCount += sheetMetalLineBends.Count;
             SheetMetalBodies sheetMetalBodies = sheetMetalContainer.SheetMetalBodies;
             SheetMetalBody sheetMetalBody = (SheetMetalBody)sheetMetalBodies[0];
-            
+
             ksBodyCollection iBodyCollection = kPart.BodyCollection();
             ksBody body = iBodyCollection.GetByIndex(0);
             ksFaceCollection faceCollection = body.FaceCollection();
