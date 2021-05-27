@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +8,7 @@ using System.Threading.Tasks;
 public class Option_Class
 {
     public VisibleControls IVC = new VisibleControls();
+    public CalcSheetMetalProperty ICShMProperty = new CalcSheetMetalProperty();
     public string Mass_MU_Name { get; set; }
     public string Length_MU_Name { get; set; }
     public string Area_MU_Name { get; set; }
@@ -26,6 +29,8 @@ public class Option_Class
     public bool Qnt_On_Line_In_Visual { get; set; } = false;
     public bool Dublicate_In_Visual { get; set; } = false;
     public bool All_Level_In_AllReport { get; set; } = false;
+    public bool Check_ProfileValue { get; set; } = false;
+    public bool AddTreeListForStandartKomponent { get; set; } = false;
     public Option_Class()
     {
         Mass_MU_Value = 1;
@@ -54,6 +59,41 @@ public class Option_Class
         ksMUnGR = 0,
         ksMUnKG = 1,
         ksMUnDocument = 4
+    }
+    public enum Obj_Type_Enum
+    {
+        Document = 0,
+        KompleKS = 1,
+        Assembly = 2,
+        Part = 3,
+        Part_With_Unfold = 4,
+        Part_NOT_Unfold = 5,
+        Standart = 6,
+        Pro4ee = 7,
+        Material= 8,
+        KompleKT = 9,
+        Drawing = 10,
+        Specification = 11
+    }
+
+    public static RepositoryItemImageComboBox GetRepositoryItemImageComboBox(object ImageList)
+    {
+        RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
+
+        rep.SmallImages = ImageList;
+        rep.Items.Add(new ImageComboBoxItem("Сборка", (int)Option_Class.Obj_Type_Enum.Assembly, (int)Option_Class.Obj_Type_Enum.Assembly));
+        rep.Items.Add(new ImageComboBoxItem("Документ", (int)Option_Class.Obj_Type_Enum.Document, (int)Option_Class.Obj_Type_Enum.Document));
+        rep.Items.Add(new ImageComboBoxItem("Комплект", (int)Option_Class.Obj_Type_Enum.KompleKT, (int)Option_Class.Obj_Type_Enum.KompleKT));
+        rep.Items.Add(new ImageComboBoxItem("Материал", (int)Option_Class.Obj_Type_Enum.Material, (int)Option_Class.Obj_Type_Enum.Material));
+        rep.Items.Add(new ImageComboBoxItem("Деталь", (int)Option_Class.Obj_Type_Enum.Part, (int)Option_Class.Obj_Type_Enum.Part));
+        rep.Items.Add(new ImageComboBoxItem("Прочее изделие", (int)Option_Class.Obj_Type_Enum.Pro4ee, (int)Option_Class.Obj_Type_Enum.Pro4ee));
+        rep.Items.Add(new ImageComboBoxItem("Комплекс", (int)Option_Class.Obj_Type_Enum.KompleKS, (int)Option_Class.Obj_Type_Enum.KompleKS));
+        rep.Items.Add(new ImageComboBoxItem("Стандартное изделие", (int)Option_Class.Obj_Type_Enum.Standart, (int)Option_Class.Obj_Type_Enum.Standart));
+        rep.Items.Add(new ImageComboBoxItem("Деталь листовая без развертки", (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold, (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold));
+        rep.Items.Add(new ImageComboBoxItem("Деталь листовая с разверткой", (int)Option_Class.Obj_Type_Enum.Part_With_Unfold, (int)Option_Class.Obj_Type_Enum.Part_With_Unfold));
+        rep.Items.Add(new ImageComboBoxItem("Чертеж", (int)Option_Class.Obj_Type_Enum.Drawing, (int)Option_Class.Obj_Type_Enum.Drawing));
+        rep.Items.Add(new ImageComboBoxItem("Спецификация", (int)Option_Class.Obj_Type_Enum.Specification, (int)Option_Class.Obj_Type_Enum.Specification));
+        return rep;
     }
     public enum TreeStatus_Enum
     {
@@ -190,5 +230,12 @@ public class Option_Class
         public bool CutLength { get; set; } = false;
         public bool PropertyTranslation { get; set; } = false;
         public bool ProjectClone { get; set; } = false;
+        public bool Check_ProfileValue { get; set; } = false;
     }
+    public class CalcSheetMetalProperty
+    {
+        public bool CutLengt_Calc { get; set; } = false;
+        public bool BendCount_Calc { get; set; } = false;
+        public bool HoleCount_Calc { get; set; } = false;
     }
+}

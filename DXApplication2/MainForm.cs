@@ -29,6 +29,7 @@ using VSNRM_Kompas.XMLContreller;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraVerticalGrid.Rows;
 using DevExpress.XtraEditors.Controls;
+using System.Drawing.Drawing2D;
 
 namespace VSNRM_Kompas
 {
@@ -50,6 +51,7 @@ namespace VSNRM_Kompas
             InitializeComponent();
             Body.Init();
             AddColumns(false);
+            treeList1.NodeCellStyle += new GetCustomNodeCellStyleEventHandler(treeList1_NodeCellStyle);
             pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
         }
         private void AddOptionControls()
@@ -76,6 +78,17 @@ namespace VSNRM_Kompas
             bt_Dublicate.Down = option_Class.Dublicate_In_Visual;
             Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
             bt_CutLenth.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            
+            Bt_Cut_Length_ON.Down = option_Class.ICShMProperty.CutLengt_Calc;
+            Bt_Bend_Count_ON.Down = option_Class.ICShMProperty.BendCount_Calc;
+            Bt_Holl_Count_ON.Down = option_Class.ICShMProperty.HoleCount_Calc;
+            Bt_Cut_Length_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_Bend_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_Holl_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+
+            Bt_chek_ProfileValue.Visibility = option_Class.IVC.Check_ProfileValue ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_chek_ProfileValue.Down = option_Class.Check_ProfileValue;
+
             bt_Prop_trans.Visibility = option_Class.IVC.PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
             ribbonPageGroup_SpecialPan.Visible = option_Class.IVC.SpecialPan;
             Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
@@ -111,30 +124,11 @@ namespace VSNRM_Kompas
 
             if (treeList1.Columns["Тип объекта"] != null)
             {
-                RepositoryItemImageComboBox rep = GetRepositoryItemImageComboBox();
+                RepositoryItemImageComboBox rep = Option_Class.GetRepositoryItemImageComboBox(treeList1.StateImageList);
                 treeList1.Columns["Тип объекта"].ColumnEdit = rep;
             }
         }
 
-        private RepositoryItemImageComboBox GetRepositoryItemImageComboBox()
-        {
-            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
-
-            rep.SmallImages = treeList1.StateImageList;
-            rep.Items.Add(new ImageComboBoxItem("Сборка", 0, 0));
-            rep.Items.Add(new ImageComboBoxItem("Документ", 1, 1));
-            rep.Items.Add(new ImageComboBoxItem("Комплект", 2, 2));
-            rep.Items.Add(new ImageComboBoxItem("Материал", 3, 3));
-            rep.Items.Add(new ImageComboBoxItem("Деталь", 4, 4));
-            rep.Items.Add(new ImageComboBoxItem("Прочее изделие", 6, 5));
-            rep.Items.Add(new ImageComboBoxItem("Комплекс", 6, 6));
-            rep.Items.Add(new ImageComboBoxItem("Стандартное изделие", 7, 7));
-            rep.Items.Add(new ImageComboBoxItem("Деталь листовая без развертки", 8, 8));
-            rep.Items.Add(new ImageComboBoxItem("Деталь листовая с разверткой", 9, 9));
-            rep.Items.Add(new ImageComboBoxItem("Чертеж", 10, 10));
-            rep.Items.Add(new ImageComboBoxItem("Спецификация", 11, 11));
-            return rep;
-        }
         public void AddItem_In_Combobox()
         {
             (Col_List_CB.Edit as RepositoryItemComboBox).Items.Clear();
@@ -172,6 +166,8 @@ namespace VSNRM_Kompas
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenDocumentParam_API7();
+            UpdateData();
+            PostProcessData();
             splashScreenManager2.CloseWaitForm();
         }
         private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -416,6 +412,8 @@ namespace VSNRM_Kompas
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.UpDateTreeList();
+            UpdateData();
+            PostProcessData();
             splashScreenManager2.CloseWaitForm();
         }
         private void Update_Tree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -447,7 +445,7 @@ namespace VSNRM_Kompas
             body.OpenThisDocument();
 
             UpdateData();
-
+            PostProcessData();
             splashScreenManager2.CloseWaitForm();
         }
         private void bbiFindBOM_AcriveDoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -670,6 +668,11 @@ namespace VSNRM_Kompas
                     break;
             } 
         }
+        private void PostProcessData()
+        {
+            //VSNRM_Kompas.PostProcess.IPostProcess_Class ipostpocess = new PostProcess.IPostProcess_Class(option_Class);
+            //ipostpocess.Treelist_PostProcess(treeList1);
+        }
         private void UpdateData()
         {
             allPartReport = new AllPartReport_ControllClass(treeList1, MainGridControl, Main_gridView, option_Class.All_Level_In_AllReport);
@@ -716,6 +719,10 @@ namespace VSNRM_Kompas
         {
             option_Class.Qnt_On_Line_In_Visual = Bt_Qnt_On_Line.Down;
             option_Class.Dublicate_In_Visual = bt_Dublicate.Down;
+            option_Class.ICShMProperty.CutLengt_Calc = Bt_Cut_Length_ON.Down;
+            option_Class.ICShMProperty.BendCount_Calc = Bt_Bend_Count_ON.Down;
+            option_Class.ICShMProperty.HoleCount_Calc = Bt_Holl_Count_ON.Down;
+            option_Class.Check_ProfileValue = Bt_chek_ProfileValue.Down;
             SaveOptions();
         }
         private void bt_Dublicate_ItemClick(object sender, ItemClickEventArgs e)
@@ -989,6 +996,39 @@ namespace VSNRM_Kompas
             PromoCods.PromoForm promoForm = new PromoCods.PromoForm();
             promoForm.promo_Class.IOption_Class = option_Class;
             promoForm.ShowDialog();
+        }
+
+        private void Bt_Cut_Length_ON_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Dublicate_And_Qnt_On_Line();
+        }
+
+        private void Bt_Bend_Count_ON_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Dublicate_And_Qnt_On_Line();
+        }
+
+        private void Bt_Holl_Count_ON_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Dublicate_And_Qnt_On_Line();
+        }
+
+        private void Bt_chek_ProfileValue_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Dublicate_And_Qnt_On_Line();
+        }
+        void treeList1_NodeCellStyle(object sender, DevExpress.XtraTreeList.GetCustomNodeCellStyleEventArgs e)
+        {
+            //ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;
+            //if (componentInfo == null) return;
+            //if (componentInfo.SheeMetall && !componentInfo.HaveUnfold)
+            //{
+            //    e.Appearance.BackColor = Color.Pink;
+            //    //e.Appearance.Options.UseFont = true;
+            //    //e.Appearance.Options.UseBackColor = true; 
+            //}
+            //if (string.IsNullOrEmpty(Convert.ToString(e.Node.GetValue("Длина профиля"))) && option_Class.Check_ProfileValue)
+            //    e.Appearance.BackColor = Color.Pink;
         }
 
     }

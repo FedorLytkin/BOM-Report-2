@@ -234,7 +234,7 @@ namespace SaveDXF
                             if (ItemHidden != true)
                             {
                                 ComponentInfo componentInfo = GetParam(item);
-                                AddWaitStatus(Path.GetFileNameWithoutExtension(componentInfo.FFN));
+                                AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
                                 string itemKey = null;
                                 itemKey = GetComponentKey(item);
                                 if (!componentInfo.QNT_False)
@@ -247,7 +247,8 @@ namespace SaveDXF
                                 //getBodyResoure(item, componentInfo, TempNode);
                                 if (!item.Detail && All_Level_Search) 
                                 {
-                                    Recource(item, TempNode);
+                                    if(!item.Standard || IOption_Class.AddTreeListForStandartKomponent)
+                                        Recource(item, TempNode);
                                 }
                             }
                         }
@@ -397,15 +398,15 @@ namespace SaveDXF
             }
             if (componentInfo.standardComponent)
             {
-                Node.ImageIndex = 7;
-                Node.SelectImageIndex = 7;
-                Node.StateImageIndex = 7;
+                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
+                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
+                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
             }
             else
             {
-                Node.ImageIndex = 0;
-                Node.SelectImageIndex = 0;
-                Node.StateImageIndex = 0;
+                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
+                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
+                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
             }
             string RazdelSP = "";
 
@@ -415,23 +416,23 @@ namespace SaveDXF
 
             if (componentInfo.isDetal && !componentInfo.standardComponent)
             {
-                Node.ImageIndex = 4;
-                Node.SelectImageIndex = 4;
-                Node.StateImageIndex = 4;
+                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
+                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
+                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
             }
             if (componentInfo.SheeMetall)
             {
                 if (componentInfo.HaveUnfold)
                 {
-                    Node.ImageIndex = 9;
-                    Node.SelectImageIndex = 9;
-                    Node.StateImageIndex = 9;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
                 }
                 else
                 {
-                    Node.ImageIndex = 8;
-                    Node.SelectImageIndex = 8;
-                    Node.StateImageIndex = 8;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
                 }
             }
             if (treeView.Columns["Тип объекта"] != null) Node.SetValue("Тип объекта", Node.ImageIndex);
@@ -464,9 +465,9 @@ namespace SaveDXF
             {
                 Node.SetValue(FieldName, ParValues[FieldName]);
             }
-            Node.ImageIndex = 3;
-            Node.SelectImageIndex = 3;
-            Node.StateImageIndex = 3;
+            Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+            Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+            Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
 
             string RazdelSP = "";
 
@@ -484,44 +485,44 @@ namespace SaveDXF
             switch (Section_Name)
             {
                 case "Детали":
-                    Node.ImageIndex = 4;
-                    Node.SelectImageIndex = 4;
-                    Node.StateImageIndex = 4;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
                     break;
                 case "Материалы":
-                    Node.ImageIndex = 3;
-                    Node.SelectImageIndex = 3;
-                    Node.StateImageIndex = 3;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
                     break;
                 case "Сборочные единицы":
-                    Node.ImageIndex = 0;
-                    Node.SelectImageIndex = 0;
-                    Node.StateImageIndex = 0;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
                     break;
                 case "Прочие изделия":
-                    Node.ImageIndex = 5;
-                    Node.SelectImageIndex = 5;
-                    Node.StateImageIndex = 5;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
                     break;
                 case "Стандартные изделия":
-                    Node.ImageIndex = 7;
-                    Node.SelectImageIndex = 7;
-                    Node.StateImageIndex = 7;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
                     break;
                 case "Комплекты":
-                    Node.ImageIndex = 6;
-                    Node.SelectImageIndex = 6;
-                    Node.StateImageIndex = 6;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
                     break;
                 case "Комплексы":
-                    Node.ImageIndex = 2;
-                    Node.SelectImageIndex = 2;
-                    Node.StateImageIndex = 2;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
                     break;
                 case "Документация":
-                    Node.ImageIndex = 2;
-                    Node.SelectImageIndex = 2;
-                    Node.StateImageIndex = 2;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
                     break;
             }
         }
@@ -981,74 +982,85 @@ namespace SaveDXF
             foreach (string ParamName in FindParam_Model)
             {
                 string ParamValue = "";
-                switch (ParamName)
+                try
                 {
-                    case "Обозначение":
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Marking, "");
-                        break;
-                    case "Имя файла":
-                        ParamValue = System.IO.Path.GetFileNameWithoutExtension(part.FileName);
-                        break;
-                    case "Путь файла":
-                        ParamValue = part.FileName;
-                        break;
-                    case "Расположение файла":
-                        ParamValue = System.IO.Path.GetDirectoryName(part.FileName);
-                        break;
-                    case "Наименование":
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
-                        if (IOption_Class.Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
-                        break;
-                    case "Масса":
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
-                        break;
-                    case "Материал":
-                        if(part.Detail && !part.Standard)
-                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
-                        else
-                            if (IOption_Class.Material_In_Assemly)
+                    switch (ParamName)
+                    {
+                        case "Обозначение":
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Marking, "");
+                            break;
+                        case "Имя файла":
+                            if (part.FileName.IndexOf(">") < 0)
+                                ParamValue = System.IO.Path.GetFileNameWithoutExtension(part.FileName);
+                            break;
+                        case "Путь файла":
+                            ParamValue = part.FileName;
+                            break;
+                        case "Расположение файла":
+                            if (part.FileName.IndexOf(">") < 0)
+                                ParamValue = System.IO.Path.GetDirectoryName(part.FileName);
+                            break;
+                        case "Наименование":
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Name, "");
+                            if (IOption_Class.Split_Naim) ParamValue = OptionsFold.tools_class.SplitString(ParamValue);
+                            break;
+                        case "Масса":
+                            ParamValue = OptionsFold.tools_class.FixInvalidChars_St(Math.Round(part.Mass, 3).ToString(), "");
+                            break;
+                        case "Материал":
+                            if (part.Detail && !part.Standard)
+                                ParamValue = OptionsFold.tools_class.FixInvalidChars_St(part.Material, "");
+                            else
+                                if (IOption_Class.Material_In_Assemly)
                                 ParamValue = (!part.Detail | part.Standard) ? OptionsFold.tools_class.FixInvalidChars_St(part.Material, "") : "";
-                        break;
-                    case "Толщина":
-                        ParamValue = Convert.ToString(GetThicknessPart(part, true));
-                        break;
-                    case "Количество":
-                        ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                        if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
-                        break;
-                    case "Количество общ.":
-                        //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                        //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
-                        break;
-                    case "Площадь":
-                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Area_MU_Value;  
-                        ParamValue = Math.Round(massInertiaParam.Area, 3).ToString();
-                        break;
-                    case "Объем":
-                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Volume_MU_Value;  
-                        ParamValue = Math.Round(massInertiaParam.Volume, 3).ToString();
-                        break;
-                    case "Xc":
-                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
-                        ParamValue = massInertiaParam.Xc.ToString();
-                        break;
-                    case "Yc":
-                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
-                        ParamValue = massInertiaParam.Yc.ToString();
-                        break;
-                    case "Zc":
-                        massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
-                        ParamValue = massInertiaParam.Zc.ToString();
-                        break;
-                    case "Полное имя файла":
-                        ParamValue = part.FileName;
-                        break;
-                    case "Тип объекта":
-                        break;
-                    default:
-                        if(string.IsNullOrEmpty(ParamValue))
+                            break;
+                        case "Толщина":
+                            ParamValue = Convert.ToString(GetThicknessPart(part, true));
+                            break;
+                        case "Количество":
                             ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
-                        break;
+                            if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
+                            break;
+                        case "Количество общ.":
+                            //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                            //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
+                            break;
+                        case "Площадь":
+                            massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Area_MU_Value;
+                            ParamValue = Math.Round(massInertiaParam.Area, 3).ToString();
+                            break;
+                        case "Объем":
+                            massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Volume_MU_Value;
+                            ParamValue = Math.Round(massInertiaParam.Volume, 3).ToString();
+                            break;
+                        case "Xc":
+                            massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
+                            ParamValue = massInertiaParam.Xc.ToString();
+                            break;
+                        case "Yc":
+                            massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
+                            ParamValue = massInertiaParam.Yc.ToString();
+                            break;
+                        case "Zc":
+                            massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
+                            ParamValue = massInertiaParam.Zc.ToString();
+                            break;
+                        case "Полное имя файла":
+                            ParamValue = part.FileName;
+                            break;
+                        case "Тип объекта":
+                            break;
+                        default:
+                            if (string.IsNullOrEmpty(ParamValue))
+                                ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
+                            break;
+                    }
+                }
+                catch (Exception Ex)
+                {
+                    ShowMsgBox("Ошибка в компоненте " + part.FileName +
+                        Environment.NewLine + $"При обработки параметра {ParamName} произошла ошибка" +
+                        Environment.NewLine + Ex.Message, MessageBoxIcon.Error); ;
                 }
                 massInertiaParam.LengthUnits = (ksLengthUnitsEnum)IOption_Class.Length_MU_Value;
                 ParamValueList.Add(ParamName, ParamValue);
@@ -1088,9 +1100,13 @@ namespace SaveDXF
             //4555
             //int newWidth = 32;
             //int newHeight = newWidth;
-            ShellFile shellFile = ShellFile.FromFilePath(part.FileName);
-            iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
-            iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+            ShellFile shellFile = null;
+            if (File.Exists(part.FileName))
+            {
+                shellFile = ShellFile.FromFilePath(part.FileName);
+                iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
+                iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+            }
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
             //iMSH.Slide.SetResolution(newWidth * 3, newWidth * 3);
             iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
@@ -1124,6 +1140,8 @@ namespace SaveDXF
             if (document3D != null) OpenDoc = true;
             else
                 document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
+            
+            if (document3D == null) return linkVars;
             string ParamName = null;
             try
             {
@@ -1498,9 +1516,9 @@ namespace SaveDXF
             double CutLentgth = 0;
             GetBend(sheetMetalContainer, kPart, out BendCount, out CutCount, out CutLentgth);
             List<ShProperty> properties = new List<ShProperty>();
-            properties.Add(new ShProperty { Name = "Количество гибов", Value = BendCount });
-            properties.Add(new ShProperty { Name = "Количество врезок", Value = CutCount });
-            properties.Add(new ShProperty { Name = "Длина реза", Value = CutLentgth });
+            if (IOption_Class.ICShMProperty.BendCount_Calc) properties.Add(new ShProperty { Name = "Количество гибов", Value = BendCount });
+            if (IOption_Class.ICShMProperty.HoleCount_Calc) properties.Add(new ShProperty { Name = "Количество врезок", Value = CutCount });
+            if (IOption_Class.ICShMProperty.CutLengt_Calc) properties.Add(new ShProperty { Name = "Длина реза", Value = CutLentgth });
             AddProperty(part, properties);
             //MessageBox.Show($"Колво сгибов: {BendCount}\nКолво вырезов: {CutCount}\nДлина реза: {CutLentgth}");
         }
@@ -1683,57 +1701,67 @@ namespace SaveDXF
             SheetMetalBends sheetMetalBends = sheetMetalContainer.SheetMetalBends;
             ISheetMetalBendedStraightens sheetMetalBendedStraightens = sheetMetalContainer.SheetMetalBendedStraightens;
             BendCount = sheetMetalBendedStraightens.Count;
-            AddWaitStatus($"Сгибы в {Path.GetFileNameWithoutExtension( kPart.fileName)}");
-            for (int ii = 0; ii < sheetMetalBends.Count; ii++)
+            if (IOption_Class.ICShMProperty.BendCount_Calc)
             {
-                SheetMetalBend sheetMetalBend = (SheetMetalBend)sheetMetalBends[ii];
-                if (sheetMetalBend.BendObjects != null)
+                AddWaitStatus($"Сгибы в {Path.GetFileNameWithoutExtension(kPart.fileName)}");
+                for (int ii = 0; ii < sheetMetalBends.Count; ii++)
                 {
-                    try{
-                        foreach (object bend in sheetMetalBend.BendObjects)
-                            BendCount += 1;
-                    }
-                    catch{BendCount += 1;} 
-                } 
-                else
-                    BendCount += 1;
-            }
-            SheetMetalLineBends sheetMetalLineBends = sheetMetalContainer.SheetMetalLineBends;
-            BendCount += sheetMetalLineBends.Count;
-            SheetMetalBodies sheetMetalBodies = sheetMetalContainer.SheetMetalBodies;
-            SheetMetalBody sheetMetalBody = (SheetMetalBody)sheetMetalBodies[0];
-
-            ksBodyCollection iBodyCollection = kPart.BodyCollection();
-            ksBody body = iBodyCollection.GetByIndex(0);
-            ksFaceCollection faceCollection = body.FaceCollection();
-
-            AddWaitStatus($"Контур в {Path.GetFileNameWithoutExtension(kPart.fileName)}");
-            for (int yy = 0; yy < faceCollection.GetCount(); yy++)
-            {
-                ksFaceDefinition faceDefinition = faceCollection.GetByIndex(yy);
-                ksSurface surface = faceDefinition.GetSurface();
-                CutCount += surface.BoundaryCount;
-
-                ksEdgeCollection edgeCollection = faceDefinition.EdgeCollection();
-                for (int ee = 0; ee < edgeCollection.GetCount(); ee++)
-                {
-                    ksEdgeDefinition edgeDefinition = edgeCollection.GetByIndex(ee);
-                    double length = edgeDefinition.GetLength(0x1);
-                    if(Math.Round(length, 1) == Math.Round(sheetMetalBody.Thickness, 1))
+                    SheetMetalBend sheetMetalBend = (SheetMetalBend)sheetMetalBends[ii];
+                    if (sheetMetalBend.BendObjects != null)
                     {
-                        for (int zz = 0; zz < edgeCollection.GetCount(); zz++)
+                        try
                         {
-                            ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
-                            double length2 = edgeDefinition2.GetLength(0x1);
-                            if(Math.Round(length2, 1) != Math.Round(sheetMetalBody.Thickness, 1))
-                                CutLentgth += length2;
+                            foreach (object bend in sheetMetalBend.BendObjects)
+                                BendCount += 1;
                         }
-                        break;
+                        catch { BendCount += 1; }
+                    }
+                    else
+                        BendCount += 1;
+                }
+                SheetMetalLineBends sheetMetalLineBends = sheetMetalContainer.SheetMetalLineBends;
+                BendCount += sheetMetalLineBends.Count;
+            }
+            
+            if(IOption_Class.ICShMProperty.CutLengt_Calc || IOption_Class.ICShMProperty.HoleCount_Calc)
+            {
+                SheetMetalBodies sheetMetalBodies = sheetMetalContainer.SheetMetalBodies;
+                SheetMetalBody sheetMetalBody = (SheetMetalBody)sheetMetalBodies[0];
+
+                ksBodyCollection iBodyCollection = kPart.BodyCollection();
+                ksBody body = iBodyCollection.GetByIndex(0);
+                ksFaceCollection faceCollection = body.FaceCollection();
+                AddWaitStatus($"Контур в {Path.GetFileNameWithoutExtension(kPart.fileName)}");
+                for (int yy = 0; yy < faceCollection.GetCount(); yy++)
+                {
+                    ksFaceDefinition faceDefinition = faceCollection.GetByIndex(yy);
+                    ksSurface surface = faceDefinition.GetSurface();
+                    if (IOption_Class.ICShMProperty.HoleCount_Calc) CutCount += surface.BoundaryCount;
+                    if (IOption_Class.ICShMProperty.CutLengt_Calc)
+                    {
+                        ksEdgeCollection edgeCollection = faceDefinition.EdgeCollection();
+                        for (int ee = 0; ee < edgeCollection.GetCount(); ee++)
+                        {
+                            ksEdgeDefinition edgeDefinition = edgeCollection.GetByIndex(ee);
+                            double length = edgeDefinition.GetLength(0x1);
+                            if (Math.Round(length, 1) == Math.Round(sheetMetalBody.Thickness, 1))
+                            {
+                                for (int zz = 0; zz < edgeCollection.GetCount(); zz++)
+                                {
+                                    ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
+                                    double length2 = edgeDefinition2.GetLength(0x1);
+                                    if (Math.Round(length2, 1) != Math.Round(sheetMetalBody.Thickness, 1))
+                                        CutLentgth += length2;
+                                }
+                                break;
+                            }
+                        }
                     }
                 }
-            }
-            CutCount = (CutCount - faceCollection.GetCount())/2;
-            CutLentgth = Math.Round(CutLentgth /= 2, 3);
+                CutLentgth = Math.Round(CutLentgth /= 2, 3);
+
+                CutCount = ((CutCount - faceCollection.GetCount()) / 2) + 1;
+            } 
         }
         public static bool TransProp_SetValueProperty(IPart7 part, IProperty Property, object Val)
         {

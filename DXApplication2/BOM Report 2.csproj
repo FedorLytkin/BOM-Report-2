@@ -141,6 +141,7 @@
       <DependentUpon>OptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\CFG_Controll\Option_Class.cs" />
+    <Compile Include="PostProcess\IPostProcess_Class.cs" />
     <Compile Include="ProjectClone\FindAndRepace_Class.cs" />
     <Compile Include="ProjectClone\FindAndRepace_Form.cs">
       <SubType>Form</SubType>

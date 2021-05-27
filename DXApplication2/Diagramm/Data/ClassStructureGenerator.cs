@@ -75,7 +75,7 @@ namespace DiagramDataControllerBehavior.Data
         { 
             if (componentInfo.isBody)
             {
-                item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
+                item.FileName = File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN;
                 item.Oboz = componentInfo.Body.Oboz;
                 item.Naim = componentInfo.Body.Naim;
                 if (componentInfo.Body.ParamValueList.ContainsKey(Material))
@@ -83,7 +83,7 @@ namespace DiagramDataControllerBehavior.Data
             }
             else
             {
-                item.FileName = Path.GetFileNameWithoutExtension(componentInfo.FFN);
+                item.FileName = File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN;
                 item.Oboz = componentInfo.Oboz;
                 item.Naim = componentInfo.Naim;
                 if (componentInfo.ParamValueList.ContainsKey(Material))

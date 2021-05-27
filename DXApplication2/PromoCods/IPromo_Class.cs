@@ -20,6 +20,7 @@ namespace VSNRM_Kompas.PromoCods
             PromoCodeList.Add("icut_length");
             PromoCodeList.Add("iproperty_translator");
             PromoCodeList.Add("iproject_clone");
+            PromoCodeList.Add("ICheckProfileLength");
         }
         public bool checkPromo(string SetPromoText)
         {
@@ -37,6 +38,10 @@ namespace VSNRM_Kompas.PromoCods
                         case "iproperty_translator":
                             IOption_Class.IVC.SpecialPan = true;
                             IOption_Class.IVC.PropertyTranslation = true;
+                            break;
+                        case "ICheckProfileLength":
+                            IOption_Class.IVC.SpecialPan = true;
+                            IOption_Class.IVC.Check_ProfileValue = true;
                             break;
                         case "iproject_clone":
                             IOption_Class.IVC.ProjectClone = true;

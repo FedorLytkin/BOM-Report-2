@@ -46,7 +46,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             DataTable dataTable = new DataTable();
             addColumns(dataTable);
             MainGridControl.DataSource = GetComponents(dataTable);
-            RepositoryItemImageComboBox rep = GetRepositoryItemImageComboBox();
+            RepositoryItemImageComboBox rep = Option_Class.GetRepositoryItemImageComboBox(treeView.StateImageList);
             Main_gridView.Columns[System_Object_Type_ColumnName].ColumnEdit = rep;
 
             pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
@@ -55,25 +55,6 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
 
             SetColumnsVisible();
             Main_gridView.Columns[System_ColumnName].Visible = false;
-        }
-        private RepositoryItemImageComboBox GetRepositoryItemImageComboBox()
-        {
-            RepositoryItemImageComboBox rep = new RepositoryItemImageComboBox();
-
-            rep.SmallImages = treeView.StateImageList;
-            rep.Items.Add(new ImageComboBoxItem("Сборка", 0, 0));
-            rep.Items.Add(new ImageComboBoxItem("Документ", 1, 1));
-            rep.Items.Add(new ImageComboBoxItem("Комплект", 2, 2));
-            rep.Items.Add(new ImageComboBoxItem("Материал", 3, 3));
-            rep.Items.Add(new ImageComboBoxItem("Деталь", 4, 4));
-            rep.Items.Add(new ImageComboBoxItem("Прочее изделие", 6, 5));
-            rep.Items.Add(new ImageComboBoxItem("Комплекс", 6, 6));
-            rep.Items.Add(new ImageComboBoxItem("Стандартное изделие", 7, 7));
-            rep.Items.Add(new ImageComboBoxItem("Деталь листовая без развертки", 8, 8));
-            rep.Items.Add(new ImageComboBoxItem("Деталь листовая с разверткой", 9, 9));
-            rep.Items.Add(new ImageComboBoxItem("Чертеж", 10, 10));
-            rep.Items.Add(new ImageComboBoxItem("Спецификация", 11, 11));
-            return rep;
         }
         public bool AddColumn(TreeListColumn column)
         {
