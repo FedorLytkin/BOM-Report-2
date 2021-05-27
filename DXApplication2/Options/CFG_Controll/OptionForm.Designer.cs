@@ -366,7 +366,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(222, 62);
             this.groupControl5.TabIndex = 22;
-            this.groupControl5.Text = "Признак стандартного";
+            this.groupControl5.Text = "Состав у покупного";
             // 
             // toggleSwitch_AddTreeListForStandartKomponent
             // 
@@ -376,12 +376,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_AddTreeListForStandartKomponent.Properties.OffText = "Не строить Дерево";
             this.toggleSwitch_AddTreeListForStandartKomponent.Properties.OnText = "Строить Дерево";
             this.toggleSwitch_AddTreeListForStandartKomponent.Size = new System.Drawing.Size(217, 18);
-            toolTipTitleItem5.Text = "Не стоить дерево состава у стандартных изделий";
+            toolTipTitleItem5.Text = "Дерево состава у покупных компонентов";
             toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
             toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "При ВКЛ опции, для моделей сборок, в свойствах которых, включена опция Стандартна" +
-    "я, не будет строиться дерево состава\r\nПри ВЫКЛ, для данных моделей, делево соста" +
-    "ва строиться будет";
+            toolTipItem3.Text = resources.GetString("toolTipItem3.Text");
             toolTipTitleItem6.LeftIndent = 6;
             toolTipTitleItem6.Text = "BOM-Report";
             superToolTip3.Items.Add(toolTipTitleItem5);

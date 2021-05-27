@@ -22,6 +22,7 @@ namespace VSNRM_Kompas.API_Toops
         public bool isDetal { get; set; }
         public bool standardComponent { get; set; }
         public bool isBody { get; set; }
+        public bool isPurchated { get; set; }
         public string Key { get; set; }
         public double Area { get; set; }
         public Dictionary<string, string> ParamValueList { get; set; }

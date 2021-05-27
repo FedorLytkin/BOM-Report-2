@@ -201,6 +201,10 @@
         ZSIgLz4NCiAgPC9nPg0KPC9zdmc+Cw==
 </value>
   </data>
+  <data name="toolTipItem3.Text" xml:space="preserve">
+    <value>При ВКЛ опции, для моделей сборок, в свойствах которых, в разделе СП заданы Прочие, Стандартные или материал, не будет строиться дерево состава
+При ВЫКЛ, для данных моделей, делево состава строиться будет</value>
+  </data>
   <data name="resource.SvgImage3" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v19.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjE5LjIsIFZlcnNpb249MTkuMi4z

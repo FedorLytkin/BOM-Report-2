@@ -247,7 +247,7 @@ namespace SaveDXF
                                 //getBodyResoure(item, componentInfo, TempNode);
                                 if (!item.Detail && All_Level_Search) 
                                 {
-                                    if(!item.Standard || IOption_Class.AddTreeListForStandartKomponent)
+                                    if(!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
                                         Recource(item, TempNode);
                                 }
                             }
@@ -1096,6 +1096,7 @@ namespace SaveDXF
 
             iMSH.isDetal = part.Detail;
             iMSH.standardComponent = part.Standard;
+            iMSH.isPurchated = GetIsPurhated(part, iMSH.ParamValueList.ContainsKey("Раздел спецификации")? iMSH.ParamValueList["Раздел спецификации"]: null);
             iMSH.Key = ComponentKey;
             //4555
             //int newWidth = 32;
@@ -1121,6 +1122,21 @@ namespace SaveDXF
             }
 
             return iMSH;
+        }
+        private bool GetIsPurhated(IPart7 part, string SectionName)
+        {
+            if (part == null) return false;
+            if (part.Standard) return true;
+            if (string.IsNullOrEmpty(SectionName)) return false;
+            switch (SectionName)
+            {
+                case "Стандартные изделия":
+                case "Прочие изделия":
+                case "Материалы":
+                    return true;
+                default:
+                    return false;
+            }
         }
         private long GetFileSize(string FileName)
         {
