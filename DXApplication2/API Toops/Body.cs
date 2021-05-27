@@ -87,6 +87,7 @@ namespace SaveDXF
         public void OpenDocument(string FullFileName)
         {
             //процедура открывает документ из списка
+            if (!File.Exists(FullFileName)) return;
             IKompasDocument _IKompasDocument = (IKompasDocument)_IApplication.Documents.Open(FullFileName, true, false);
             _IKompasDocument.Active = true;
         }
@@ -370,14 +371,14 @@ namespace SaveDXF
             switch (Path.GetExtension(Drw_componentInfo.FFN).ToUpper())
             {
                 case ".CDW":
-                    Node.ImageIndex = 10;
-                    Node.SelectImageIndex = 10;
-                    Node.StateImageIndex = 10;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Drawing;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Drawing;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Drawing;
                     break;
                 case ".SPW":
-                    Node.ImageIndex = 11;
-                    Node.SelectImageIndex = 11;
-                    Node.StateImageIndex = 11;
+                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Specification;
+                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Specification;
+                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Specification;
                     break;
             }
         }
@@ -564,6 +565,7 @@ namespace SaveDXF
                         ChildNode = TempNode;
                         ChildNode.SetValue("Количество", QNT);
                         ChildNode.SetValue("Количество общ.", GetTotalQNT(ChildNode));
+                        ChildNode.SetValue("Тип объекта", ChildNode.ImageIndex);
                         ChildNode.Tag = temp_componentInfo;
                         return ChildNode;
                     }
@@ -861,6 +863,7 @@ namespace SaveDXF
             try
             {
                 IKompasDocument3D _IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
+                if (_IKompasDocument3D == null) return null;
                 part_ = _IKompasDocument3D.TopPart;
                 if (part_ != null)
                 {
@@ -1408,7 +1411,7 @@ namespace SaveDXF
                         try
                         {
                             TransProp_AddProp(item, _IKompasDocument); 
-                            AddWaitStatus(Path.GetFileNameWithoutExtension(item.FileName));
+                            AddWaitStatus(File.Exists(item.FileName) ? Path.GetFileNameWithoutExtension(item.FileName): item.FileName);
                             if (!item.Detail)
                                 TransPropTravelByAssemly2(item, _IKompasDocument);
                         }
@@ -1447,8 +1450,8 @@ namespace SaveDXF
         }
         private void TransProp_AddProp(IPart7 part_, IKompasDocument3D Parent_IKompasDocument)
         {
-            IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false);
-            if (This_IKompasDocument3D == Parent_IKompasDocument) return;
+            IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false); 
+            if (This_IKompasDocument3D == Parent_IKompasDocument || This_IKompasDocument3D == null) return;
             IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
             if (_IApplication != null)
             {

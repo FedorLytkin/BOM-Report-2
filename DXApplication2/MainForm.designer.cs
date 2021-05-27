@@ -650,13 +650,14 @@
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup_Columns_Property = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup_SpecialPan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rb_UserRibbon = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_SpecialPan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -1065,6 +1066,7 @@
             this.mainRibbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.Tools_ToolBar,
             this.ribbonPage2,
+            this.rb_UserRibbon,
             this.ribbonPage1});
             this.mainRibbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
@@ -4001,7 +4003,6 @@
             this.mainRibbonPageGroup,
             this.ribbonPageGroup3,
             this.ribbonPageGroup_Columns_Property,
-            this.ribbonPageGroup_SpecialPan,
             this.ribbonPageGroup8});
             this.Tools_ToolBar.MergeOrder = 0;
             this.Tools_ToolBar.Name = "Tools_ToolBar";
@@ -4073,15 +4074,6 @@
             this.ribbonPageGroup_Columns_Property.SuperTip = superToolTip86;
             this.ribbonPageGroup_Columns_Property.Text = "Настройка столбцов";
             // 
-            // ribbonPageGroup_SpecialPan
-            // 
-            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_Prop_trans);
-            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_CutLenth);
-            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.barButtonGroup7);
-            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.Bt_chek_ProfileValue);
-            this.ribbonPageGroup_SpecialPan.Name = "ribbonPageGroup_SpecialPan";
-            this.ribbonPageGroup_SpecialPan.Text = "Специальные команды";
-            // 
             // ribbonPageGroup8
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem8);
@@ -4124,6 +4116,22 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bt_ServiseDXFAuto_View);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Другие программы";
+            // 
+            // rb_UserRibbon
+            // 
+            this.rb_UserRibbon.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_SpecialPan});
+            this.rb_UserRibbon.Name = "rb_UserRibbon";
+            this.rb_UserRibbon.Text = "Мои инструменты";
+            // 
+            // ribbonPageGroup_SpecialPan
+            // 
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_Prop_trans, true);
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.bt_CutLenth, true);
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.barButtonGroup7);
+            this.ribbonPageGroup_SpecialPan.ItemLinks.Add(this.Bt_chek_ProfileValue, true);
+            this.ribbonPageGroup_SpecialPan.Name = "ribbonPageGroup_SpecialPan";
+            this.ribbonPageGroup_SpecialPan.Text = "Специальные команды";
             // 
             // ribbonPage1
             // 
@@ -7015,5 +7023,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup8;
         private DevExpress.XtraBars.BarButtonItem Bt_chek_ProfileValue;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rb_UserRibbon;
     }
 }

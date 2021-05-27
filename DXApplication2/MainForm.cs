@@ -75,8 +75,10 @@ namespace VSNRM_Kompas
             Bt_NaimSpletter.Checked = option_Class.Split_Naim;
             Add_Drw_In_Tree_CH_B.Checked = option_Class.Add_Drw;
             All_Level_Check_CH_B_InAllReport.Checked = option_Class.All_Level_In_AllReport;
-            bt_Dublicate.Down = option_Class.Dublicate_In_Visual;
+            bt_Dublicate.Down = option_Class.Dublicate_In_Visual; 
             Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
+
+            rb_UserRibbon.Visible = option_Class.IVC.SpecialPan;
             bt_CutLenth.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
             
             Bt_Cut_Length_ON.Down = option_Class.ICShMProperty.CutLengt_Calc;
