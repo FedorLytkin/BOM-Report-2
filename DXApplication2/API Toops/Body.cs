@@ -32,7 +32,7 @@ namespace SaveDXF
     public class Body
     {
         public static string KompasVersion;
-        public static string KompasVersionFlag= "КОМПАС-3D v18";
+        public static string KompasVersionFlag= "КОМПАС-3D v19";
         //public static bool AppVersNOTValid; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/
         public static bool AppVersNOTValidStrong; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/ 
         public static KompasObject _kompasObject;
@@ -122,11 +122,11 @@ namespace SaveDXF
             TreeListNode node = treeView.Nodes.Add();
             if (node.Tag == null)
             {
-                node.Tag = GetParam(TopPart);
+                node.Tag = GetParam(TopPart, _IKompasDocument);
                 if(IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
-            Recource(TopPart, node);
+            Recource(TopPart, node, _IKompasDocument);
             NodeExpand(node);
             CloseDocs();
         }
@@ -186,11 +186,11 @@ namespace SaveDXF
                     if (node.Tag == null)
                     {
                         if (tmp_Embodiment.Part == null) { IPart7NothingMsg(FFN); return; }
-                        node.Tag = GetParam(tmp_Embodiment.Part);
+                        node.Tag = GetParam(tmp_Embodiment.Part, _IKompasDocument);
                         if (IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
-                    Recource(tmp_Embodiment.Part, node);
+                    Recource(tmp_Embodiment.Part, node, _IKompasDocument);
                     NodeExpand(node);
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
@@ -216,7 +216,7 @@ namespace SaveDXF
         {
             waitMng.SetWaitFormDescription(Text);
         }
-        public void Recource(IPart7 TopPart, TreeListNode node)
+        public void Recource(IPart7 TopPart, TreeListNode node, IKompasDocument3D kompasDocument)
         //процедура перебирает компоненты в сборке
         { 
             if (TopPart != null)
@@ -234,7 +234,7 @@ namespace SaveDXF
                             if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
                             if (ItemHidden != true)
                             {
-                                ComponentInfo componentInfo = GetParam(item);
+                                ComponentInfo componentInfo = GetParam(item, kompasDocument);
                                 AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
                                 string itemKey = null;
                                 itemKey = GetComponentKey(item);
@@ -249,7 +249,7 @@ namespace SaveDXF
                                 if (!item.Detail && All_Level_Search) 
                                 {
                                     if(!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
-                                        Recource(item, TempNode);
+                                        Recource(item, TempNode, kompasDocument);
                                 }
                             }
                         }
@@ -730,6 +730,37 @@ namespace SaveDXF
             }
             return null;
         }
+        public string GetPropertyIPart7(IPart7 part_, string PropertyName, IKompasDocument3D _IKompasDocument3D)
+        {
+            if (PropertyName == "Миниатюра") return null;
+            if (_IApplication != null)
+            {
+                IPropertyMng _IPropertyMng = (IPropertyMng)_IApplication;
+                if (_IPropertyMng != null)
+                {
+                    int count = _IPropertyMng.PropertyCount[_IKompasDocument3D];
+                    for (int i = 0; i < count; i++)
+                    {
+                        IProperty Property = _IPropertyMng.GetProperty(_IKompasDocument3D, i);
+
+                        if (PropertyName == Property.Name)
+                        {
+                            object returnObject;
+                            if (GetValueProperty(part_, Property, out returnObject))
+                            {
+                                if (returnObject.GetType().Name == "Double") returnObject = Math.Round(Convert.ToDouble(returnObject), 3);
+                                if (!string.IsNullOrEmpty(returnObject.ToString()))
+                                {
+                                    return returnObject.ToString();
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            return GetVaribleValByName(part_, PropertyName);
+        }
         public string GetPropertyIPart7(IPart7 part_, string PropertyName)
         {
             if (PropertyName == "Миниатюра") return null;
@@ -962,7 +993,7 @@ namespace SaveDXF
             else
                 return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking);
         }
-        private ComponentInfo GetParam(IPart7 part)
+        private ComponentInfo GetParam(IPart7 part, IKompasDocument3D kompasDocument)
         {
             string ComponentKey = GetComponentKey(part);
 
@@ -1054,6 +1085,8 @@ namespace SaveDXF
                         case "Тип объекта":
                             break;
                         default:
+                            if (string.IsNullOrEmpty(ParamValue))
+                                ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName, kompasDocument), "");
                             if (string.IsNullOrEmpty(ParamValue))
                                 ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
                             break;
