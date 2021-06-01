@@ -1759,25 +1759,48 @@ namespace SaveDXF
                     if (IOption_Class.ICShMProperty.CutLengt_Calc)
                     {
                         ksEdgeCollection edgeCollection = faceDefinition.EdgeCollection();
-                        for (int ee = 0; ee < edgeCollection.GetCount(); ee++)
+                        int edgeCount = edgeCollection.GetCount();
+                        for (int ee = 0; ee < edgeCount; ee++)
                         {
                             ksEdgeDefinition edgeDefinition = edgeCollection.GetByIndex(ee);
                             double length = edgeDefinition.GetLength(0x1);
-                            if (Math.Round(length, 1) == Math.Round(sheetMetalBody.Thickness, 1))
+                            if(edgeCount == 2)
                             {
-                                for (int zz = 0; zz < edgeCollection.GetCount(); zz++)
+                                double min_Length = 0;
+                                for (int zz = 0; zz < edgeCount; zz++)
                                 {
                                     ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
                                     double length2 = edgeDefinition2.GetLength(0x1);
-                                    if (Math.Round(length2, 1) != Math.Round(sheetMetalBody.Thickness, 1))
-                                        CutLentgth += length2;
+                                    if (Math.Round(length2, 5) != Math.Round(sheetMetalBody.Thickness, 5) && min_Length < length2)
+                                    {
+                                        min_Length = length2;
+                                    }
                                 }
+                                CutLentgth += min_Length;
                                 break;
+                            }
+                            else if(edgeCount == 4)
+                            { 
+                                if (Math.Round(length, 5) == Math.Round(sheetMetalBody.Thickness, 5))
+                                {
+                                    double min_Length = 0;
+                                    for (int zz = 0; zz < edgeCount; zz++)
+                                    {
+                                        ksEdgeDefinition edgeDefinition2 = edgeCollection.GetByIndex(zz);
+                                        double length2 = edgeDefinition2.GetLength(0x1);
+                                        if (Math.Round(length2, 5) != Math.Round(sheetMetalBody.Thickness, 5))
+                                        {
+                                            min_Length = length2;
+                                        }
+                                    }
+                                    CutLentgth += min_Length;
+                                    break;
+                                }
                             }
                         }
                     }
                 }
-                CutLentgth = Math.Round(CutLentgth /= 2, 3);
+                CutLentgth = Math.Round(CutLentgth, 3);
 
                 CutCount = ((CutCount - faceCollection.GetCount()) / 2) + 1;
             } 
