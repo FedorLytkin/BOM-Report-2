@@ -23,7 +23,7 @@ namespace SaveDXF
         CFG_Class OptionClass_ = new CFG_Class();
         CompressedFile compressedFile;
 
-        public static string PatternID = "100";
+        public static string PatternID = "101";
         public static string ThisPCLic;
         public LicForm2()
         {
@@ -61,6 +61,8 @@ namespace SaveDXF
                 sw.WriteLine(CryptoClass.ProcessorID_);
                 sw.WriteLine(CryptoClass.Volumeserialnumber_);
                 sw.WriteLine(CryptoClass.MotherBoardID_);
+                sw.WriteLine(CryptoClass.FullProgramVersion_);
+                sw.WriteLine(CryptoClass.IVirtualPC);
             }
             if (CryptoClass_ == null) CryptoClass_ = new CryptoClass();
             if (compressedFile == null) compressedFile = new CompressedFile();

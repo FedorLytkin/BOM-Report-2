@@ -22,6 +22,8 @@ namespace SaveDXF
         public static string LicKey_;
         public static string ComputerName_;
         public static string DelimerChar = "ANK";
+        public static string FullProgramVersion_;
+        public static string IVirtualPC;
         RijndaelManaged Rijndael;
         CFG_Class OptionClass_ = new CFG_Class();
 
@@ -177,6 +179,8 @@ namespace SaveDXF
             GetProgrammVersion();
             GetCADProgramVersion();
             GetComputerName(false);
+            FullProgramVersion_ = Application.ProductVersion;
+            IVirtualPC = DetectVirtualMachine_Class.DetectVirtualMachine().ToString();
         }
         //Метод запускаемый при загрузке приложения
         public bool Form_LoadTrue(bool VisMessagForUser)
@@ -192,7 +196,6 @@ namespace SaveDXF
             {
                 if (!DecodeKey(number, fPath))
                 {
-                    //Clipboard.SetText(number);
                     return false;
                 }
                 else
@@ -204,7 +207,6 @@ namespace SaveDXF
                                         "Отправьте полученный файл разработчику для получения ключа!",
                                         Application.ProductName + ". Менеджер лицензии", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    Clipboard.SetText(number);
                     return true ;
                 }
             }
@@ -218,7 +220,6 @@ namespace SaveDXF
                                     "Отправьте полученный файл разработчику для получения ключа!",
                                     Application.ProductName + ". Менеджер лицензии", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Clipboard.SetText(number);
                 return true;
             } 
             return true;
