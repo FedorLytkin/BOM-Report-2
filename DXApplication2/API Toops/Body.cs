@@ -32,7 +32,7 @@ namespace SaveDXF
     public class Body
     {
         public static string KompasVersion;
-        public static string KompasVersionFlag= "КОМПАС-3D v18";
+        public static string KompasVersionFlag= "КОМПАС-3D v19";
         //public static bool AppVersNOTValid; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/
         public static bool AppVersNOTValidStrong; /*проверяет валидность данной версии компаса с версией КОМПАС-3D v18.1*/ 
         public static KompasObject _kompasObject;

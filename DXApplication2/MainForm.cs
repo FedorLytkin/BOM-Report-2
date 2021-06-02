@@ -36,6 +36,7 @@ namespace VSNRM_Kompas
     public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public static bool thisDemo = true;
+        public static bool thisVirtualPC = true; 
         public static string ProgramID = "20";
         public Body body = new Body();
         XMLContreller.XMLCLass controller;
@@ -160,6 +161,20 @@ namespace VSNRM_Kompas
             {
                 this.Text = $"{Application.ProductName} v{Application.ProductVersion} {Body.KompasVersionFlag}";
                 Licence_Manager_ribbonPageGroup1.Visible = false;
+            }
+            thisVirtualPC = DetectVirtualMachine_Class.DetectVirtualMachine();
+            if (thisVirtualPC)
+            {
+                bbiFindBOM_AcriveDoc.Enabled = false;
+                bbiFindBOM.Enabled = false;
+                Update_Tree.Enabled = false;
+                MessageBox.Show($"ВНИМАНИЕ!\nПрограмма установлена на виртуальную машину!\nДля предотвращения ошибок в работе программы, некоторый функционал будет отключен.\nДля восстановления всего функционала программы, установите {Application.ProductName} на физическую рабочую машину!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                bbiFindBOM_AcriveDoc.Enabled = true;
+                bbiFindBOM.Enabled = true;
+                Update_Tree.Enabled = true;
             }
         }
         private void FindBOM()

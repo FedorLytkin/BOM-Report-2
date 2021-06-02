@@ -134,6 +134,7 @@
     <Compile Include="Diagramm\Project_Clone.Designer.cs">
       <DependentUpon>Project_Clone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Licenc\DetectVirtualMachine_Class.cs" />
     <Compile Include="Options\CFG_Controll\OptionForm.cs">
       <SubType>Form</SubType>
     </Compile>

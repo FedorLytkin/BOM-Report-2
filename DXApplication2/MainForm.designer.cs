@@ -2966,7 +2966,7 @@
             this.diagramControl1.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[0]);
             this.diagramControl1.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             this.diagramControl1.OptionsView.PropertiesPanelVisibility = DevExpress.Diagram.Core.PropertiesPanelVisibility.Closed;
-            this.diagramControl1.Size = new System.Drawing.Size(1113, 342);
+            this.diagramControl1.Size = new System.Drawing.Size(1223, 342);
             this.diagramControl1.TabIndex = 4;
             // 
             // diagramCommandIncreaseFontSizeBarButtonItem1
@@ -4281,7 +4281,7 @@
             this.LinkVis_Page.Controls.Add(this.diagramControl1);
             this.LinkVis_Page.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("LinkVis_Page.ImageOptions.SvgImage")));
             this.LinkVis_Page.Name = "LinkVis_Page";
-            this.LinkVis_Page.Size = new System.Drawing.Size(1113, 342);
+            this.LinkVis_Page.Size = new System.Drawing.Size(1223, 342);
             // 
             // diagramBarController1
             // 
