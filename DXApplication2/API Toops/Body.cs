@@ -1248,16 +1248,16 @@ namespace SaveDXF
                 }
                 else
                 {
-                    if (AppVersNOTValidStrong) return GetThickBeVarible(Part_, true);/*если версия компаса не валидна*/
                     if (pSheetMetalContainer.SheetMetalRuledShells.Count != 0)
                     {
                         ISheetMetalBody obech = pSheetMetalContainer.SheetMetalRuledShells.SheetMetalBody[0];
                         return obech.Thickness;
-                    } 
+                    }
+                    if (AppVersNOTValidStrong) return GetThickBeVarible(Part_, true);/*если версия компаса не валидна*/
                 }
             }
             catch  { } 
-            return -1;
+            return 0;
         }
 
         public static bool IsSheetMetal(IPart7 Part, out bool NoSheetMetal)
@@ -1277,6 +1277,9 @@ namespace SaveDXF
                     }
                     else
                     {
+                        ISheetMetalBendUnfoldParameters _SheetMetalBendUnfoldParameters = _ISheetMetalContainer.SheetMetalBendUnfoldParameters;
+                        if (_SheetMetalBendUnfoldParameters != null)
+                                return true;
                         VariableTable _VariableTable = Part.VariableTable;
                         if (_VariableTable != null)
                         {
