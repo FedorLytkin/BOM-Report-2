@@ -1277,9 +1277,6 @@ namespace SaveDXF
                     }
                     else
                     {
-                        ISheetMetalBendUnfoldParameters _SheetMetalBendUnfoldParameters = _ISheetMetalContainer.SheetMetalBendUnfoldParameters;
-                        if (_SheetMetalBendUnfoldParameters != null)
-                                return true;
                         VariableTable _VariableTable = Part.VariableTable;
                         if (_VariableTable != null)
                         {
