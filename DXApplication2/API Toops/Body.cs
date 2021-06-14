@@ -126,7 +126,7 @@ namespace SaveDXF
                 if(IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
-            Recource(TopPart, node);
+            Recource_Old(TopPart, node);
             NodeExpand(node);
             CloseDocs();
         }
@@ -190,7 +190,7 @@ namespace SaveDXF
                         if (IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
-                    Recource(tmp_Embodiment.Part, node);
+                    Recource_New(tmp_Embodiment.Part, node);
                     NodeExpand(node);
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
@@ -216,12 +216,12 @@ namespace SaveDXF
         {
             waitMng.SetWaitFormDescription(Text);
         }
-        public void Recource(IPart7 TopPart, TreeListNode node)
+        public void Recource_New(IPart7 TopPart, TreeListNode node)
         //процедура перебирает компоненты в сборке
-        { 
+        {
             if (TopPart != null)
             {
-                if(!TopPart.Detail) getBodyResoure(TopPart, (ComponentInfo)node.Tag, node);
+                if (!TopPart.Detail) getBodyResoure(TopPart, (ComponentInfo)node.Tag, node);
                 var Parts = TopPart.PartsEx[1];
                 if (Parts != null)
                 {
@@ -241,6 +241,64 @@ namespace SaveDXF
                                 if (!componentInfo.QNT_False)
                                     componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
+
+                                TreeListNode TempNode;
+                                TempNode = AddNode(node, componentInfo, false);
+                                TempNode.Tag = componentInfo;
+                                FindModel_List.Add(componentInfo);
+                                //getBodyResoure(item, componentInfo, TempNode);
+                                if (!item.Detail && All_Level_Search)
+                                {
+                                    if (!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
+                                        Recource_New(item, TempNode);
+                                } 
+                            }
+                        }
+                        catch (Exception Ex)
+                        {
+                            ShowMsgBox("Ошибка при обработке компонента " + item.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+        private ComponentInfo GetComponentInfoInWorkList(string componentKey, List<ComponentInfo> WorkList)
+        {
+            foreach(ComponentInfo component in WorkList)
+            {
+                if (component.Key == componentKey)
+                    return component;
+            }
+            return null;
+        }
+        public void Recource_Old(IPart7 TopPart, TreeListNode node)
+        //процедура перебирает компоненты в сборке
+        { 
+            if (TopPart != null)
+            {
+                if(!TopPart.Detail) getBodyResoure(TopPart, (ComponentInfo)node.Tag, node);
+                var Parts = TopPart.PartsEx[1];
+                if (Parts != null)
+                {
+                    List<string> PartList = GetPartList(TopPart);
+                    List<ComponentInfo> WorkList = new List<ComponentInfo>();
+                    foreach (IPart7 item in Parts)
+                    {
+                        try
+                        {
+                            bool ItemHidden = item.Hidden;
+                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
+                            if (ItemHidden != true)
+                            {
+                                string itemKey = null;
+                                itemKey = GetComponentKey(item);
+                                ComponentInfo componentInfo = GetComponentInfoInWorkList(itemKey, WorkList);
+                                if (componentInfo == null) componentInfo = GetParam(item);
+                                WorkList.Add(componentInfo);
+                                AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
+                                if (!componentInfo.QNT_False)
+                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
+                                try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
                                 
                                 TreeListNode TempNode;
                                 TempNode = AddNode(node, componentInfo, false);
@@ -249,7 +307,7 @@ namespace SaveDXF
                                 if (!item.Detail && All_Level_Search) 
                                 {
                                     if(!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
-                                        Recource(item, TempNode);
+                                        Recource_Old(item, TempNode);
                                 }
                             }
                         }
@@ -288,6 +346,12 @@ namespace SaveDXF
                 string ParamValue = null;
                 ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyBodyIPart7(Part, _body, ParamName), "");
                 if (IOption_Class.Split_Naim && ParamName == "Наименование") { ParamValue = OptionsFold.tools_class.SplitString(ParamValue); componentInfo_Copy.Body.Naim = ParamValue; }
+                if(ParamName == "Габарит")
+                {
+                    double X1 = 0, Y1 = 0, Z1 = 0, X2 = 0, Y2 = 0, Z2 = 0;
+                    _body.GetGabarit(out X1, out Y1, out Z1, out X2, out Y2, out Z2);
+                    ParamValue = Convert.ToString(Math.Round(Math.Abs(X1 - X2), 3) + "x" + Math.Round(Math.Abs(Y1 - Y2), 3) + "x" + Math.Round(Math.Abs(Z1 - Z2), 3));
+                }
                 ParamValueList.Add(ParamName, ParamValue);
             }
             componentInfo_Copy.Body.ParamValueList = ParamValueList;
@@ -575,7 +639,6 @@ namespace SaveDXF
 
             ComponentInfo FindModel_Item = (ComponentInfo)_componentInfo.Clone();
             //FindModel_Item.QNT = 1;
-            FindModel_List.Add(FindModel_Item);
             if (!AddBodyTree)
                 AddCellsInNode(ChildNode, _componentInfo);
             else
@@ -957,17 +1020,14 @@ namespace SaveDXF
         }
         private string GetComponentKey(IPart7 part)
         {
-            if(IOption_Class.Positio_On_Value)
-                return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking) + "|" + OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, "Позиция"), "");
-            else
-                return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking);
+            return part.FileName + "|" + (string.IsNullOrEmpty(part.Marking) ? part.Name : part.Marking);
         }
         private ComponentInfo GetParam(IPart7 part)
         {
             string ComponentKey = GetComponentKey(part);
 
             //FindModel_List
-            ComponentInfo iMSH = GetExistNode_By_ComponentKey(ComponentKey);
+            ComponentInfo iMSH = null ;// = GetExistNode_By_ComponentKey(ComponentKey);
             if (iMSH != null) return iMSH;
 
             IMassInertiaParam7 massInertiaParam = (IMassInertiaParam7)part;
@@ -1052,6 +1112,12 @@ namespace SaveDXF
                             ParamValue = part.FileName;
                             break;
                         case "Тип объекта":
+                            break;
+                        case "Габарит":
+                            ksPart kPart = _kompasObject.TransferInterface(part, (int)Kompas6Constants.ksAPITypeEnum.ksAPI5Auto, 0);
+                            double X1 = 0, Y1 = 0, Z1 = 0, X2 = 0, Y2=0, Z2 = 0;
+                            if(kPart!=null) kPart.GetGabarit(true, false, out X1, out Y1, out Z1, out X2, out Y2, out Z2);
+                            ParamValue = Convert.ToString(Math.Round(Math.Abs(X1 - X2), 3) + "x" + Math.Round(Math.Abs(Y1 - Y2), 3) + "x" + Math.Round(Math.Abs(Z1 - Z2), 3));
                             break;
                         default:
                             if (string.IsNullOrEmpty(ParamValue))
