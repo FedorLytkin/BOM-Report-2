@@ -327,8 +327,8 @@ namespace SaveDXF
         {
             ComponentInfo componentInfo_Copy = (ComponentInfo)componentInfo.Clone();
             componentInfo_Copy.Body = GetParamBody(_body);
-            double kolvo = Convert.ToDouble(GetPropertyBodyIPart7(Part, _body, "Количество"));
-            if (kolvo == 0|| (kolvo < 1 && kolvo > 0))
+            double kolvo = Math.Floor(Convert.ToDouble(GetPropertyBodyIPart7(Part, _body, "Количество")));
+            if (kolvo == 0)
             {
                 componentInfo_Copy.Body.QNT = 1;
                 componentInfo_Copy.Body.QNT_False = true;
