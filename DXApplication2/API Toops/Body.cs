@@ -328,7 +328,7 @@ namespace SaveDXF
             ComponentInfo componentInfo_Copy = (ComponentInfo)componentInfo.Clone();
             componentInfo_Copy.Body = GetParamBody(_body);
             double kolvo = Convert.ToDouble(GetPropertyBodyIPart7(Part, _body, "Количество"));
-            if (kolvo == 0)
+            if (kolvo == 0|| (kolvo < 1 && kolvo > 0))
             {
                 componentInfo_Copy.Body.QNT = 1;
                 componentInfo_Copy.Body.QNT_False = true;
@@ -1013,6 +1013,8 @@ namespace SaveDXF
         }
         private string GetComponentKey(IPart7 part, IBody7 body)
         {
+            return part.FileName + "|" + ((string.IsNullOrEmpty(part.Marking)) ? part.Name : part.Marking) + "|" + ((string.IsNullOrEmpty(body.Marking)) ? body.Name : body.Marking);
+
             if (IOption_Class.Positio_On_Value)
                 return part.FileName + "|" + ((string.IsNullOrEmpty(part.Marking)) ? part.Name : part.Marking) + "|" + ((string.IsNullOrEmpty(body.Marking)) ? body.Name : body.Marking) + "|" + OptionsFold.tools_class.FixInvalidChars_St(GetPropertyBodyIPart7(part, body, "Позиция"), "");
             else
