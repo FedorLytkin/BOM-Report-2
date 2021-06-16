@@ -85,9 +85,11 @@ namespace VSNRM_Kompas
             Bt_Cut_Length_ON.Down = option_Class.ICShMProperty.CutLengt_Calc;
             Bt_Bend_Count_ON.Down = option_Class.ICShMProperty.BendCount_Calc;
             Bt_Holl_Count_ON.Down = option_Class.ICShMProperty.HoleCount_Calc;
+            ts_EditOn.Checked = option_Class.IST.EditOn;
             Bt_Cut_Length_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
             Bt_Bend_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
             Bt_Holl_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            ts_EditOn.Visibility = option_Class.IVC.EditOn ? BarItemVisibility.Always : BarItemVisibility.Never;
 
             Bt_chek_ProfileValue.Visibility = option_Class.IVC.Check_ProfileValue ? BarItemVisibility.Always : BarItemVisibility.Never;
             Bt_chek_ProfileValue.Down = option_Class.Check_ProfileValue;
@@ -995,7 +997,7 @@ namespace VSNRM_Kompas
         {
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Трансляция в узлы");
-            body.TransProp_St1();
+            body.TransProp_St1_V2();
             splashScreenManager2.CloseWaitForm();
             MessageBox.Show("Процесс передачи данных завершен!", "Трансляция параметров в узлы", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -1048,5 +1050,17 @@ namespace VSNRM_Kompas
             //    e.Appearance.BackColor = Color.Pink;
         }
 
+        private void ts_EditOn_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            option_Class.IST.EditOn = ts_EditOn.Checked;
+            treeList1.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
+            treeList1.OptionsBehavior.Editable = option_Class.IST.EditOn;
+            Main_gridView.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
+            Main_gridView.OptionsBehavior.Editable = option_Class.IST.EditOn;
+            if (option_Class.IVC.EditOn)
+            {
+                MessageBox.Show("Включен режим редактирования!\nБудьте внимательны при работе с Деревом состава и Обозревателем", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

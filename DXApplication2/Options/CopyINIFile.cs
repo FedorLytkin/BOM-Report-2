@@ -23,7 +23,10 @@ namespace VSNRM_Kompas.Options
             string Main_Directory = $@"C:\Users\Public\Documents\NSoft\{Application.ProductName}\CFG";
 
             if (Directory.Exists(Main_Directory) != true)
+            {
+                System.Diagnostics.Process.Start("https://dxfautohelp.wixsite.com/dxfauto/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B");
                 Directory.CreateDirectory(Main_Directory);
+            }
             DirectoryInfo dir = new DirectoryInfo(now_directory);
             FileInfo[] files = dir.GetFiles();
             foreach (FileInfo file in files)

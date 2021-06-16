@@ -9,6 +9,7 @@ public class Option_Class
 {
     public VisibleControls IVC = new VisibleControls();
     public CalcSheetMetalProperty ICShMProperty = new CalcSheetMetalProperty();
+    public SpecTools IST = new SpecTools();
     public string Mass_MU_Name { get; set; }
     public string Length_MU_Name { get; set; }
     public string Area_MU_Name { get; set; }
@@ -231,6 +232,11 @@ public class Option_Class
         public bool PropertyTranslation { get; set; } = false;
         public bool ProjectClone { get; set; } = false;
         public bool Check_ProfileValue { get; set; } = false;
+        public bool EditOn { get; set; } = false;
+    }
+    public class SpecTools
+    {
+        public bool EditOn { get; set; } = false;
     }
     public class CalcSheetMetalProperty
     {

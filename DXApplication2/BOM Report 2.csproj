@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="API Toops\Body.cs" />
     <Compile Include="API Toops\ComponentInfo.cs" />
+    <Compile Include="API Toops\GetAllPartsClass.cs" />
     <Compile Include="ArticleTools\CustomTreeNode.cs" />
     <Compile Include="Controllers\ConnectionString.cs" />
     <Compile Include="Controllers\SetUpdateOptionBD.cs" />

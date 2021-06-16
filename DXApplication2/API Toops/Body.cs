@@ -1449,9 +1449,28 @@ namespace SaveDXF
                 }
             }
             return res;
-        } 
+        }
         #region "Транслировать параметры" 
-        public void TransProp_St1()
+        public void TransProp_St1_V2()
+        {
+            if (!AppVersNOTValidStrongMessage()) return;
+            if ((_IApplication.ActiveDocument is IKompasDocument3D) != true)
+                return;
+            IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
+            if (_IKompasDocument == null) return;
+            CheckMainControl();
+            IPart7 TopPart = _IKompasDocument.TopPart;
+            if (TopPart == null) { IPart7NothingMsg(_IKompasDocument.Path); return; }
+
+            GetAllPartsClass getAllParts = new GetAllPartsClass();
+            List<IPart7> partList = getAllParts.GetParts(TopPart);
+
+            foreach(IPart7 part in partList) 
+                TransProp_AddProp(TopPart, _IKompasDocument);
+            CloseDocs();
+        }
+
+        public void TransProp_St1_old()
         {
             if (!AppVersNOTValidStrongMessage()) return;
             if ((_IApplication.ActiveDocument is IKompasDocument3D) != true)
@@ -1466,6 +1485,7 @@ namespace SaveDXF
             TransPropTravelByAssemly2(TopPart, _IKompasDocument); 
             CloseDocs();
         }
+        
         private void TransPropTravelByAssemly2(IPart7 TopPart, IKompasDocument3D _IKompasDocument)
         //процедура перебирает компоненты в сборке
         {

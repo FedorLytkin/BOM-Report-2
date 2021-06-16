@@ -21,6 +21,7 @@ namespace VSNRM_Kompas.PromoCods
             PromoCodeList.Add("iproperty_translator");
             PromoCodeList.Add("iproject_clone");
             PromoCodeList.Add("ICheckProfileLength");
+            PromoCodeList.Add("icanedit");
         }
         public bool checkPromo(string SetPromoText)
         {
@@ -45,6 +46,9 @@ namespace VSNRM_Kompas.PromoCods
                             break;
                         case "iproject_clone":
                             IOption_Class.IVC.ProjectClone = true;
+                            break;
+                        case "icanedit":
+                            IOption_Class.IVC.EditOn = true;
                             break;
                     }
                     XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
