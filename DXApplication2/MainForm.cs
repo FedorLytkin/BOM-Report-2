@@ -99,9 +99,21 @@ namespace VSNRM_Kompas
             Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
 
             Body.AppVersNOTValidStrongMessage();
+            OptionsBehaviorChangche();
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
+        }
+        private void OptionsBehaviorChangche()
+        {
+            treeList1.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
+            treeList1.OptionsBehavior.Editable = option_Class.IST.EditOn;
+            Main_gridView.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
+            Main_gridView.OptionsBehavior.Editable = option_Class.IST.EditOn; 
+            if (option_Class.IST.EditOn)
+            {
+                MessageBox.Show("Включен режим редактирования!\nБудьте внимательны при работе с Деревом состава и Обозревателем", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void AddColumns(bool askCFGFileName)
         {
@@ -1049,18 +1061,11 @@ namespace VSNRM_Kompas
             //if (string.IsNullOrEmpty(Convert.ToString(e.Node.GetValue("Длина профиля"))) && option_Class.Check_ProfileValue)
             //    e.Appearance.BackColor = Color.Pink;
         }
-
         private void ts_EditOn_CheckedChanged(object sender, ItemClickEventArgs e)
         {
             option_Class.IST.EditOn = ts_EditOn.Checked;
-            treeList1.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
-            treeList1.OptionsBehavior.Editable = option_Class.IST.EditOn;
-            Main_gridView.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
-            Main_gridView.OptionsBehavior.Editable = option_Class.IST.EditOn;
-            if (option_Class.IVC.EditOn)
-            {
-                MessageBox.Show("Включен режим редактирования!\nБудьте внимательны при работе с Деревом состава и Обозревателем", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            OptionsBehaviorChangche();
+            SaveOptions();
         }
     }
 }

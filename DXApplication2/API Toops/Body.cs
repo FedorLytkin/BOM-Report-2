@@ -1466,7 +1466,7 @@ namespace SaveDXF
             List<IPart7> partList = getAllParts.GetParts(TopPart);
 
             foreach(IPart7 part in partList) 
-                TransProp_AddProp(TopPart, _IKompasDocument);
+                TransProp_AddProp(part, _IKompasDocument);
             CloseDocs();
         }
 
@@ -1538,6 +1538,7 @@ namespace SaveDXF
         }
         private void TransProp_AddProp(IPart7 part_, IKompasDocument3D Parent_IKompasDocument)
         {
+            AddWaitStatus(File.Exists(part_.FileName) ? Path.GetFileNameWithoutExtension(part_.FileName) : part_.FileName);
             IKompasDocument3D This_IKompasDocument3D = (IKompasDocument3D)GetIKompasDocument(part_.FileName, false, false); 
             if (This_IKompasDocument3D == Parent_IKompasDocument || This_IKompasDocument3D == null) return;
             IPart7 part_thisDetal = This_IKompasDocument3D.TopPart;
