@@ -170,6 +170,7 @@ namespace VSNRM_Kompas
             {
                 this.Text = $"{Application.ProductName} v{Application.ProductVersion} {Body.KompasVersionFlag} !!!This DemoVersion!!!";
                 Licence_Manager_ribbonPageGroup1.Visible = true;
+                GoToWebSite();
             }
             else
             {
@@ -348,9 +349,12 @@ namespace VSNRM_Kompas
 
         private void Website_bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            GoToWebSite();
+        }
+        private void GoToWebSite()
+        {
             Process.Start("https://dxfautohelp.wixsite.com/dxfauto/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B");
         }
-
         private void email_bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Process.Start("mailto:DXFAutoHelpDesk@gmail.com");

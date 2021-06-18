@@ -74,6 +74,7 @@ namespace SaveDXF
                 _IApplication = _kompasObject.ksGetApplication7();
             }
             KompasVersion = _IApplication.ApplicationName[true];
+            KompasVersionFlag = $"КОМПАС-3D v{getCadVersionFlag()}";
             AppVersNOTValidStrong = Convert.ToBoolean(string.Compare(KompasVersion, KompasVersionFlag));
             AppVersNOTValidStrong = System.Text.RegularExpressions.Regex.IsMatch(KompasVersion, KompasVersionFlag);
         }
@@ -83,7 +84,12 @@ namespace SaveDXF
                 MessageBox.Show($"Версия CAD-системы({KompasVersion}) не совпадает с рекомендованной версией {KompasVersionFlag}." +
                                 Environment.NewLine +  $"Обновите {System.Windows.Forms.Application.ProductName} до требуемой версии CAD системы, либо установите {KompasVersionFlag}", System.Windows.Forms.Application.ProductName);
             return AppVersNOTValidStrong;
-        } 
+        }
+        static string getCadVersionFlag()
+        {
+            string[] appvers = System.Windows.Forms.Application.ProductVersion.Split('.');
+            return $"{appvers[0]}";
+        }
         public void OpenDocument(string FullFileName)
         {
             //процедура открывает документ из списка
@@ -126,7 +132,7 @@ namespace SaveDXF
                 if(IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                 AddCellsInNode(node, (ComponentInfo)node.Tag);
             }
-            Recource_Old(TopPart, node);
+            Recource(TopPart, node);
             NodeExpand(node);
             CloseDocs();
         }
@@ -190,7 +196,7 @@ namespace SaveDXF
                         if (IOption_Class.Add_Drw) AddDrwNode(node, (ComponentInfo)node.Tag);
                         AddCellsInNode(node, (ComponentInfo)node.Tag); 
                     }
-                    Recource_New(tmp_Embodiment.Part, node);
+                    Recource(tmp_Embodiment.Part, node);
                     NodeExpand(node);
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
@@ -216,52 +222,6 @@ namespace SaveDXF
         {
             waitMng.SetWaitFormDescription(Text);
         }
-        public void Recource_New(IPart7 TopPart, TreeListNode node)
-        //процедура перебирает компоненты в сборке
-        {
-            if (TopPart != null)
-            {
-                if (!TopPart.Detail) getBodyResoure(TopPart, (ComponentInfo)node.Tag, node);
-                var Parts = TopPart.PartsEx[1];
-                if (Parts != null)
-                {
-                    List<string> PartList = GetPartList(TopPart);
-                    foreach (IPart7 item in Parts)
-                    {
-                        try
-                        {
-                            bool ItemHidden = item.Hidden;
-                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                            if (ItemHidden != true)
-                            {
-                                ComponentInfo componentInfo = GetParam(item);
-                                AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
-                                string itemKey = null;
-                                itemKey = GetComponentKey(item);
-                                if (!componentInfo.QNT_False)
-                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
-                                try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
-
-                                TreeListNode TempNode;
-                                TempNode = AddNode(node, componentInfo, false);
-                                TempNode.Tag = componentInfo;
-                                FindModel_List.Add(componentInfo);
-                                //getBodyResoure(item, componentInfo, TempNode);
-                                if (!item.Detail && All_Level_Search)
-                                {
-                                    if (!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
-                                        Recource_New(item, TempNode);
-                                } 
-                            }
-                        }
-                        catch (Exception Ex)
-                        {
-                            ShowMsgBox("Ошибка при обработке компонента " + item.FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-        }
         private ComponentInfo GetComponentInfoInWorkList(string componentKey, List<ComponentInfo> WorkList)
         {
             foreach(ComponentInfo component in WorkList)
@@ -271,7 +231,7 @@ namespace SaveDXF
             }
             return null;
         }
-        public void Recource_Old(IPart7 TopPart, TreeListNode node)
+        public void Recource(IPart7 TopPart, TreeListNode node)
         //процедура перебирает компоненты в сборке
         { 
             if (TopPart != null)
@@ -307,7 +267,7 @@ namespace SaveDXF
                                 if (!item.Detail && All_Level_Search) 
                                 {
                                     if(!componentInfo.isPurchated || IOption_Class.AddTreeListForStandartKomponent)
-                                        Recource_Old(item, TempNode);
+                                        Recource(item, TempNode);
                                 }
                             }
                         }
@@ -396,9 +356,9 @@ namespace SaveDXF
         private double GetQNTIn_PartsList(string Find_Item_Key, List<string> PartList)
         {
             double QNT = 0;
-            foreach (string item in PartList)
+            foreach (string item in PartList.Distinct())
             {
-                if (item == Find_Item_Key) QNT += 1;
+                if (item == Find_Item_Key) return PartList.Where(x => x == item).Count();
             }
             return QNT;
         }
@@ -462,17 +422,9 @@ namespace SaveDXF
                 }
             }
             if (componentInfo.standardComponent)
-            {
-                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
-                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
-                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
-            }
+                SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Standart);
             else
-            {
-                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
-                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
-                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
-            }
+                SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Assembly);
             string RazdelSP = "";
 
             if (ParValues.ContainsKey("Раздел спецификации")) RazdelSP = ParValues["Раздел спецификации"];
@@ -480,25 +432,13 @@ namespace SaveDXF
             if (!string.IsNullOrEmpty(RazdelSP)) SetNodeImageIndex_By_Section_Name(RazdelSP, Node);
 
             if (componentInfo.isDetal && !componentInfo.standardComponent)
-            {
-                Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
-                Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
-                Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
-            }
+                SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part);
             if (componentInfo.SheeMetall)
             {
                 if (componentInfo.HaveUnfold)
-                {
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part_With_Unfold;
-                }
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part_With_Unfold);
                 else
-                {
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part_NOT_Unfold;
-                }
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part_NOT_Unfold);
             }
             if (treeView.Columns["Тип объекта"] != null) Node.SetValue("Тип объекта", Node.ImageIndex);
             if (IOption_Class.Positio_On_Value)
@@ -517,6 +457,12 @@ namespace SaveDXF
                 }
             }
         }
+        private void SetNodeImageIndex(TreeListNode Node, Option_Class.Obj_Type_Enum obj_Type)
+        {
+            Node.ImageIndex = (int)obj_Type;
+            Node.SelectImageIndex = (int)obj_Type;
+            Node.StateImageIndex = (int)obj_Type;
+        }
         private string GetParentPositio(TreeListNode Node)
         {
             TreeListNode ParentNode = Node.ParentNode;
@@ -530,18 +476,9 @@ namespace SaveDXF
             {
                 Node.SetValue(FieldName, ParValues[FieldName]);
             }
-            Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
-            Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
-            Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+            SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Material);
 
-            string RazdelSP = "";
-
-            try
-            {
-                RazdelSP = ParValues["Раздел спецификации"];
-                if (!string.IsNullOrEmpty(RazdelSP)) SetNodeImageIndex_By_Section_Name(RazdelSP, Node);
-            }
-            catch { }
+            if(ParValues.ContainsKey("Раздел спецификации")) SetNodeImageIndex_By_Section_Name(ParValues["Раздел спецификации"], Node);
 
         }
         private void SetNodeImageIndex_By_Section_Name(string Section_Name, TreeListNode Node)
@@ -550,44 +487,28 @@ namespace SaveDXF
             switch (Section_Name)
             {
                 case "Детали":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Part;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part);
                     break;
                 case "Материалы":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Material;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Material);
                     break;
                 case "Сборочные единицы":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Assembly;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Assembly);
                     break;
                 case "Прочие изделия":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Pro4ee;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Pro4ee);
                     break;
                 case "Стандартные изделия":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Standart;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Standart);
                     break;
                 case "Комплекты":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKT;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.KompleKT);
                     break;
                 case "Комплексы":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.KompleKS;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.KompleKS);
                     break;
                 case "Документация":
-                    Node.ImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
-                    Node.SelectImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
-                    Node.StateImageIndex = (int)Option_Class.Obj_Type_Enum.Document;
+                    SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Document);
                     break;
             }
         }
@@ -637,7 +558,7 @@ namespace SaveDXF
             }
             ChildNode = ThisNode.Nodes.Add();
 
-            ComponentInfo FindModel_Item = (ComponentInfo)_componentInfo.Clone();
+            //ComponentInfo FindModel_Item = (ComponentInfo)_componentInfo.Clone();
             //FindModel_Item.QNT = 1;
             if (!AddBodyTree)
                 AddCellsInNode(ChildNode, _componentInfo);
