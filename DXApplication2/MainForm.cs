@@ -1071,5 +1071,10 @@ namespace VSNRM_Kompas
             OptionsBehaviorChangche();
             SaveOptions();
         }
+
+        private void treeList1_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
+        {
+
+        }
     }
 }

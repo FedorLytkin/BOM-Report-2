@@ -4233,6 +4233,7 @@
             this.treeList1.StateImageList = this.Section_IL;
             this.treeList1.TabIndex = 1;
             this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
+            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
             this.treeList1.CustomColumnSort += new DevExpress.XtraTreeList.CustomColumnSortEventHandler(this.treeList1_CustomColumnSort);
             this.treeList1.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeList1_PopupMenuShowing);
             this.treeList1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeList1_DragDrop);
@@ -5662,7 +5663,6 @@
             // 
             // diagramConnector4
             // 
-            this.diagramConnector4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramConnector4.Appearance.ContentBackground = System.Drawing.Color.White;
             this.diagramConnector4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.diagramConnector4.BeginPoint = new DevExpress.Utils.PointFloat(1080F, 370F);
@@ -5674,6 +5674,7 @@
             this.diagramConnector4.EndArrowSize = new System.Drawing.SizeF(10F, 10F);
             this.diagramConnector4.EndPoint = new DevExpress.Utils.PointFloat(1170F, 460F);
             this.diagramConnector4.Points = new DevExpress.XtraDiagram.PointCollection(new DevExpress.Utils.PointFloat[0]);
+            this.diagramConnector4.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
             this.diagramConnector4.TemplateName = "InterfaceConnector_Detal";
             this.diagramConnector4.Type = DevExpress.Diagram.Core.ConnectorType.Straight;
             // 
@@ -5895,7 +5896,6 @@
             // diagramContainer11
             // 
             this.diagramContainer11.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer11.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramContainer11.Appearance.BorderSize = 3;
             this.diagramContainer11.CanAddItems = false;
             this.diagramContainer11.CanCopyWithoutParent = true;
@@ -5923,6 +5923,7 @@
             this.diagramContainer11.MoveWithSubordinates = true;
             this.diagramContainer11.Position = new DevExpress.Utils.PointFloat(1250F, 310F);
             this.diagramContainer11.Size = new System.Drawing.SizeF(180.0001F, 190F);
+            this.diagramContainer11.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
             this.diagramContainer11.TemplateName = "Детали";
             this.diagramContainer11.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
@@ -5950,9 +5951,9 @@
             // diagramContainer12
             // 
             this.diagramContainer12.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramContainer12.Appearance.BorderSize = 0;
             this.diagramContainer12.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
+            this.diagramContainer12.BackgroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
             this.diagramContainer12.CanAddItems = false;
             this.diagramContainer12.CanCopy = false;
             this.diagramContainer12.CanCopyWithoutParent = false;
