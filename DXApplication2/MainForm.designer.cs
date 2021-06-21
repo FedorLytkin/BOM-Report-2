@@ -682,6 +682,9 @@
             this.LinkVis_Page = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.diagramBarController1 = new DevExpress.XtraDiagram.Bars.DiagramBarController(this.components);
             this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
             this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
             this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
@@ -768,9 +771,6 @@
             this.diagramShape44 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape45 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -4527,6 +4527,27 @@
             this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
             this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
             // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            // 
+            // radialMenu1
+            // 
+            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
+            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
+            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
+            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
+            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
+            this.radialMenu1.Name = "radialMenu1";
+            this.radialMenu1.Ribbon = this.mainRibbonControl;
+            // 
             // diagramContainer1
             // 
             this.diagramContainer1.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
@@ -5641,7 +5662,7 @@
             // 
             // diagramConnector4
             // 
-            this.diagramConnector4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.diagramConnector4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramConnector4.Appearance.ContentBackground = System.Drawing.Color.White;
             this.diagramConnector4.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.diagramConnector4.BeginPoint = new DevExpress.Utils.PointFloat(1080F, 370F);
@@ -5874,7 +5895,7 @@
             // diagramContainer11
             // 
             this.diagramContainer11.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer11.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.diagramContainer11.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramContainer11.Appearance.BorderSize = 3;
             this.diagramContainer11.CanAddItems = false;
             this.diagramContainer11.CanCopyWithoutParent = true;
@@ -5901,7 +5922,7 @@
             this.diagramContainer11.ItemsCanSnapToThisItem = false;
             this.diagramContainer11.MoveWithSubordinates = true;
             this.diagramContainer11.Position = new DevExpress.Utils.PointFloat(1250F, 310F);
-            this.diagramContainer11.Size = new System.Drawing.SizeF(180F, 190F);
+            this.diagramContainer11.Size = new System.Drawing.SizeF(180.0001F, 190F);
             this.diagramContainer11.TemplateName = "Детали";
             this.diagramContainer11.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
@@ -5921,7 +5942,7 @@
             this.diagramImage8.CanSnapToOtherItems = false;
             this.diagramImage8.CanSnapToThisItem = false;
             this.diagramImage8.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage8.Position = new DevExpress.Utils.PointFloat(24.99996F, 4.999987F);
+            this.diagramImage8.Position = new DevExpress.Utils.PointFloat(24.99999F, 4.999987F);
             this.diagramImage8.Size = new System.Drawing.SizeF(130F, 125F);
             this.diagramImage8.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage8.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
@@ -5929,8 +5950,7 @@
             // diagramContainer12
             // 
             this.diagramContainer12.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.diagramContainer12.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.diagramContainer12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(208)))), ((int)(((byte)(80)))));
             this.diagramContainer12.Appearance.BorderSize = 0;
             this.diagramContainer12.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
             this.diagramContainer12.CanAddItems = false;
@@ -5951,7 +5971,7 @@
             this.diagramShape32,
             this.diagramShape33,
             this.diagramShape34});
-            this.diagramContainer12.Position = new DevExpress.Utils.PointFloat(-4.347633E-05F, 130F);
+            this.diagramContainer12.Position = new DevExpress.Utils.PointFloat(3.242493E-05F, 130F);
             this.diagramContainer12.Size = new System.Drawing.SizeF(180F, 60F);
             this.diagramContainer12.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
@@ -5972,7 +5992,6 @@
             this.diagramShape32.CanSelect = false;
             this.diagramShape32.CanSnapToOtherItems = false;
             this.diagramShape32.CanSnapToThisItem = false;
-            this.diagramShape32.Position = new DevExpress.Utils.PointFloat(0F, 1.795152E-06F);
             this.diagramShape32.Size = new System.Drawing.SizeF(180F, 20F);
             this.diagramShape32.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
@@ -6604,27 +6623,6 @@
             this.diagramShape46.Size = new System.Drawing.SizeF(180F, 20F);
             this.diagramShape46.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            // 
-            // radialMenu1
-            // 
-            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
-            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
-            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
-            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
-            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
-            this.radialMenu1.Name = "radialMenu1";
-            this.radialMenu1.Ribbon = this.mainRibbonControl;
-            // 
             // MainForm
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
@@ -6926,6 +6924,72 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraDiagram.DiagramDataBindingController diagramDataBindingController1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem Bt_SaveAs;
+        private DevExpress.XtraBars.BarButtonItem bt_Print;
+        private DevExpress.XtraBars.BarButtonItem bt_Export;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup6;
+        private DevExpress.XtraBars.BarButtonItem bt_Dublicate;
+        private DevExpress.XtraBars.BarButtonItem Bt_Qnt_On_Line;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem bt_Update_InTree;
+        private DevExpress.XtraBars.BarButtonItem bt_Update;
+        private DevExpress.XtraBars.BarButtonItem Bt_Preview_InAllReport;
+        private DevExpress.XtraBars.BarButtonItem bt_SaveAndNew_InAllReport;
+        private DevExpress.XtraBars.BarToggleSwitchItem All_Level_Check_CH_B_InAllReport;
+        private DevExpress.XtraBars.BarButtonItem bt_ShowColumns_InAllReport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup Demonstration_Panel;
+        private DevExpress.XtraBars.BarButtonItem Bt_VideoAboutLink;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem Bt_ProjClone;
+        private DevExpress.XtraBars.BarButtonItem Bt_Copy;
+        private DevExpress.XtraBars.BarToggleSwitchItem Add_Drw_In_Tree_CH_B;
+        private DevExpress.XtraBars.Ribbon.RadialMenu radialMenu1;
+        private DevExpress.XtraBars.BarSubItem BOM_Scan_Menu;
+        private DevExpress.XtraBars.BarButtonItem BOM_ActiveDoc;
+        private DevExpress.XtraBars.BarButtonItem BOM_OpenDoc;
+        private DevExpress.XtraBars.BarButtonItem BOM_Update;
+        private DevExpress.XtraBars.BarSubItem Navigator_Menu;
+        private DevExpress.XtraBars.BarButtonItem TreeListPanel;
+        private DevExpress.XtraBars.BarButtonItem GridViiewPanel;
+        private DevExpress.XtraBars.BarButtonItem DiagramPanel;
+        private DevExpress.XtraBars.BarButtonItem OpenDocument;
+        private DevExpress.XtraBars.BarButtonItem DeleteTreeList;
+        private DevExpress.XtraBars.BarButtonItem ShowColumns;
+        private DevExpress.XtraBars.BarSubItem Export_Menu;
+        private DevExpress.XtraBars.BarButtonItem Export;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
+        private DevExpress.XtraBars.BarSubItem Options_Menu;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem3;
+        private DevExpress.XtraBars.BarButtonItem bt_ExportColOpt;
+        private DevExpress.XtraBars.BarButtonItem Bt_ImportColOpt;
+        private DevExpress.XtraBars.BarButtonItem bt_CFG;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem bt_Prop_trans;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_SpecialPan;
+        private DevExpress.XtraBars.BarButtonItem bt_CutLenth;
+        private DevExpress.XtraBars.BarButtonItem bt_Promo;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup7;
+        private DevExpress.XtraBars.BarButtonItem Bt_Cut_Length_ON;
+        private DevExpress.XtraBars.BarButtonItem Bt_Bend_Count_ON;
+        private DevExpress.XtraBars.BarButtonItem Bt_Holl_Count_ON;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonGroup barButtonGroup8;
+        private DevExpress.XtraBars.BarButtonItem Bt_chek_ProfileValue;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rb_UserRibbon;
+        private DevExpress.XtraBars.BarEditItem bt_EditOn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch toggleSwitch_EditOn;
+        private DevExpress.XtraBars.BarToggleSwitchItem ts_EditOn;
         private DevExpress.XtraDiagram.DiagramContainer diagramContainer1;
         private DevExpress.XtraDiagram.DiagramShape diagramShape1;
         private DevExpress.XtraDiagram.DiagramShape diagramShape2;
@@ -7012,71 +7076,5 @@
         private DevExpress.XtraDiagram.DiagramShape diagramShape44;
         private DevExpress.XtraDiagram.DiagramShape diagramShape45;
         private DevExpress.XtraDiagram.DiagramShape diagramShape46;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-        private DevExpress.XtraBars.BarButtonItem Bt_SaveAs;
-        private DevExpress.XtraBars.BarButtonItem bt_Print;
-        private DevExpress.XtraBars.BarButtonItem bt_Export;
-        private DevExpress.XtraBars.BarButtonGroup barButtonGroup6;
-        private DevExpress.XtraBars.BarButtonItem bt_Dublicate;
-        private DevExpress.XtraBars.BarButtonItem Bt_Qnt_On_Line;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
-        private DevExpress.XtraBars.BarButtonItem bt_Update_InTree;
-        private DevExpress.XtraBars.BarButtonItem bt_Update;
-        private DevExpress.XtraBars.BarButtonItem Bt_Preview_InAllReport;
-        private DevExpress.XtraBars.BarButtonItem bt_SaveAndNew_InAllReport;
-        private DevExpress.XtraBars.BarToggleSwitchItem All_Level_Check_CH_B_InAllReport;
-        private DevExpress.XtraBars.BarButtonItem bt_ShowColumns_InAllReport;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup Demonstration_Panel;
-        private DevExpress.XtraBars.BarButtonItem Bt_VideoAboutLink;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.BarButtonItem Bt_ProjClone;
-        private DevExpress.XtraBars.BarButtonItem Bt_Copy;
-        private DevExpress.XtraBars.BarToggleSwitchItem Add_Drw_In_Tree_CH_B;
-        private DevExpress.XtraBars.Ribbon.RadialMenu radialMenu1;
-        private DevExpress.XtraBars.BarSubItem BOM_Scan_Menu;
-        private DevExpress.XtraBars.BarButtonItem BOM_ActiveDoc;
-        private DevExpress.XtraBars.BarButtonItem BOM_OpenDoc;
-        private DevExpress.XtraBars.BarButtonItem BOM_Update;
-        private DevExpress.XtraBars.BarSubItem Navigator_Menu;
-        private DevExpress.XtraBars.BarButtonItem TreeListPanel;
-        private DevExpress.XtraBars.BarButtonItem GridViiewPanel;
-        private DevExpress.XtraBars.BarButtonItem DiagramPanel;
-        private DevExpress.XtraBars.BarButtonItem OpenDocument;
-        private DevExpress.XtraBars.BarButtonItem DeleteTreeList;
-        private DevExpress.XtraBars.BarButtonItem ShowColumns;
-        private DevExpress.XtraBars.BarSubItem Export_Menu;
-        private DevExpress.XtraBars.BarButtonItem Export;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
-        private DevExpress.XtraBars.BarSubItem Options_Menu;
-        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
-        private DevExpress.XtraBars.BarCheckItem barCheckItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarCheckItem barCheckItem3;
-        private DevExpress.XtraBars.BarButtonItem bt_ExportColOpt;
-        private DevExpress.XtraBars.BarButtonItem Bt_ImportColOpt;
-        private DevExpress.XtraBars.BarButtonItem bt_CFG;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
-        private DevExpress.XtraBars.BarButtonItem bt_Prop_trans;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_SpecialPan;
-        private DevExpress.XtraBars.BarButtonItem bt_CutLenth;
-        private DevExpress.XtraBars.BarButtonItem bt_Promo;
-        private DevExpress.XtraBars.BarButtonGroup barButtonGroup7;
-        private DevExpress.XtraBars.BarButtonItem Bt_Cut_Length_ON;
-        private DevExpress.XtraBars.BarButtonItem Bt_Bend_Count_ON;
-        private DevExpress.XtraBars.BarButtonItem Bt_Holl_Count_ON;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonGroup barButtonGroup8;
-        private DevExpress.XtraBars.BarButtonItem Bt_chek_ProfileValue;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rb_UserRibbon;
-        private DevExpress.XtraBars.BarEditItem bt_EditOn;
-        private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch toggleSwitch_EditOn;
-        private DevExpress.XtraBars.BarToggleSwitchItem ts_EditOn;
     }
 }
