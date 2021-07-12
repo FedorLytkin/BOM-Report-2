@@ -439,7 +439,7 @@ namespace VSNRM_Kompas
 
         private void YouTobe_Help_Bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=zlS-UA3r4TU");
+            Process.Start("https://www.youtube.com/watch?v=417GSua2TSk&list=PLfM9ugxzmk4Ftvo9qg-Ftb5ZWumcFhA9H");
         }
 
         private void UpdateBOM()
@@ -500,12 +500,12 @@ namespace VSNRM_Kompas
 
         private void bt_DXFAuto_View_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=ZWaNM7nfIoU");
+            Process.Start("https://www.youtube.com/watch?v=Tsh8Rwx3pGk&list=PLfM9ugxzmk4Hl_OgwEGJ1sZC0jv9isOL9");
         }
 
         private void bt_ServiseDXFAuto_View_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=7r1xRlieKsE");
+            Process.Start("https://youtu.be/xTek__i15cs");
         }
 
         private void bt_ShowColumns_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -618,7 +618,7 @@ namespace VSNRM_Kompas
 
         private void bt_Demo_Dump_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://youtu.be/sMHP-6wwAVU");
+            Process.Start("https://youtu.be/KNEi7dwS4mU");
         }
 
         private void treeList1_CustomNodeCellEdit(object sender, GetCustomNodeCellEditEventArgs e)
@@ -978,28 +978,7 @@ namespace VSNRM_Kompas
                     else
                         e.Result = e.SortOrder == SortOrder.Descending ? 1 : -1;
                 }
-                //if (poz1 > poz2 && e.SortOrder == SortOrder.Ascending)
-                //    e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
-                //if (poz1 < poz2 && e.SortOrder == SortOrder.Descending)
-                //    e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
-                //if (poz1 > poz2 && e.SortOrder == SortOrder.Descending)
-                //    e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
-                //if (poz1 < poz2 && e.SortOrder == SortOrder.Descending)
-                //    e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
             }
-            //switch (e.Column.Caption)
-            //{
-            //    case "Позиция":
-            //        int poz1, poz2;
-            //        poz1 = GetPosition(e.NodeValue1);
-            //        poz2 = GetPosition(e.NodeValue2);
-            //        if (poz1 > poz2)
-            //            e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
-            //            e.Result = e.SortOrder == SortOrder.Ascending ? -1 : 1;
-            //        else
-            //            e.Result = e.SortOrder == SortOrder.Ascending ? 1 : -1;
-            //        break;
-            //}
         }
 
         private void bt_CFG_ItemClick(object sender, ItemClickEventArgs e)
@@ -1070,11 +1049,6 @@ namespace VSNRM_Kompas
             option_Class.IST.EditOn = ts_EditOn.Checked;
             OptionsBehaviorChangche();
             SaveOptions();
-        }
-
-        private void treeList1_FocusedNodeChanged(object sender, FocusedNodeChangedEventArgs e)
-        {
-
         }
     }
 }

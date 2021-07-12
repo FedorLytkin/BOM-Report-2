@@ -23,6 +23,7 @@ public class Option_Class
     public int Count_MU_Value { get; set; }
     public int TreeStatus_Value { get; set; }
     public bool Positio_On_Value { get; set; }
+    public bool Positio_CalcBR_Value { get; set; } = false;
     public bool Material_In_Assemly { get; set; }
     public string Positio_Split_Value { get; set; }
     public bool Split_Naim { get; set; } = false;

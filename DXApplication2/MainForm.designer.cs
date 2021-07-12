@@ -4233,7 +4233,6 @@
             this.treeList1.StateImageList = this.Section_IL;
             this.treeList1.TabIndex = 1;
             this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
-            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
             this.treeList1.CustomColumnSort += new DevExpress.XtraTreeList.CustomColumnSortEventHandler(this.treeList1_CustomColumnSort);
             this.treeList1.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeList1_PopupMenuShowing);
             this.treeList1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeList1_DragDrop);

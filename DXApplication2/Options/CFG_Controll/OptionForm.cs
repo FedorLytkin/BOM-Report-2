@@ -32,6 +32,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             cb_Count.Text = IOption_Class.Count_MU_Name;
             chb_Positio_Split.Text = IOption_Class.Positio_Split_Value;
             toggleSwitch_ON_Position_Transl.IsOn = IOption_Class.Positio_On_Value;
+            toggleSwitch_PositioCalcBR.IsOn = IOption_Class.Positio_CalcBR_Value;
             toggleSwitch_Material_In_Assembly.IsOn = IOption_Class.Material_In_Assemly;
             cb_TreeStatus.Text = IOption_Class.GetTreeStatusNameByStatusEnum((Option_Class.TreeStatus_Enum)IOption_Class.TreeStatus_Value);
             toggleSwitch_AddTreeListForStandartKomponent.IsOn = IOption_Class.AddTreeListForStandartKomponent;
@@ -54,6 +55,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.Material_In_Assemly = toggleSwitch_Material_In_Assembly.IsOn;
             IOption_Class.TreeStatus_Value = (int)IOption_Class.GetTreeStatusEnumByStatusName(cb_TreeStatus.Text);
             IOption_Class.AddTreeListForStandartKomponent = toggleSwitch_AddTreeListForStandartKomponent.IsOn;
+            IOption_Class.Positio_CalcBR_Value = toggleSwitch_PositioCalcBR.IsOn;
 
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
             xMLCLass.IOptions.SaveOptions(IOption_Class, false);

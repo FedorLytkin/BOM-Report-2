@@ -134,6 +134,7 @@ namespace SaveDXF
             }
             Recource(TopPart, node);
             NodeExpand(node);
+            Positio_CalcBR_Class.PositioSet(treeView.Nodes, IOption_Class.Positio_CalcBR_Value, IOption_Class.Positio_On_Value, null, IOption_Class.Positio_Split_Value);
             CloseDocs();
         }
         private void NodeExpand(TreeListNode node)
@@ -149,6 +150,13 @@ namespace SaveDXF
                 case Option_Class.TreeStatus_Enum.treeStatus_None:
                     node.Collapse();
                     break;
+            }
+        }
+        private void PositioSet(TreeListNode node)
+        {
+            if (IOption_Class.Positio_CalcBR_Value)
+            {
+
             }
         }
         private void CheckMainControl()
@@ -441,7 +449,7 @@ namespace SaveDXF
                     SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part_NOT_Unfold);
             }
             if (treeView.Columns["Тип объекта"] != null) Node.SetValue("Тип объекта", Node.ImageIndex);
-            if (IOption_Class.Positio_On_Value)
+            if (IOption_Class.Positio_On_Value && !IOption_Class.Positio_CalcBR_Value)
             {
                 TreeListColumn Positio = treeView.Columns["Позиция"];
                 if (Positio != null)
