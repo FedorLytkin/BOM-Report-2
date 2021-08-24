@@ -2496,9 +2496,19 @@ namespace SaveDXF
                                 }
                                 else
                                     New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-
                                 if (File.Exists(New_link_FileName))
-                                    variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                                {
+                                    try
+                                    {
+                                        string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
+                                        variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
+                                    }
+                                    catch
+                                    {
+                                        variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                                    }
+
+                                }
                             }
                         }
                         part7.RebuildModel(true);
