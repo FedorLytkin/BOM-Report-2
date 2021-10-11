@@ -106,12 +106,12 @@ namespace VSNRM_Kompas.ProjectClone
                         if (To4noe)
                         {
                             if (node.GetValue(ColumnName).ToString() == FindText)
-                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                                node.SetValue(ColumnName, node.GetValue(ColumnName).ToString().Replace(FindText, ReplaceText));
                         }
                         else
                         {
                             if (node.GetValue(ColumnName).ToString().IndexOf(FindText, stringComparison) != -1)
-                                node.SetValue("Сохранить в имени", node.GetValue("Сохранить в имени").ToString().Replace(FindText, ReplaceText));
+                                node.SetValue(ColumnName, node.GetValue(ColumnName).ToString().Replace(FindText, ReplaceText));
                         }
                         break;
                 }

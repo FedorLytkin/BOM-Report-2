@@ -197,7 +197,7 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void bt_Next_Click(object sender, EventArgs e)
         {
-            FindAndRepace.FindNext(cb_FindParams.Text, tb_FindText.Text, tb_ReplceText.Text);
+            FindAndRepace.FindNext(cb_EditName.Text, tb_FindText.Text, tb_ReplceText.Text);
         }
 
         private void cb_NotCheckRegister_CheckedChanged(object sender, EventArgs e)
