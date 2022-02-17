@@ -36,6 +36,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             toggleSwitch_Material_In_Assembly.IsOn = IOption_Class.Material_In_Assemly;
             cb_TreeStatus.Text = IOption_Class.GetTreeStatusNameByStatusEnum((Option_Class.TreeStatus_Enum)IOption_Class.TreeStatus_Value);
             toggleSwitch_AddTreeListForStandartKomponent.IsOn = IOption_Class.AddTreeListForStandartKomponent;
+            zoomTrackBarModelSlideSize.Value = IOption_Class.ModelSlideSize;
         }
 
         private void Cancel_Bt_Click(object sender, EventArgs e)
@@ -56,9 +57,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.TreeStatus_Value = (int)IOption_Class.GetTreeStatusEnumByStatusName(cb_TreeStatus.Text);
             IOption_Class.AddTreeListForStandartKomponent = toggleSwitch_AddTreeListForStandartKomponent.IsOn;
             IOption_Class.Positio_CalcBR_Value = toggleSwitch_PositioCalcBR.IsOn;
+            IOption_Class.ModelSlideSize = zoomTrackBarModelSlideSize.Value;
 
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
             xMLCLass.IOptions.SaveOptions(IOption_Class, false);
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

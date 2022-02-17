@@ -17,6 +17,7 @@ public class Option_Class
     public string Count_MU_Name { get; set; }
 
     public int Mass_MU_Value { get; set; }
+    public int ModelSlideSize { get; set; } = 32;
     public int Length_MU_Value { get; set; }
     public int Area_MU_Value { get; set; }
     public int Volume_MU_Value { get; set; }

@@ -30,6 +30,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraVerticalGrid.Rows;
 using DevExpress.XtraEditors.Controls;
 using System.Drawing.Drawing2D;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraGrid.Columns;
 
 namespace VSNRM_Kompas
 {
@@ -103,6 +105,22 @@ namespace VSNRM_Kompas
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
+            TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
+        }
+
+        private void TableHightSizeByColumn(GridColumn cln)
+        {
+            if (cln == null) return;
+            if (cln.Caption != "Миниатюра") return;
+
+            if (cln.Visible) Main_gridView.RowHeight = option_Class.ModelSlideSize + 2;
+            else Main_gridView.RowHeight = default;
+
+            TreeListColumn treeColunm = treeList1.Columns[cln.Caption];
+            if (treeColunm == null) return;
+            if (treeColunm.Caption != "Миниатюра") return;
+            if (treeColunm.Visible) treeList1.RowHeight = option_Class.ModelSlideSize + 2;
+            else treeList1.RowHeight = default;
         }
         private void OptionsBehaviorChangche()
         {
@@ -194,6 +212,7 @@ namespace VSNRM_Kompas
         }
         private void FindBOM()
         {
+            Stopwatch st = StartTimer();
             body.All_Level_Search = All_Level_Check_CH_B.Checked;
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
@@ -201,6 +220,7 @@ namespace VSNRM_Kompas
             UpdateData();
             PostProcessData();
             splashScreenManager2.CloseWaitForm();
+            StopTimer(st);
         }
         private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -274,9 +294,13 @@ namespace VSNRM_Kompas
                         treeList1.ExportToDocx(ExportFileName);
                         break;
                     case ".XLS":
+                        ExportExl(ExportFileName);
+                        return;
                         treeList1.ExportToXls(ExportFileName);
                         break; 
                     case ".XLSX":
+                        ExportExl(ExportFileName);
+                        return;
                         treeList1.ExportToXlsx(ExportFileName);
                         break;
                     case ".CSV":
@@ -289,7 +313,16 @@ namespace VSNRM_Kompas
                 }
             } 
         }
-
+        private void ExportExl(string ExportFileName)
+        {
+            PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
+            link.Component = treeList1;
+            XlsExportOptions xlsExportOptions = new XlsExportOptions();
+            xlsExportOptions.RasterizeImages = true;
+            xlsExportOptions.TextExportMode = TextExportMode.Value;
+            link.ExportToXls(ExportFileName, xlsExportOptions);
+            System.Diagnostics.Process.Start(ExportFileName);
+        }
         private void AddNewColName_But_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string ColName = (string)Col_List_CB.EditValue;
@@ -439,17 +472,19 @@ namespace VSNRM_Kompas
 
         private void YouTobe_Help_Bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=417GSua2TSk&list=PLfM9ugxzmk4Ftvo9qg-Ftb5ZWumcFhA9H");
+            GoYouTube();
         }
 
         private void UpdateBOM()
         {
+            Stopwatch st = StartTimer();
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.UpDateTreeList();
             UpdateData();
             PostProcessData();
             splashScreenManager2.CloseWaitForm();
+            StopTimer(st);
         }
         private void Update_Tree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -475,6 +510,8 @@ namespace VSNRM_Kompas
         }
         private void BOM_ActiveDocum()
         {
+            Stopwatch st = StartTimer();
+
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             body.OpenThisDocument();
@@ -482,6 +519,30 @@ namespace VSNRM_Kompas
             UpdateData();
             PostProcessData();
             splashScreenManager2.CloseWaitForm();
+            StopTimer(st);
+        }
+        private Stopwatch StartTimer()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            return stopwatch;
+        }
+        private void StopTimer(Stopwatch stopwatch)
+        {
+            if (stopwatch == null)
+            {
+                Tb_Timer.Caption = "";
+                return;
+            }
+
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            Tb_Timer.Caption = elapsedTime;
         }
         private void bbiFindBOM_AcriveDoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -631,9 +692,12 @@ namespace VSNRM_Kompas
 
         private void Bt_Telegram_Canal_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            goTelegram();
+        }
+        private void goTelegram()
+        {
             Process.Start("https://t.me/BOMReport");
         }
-
         private void Bt_Telegram_Chat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Process.Start("https://t.me/BOMReportChat");
@@ -985,7 +1049,11 @@ namespace VSNRM_Kompas
         {
             OptionForm optionForm = new OptionForm();
             optionForm.IOption_Class = option_Class;
-            optionForm.ShowDialog();
+            if (optionForm.ShowDialog() == DialogResult.OK)
+            {
+                Options.TreeListResize.iTreeListResizeClass.ReSize(Main_gridView, Main_Options, treeList1, option_Class.ModelSlideSize);
+                TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
+            }
         }
 
         private void bt_Prop_trans_ItemClick(object sender, ItemClickEventArgs e)
@@ -1049,6 +1117,45 @@ namespace VSNRM_Kompas
             option_Class.IST.EditOn = ts_EditOn.Checked;
             OptionsBehaviorChangche();
             SaveOptions();
+        }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            body.SetLinkComponovGeometry(@"D:\Desktop\test1\параметризация Компас\PW.ыавыавыа.000.183.001 - Стенка НЭО.m3d");
+        }
+
+        private void Bt_2Telegram_Canal_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            goTelegram();
+        }
+
+        private void Bt_Website_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GoToWebSite();
+        }
+        private void GoYouTube()
+        {
+            Process.Start("https://www.youtube.com/watch?v=417GSua2TSk&list=PLfM9ugxzmk4Ftvo9qg-Ftb5ZWumcFhA9H");
+        }
+
+        private void bt_GoYouTube_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            GoYouTube();
+        }
+
+        private void Main_gridView_ColumnPositionChanged(object sender, EventArgs e)
+        {
+            if (Main_Options == null) return;
+            GridColumn cln = sender as DevExpress.XtraGrid.Columns.GridColumn;
+            if (cln != null)
+                TableHightSizeByColumn(cln);
+        }
+
+        private void Main_gridView_DragObjectDrop(object sender, DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs e)
+        {
+            GridColumn cln = e.DragObject as DevExpress.XtraGrid.Columns.GridColumn;
+            if (cln != null)
+                TableHightSizeByColumn(cln);
         }
     }
 }

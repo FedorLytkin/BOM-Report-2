@@ -22,12 +22,11 @@ namespace VSNRM_Kompas.Options
         public GetOptionInformation OptionInformation;
         public Str_Variable_Class Skin_Name { get; set; } = new Str_Variable_Class("Skin_Name", "Basic");
         public Bool_Variable_Class Add_InVisiblePart { get; set; } = new Bool_Variable_Class("Add_InVisiblePart", true);
-        public Bool_Variable_Class SlideSize_Large { get; set; } = new Bool_Variable_Class("SlideSize_Large", true); public void SaveOption()
+        public void SaveOption()
         {
             List<Obj_Variable_Class> variable_s = new List<Obj_Variable_Class>();
             variable_s.Add(new Obj_Variable_Class(Skin_Name.Name, Skin_Name.Value));
             variable_s.Add(new Obj_Variable_Class(Add_InVisiblePart.Name, Add_InVisiblePart.Value));
-            variable_s.Add(new Obj_Variable_Class(SlideSize_Large.Name, SlideSize_Large.Value));
 
             controller.IOptions.Save(variable_s);
         }
@@ -46,9 +45,6 @@ namespace VSNRM_Kompas.Options
                 {
                     case "Skin_Name":
                         Skin_Name.Value = (string)variable.Value;
-                        break;
-                    case "SlideSize_Large":
-                        SlideSize_Large.Value = (bool)variable.Value;
                         break;
                 }
             }

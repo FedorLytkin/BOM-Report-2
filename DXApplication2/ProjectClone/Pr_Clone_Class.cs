@@ -185,10 +185,13 @@ namespace VSNRM_Kompas.ProjectClone
                 ComponentInfo componentInfo = (ComponentInfo)This_Node.Tag;
                 if(!componentInfo.HaveDrw && !componentInfo.HaveSP)
                 {
-                    TreeListNode node = New_Node.Nodes.Add();
-                    AddCellNode(This_Node, node);
-                    AddNodeDrw(componentInfo, This_Node, node);
-                    if (This_Node.Nodes.Count > 0) AddNode(This_Node, node);
+                    if (File.Exists(componentInfo.FFN))
+                    {
+                        TreeListNode node = New_Node.Nodes.Add();
+                        AddCellNode(This_Node, node);
+                        AddNodeDrw(componentInfo, This_Node, node);
+                        if (This_Node.Nodes.Count > 0) AddNode(This_Node, node);
+                    }
                 }
             }
         }
@@ -256,7 +259,9 @@ namespace VSNRM_Kompas.ProjectClone
         private void AddCellNode(TreeListNode Donor_Node, TreeListNode New_Node)
         {
             ComponentInfo componentInfo = (ComponentInfo)Donor_Node.Tag;
-            FileInfo f = new FileInfo(componentInfo.FFN);
+            FileInfo f = null; 
+            if (File.Exists(componentInfo.FFN))
+                f = new FileInfo(componentInfo.FFN);
             foreach (string ParamName in ColList)
             {
                 object ParamVal = Donor_Node.GetValue(ParamName);
@@ -265,7 +270,10 @@ namespace VSNRM_Kompas.ProjectClone
                     switch (ParamName)
                     {
                         case "Сохранить в имени":
-                            ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
+                            if (f != null)
+                                ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
+                            else
+                                ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}";
                             break;
                         case "Сохранить в Обозначении":
                             ParamVal = $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}";
@@ -274,13 +282,20 @@ namespace VSNRM_Kompas.ProjectClone
                             ParamVal = $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}";
                             break;
                         case "Расположение":
-                            ParamVal = f.DirectoryName;
+                            if (f != null)
+                                ParamVal = f.DirectoryName;
+                            else
+                                ParamVal = Path.GetDirectoryName(componentInfo.FFN);
                             break;
                         case "Размер":
-                            ParamVal = $"{f.Length / 1024} КБ";
+                            if (f != null)
+                                ParamVal = $"{f.Length / 1024} КБ";
                             break;
                         case "Тип":
-                            ParamVal = f.Extension;
+                            if (f != null)
+                                ParamVal = f.Extension;
+                            else
+                                ParamVal = Path.GetExtension(componentInfo.FFN);
                             break;
                         case "Сохранить в папке":
                             ParamVal = FolderPath;

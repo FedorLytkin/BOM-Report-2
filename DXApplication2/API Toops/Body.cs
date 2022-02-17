@@ -248,7 +248,7 @@ namespace SaveDXF
                 var Parts = TopPart.PartsEx[1];
                 if (Parts != null)
                 {
-                    List<string> PartList = GetPartList(TopPart);
+                    //List<string> PartList = GetPartList(TopPart);
                     List<ComponentInfo> WorkList = new List<ComponentInfo>();
                     foreach (IPart7 item in Parts)
                     {
@@ -265,7 +265,9 @@ namespace SaveDXF
                                 WorkList.Add(componentInfo);
                                 AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
                                 if (!componentInfo.QNT_False)
-                                    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
+                                    componentInfo.QNT = Convert.ToDouble(TopPart.InstanceCount[(Part7)item]);
+                                //if (!componentInfo.QNT_False)
+                                //    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
                                 
                                 TreeListNode TempNode;
@@ -423,6 +425,9 @@ namespace SaveDXF
                 {
                     case "Миниатюра":
                         Node.SetValue(FieldName, componentInfo.Slide);
+                        break;
+                    case "Локальная деталь":
+                        Node.SetValue(FieldName, componentInfo.isLocal);
                         break;
                     default:
                         Node.SetValue(FieldName, ParValues[FieldName]);
@@ -1016,6 +1021,7 @@ namespace SaveDXF
                             if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
                             break;
                         case "Количество общ.":
+                        case "Миниатюра":
                             //ParamValue = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIPart7(part, ParamName), "");
                             //if (string.IsNullOrEmpty(ParamValue)) ParamValue = "1";
                             break;
@@ -1066,7 +1072,8 @@ namespace SaveDXF
                 ParamValueList.Add(ParamName, ParamValue);
             }
             iMSH.ParamValueList = ParamValueList;
-            double Kolvo = Convert.ToDouble(GetPropertyIPart7(part, "Количество"));
+            string KolvoStr = GetPropertyIPart7(part, "Количество");
+            double Kolvo = string.IsNullOrEmpty(KolvoStr) ? 0 : Convert.ToDouble(KolvoStr);
             if (Kolvo == 1 || Kolvo == 0)
             {
                 iMSH.QNT = 1;
@@ -1094,6 +1101,7 @@ namespace SaveDXF
             iMSH.SheeMetall = IsSheetMetal(part, out isSHeetmetall);
             iMSH.HaveUnfold = GetHasFlatPattern(part);
 
+            iMSH.isLocal = part.IsLocal;
             iMSH.isDetal = part.Detail;
             iMSH.standardComponent = part.Standard;
             iMSH.isPurchated = GetIsPurhated(part, iMSH.ParamValueList.ContainsKey("Раздел спецификации")? iMSH.ParamValueList["Раздел спецификации"]: null);
@@ -1105,7 +1113,7 @@ namespace SaveDXF
             if (File.Exists(part.FileName))
             {
                 shellFile = ShellFile.FromFilePath(part.FileName);
-                iMSH.Slide = shellFile.Thumbnail.SmallBitmap;
+                iMSH.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); // shellFile.Thumbnail.SmallBitmap;
                 iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
             }
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
@@ -1196,7 +1204,7 @@ namespace SaveDXF
             drw_Info.Oboz= OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, "Обозначение"), "");
             
             ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
-            drw_Info.Slide = shellFile.Thumbnail.SmallBitmap;
+            drw_Info.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); //shellFile.Thumbnail.SmallBitmap;
             drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
 
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
@@ -2263,18 +2271,31 @@ namespace SaveDXF
         string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents)
         {
             if (string.IsNullOrEmpty(DonorFileName)) return null;
-            foreach (TreeListNode node in AllComponents)
+            
+            if (!File.Exists(DonorFileName))
             {
-                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                if (componentInfo.FFN == DonorFileName && node.Checked)
-                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                foreach (TreeListNode node in AllComponents)
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
+                        return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                }
             }
-
-            foreach (TreeListNode node in AllComponents)
+            else
             {
-                ComponentInfo componentInfo = (ComponentInfo)node.Tag;
-                if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
-                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                foreach (TreeListNode node in AllComponents)
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    if (componentInfo.FFN == DonorFileName && node.Checked)
+                        return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                }
+
+                //foreach (TreeListNode node in AllComponents)
+                //{
+                //    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                //    if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
+                //        return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                //}
             }
             return DonorFileName;
         }
@@ -2384,37 +2405,48 @@ namespace SaveDXF
                 //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
                 tmp_Embodiment.IsCurrent = true;
                 if (tmp_Embodiment.Part == null) { IPart7NothingMsg(ExportFileName); return; }
-                var Parts = tmp_Embodiment.Part.PartsEx[0];
+                var Parts = tmp_Embodiment.Part.Parts;//PartsEx[0];
                 if (Parts != null)
                 {
                     foreach (IPart7 part in Parts)
                     {
                         try
                         {
-                            IFeature7 feature7 = (IFeature7)part; 
-                            string Name = part.FileName;
-
-                            waitMng.SetWaitFormDescription($"{Path.GetFileName(Name)}");
-                            string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
-                            if (string.IsNullOrEmpty(New_FileName)) 
-                                New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
-
-                            if (!string.IsNullOrEmpty(New_FileName))
-                            { 
-                                if (!File.Exists(New_FileName))
-                                    File.Copy(Name, New_FileName, true);
-                                part.FileName = New_FileName;
-                                SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
-                                part.Update(); 
-                            }
-                            if (!part.Detail)
+                            if (!part.IsLocal)
                             {
-                                string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
-                                if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+                                IFeature7 feature7 = (IFeature7)part;
+                                string Name = part.FileName;
 
-                                if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-                                //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
-                            } 
+                                waitMng.SetWaitFormDescription($"{Path.GetFileName(Name)}");
+                                string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                                if (string.IsNullOrEmpty(New_FileName))
+                                    New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
+
+                                if (!string.IsNullOrEmpty(New_FileName))
+                                {
+                                    try
+                                    {
+
+                                        if (!File.Exists(New_FileName))
+                                            File.Copy(Name, New_FileName, true);
+                                        if (part.FileName != New_FileName) part.FileName = New_FileName;
+                                        SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
+                                    }
+                                    catch(Exception ex1)
+                                    {
+                                        MessageBox.Show($"Ошибка при копировании/изменении ссылок у модели {Name} на {New_FileName}\n{ex1.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    part.Update();
+                                }
+                                if (!part.Detail)
+                                {
+                                    string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
+                                    if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+
+                                    if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                    //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                }
+                            }
                         }
                         catch (Exception Ex)
                         {
@@ -2475,7 +2507,10 @@ namespace SaveDXF
                     {
                         SetCloneProperty(document3D, part7, PartFileName, AllComponents);
                     }
-                    catch { }
+                    catch(Exception ex) 
+                    {
+                        MessageBox.Show($"Ошибка при изменении Обозначение/Наименование!\n{ex.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     string ffn = part7.FileName;
                     IFeature7 feature7 = (IFeature7)part7;
                     var VariableCollection = feature7.Variables[false, true];
@@ -2500,8 +2535,8 @@ namespace SaveDXF
                                 {
                                     try
                                     {
-                                        string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
-                                        variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
+                                        //string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
+                                        //variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
                                     }
                                     catch
                                     {
@@ -2523,6 +2558,69 @@ namespace SaveDXF
             } 
             if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
         }
+        public void SetLinkComponovGeometry(string PartFileName)
+        {
+            bool OpenDoc = false;
+            IKompasDocument3D document3D;
+            document3D = (IKompasDocument3D)_IApplication.Documents[PartFileName];
+            if (document3D != null) OpenDoc = true;
+            else
+                document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
+            try
+            {
+                int currentEmbody = 0;
+                IEmbodimentsManager _IEmbodimentsManager = (IEmbodimentsManager)document3D.TopPart;
+                int EmbodyCount = _IEmbodimentsManager.EmbodimentCount;
+                currentEmbody = _IEmbodimentsManager.CurrentEmbodimentIndex;
+
+                for (int j = 0; j < EmbodyCount; j++)
+                {
+                    Embodiment tmp_Embodiment;
+                    tmp_Embodiment = _IEmbodimentsManager.Embodiment[j];
+                    //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
+                    tmp_Embodiment.IsCurrent = true;
+                    if (tmp_Embodiment.Part == null) { IPart7NothingMsg(PartFileName); return; }
+                    IPart7 part7 = tmp_Embodiment.Part;
+                    
+                    string ffn = part7.FileName;
+                    IFeature7 feature7 = (IFeature7)part7;
+                    var VariableCollection = feature7.Variables[false, true];
+                    bool islayout = part7.IsLayoutGeometry;
+                    IModelContainer modelContainer = (IModelContainer)part7;
+                    ICopiesGeometry iCGS = modelContainer.CopiesGeometry;
+                    string newffn = @"D:\Desktop\test1\параметризация Компас\PW.ыавыавыа.000.183.001 - Крышка.m3d";
+                    foreach (ICopyGeometry copyGeometry in iCGS)
+                    {
+                        string name = copyGeometry.Name;
+                        string reffn = copyGeometry.DocumentFileName;
+                        int refID = copyGeometry.Reference;
+                        //copyGeometry.DocumentFileName = newffn;
+                        //copyGeometry.AddInitialObjectsFromExternalDocument 
+                    }
+                    
+                }
+                _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
+                document3D.Save();
+            }
+            catch (Exception Ex)
+            {
+                ShowMsgBox("Ошибка при изменении источника у компоновочной геометрии " + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+            }
+        }
+        private void SetLinkForCopyGeometry(IPart7 part7, string NewDocReference)
+        {
+            //процедура изменения ссылок файл-источника, в операциях Копировать объекта
+            IModelContainer modelContainer = (IModelContainer)part7;
+            ICopiesGeometry iCGS = modelContainer.CopiesGeometry;
+            foreach (ICopyGeometry copyGeometry in iCGS)
+            {
+                string name = copyGeometry.Name;
+                string old_ref_fl = copyGeometry.DocumentFileName;
+                //свойство DocumentFileName доступно только для чтения, как изменить ссылку на другой файл-источник?
+                //copyGeometry.DocumentFileName = NewDocReference;
+            }
+        }
+
         private string getSousrFilaName(string PartFileName, List<TreeListNode> AllComponents, string ParamName)
         {
             foreach (TreeListNode node in AllComponents)
