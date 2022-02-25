@@ -317,11 +317,24 @@ namespace VSNRM_Kompas
         {
             PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
             link.Component = treeList1;
-            XlsExportOptions xlsExportOptions = new XlsExportOptions();
-            xlsExportOptions.RasterizeImages = true;
-            xlsExportOptions.TextExportMode = TextExportMode.Value;
-            link.ExportToXls(ExportFileName, xlsExportOptions);
-            System.Diagnostics.Process.Start(ExportFileName);
+            bool result = false;
+            if(Path.GetExtension(ExportFileName).ToUpper() == ".XLSX")
+            {
+                XlsxExportOptions xlsxExportOptions = new XlsxExportOptions();
+                xlsxExportOptions.RasterizeImages = true;
+                xlsxExportOptions.TextExportMode = TextExportMode.Value;
+                link.ExportToXlsx(ExportFileName, xlsxExportOptions);
+                result = true;
+            }
+            else if (Path.GetExtension(ExportFileName).ToUpper() == ".XLS")
+            {
+                XlsExportOptions xlsExportOptions = new XlsExportOptions();
+                xlsExportOptions.RasterizeImages = true;
+                xlsExportOptions.TextExportMode = TextExportMode.Value;
+                link.ExportToXls(ExportFileName, xlsExportOptions);
+                result = true;
+            }
+            if(result) System.Diagnostics.Process.Start(ExportFileName);
         }
         private void AddNewColName_But_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

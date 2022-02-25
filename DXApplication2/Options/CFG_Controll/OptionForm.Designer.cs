@@ -40,6 +40,16 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
@@ -80,16 +90,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem12 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
@@ -108,6 +108,9 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.TP_Other = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.zoomTrackBarModelSlideSize = new DevExpress.XtraEditors.ZoomTrackBarControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.toggleSwitch_AddTreeListForStandartKomponent = new DevExpress.XtraEditors.ToggleSwitch();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
@@ -120,9 +123,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.chb_Positio_Split = new DevExpress.XtraEditors.ComboBoxEdit();
             this.toggleSwitch_ON_Position_Transl = new DevExpress.XtraEditors.ToggleSwitch();
-            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
-            this.zoomTrackBarModelSlideSize = new DevExpress.XtraEditors.ZoomTrackBarControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.TP_MU.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -134,6 +134,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.TP_Other.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_AddTreeListForStandartKomponent.Properties)).BeginInit();
@@ -148,10 +152,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_PositioCalcBR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
-            this.groupControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Cancel_Bt
@@ -384,6 +384,63 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.TP_Other.Size = new System.Drawing.Size(488, 245);
             this.TP_Other.Text = "Прочее";
             // 
+            // groupControl6
+            // 
+            this.groupControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl6.Controls.Add(this.zoomTrackBarModelSlideSize);
+            this.groupControl6.Controls.Add(this.labelControl9);
+            this.groupControl6.Location = new System.Drawing.Point(263, 71);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(222, 60);
+            this.groupControl6.TabIndex = 23;
+            this.groupControl6.Text = "Размер миниатюр";
+            // 
+            // zoomTrackBarModelSlideSize
+            // 
+            this.zoomTrackBarModelSlideSize.EditValue = 32;
+            this.zoomTrackBarModelSlideSize.Location = new System.Drawing.Point(7, 26);
+            this.zoomTrackBarModelSlideSize.Name = "zoomTrackBarModelSlideSize";
+            this.zoomTrackBarModelSlideSize.Properties.Maximum = 128;
+            this.zoomTrackBarModelSlideSize.Properties.Minimum = 32;
+            this.zoomTrackBarModelSlideSize.Properties.ShowValueToolTip = true;
+            this.zoomTrackBarModelSlideSize.Size = new System.Drawing.Size(104, 16);
+            toolTipTitleItem5.Text = "Изменить размер миниатюр в главном окне";
+            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Изменить размер миниатюр в главном окне";
+            toolTipTitleItem6.LeftIndent = 6;
+            toolTipTitleItem6.Text = "BOM-Report";
+            superToolTip3.Items.Add(toolTipTitleItem5);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem3);
+            superToolTip3.Items.Add(toolTipTitleItem6);
+            this.zoomTrackBarModelSlideSize.SuperTip = superToolTip3;
+            this.zoomTrackBarModelSlideSize.TabIndex = 21;
+            this.zoomTrackBarModelSlideSize.Value = 32;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(117, 26);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(197, 13);
+            toolTipTitleItem7.Text = "Размер миниатюр в главном окне";
+            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            toolTipItem4.LeftIndent = 6;
+            toolTipItem4.Text = "Можно задать произвольный размер миниатюр листового тела, которая будет отображат" +
+    "ься в главном окне программы";
+            toolTipTitleItem8.LeftIndent = 6;
+            toolTipTitleItem8.Text = "BOM-Report";
+            superToolTip4.Items.Add(toolTipTitleItem7);
+            superToolTip4.Items.Add(toolTipItem4);
+            superToolTip4.Items.Add(toolTipSeparatorItem4);
+            superToolTip4.Items.Add(toolTipTitleItem8);
+            this.labelControl9.SuperTip = superToolTip4;
+            this.labelControl9.TabIndex = 14;
+            this.labelControl9.Text = "Размер миниатюр в главном окне";
+            // 
             // groupControl5
             // 
             this.groupControl5.Controls.Add(this.toggleSwitch_AddTreeListForStandartKomponent);
@@ -604,63 +661,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_ON_Position_Transl.SuperTip = superToolTip12;
             this.toggleSwitch_ON_Position_Transl.TabIndex = 0;
             // 
-            // groupControl6
-            // 
-            this.groupControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl6.Controls.Add(this.zoomTrackBarModelSlideSize);
-            this.groupControl6.Controls.Add(this.labelControl9);
-            this.groupControl6.Location = new System.Drawing.Point(263, 71);
-            this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(222, 60);
-            this.groupControl6.TabIndex = 23;
-            this.groupControl6.Text = "Размер миниатюр";
-            // 
-            // zoomTrackBarModelSlideSize
-            // 
-            this.zoomTrackBarModelSlideSize.EditValue = 32;
-            this.zoomTrackBarModelSlideSize.Location = new System.Drawing.Point(7, 26);
-            this.zoomTrackBarModelSlideSize.Name = "zoomTrackBarModelSlideSize";
-            this.zoomTrackBarModelSlideSize.Properties.Maximum = 128;
-            this.zoomTrackBarModelSlideSize.Properties.Minimum = 32;
-            this.zoomTrackBarModelSlideSize.Properties.ShowValueToolTip = true;
-            this.zoomTrackBarModelSlideSize.Size = new System.Drawing.Size(104, 16);
-            toolTipTitleItem5.Text = "Изменить размер миниатюр в главном окне";
-            toolTipItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "Изменить размер миниатюр в главном окне";
-            toolTipTitleItem6.LeftIndent = 6;
-            toolTipTitleItem6.Text = "DXF-Auto";
-            superToolTip3.Items.Add(toolTipTitleItem5);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem3);
-            superToolTip3.Items.Add(toolTipTitleItem6);
-            this.zoomTrackBarModelSlideSize.SuperTip = superToolTip3;
-            this.zoomTrackBarModelSlideSize.TabIndex = 21;
-            this.zoomTrackBarModelSlideSize.Value = 32;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(117, 26);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(197, 13);
-            toolTipTitleItem7.Text = "Размер миниатюр в главном окне";
-            toolTipItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "Можно задать произвольный размер миниатюр листового тела, которая будет отображат" +
-    "ься в главном окне программы";
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "DXF-Auto";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem4);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.labelControl9.SuperTip = superToolTip4;
-            this.labelControl9.TabIndex = 14;
-            this.labelControl9.Text = "Размер миниатюр в главном окне";
-            // 
             // OptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,6 +688,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.TP_Other.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            this.groupControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_AddTreeListForStandartKomponent.Properties)).EndInit();
@@ -704,11 +709,6 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_PositioCalcBR.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
-            this.groupControl6.ResumeLayout(false);
-            this.groupControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomTrackBarModelSlideSize)).EndInit();
             this.ResumeLayout(false);
 
         }
