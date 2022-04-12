@@ -120,7 +120,7 @@ namespace SaveDXF
                 return;
             IKompasDocument3D _IKompasDocument = (IKompasDocument3D)_IApplication.ActiveDocument;
             IPart7 TopPart = _IKompasDocument.TopPart;
-            if (TopPart == null) { IPart7NothingMsg(_IKompasDocument.Path); return; }
+            if (TopPart == null) { IPart7NothingMsg(_IKompasDocument.PathName); return; }
 
             CheckMainControl();
             treeView.Nodes.Clear(); 
@@ -256,7 +256,7 @@ namespace SaveDXF
                         {
                             bool ItemHidden = item.Hidden;
                             if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                            if (ItemHidden != true)
+                            if (ItemHidden != true && item.CreateSpcObjects)
                             {
                                 string itemKey = null;
                                 itemKey = GetComponentKey(item);
@@ -344,10 +344,13 @@ namespace SaveDXF
                     {
                         try
                         {
-                            ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
+                            if (_body.CreateSpcObjects)
+                            {
+                                ComponentInfo componentInfo_Copy = Add_BodyInfo_In_Component(Part, _body, componentInfo);
 
-                            TreeListNode TempNode;
-                            TempNode = AddNode(node, componentInfo_Copy, true); 
+                                TreeListNode TempNode;
+                                TempNode = AddNode(node, componentInfo_Copy, true);
+                            }
                         }
                         catch { }
                     }
@@ -382,7 +385,7 @@ namespace SaveDXF
                 {
                     bool ItemHidden = item.Hidden;
                     if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                    if (ItemHidden != true)
+                    if (ItemHidden != true && item.CreateSpcObjects)
                     {
                         PartList.Add(GetComponentKey(item));
                     }
@@ -2511,42 +2514,56 @@ namespace SaveDXF
                     {
                         MessageBox.Show($"Ошибка при изменении Обозначение/Наименование!\n{ex.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    string ffn = part7.FileName;
-                    IFeature7 feature7 = (IFeature7)part7;
-                    var VariableCollection = feature7.Variables[false, true];
-                    if (VariableCollection != null)
+                    try
                     {
-                        foreach (Variable7 variable7 in VariableCollection)
+                        string ffn = part7.FileName;
+                        IFeature7 feature7 = (IFeature7)part7;
+                        var VariableCollection = feature7.Variables[false, true];
+                        if (VariableCollection != null)
                         {
-                            ParamName = variable7.Name;
-                            if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                            try
                             {
-                                string link_FileName = variable7.LinkDocumentName;
-                                string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
-                                if (!string.IsNullOrEmpty(New_link_FileName))
+                                foreach (Variable7 variable7 in VariableCollection)
                                 {
-                                    if (!IsExportFileName(link_FileName, AllComponents))
-                                        if (!File.Exists(New_link_FileName))
-                                            New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                                }
-                                else
-                                    New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                                if (File.Exists(New_link_FileName))
-                                {
-                                    try
-                                    {
-                                        //string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
-                                        //variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
-                                    }
-                                    catch
-                                    {
-                                        variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                                    }
-
+                                    SetVariableLink(variable7, AllComponents, PartFileName);
+                                    //ParamName = variable7.Name;
+                                    //if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+                                    //{
+                                    //    try
+                                    //    {
+                                    //        string link_FileName = variable7.LinkDocumentName;
+                                    //        string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
+                                    //        if (!string.IsNullOrEmpty(New_link_FileName))
+                                    //        {
+                                    //            if (!IsExportFileName(link_FileName, AllComponents))
+                                    //                if (!File.Exists(New_link_FileName))
+                                    //                    New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                                    //        }
+                                    //        else
+                                    //            New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                                    //    }
+                                    //    catch (Exception ex2)
+                                    //    {
+                                    //        MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //    }
+                                    //}
                                 }
                             }
+                            catch
+                            {
+                                if (VariableCollection != null)
+                                {
+                                    Variable7 variable7 = (Variable7)VariableCollection;
+                                    if(variable7 != null)
+                                        SetVariableLink(variable7, AllComponents, PartFileName);
+                                }
+                            }
+                            part7.RebuildModel(true);
                         }
-                        part7.RebuildModel(true);
+                    }
+                    catch(Exception ex1)
+                    {
+                        ShowMsgBox("Ошибка при изменении ссылок в переменных у документа" + PartFileName + Environment.NewLine + ex1.Message, MessageBoxIcon.Error);
                     }
                 }
                 _IEmbodimentsManager.Embodiment[currentEmbody].IsCurrent = true;
@@ -2557,6 +2574,31 @@ namespace SaveDXF
                 ShowMsgBox("Ошибка при изменении связанных файлов у документа" + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
             } 
             if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
+        }
+        private void SetVariableLink(Variable7 variable7, List<TreeListNode> AllComponents, string PartFileName)
+        {
+            string ParamName = null;
+            ParamName = variable7.Name;
+            if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+            {
+                try
+                {
+                    string link_FileName = variable7.LinkDocumentName;
+                    string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
+                    if (!string.IsNullOrEmpty(New_link_FileName))
+                    {
+                        if (!IsExportFileName(link_FileName, AllComponents))
+                            if (!File.Exists(New_link_FileName))
+                                New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                    }
+                    else
+                        New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                }
+                catch (Exception ex2)
+                {
+                    MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         public void SetLinkComponovGeometry(string PartFileName)
         {

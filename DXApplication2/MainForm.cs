@@ -294,13 +294,13 @@ namespace VSNRM_Kompas
                         treeList1.ExportToDocx(ExportFileName);
                         break;
                     case ".XLS":
-                        ExportExl(ExportFileName);
-                        return;
+                        //ExportExl(ExportFileName);
+                        //return;
                         treeList1.ExportToXls(ExportFileName);
                         break; 
                     case ".XLSX":
-                        ExportExl(ExportFileName);
-                        return;
+                        //ExportExl(ExportFileName);
+                        //return;
                         treeList1.ExportToXlsx(ExportFileName);
                         break;
                     case ".CSV":
@@ -318,7 +318,8 @@ namespace VSNRM_Kompas
             PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
             link.Component = treeList1;
             bool result = false;
-            if(Path.GetExtension(ExportFileName).ToUpper() == ".XLSX")
+            link.ExportToXls(ExportFileName);
+            if (Path.GetExtension(ExportFileName).ToUpper() == ".XLSX")
             {
                 XlsxExportOptions xlsxExportOptions = new XlsxExportOptions();
                 xlsxExportOptions.RasterizeImages = true;
@@ -333,7 +334,7 @@ namespace VSNRM_Kompas
                 xlsExportOptions.TextExportMode = TextExportMode.Value;
                 link.ExportToXls(ExportFileName, xlsExportOptions);
                 result = true;
-            }
+            } 
             if(result) System.Diagnostics.Process.Start(ExportFileName);
         }
         private void AddNewColName_But_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
