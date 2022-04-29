@@ -2570,11 +2570,24 @@ namespace SaveDXF
                         {
                             if (!File.Exists(New_link_FileName))
                                 New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                            bool res = variable7.SetLink(New_link_FileName, ParamName);
                         }
                     }
                     else
                         New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                    if (File.Exists(New_link_FileName))
+                    {
+                        try
+                        {
+                            variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                            //string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
+                            //variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
+                        }
+                        catch
+                        {
+                            variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                        }
+
+                    }
                 }
                 catch (Exception ex2)
                 {
