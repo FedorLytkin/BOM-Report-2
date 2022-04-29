@@ -2526,27 +2526,6 @@ namespace SaveDXF
                                 foreach (Variable7 variable7 in VariableCollection)
                                 {
                                     SetVariableLink(variable7, AllComponents, PartFileName);
-                                    //ParamName = variable7.Name;
-                                    //if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
-                                    //{
-                                    //    try
-                                    //    {
-                                    //        string link_FileName = variable7.LinkDocumentName;
-                                    //        string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
-                                    //        if (!string.IsNullOrEmpty(New_link_FileName))
-                                    //        {
-                                    //            if (!IsExportFileName(link_FileName, AllComponents))
-                                    //                if (!File.Exists(New_link_FileName))
-                                    //                    New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                                    //        }
-                                    //        else
-                                    //            New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                                    //    }
-                                    //    catch (Exception ex2)
-                                    //    {
-                                    //        MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    //    }
-                                    //}
                                 }
                             }
                             catch
@@ -2588,8 +2567,11 @@ namespace SaveDXF
                     if (!string.IsNullOrEmpty(New_link_FileName))
                     {
                         if (!IsExportFileName(link_FileName, AllComponents))
+                        {
                             if (!File.Exists(New_link_FileName))
                                 New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                            bool res = variable7.SetLink(New_link_FileName, ParamName);
+                        }
                     }
                     else
                         New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
