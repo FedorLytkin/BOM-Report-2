@@ -254,9 +254,13 @@ namespace SaveDXF
                     {
                         try
                         {
-                            bool ItemHidden = item.Hidden;
-                            if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                            if (ItemHidden != true && item.CreateSpcObjects)
+                            bool addComponent = false;
+                            if (item.CreateSpcObjects) addComponent = true;
+                            else
+                            {
+                                if (IOption_Class.Add_NotSPCreateObject) addComponent = true;
+                            }
+                            if (addComponent)
                             {
                                 string itemKey = null;
                                 itemKey = GetComponentKey(item);
@@ -383,9 +387,13 @@ namespace SaveDXF
             {
                 try
                 {
-                    bool ItemHidden = item.Hidden;
-                    if (optionClassInBody.Add_InVisiblePart.Value) ItemHidden = false;
-                    if (ItemHidden != true && item.CreateSpcObjects)
+                    bool addComponent = false;
+                    if (item.CreateSpcObjects) addComponent = true;
+                    else
+                    {
+                        if (IOption_Class.Add_NotSPCreateObject) addComponent = true;
+                    }
+                    if (addComponent)
                     {
                         PartList.Add(GetComponentKey(item));
                     }

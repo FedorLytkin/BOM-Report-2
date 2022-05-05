@@ -16,6 +16,8 @@ public class Option_Class
     public string Volume_MU_Name { get; set; }
     public string Count_MU_Name { get; set; }
 
+    public bool Add_InVisiblePart { get; set; } = true;
+    public bool Add_NotSPCreateObject { get; set; } = true;
     public int Mass_MU_Value { get; set; }
     public int ModelSlideSize { get; set; } = 32;
     public int Length_MU_Value { get; set; }
