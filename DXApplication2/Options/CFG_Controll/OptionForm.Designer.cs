@@ -684,11 +684,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_SPNotCreateObj.Properties.OffText = "Не добавлять";
             this.toggleSwitch_SPNotCreateObj.Properties.OnText = "Добавлять";
             this.toggleSwitch_SPNotCreateObj.Size = new System.Drawing.Size(217, 18);
-            toolTipTitleItem13.Text = "Материал в сборках и стандартных компонентах";
+            toolTipTitleItem13.Text = "Откл из СП компоненты";
             toolTipItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage6")));
             toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "При ВКЛ опции, для моделей-сборок и стандартных компонентов будеть браться матери" +
-    "ал из Свойства модели\r\nПри ВЫКЛ материал браться не будет";
+            toolTipItem7.Text = "Взаимодействие с компонентами, которые Откл из СП";
             toolTipTitleItem14.LeftIndent = 6;
             toolTipTitleItem14.Text = "BOM-Report";
             superToolTip7.Items.Add(toolTipTitleItem13);
@@ -705,10 +704,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.labelControl12.Location = new System.Drawing.Point(5, 52);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(142, 13);
-            toolTipTitleItem11.Text = "Разделитель между позициями";
+            toolTipTitleItem11.Text = "Отключенные из СП компоненты";
             toolTipItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage5")));
             toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "Разделитель между позициями";
+            toolTipItem6.Text = "Взаимодействие с компонентами, которые Откл из СП";
             toolTipTitleItem12.LeftIndent = 6;
             toolTipTitleItem12.Text = "BOM-Report";
             superToolTip6.Items.Add(toolTipTitleItem11);
