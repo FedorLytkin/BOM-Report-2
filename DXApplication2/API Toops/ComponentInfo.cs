@@ -33,14 +33,19 @@ namespace VSNRM_Kompas.API_Toops
         public Bitmap LargeSlide { get; set; }
         public bool HaveDrw { get; set; }
         public bool HaveSP { get; set; }
-        public List<Drw_Info_Class> drw_List = new List<Drw_Info_Class>();
-        public List<Variable_Class> Referense_Variable_List = new List<Variable_Class>();
+        public List<Drw_Info_Class> drw_List { get; set; } = new List<Drw_Info_Class>();
+        public List<Variable_Class> Referense_Variable_List { get; set; } = new List<Variable_Class>();
+        public List<CopyGeometry> CopyGeometriesList { get; set; } = new List<CopyGeometry>();
         public long FL_Size { get; set; }
 
         public Drw_Info_Class drw_Info = new Drw_Info_Class();
         public Get_MCH _MCH = new Get_MCH();
         public Get_Body Body = new Get_Body();
-
+        public class CopyGeometry
+        {
+            public string OperationName { get; set; }
+            public string DocumentName { get; set; }
+        }
         public class Get_MCH
         {
             public double Area { get; set; }
@@ -99,7 +104,12 @@ namespace VSNRM_Kompas.API_Toops
                 LargeSlide = this.LargeSlide,
                 drw_List = this.drw_List,
                 drw_Info = this.drw_Info,
-                FL_Size = this.FL_Size
+                FL_Size = this.FL_Size,
+                CopyGeometriesList = this.CopyGeometriesList,
+                HaveDrw = this.HaveDrw,
+                HaveSP = this.HaveSP,
+                isLocal = this.isLocal,
+                isPurchated = this.isPurchated
             };
         }
 

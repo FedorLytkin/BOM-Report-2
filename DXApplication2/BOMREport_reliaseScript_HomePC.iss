@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "BOM-Report Kompas 3D"
-#define MyAppVersion "18.30.20.225"
+#define MyAppVersion "21.30.20.226"
 #define MyAppPublisher "DXF-AutoHelp - dxfautohelp@gmail.com"
 #define MyAppURL "dxfautohelp@gmail.com"
 #define MyAppExeName "BOM Report.exe"
@@ -24,9 +24,9 @@ DisableProgramGroupPage=yes
 LicenseFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\bin\Debug\lic.txt
 InfoBeforeFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\bin\Debug\ThisDemoVersion.txt
 InfoAfterFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\bin\Debug\ReadMe.txt
-OutputDir=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\bin\Release
+OutputDir=D:\Cloud\Программы relise\BOM-Report Kompas 3D\BR для Компас 3D
 OutputBaseFilename={#MyAppName}_{#MyAppVersion}_setup
-SetupIconFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\icons8-collage-30.ico
+;SetupIconFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\icons8-collage-30.ico
 Compression=lzma
 SolidCompression=yes
 

@@ -1135,7 +1135,7 @@ namespace VSNRM_Kompas
 
         private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
         {
-            body.SetLinkComponovGeometry(@"D:\Desktop\test1\параметризация Компас\PW.ыавыавыа.000.183.001 - Стенка НЭО.m3d");
+
         }
 
         private void Bt_2Telegram_Canal_ItemClick(object sender, ItemClickEventArgs e)
@@ -1170,6 +1170,16 @@ namespace VSNRM_Kompas
             GridColumn cln = e.DragObject as DevExpress.XtraGrid.Columns.GridColumn;
             if (cln != null)
                 TableHightSizeByColumn(cln);
+        }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            body.GetAttr(@"D:\Desktop\test1\Апрель\33List.m3d");
         }
     }
 }

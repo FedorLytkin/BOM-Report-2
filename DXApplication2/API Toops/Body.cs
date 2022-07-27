@@ -82,7 +82,8 @@ namespace SaveDXF
         {
             if (!AppVersNOTValidStrong)
                 MessageBox.Show($"Версия CAD-системы({KompasVersion}) не совпадает с рекомендованной версией {KompasVersionFlag}." +
-                                Environment.NewLine +  $"Обновите {System.Windows.Forms.Application.ProductName} до требуемой версии CAD системы, либо установите {KompasVersionFlag}", System.Windows.Forms.Application.ProductName);
+                                Environment.NewLine +  $"Обновите {System.Windows.Forms.Application.ProductName} до требуемой версии CAD системы, либо установите {KompasVersionFlag}", 
+                                System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Stop);
             return AppVersNOTValidStrong;
         }
         static string getCadVersionFlag()
@@ -1130,6 +1131,7 @@ namespace SaveDXF
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
             //iMSH.Slide.SetResolution(newWidth * 3, newWidth * 3);
             iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
+            iMSH.CopyGeometriesList = GetCopyGeometries(part);
             List<string> DrwList = GetDrwDocs(part);
             if(DrwList != null)
             {
@@ -2335,6 +2337,25 @@ namespace SaveDXF
             }
             return DonorFileName;
         }
+        string GetCopiFileNameByAllComponents(string NewPartFileName, string OperationName, List<TreeListNode> AllComponents)
+        {
+            string res = null;
+            if (string.IsNullOrEmpty(NewPartFileName)) return null;
+            foreach (TreeListNode node in AllComponents)
+            {
+                if (node.Checked && $@"{node["Сохранить в папке"]}\{node["Сохранить в имени"]}{node["Тип"]}" == NewPartFileName)
+                {
+                    ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                    foreach(ComponentInfo.CopyGeometry copyGeometry in componentInfo.CopyGeometriesList)
+                        if(copyGeometry.OperationName == OperationName)
+                        {
+                            res = GetFileNameByAllComponents(copyGeometry.DocumentName, AllComponents);
+                            if (string.IsNullOrEmpty(res)) return res;
+                        }
+                }
+            }
+            return res;
+        }
         private void GetParamsByObozAndNaim(string NewFileName, string OldOboz, string OldName, out string ReturnOboz, out string ReturnNaim, List<TreeListNode> AllComponents)
         {
             ReturnOboz = null;
@@ -2437,7 +2458,6 @@ namespace SaveDXF
                                 {
                                     try
                                     {
-
                                         if (!File.Exists(New_FileName))
                                             File.Copy(Name, New_FileName, true);
                                         if (part.FileName != New_FileName) part.FileName = New_FileName;
@@ -2489,6 +2509,34 @@ namespace SaveDXF
                 SetSourseCompeteFile_List.Add(PartFileName);
             return false;
         }
+        public void SetFeatureLink(string PartFileName)
+        {
+            bool OpenDoc = false;
+            IKompasDocument3D document3D;
+            document3D = (IKompasDocument3D)_IApplication.Documents[PartFileName];
+            if (document3D != null) OpenDoc = true;
+            else
+                document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
+            document3D.HideInComponentsMode = true;
+
+            Part7 part = document3D.TopPart;
+            IModelContainer modelContainer = (IModelContainer)part;
+            Holes3D holes3D = modelContainer.Holes3D;
+            if(holes3D != null)
+            {
+                foreach(Hole3D hole3D in holes3D)
+                {
+                    ICopiesGeometry iCGs = (ICopiesGeometry)hole3D;
+                    if(iCGs != null)
+                    {
+                        foreach(ICopyGeometry copyGeometry in iCGs)
+                        {
+                            string ffn= copyGeometry.DocumentFileName;
+                        }
+                    }
+                }
+            }
+        }
         public void SetLinkInProperty_ModelAPI7(string PartFileName, List<TreeListNode> AllComponents)
         {
             if (IsLinkVariableCompeteFile(PartFileName)) return; 
@@ -2499,6 +2547,7 @@ namespace SaveDXF
             else
                 document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
             string ParamName = null;
+            SetLinkComponovGeometry(document3D, AllComponents);
             try
             {
                 int currentEmbody = 0;
@@ -2603,14 +2652,40 @@ namespace SaveDXF
                 }
             }
         }
-        public void SetLinkComponovGeometry(string PartFileName)
+        private List<string> LinkComponovGeometryDone = new List<string>();
+        bool checExistListComponovGeometry(string DocumentFileName)
         {
-            bool OpenDoc = false;
-            IKompasDocument3D document3D;
-            document3D = (IKompasDocument3D)_IApplication.Documents[PartFileName];
-            if (document3D != null) OpenDoc = true;
-            else
-                document3D = (IKompasDocument3D)_IApplication.Documents.Open(PartFileName, OpenVisible, false);
+            //проверяет список обработанных документов на компоновочную геометрию
+            if (!LinkComponovGeometryDone.Contains(DocumentFileName))
+            {
+                LinkComponovGeometryDone.Add(DocumentFileName);
+                return true; 
+            }
+            return false;
+        }
+        private List<ComponentInfo.CopyGeometry> GetCopyGeometries(IPart7 part7)
+        {
+            List<ComponentInfo.CopyGeometry> copyGeometries = new List<ComponentInfo.CopyGeometry>();
+
+            IFeature7 feature7 = (IFeature7)part7;
+            var VariableCollection = feature7.Variables[false, true];
+            bool islayout = part7.IsLayoutGeometry;
+            IModelContainer modelContainer = (IModelContainer)part7;
+            ICopiesGeometry iCGS = modelContainer.CopiesGeometry;
+            foreach (ICopyGeometry copyGeometry in iCGS)
+            {
+                string name = copyGeometry.Name;
+                string reffn = copyGeometry.DocumentFileName;
+                copyGeometries.Add(new ComponentInfo.CopyGeometry() { DocumentName = reffn, OperationName = name });
+            }
+            return copyGeometries;
+        }
+        public void SetLinkComponovGeometry(IKompasDocument3D document3D, List<TreeListNode> AllComponents)
+        {
+            if(document3D == null) return;
+            IKompasDocument1 kompasDocument1 = null;
+            string link_FileName = document3D.PathName;
+            if (!checExistListComponovGeometry(link_FileName)) return;
             try
             {
                 int currentEmbody = 0;
@@ -2624,7 +2699,7 @@ namespace SaveDXF
                     tmp_Embodiment = _IEmbodimentsManager.Embodiment[j];
                     //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
                     tmp_Embodiment.IsCurrent = true;
-                    if (tmp_Embodiment.Part == null) { IPart7NothingMsg(PartFileName); return; }
+                    if (tmp_Embodiment.Part == null) { IPart7NothingMsg(link_FileName); return; }
                     IPart7 part7 = tmp_Embodiment.Part;
                     
                     string ffn = part7.FileName;
@@ -2633,14 +2708,32 @@ namespace SaveDXF
                     bool islayout = part7.IsLayoutGeometry;
                     IModelContainer modelContainer = (IModelContainer)part7;
                     ICopiesGeometry iCGS = modelContainer.CopiesGeometry;
-                    string newffn = @"D:\Desktop\test1\параметризация Компас\PW.ыавыавыа.000.183.001 - Крышка.m3d";
                     foreach (ICopyGeometry copyGeometry in iCGS)
                     {
                         string name = copyGeometry.Name;
-                        string reffn = copyGeometry.DocumentFileName;
+                        string reffn = copyGeometry.DocumentFileName; 
                         int refID = copyGeometry.Reference;
-                        //copyGeometry.DocumentFileName = newffn;
-                        //copyGeometry.AddInitialObjectsFromExternalDocument 
+                        string New_link_FileName = GetCopiFileNameByAllComponents(link_FileName, name, AllComponents);
+                        if (!string.IsNullOrEmpty(New_link_FileName))
+                        {
+                            if (File.Exists(New_link_FileName))
+                            {
+                                try
+                                {
+                                    if (kompasDocument1 == null) kompasDocument1 = (IKompasDocument1)document3D;
+                                    if (kompasDocument1 != null)
+                                    {
+                                        bool res = kompasDocument1.ReplaceExternalFilesNames(true, copyGeometry.DocumentFileName, New_link_FileName);
+                                        if (res) kompasDocument1.RedrawDocument(ksRedrawDocumentModeEnum.ksRedrawFull);
+                                    }
+                                }
+                                catch(Exception ex2)
+                                {
+                                    MessageBox.Show($"Ошибка при изменении источника у компоновочной геометрии {link_FileName}!\nOldFileName:{reffn}\nNewfilename:{New_link_FileName}\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        
                     }
                     
                 }
@@ -2649,7 +2742,7 @@ namespace SaveDXF
             }
             catch (Exception Ex)
             {
-                ShowMsgBox("Ошибка при изменении источника у компоновочной геометрии " + PartFileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
+                ShowMsgBox($"Ошибка при изменении источника у компоновочной геометрии {link_FileName}!\n{Ex.Message}", MessageBoxIcon.Error);
             }
         }
         private void SetLinkForCopyGeometry(IPart7 part7, string NewDocReference)
@@ -2686,5 +2779,17 @@ namespace SaveDXF
             return null;
         }
         #endregion
+        public void GetAttr(string filname)
+        {
+            IKompasDocument kompasDocument0 = (IKompasDocument)_IApplication.Documents.Open(filname, true, false);
+            IKompasDocument1 kompasDocument = (IKompasDocument1)kompasDocument0;
+            IAttrTypeMng attrTypeMng = (IAttrTypeMng)_IApplication;
+            var attributes = kompasDocument.Attributes[0, 0, 0, 0, 0, kompasDocument0];
+            Dictionary<string, string> attr = new Dictionary<string, string>();
+            foreach(IAttribute _IAttribute in attributes)
+            {
+                attr.Add(_IAttribute.AttributeType.TypeName, (string)(_IAttribute.Value[0,0]) );
+            }
+        }
     }
 }
