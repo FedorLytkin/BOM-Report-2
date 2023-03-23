@@ -214,12 +214,18 @@ namespace VSNRM_Kompas
         {
             Stopwatch st = StartTimer();
             body.All_Level_Search = All_Level_Check_CH_B.Checked;
-            splashScreenManager2.ShowWaitForm();
-            splashScreenManager2.SetWaitFormCaption("Сканирование состава");
-            body.OpenDocumentParam_API7();
-            UpdateData();
-            PostProcessData();
-            splashScreenManager2.CloseWaitForm();
+            try
+            {
+                splashScreenManager2.ShowWaitForm();
+                splashScreenManager2.SetWaitFormCaption("Сканирование состава");
+                body.OpenDocumentParam_API7();
+                UpdateData();
+                PostProcessData();
+            }
+            finally
+            {
+                splashScreenManager2.CloseWaitForm();
+            }
             StopTimer(st);
         }
         private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -525,14 +531,19 @@ namespace VSNRM_Kompas
         private void BOM_ActiveDocum()
         {
             Stopwatch st = StartTimer();
+            try
+            {
+                splashScreenManager2.ShowWaitForm();
+                splashScreenManager2.SetWaitFormCaption("Сканирование состава");
+                body.OpenThisDocument();
 
-            splashScreenManager2.ShowWaitForm();
-            splashScreenManager2.SetWaitFormCaption("Сканирование состава");
-            body.OpenThisDocument();
-
-            UpdateData();
-            PostProcessData();
-            splashScreenManager2.CloseWaitForm();
+                UpdateData();
+                PostProcessData();
+            }
+            finally
+            {
+                splashScreenManager2.CloseWaitForm();
+            }
             StopTimer(st);
         }
         private Stopwatch StartTimer()

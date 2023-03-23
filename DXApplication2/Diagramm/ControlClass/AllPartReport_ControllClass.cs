@@ -38,23 +38,29 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
 
         public AllPartReport_ControllClass(TreeList GetTreeView, GridControl GetGridControl, GridView GetGridView, bool SetAllNodes)
         {
-            treeView = GetTreeView;
-            MainGridControl = GetGridControl;
-            Main_gridView = GetGridView;
-            AllNodes = SetAllNodes;
+            try
+            {
+                treeView = GetTreeView;
+                MainGridControl = GetGridControl;
+                Main_gridView = GetGridView;
+                AllNodes = SetAllNodes;
 
-            DataTable dataTable = new DataTable();
-            addColumns(dataTable);
-            MainGridControl.DataSource = GetComponents(dataTable);
-            RepositoryItemImageComboBox rep = Option_Class.GetRepositoryItemImageComboBox(treeView.StateImageList);
-            Main_gridView.Columns[System_Object_Type_ColumnName].ColumnEdit = rep;
+                DataTable dataTable = new DataTable();
+                addColumns(dataTable);
+                MainGridControl.DataSource = GetComponents(dataTable);
+                RepositoryItemImageComboBox rep = Option_Class.GetRepositoryItemImageComboBox(treeView.StateImageList);
+                Main_gridView.Columns[System_Object_Type_ColumnName].ColumnEdit = rep;
 
-            pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
-            Main_gridView.CustomRowCellEdit += Main_gridView_CustomRowCellEdit;
+                pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
+                Main_gridView.CustomRowCellEdit += Main_gridView_CustomRowCellEdit;
 
-
-            SetColumnsVisible();
-            Main_gridView.Columns[System_ColumnName].Visible = false;
+                SetColumnsVisible();
+                Main_gridView.Columns[System_ColumnName].Visible = false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ошибка при создании Обозревателя состава.\n{ex.Message}", "Обозреватель состава", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public bool AddColumn(TreeListColumn column)
         {

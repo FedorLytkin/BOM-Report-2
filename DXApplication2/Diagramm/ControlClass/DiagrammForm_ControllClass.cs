@@ -25,20 +25,27 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
         bool Create_Dublicate = false;
         public DiagrammForm_ControllClass(TreeList GetTreeView, DiagramDataBindingController GetDiagramDataBindingController, bool Dublicate_Create, bool Create_Qnt_On_Line)
         {
-            Create_Dublicate = Dublicate_Create;
-            treeView = GetTreeView;
-            classStructureGenerator = new ClassStructureGenerator(treeView);
-            classStructureGenerator.Create_Qnt_On_Line = Create_Qnt_On_Line;
+            try
+            {
+                Create_Dublicate = Dublicate_Create;
+                treeView = GetTreeView;
+                classStructureGenerator = new ClassStructureGenerator(treeView);
+                classStructureGenerator.Create_Qnt_On_Line = Create_Qnt_On_Line;
 
-            diagramDataBindingController1 = GetDiagramDataBindingController;
-            this.diagramDataBindingController1.GenerateItem += new System.EventHandler<DevExpress.XtraDiagram.DiagramGenerateItemEventArgs>(this.diagramDataBindingController1_GenerateItem);
-            this.diagramDataBindingController1.GenerateConnector += new System.EventHandler<DevExpress.XtraDiagram.DiagramGenerateConnectorEventArgs>(this.diagramDataBindingController1_GenerateConnector);
-            this.diagramDataBindingController1.UpdateConnector += new System.EventHandler<DevExpress.XtraDiagram.DiagramUpdateConnectorEventArgs>(this.diagramDataBindingController1_UpdateConnector);
+                diagramDataBindingController1 = GetDiagramDataBindingController;
+                this.diagramDataBindingController1.GenerateItem += new System.EventHandler<DevExpress.XtraDiagram.DiagramGenerateItemEventArgs>(this.diagramDataBindingController1_GenerateItem);
+                this.diagramDataBindingController1.GenerateConnector += new System.EventHandler<DevExpress.XtraDiagram.DiagramGenerateConnectorEventArgs>(this.diagramDataBindingController1_GenerateConnector);
+                this.diagramDataBindingController1.UpdateConnector += new System.EventHandler<DevExpress.XtraDiagram.DiagramUpdateConnectorEventArgs>(this.diagramDataBindingController1_UpdateConnector);
 
-            diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(Create_Dublicate);
+                diagramDataBindingController1.DataSource = classStructureGenerator.ClassList(Create_Dublicate);
 
-            diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
-            diagramDataBindingController1.LayoutKind = DiagramLayoutKind.MindMapTree;
+                diagramDataBindingController1.ConnectorsSource = classStructureGenerator.ConnectionList(Create_Dublicate);
+                diagramDataBindingController1.LayoutKind = DiagramLayoutKind.MindMapTree; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при вормировании проектных связей.\n{ex.Message}", "Визуализатор связей", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void AddConnectionList(bool Dublicate_Create)
         {
