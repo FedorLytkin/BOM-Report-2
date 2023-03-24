@@ -856,7 +856,11 @@ namespace SaveDXF
                     _Property classresProperty = (_Property)Property;
                     if (classresProperty != null)
                     {
-                        Prop.GetPropertyValue((_Property)classresProperty, out returnObject, Baseunit, out FromSource);
+                        try
+                        {
+                            Prop.GetPropertyValue((_Property)classresProperty, out returnObject, Baseunit, out FromSource);
+                        }
+                        catch { }
                         if (returnObject != null)
                         {
                             res = true;
