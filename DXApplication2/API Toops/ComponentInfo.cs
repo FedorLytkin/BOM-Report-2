@@ -31,6 +31,7 @@ namespace VSNRM_Kompas.API_Toops
         public bool HaveUnfold { get; set; }
         public Bitmap Slide { get; set; }
         public Bitmap LargeSlide { get; set; }
+        public string SlideBase64 { get; set; }
         public bool HaveDrw { get; set; }
         public bool HaveSP { get; set; }
         public List<Drw_Info_Class> drw_List { get; set; } = new List<Drw_Info_Class>();
@@ -76,6 +77,7 @@ namespace VSNRM_Kompas.API_Toops
             public string Naim { get; set; }
             public Bitmap Slide { get; set; }
             public Bitmap LargeSlide { get; set; }
+            public string SlideBase64 { get; set; }
             public long FL_Size { get; set; }
             public Dictionary<string, string> ParamValueList { get; set; }
         }
@@ -102,6 +104,7 @@ namespace VSNRM_Kompas.API_Toops
                 HaveUnfold = this.HaveUnfold,
                 Slide = this.Slide,
                 LargeSlide = this.LargeSlide,
+                SlideBase64 = this.SlideBase64,
                 drw_List = this.drw_List,
                 drw_Info = this.drw_Info,
                 FL_Size = this.FL_Size,
@@ -109,7 +112,10 @@ namespace VSNRM_Kompas.API_Toops
                 HaveDrw = this.HaveDrw,
                 HaveSP = this.HaveSP,
                 isLocal = this.isLocal,
-                isPurchated = this.isPurchated
+                isPurchated = this.isPurchated,
+                QNT_False = this.QNT_False,
+                Referense_Variable_List = this.Referense_Variable_List,
+                Total_QNT = this.Total_QNT
             };
         }
 

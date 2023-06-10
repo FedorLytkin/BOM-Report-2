@@ -33,6 +33,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
         const string System_Count_ColumnName = "Количество";
         const string System_Total_Count_ColumnName = "Количество общ.";
         const string System_Slide_ColumnName = "Миниатюра";
+        const string System_SlideBase64_ColumnName = "Миниатюра(base64)";
 
         bool AllNodes = false;
 
@@ -100,6 +101,7 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
                 switch (column.Name)
                 {
                     case System_Slide_ColumnName:
+                    case System_SlideBase64_ColumnName:
                         dataTable.Columns.Add(column.Name, typeof(object));
                         break;
                     case System_Total_Count_ColumnName:
@@ -165,6 +167,9 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
                                 {
                                     switch (Param.Key)
                                     {
+                                        case System_SlideBase64_ColumnName:
+                                            row[Param.Key] = componentInfo.SlideBase64;
+                                            break;
                                         case System_Slide_ColumnName:
                                             row[Param.Key] = componentInfo.Slide;
                                             break;

@@ -2,6 +2,7 @@
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -251,6 +252,7 @@ namespace VSNRM_Kompas.ProjectClone
             ComponentInfo Drw_componentInfo = (ComponentInfo)componentInfo.Clone();
             Drw_componentInfo.FFN = Drw_Info.FFN;
             Drw_componentInfo.Slide = Drw_Info.Slide;
+            Drw_componentInfo.SlideBase64 = Drw_Info.SlideBase64;
             Drw_componentInfo.Key = Drw_Info.FFN + "|" + (string.IsNullOrEmpty(Drw_Info.Oboz) ? Drw_Info.Naim : Drw_Info.Oboz);
             Drw_componentInfo.drw_Info  = Drw_Info;
 
@@ -305,6 +307,7 @@ namespace VSNRM_Kompas.ProjectClone
                 New_Node.SetValue(ParamName, ParamVal);
             }
             New_Node.SetValue("Миниатюра", componentInfo.Slide);
+            New_Node.SetValue("Миниатюра(base64)", componentInfo.SlideBase64);
 
             New_Node.ImageIndex = Donor_Node.ImageIndex;
             New_Node.StateImageIndex = Donor_Node.StateImageIndex;
@@ -333,6 +336,17 @@ namespace VSNRM_Kompas.ProjectClone
         }
         public string GetFolderName()
         {
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog ();
+            //string InitialDirectory = Main_Options.Directory_Find_SelectFolder_path.Value;
+            //if (!string.IsNullOrEmpty(InitialDirectory)) dialog.InitialDirectory = InitialDirectory;
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
+                return null;
+            FolderPath = dialog.FileName;
+            SetOutFolderPathInComponents();
+            //SetSelectPath(dialog.FileName);
+            return dialog.FileName;
+
             XtraFolderBrowserDialog folderdialog = new XtraFolderBrowserDialog();
             folderdialog.DialogStyle = DevExpress.Utils.CommonDialogs.FolderBrowserDialogStyle.Wide;
             if (folderdialog.ShowDialog() == DialogResult.OK)

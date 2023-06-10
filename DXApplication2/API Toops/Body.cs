@@ -466,6 +466,7 @@ namespace SaveDXF
                     SetNodeImageIndex(Node, Option_Class.Obj_Type_Enum.Part_NOT_Unfold);
             }
             if (treeView.Columns["Тип объекта"] != null) Node.SetValue("Тип объекта", Node.ImageIndex);
+            if (treeView.Columns["Миниатюра(base64)"] != null) Node.SetValue("Миниатюра(base64)", componentInfo.SlideBase64);
             if (IOption_Class.Positio_On_Value && !IOption_Class.Positio_CalcBR_Value)
             {
                 TreeListColumn Positio = treeView.Columns["Позиция"];
@@ -1127,6 +1128,7 @@ namespace SaveDXF
                 shellFile = ShellFile.FromFilePath(part.FileName);
                 iMSH.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); // shellFile.Thumbnail.SmallBitmap;
                 iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+                iMSH.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
             }
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
             //iMSH.Slide.SetResolution(newWidth * 3, newWidth * 3);
@@ -1219,7 +1221,7 @@ namespace SaveDXF
             ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
             drw_Info.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); //shellFile.Thumbnail.SmallBitmap;
             drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
-
+            drw_Info.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             //iMSH.ParamValueList = FindParam_Model;
             foreach (string ParamName in FindParam_Model)
@@ -2053,7 +2055,6 @@ namespace SaveDXF
             iDocument3D.close();
         }
         #endregion
-
         #region копировать Проект
         List<string> SetLinkVariableCompeteFile_List;
         List<string> SetSourseCompeteFile_List;
@@ -2146,25 +2147,28 @@ namespace SaveDXF
                     if ((int)ObjectType == 1 || (int)ObjectType == 2)
                     {
                         AttachedDocuments attachedDocuments = specificationObject.AttachedDocuments;
-                        List<string> ReplaceFileList = new List<string>();
-                        foreach (AttachedDocument attachedDocument in attachedDocuments)
-                            ReplaceFileList.Add(attachedDocument.Name);
-
-                        int jj = attachedDocuments.Count - 1;
-                        while (attachedDocuments.Count > 0)
+                        if(attachedDocuments!= null)
                         {
-                            AttachedDocument attachedDocument = attachedDocuments[jj];
-                            if (attachedDocument != null) attachedDocument.Delete();
-                            jj--;
-                        }
-                        specificationObject.Update();
-                        foreach (string ReplaceFile in ReplaceFileList)
-                        {
-                            string NewFileName = GetFileNameByAllComponents(ReplaceFile, AllComponents);
-                            if (string.IsNullOrEmpty(NewFileName) && IsExportFileName(ReplaceFile, AllComponents)) attachedDocuments.Add(ReplaceFile, true);
+                            List<string> ReplaceFileList = new List<string>();
+                            foreach (AttachedDocument attachedDocument in attachedDocuments)
+                                ReplaceFileList.Add(attachedDocument.Name);
 
-                            if (!string.IsNullOrEmpty(NewFileName)) attachedDocuments.Add(NewFileName, true);
+                            int jj = attachedDocuments.Count - 1;
+                            while (attachedDocuments.Count > 0)
+                            {
+                                AttachedDocument attachedDocument = attachedDocuments[jj];
+                                if (attachedDocument != null) attachedDocument.Delete();
+                                jj--;
+                            }
                             specificationObject.Update();
+                            foreach (string ReplaceFile in ReplaceFileList)
+                            {
+                                string NewFileName = GetFileNameByAllComponents(ReplaceFile, AllComponents);
+                                if (string.IsNullOrEmpty(NewFileName) && IsExportFileName(ReplaceFile, AllComponents)) attachedDocuments.Add(ReplaceFile, true);
+
+                                if (!string.IsNullOrEmpty(NewFileName)) attachedDocuments.Add(NewFileName, true);
+                                specificationObject.Update();
+                            }
                         }
                     }
                 }

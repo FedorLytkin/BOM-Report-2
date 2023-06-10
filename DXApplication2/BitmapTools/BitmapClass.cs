@@ -21,6 +21,17 @@ public class BitmapClass
             default:
                 return resizeImage(shellFile.Thumbnail.ExtraLargeBitmap, PicSize);
         }
+    } 
+
+    public static string GetBase32(Bitmap pic)
+    {
+        if (pic == null) return null;
+        using (var ms = new System.IO.MemoryStream())
+        {
+            pic.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] byteImage = ms.ToArray();
+            return Convert.ToBase64String(byteImage);
+        }
     }
     public static Bitmap resizeImage(Bitmap imgToResize, int PicSize)
     {
