@@ -486,6 +486,7 @@ namespace VSNRM_Kompas.ProjectClone
         }
         private void treeList1_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
+            if (e.Column == null) return;
             if (e.Column.FieldName == "Сохранить в имени")
             {
                 ComponentInfo componentInfo = (ComponentInfo)e.Node.Tag;

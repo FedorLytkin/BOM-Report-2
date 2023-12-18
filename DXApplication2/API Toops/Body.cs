@@ -938,7 +938,7 @@ namespace SaveDXF
             for(int doc_id = 0; doc_id <_IApplication.Documents.Count; doc_id++)
             {
                 IKompasDocument document = (IKompasDocument)_IApplication.Documents[doc_id];
-                docs.Add(document.PathName);
+                if(document != null) docs.Add(document.PathName);
             }
             //foreach(IKompasDocument document in _IApplication.Documents)
             //    document.Close(DocumentCloseOptions.kdDoNotSaveChanges);
@@ -2457,7 +2457,7 @@ namespace SaveDXF
                                 string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
                                 if (string.IsNullOrEmpty(New_FileName))
                                     New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
-
+                                if (!File.Exists(New_FileName)) continue;
                                 if (!string.IsNullOrEmpty(New_FileName))
                                 {
                                     try
