@@ -1132,7 +1132,8 @@ namespace SaveDXF
             }
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
             //iMSH.Slide.SetResolution(newWidth * 3, newWidth * 3);
-            iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
+
+            if (!iMSH.isLocal) iMSH.Referense_Variable_List = GetLinkProertiList(part.FileName);
             iMSH.CopyGeometriesList = GetCopyGeometries(part);
             List<string> DrwList = GetDrwDocs(part);
             if(DrwList != null)
