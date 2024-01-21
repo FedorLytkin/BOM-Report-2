@@ -1097,7 +1097,6 @@ namespace SaveDXF
                 iMSH.QNT = Kolvo;
                 iMSH.QNT_False = true;
             }
-
             iMSH.Oboz = part.Marking;
             iMSH.Mass = part.Mass;
             iMSH.Naim = part.Name;
@@ -2066,7 +2065,7 @@ namespace SaveDXF
             //_IApplication.Visible = false;
             SetLinkVariableCompeteFile_List = new List<string>();
             SetSourseCompeteFile_List = new List<string>();
-            List<string> CopyFileList = new List<string>();
+            List<VSNRM_Kompas.ProjectClone.CopyProjectHelperClass.CopyFileInfo> CopyFileList = new List<VSNRM_Kompas.ProjectClone.CopyProjectHelperClass.CopyFileInfo>();
             waitMng = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).splashScreenManager2;
             waitMng.ShowWaitForm();
             waitMng.SetWaitFormCaption("Копирование проекта");
@@ -2079,33 +2078,37 @@ namespace SaveDXF
                     string CopyFileName = $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
                     if (!Directory.Exists(Path.GetDirectoryName(CopyFileName)))
                         Directory.CreateDirectory(Path.GetDirectoryName(CopyFileName));
-
-                    File.Copy(componentInfo.FFN, CopyFileName, true);
-                    CopyFileList.Add(CopyFileName);
+                    string oboz = node["Обозначение"].ToString();
+                    if (CopyFileList.Find(x => x.CopyFileName == CopyFileName && x.Oboz == oboz) == null)
+                    {
+                        File.Copy(componentInfo.FFN, CopyFileName, true);
+                        CopyFileList.Add(new VSNRM_Kompas.ProjectClone.CopyProjectHelperClass.CopyFileInfo{
+                            CopyFileName = CopyFileName, Oboz =  oboz, Node = node});
+                    }
                 }
             }
             CopyFileList = CopyFileList.Distinct().ToList();  //удаляю дубликаты
             _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
-            foreach (string FileName in CopyFileList)
+            foreach (VSNRM_Kompas.ProjectClone.CopyProjectHelperClass.CopyFileInfo CopyFile in CopyFileList)
             {
-                waitMng.SetWaitFormDescription($"{Path.GetFileName(FileName)}");
-                switch (Path.GetExtension(FileName).ToUpper())
+                waitMng.SetWaitFormDescription($"{Path.GetFileName(CopyFile.CopyFileName)}");
+                switch (Path.GetExtension(CopyFile.CopyFileName).ToUpper())
                 {
                     case ".CDW":
-                        SetLinkInDRW(FileName, AllComponents);
+                        SetLinkInDRW(CopyFile.CopyFileName, CopyFile.Node.Nodes.ToList());
                         break;
                     case ".A3D": 
-                        SetSourseChancge_ModelAPI7(FileName, AllComponents, GetDonorFileNameByAllComponents(FileName, AllComponents));
+                        SetSourseChancge_ModelAPI7(CopyFile.CopyFileName, CopyFile.Node, GetDonorFileNameByAllComponents(CopyFile.CopyFileName, AllComponents));
                         break;
                 }
             }
-            foreach (string FileName in CopyFileList)
+            foreach (VSNRM_Kompas.ProjectClone.CopyProjectHelperClass.CopyFileInfo CopyFile in CopyFileList)
             {
-                switch (Path.GetExtension(FileName).ToUpper())
+                switch (Path.GetExtension(CopyFile.CopyFileName).ToUpper())
                 {
                     case ".SPW":
-                        waitMng.SetWaitFormDescription($"{Path.GetFileName(FileName)}");
-                        SetLinkInSPDoc(FileName, AllComponents);
+                        waitMng.SetWaitFormDescription($"{Path.GetFileName(CopyFile.CopyFileName)}");
+                        SetLinkInSPDoc(CopyFile.CopyFileName, AllComponents);
                         break; 
                 }
             }
@@ -2415,7 +2418,7 @@ namespace SaveDXF
                 }
             }
         }
-        public void SetSourseChancge_ModelAPI7(string ExportFileName, List<TreeListNode> AllComponents, string DonorFileName)
+        public void SetSourseChancge_ModelAPI7(string ExportFileName, TreeListNode ParentNode, string DonorFileName)
         {
             if (IsSourseCompeteFile(ExportFileName)) return;
             bool OpenDoc = false;
@@ -2426,8 +2429,7 @@ namespace SaveDXF
                 document3D = (IKompasDocument3D)_IApplication.Documents.Open(DonorFileName, OpenVisible, false);
             //if (document3D == null) return;
             document3D.SaveAs(ExportFileName);
-            document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, OpenVisible, false); 
-
+            document3D = (IKompasDocument3D)_IApplication.Documents.Open(ExportFileName, OpenVisible, false);
             IPart7 part7 = document3D.TopPart;
             if (part7 == null) { IPart7NothingMsg(ExportFileName); return; }
             int currentEmbody = 0;
@@ -2455,7 +2457,13 @@ namespace SaveDXF
                                 string Name = part.FileName;
 
                                 waitMng.SetWaitFormDescription($"{Path.GetFileName(Name)}");
-                                string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+
+                                bool checkedNode = false;
+                                TreeListNode node = null;
+                                string New_FileName = PartFileName(ParentNode.Nodes.ToList(), Path.GetFileName(Name), part.Marking, part.Name, out checkedNode, out node);
+                                if (checkedNode)
+                                    New_FileName = GetFileNameByAllComponents(Name, ParentNode.Nodes.ToList());
+
                                 if (string.IsNullOrEmpty(New_FileName))
                                     New_FileName = _Pr_Clone_Class.getFileNameWithFindOptions(Name);
                                 if (!File.Exists(New_FileName)) continue;
@@ -2463,10 +2471,10 @@ namespace SaveDXF
                                 {
                                     try
                                     {
-                                        if (!File.Exists(New_FileName))
+                                        if (!File.Exists(New_FileName) && checkedNode)
                                             File.Copy(Name, New_FileName, true);
                                         if (part.FileName != New_FileName) part.FileName = New_FileName;
-                                        SetLinkInProperty_ModelAPI7(New_FileName, AllComponents);
+                                        if(checkedNode) SetLinkInProperty_ModelAPI7(New_FileName, ParentNode.Nodes.ToList());
                                     }
                                     catch(Exception ex1)
                                     {
@@ -2476,10 +2484,10 @@ namespace SaveDXF
                                 }
                                 if (!part.Detail)
                                 {
-                                    string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, AllComponents);
-                                    if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, AllComponents)) SetSourseChancge_ModelAPI7(part.FileName, AllComponents, part.FileName);
+                                    string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, ParentNode.Nodes.ToList());
+                                    if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, ParentNode.Nodes.ToList())) SetSourseChancge_ModelAPI7(part.FileName, node, part.FileName);
 
-                                    if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
+                                    if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, node, part.FileName);
                                     //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
                                 }
                             }
@@ -2496,7 +2504,39 @@ namespace SaveDXF
 
             
             if(!OpenDoc) document3D.Close(DocumentCloseOptions.kdSaveChanges);
-            SetLinkInProperty_ModelAPI7(ExportFileName, AllComponents);
+            SetLinkInProperty_ModelAPI7(ExportFileName, ParentNode.Nodes.ToList());
+        }
+        private TreeListNode GetTreeListNode(List<TreeListNode> AllComponents, string byFullFileName)
+        {
+            foreach (TreeListNode node in AllComponents)
+            {
+                string Direct = node["Расположение"].ToString();
+                string FileName = node["Имя файла"].ToString();
+                string Extension = node["Тип"].ToString();
+                string FullFileName = $@"{Direct}\{FileName}{Extension}";
+                if (byFullFileName == FullFileName)
+                    return node;
+            }
+            return null;
+        }
+        private string PartFileName(List<TreeListNode> AllComponents, string GetFileName, string GetOboz, string GetNaim, out bool NodeCheck, out TreeListNode FindNode)
+        {
+            NodeCheck = false;
+            FindNode = null;
+            foreach (TreeListNode node in AllComponents)
+            {
+                string FileName = node["Имя файла"].ToString();
+                string Oboz = node["Обозначение"].ToString();
+                string Naim = node["Наименование"].ToString();
+                string Extension = node["Тип"].ToString();
+                if (Path.GetFileNameWithoutExtension(GetFileName) == FileName /*&& Oboz == GetOboz*/ && Naim == GetNaim && Extension == Path.GetExtension(GetFileName))
+                {
+                    NodeCheck = node.Checked;
+                    FindNode = node;
+                    return $@"{node["Расположение"]}\{node["Имя файла"]}{Extension}";
+                }
+            }
+            return null;
         }
         private bool IsLinkVariableCompeteFile(string PartFileName)
         {
