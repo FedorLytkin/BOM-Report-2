@@ -126,8 +126,8 @@ namespace VSNRM_Kompas.ProjectClone
                 bt_ZipFileObzor.Enabled = true;
             }
 
-            cb_AddPrefix.Checked = Pr_Clone.AddPrefix;
-            if (Pr_Clone.AddPrefix)
+            cb_AddPrefix.Checked = Pr_Clone.Prefix.On;
+            if (Pr_Clone.Prefix.On)
             {
                 tb_Prefix.Enabled = true;
                 cb_EditName_PRE.Enabled = true;
@@ -138,8 +138,8 @@ namespace VSNRM_Kompas.ProjectClone
                 cb_EditName_PRE.Enabled = false;
             }
 
-            cb_AddSufix.Checked = Pr_Clone.AddSufix;
-            if (Pr_Clone.AddSufix)
+            cb_AddSufix.Checked = Pr_Clone.Suffix.On;
+            if (Pr_Clone.Suffix.On)
             {
                 tb_Sufix.Enabled = true;
                 cb_EditName_SUF.Enabled = true;
@@ -280,36 +280,48 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void cb_AddPrefix_CheckedChanged(object sender, EventArgs e)
         {
-            Pr_Clone.AddPrefix = cb_AddPrefix.Checked;
-            if (Pr_Clone.AddPrefix)
+            Pr_Clone.Prefix = new Pr_Clone_Class.SuffixPrefix
+            {
+                On = cb_AddPrefix.Checked,
+                Value = tb_Prefix.Text,
+                ParameterName = cb_EditName_PRE.Text
+            };
+            //Pr_Clone.AddPrefix = cb_AddPrefix.Checked;
+            if (Pr_Clone.Prefix.On)
             {
                 tb_Prefix.Enabled = true;
                 cb_EditName_PRE.Enabled = true;
-                Pr_Clone.Prefix_Value = tb_Prefix.Text;
+                //Pr_Clone.Prefix_Value = tb_Prefix.Text;
             }
             else
             {
                 tb_Prefix.Enabled = false;
                 cb_EditName_PRE.Enabled = false;
-                Pr_Clone.Prefix_Value = null;
+                //Pr_Clone.Prefix_Value = null;
                 tb_Prefix.Text = null;
             } 
         }
 
         private void cb_AddSufix_CheckedChanged(object sender, EventArgs e)
         {
-            Pr_Clone.AddSufix = cb_AddSufix.Checked;
-            if (Pr_Clone.AddSufix)
+            Pr_Clone.Suffix = new Pr_Clone_Class.SuffixPrefix
+            {
+                On = cb_AddSufix.Checked,
+                Value = tb_Sufix.Text,
+                ParameterName = cb_EditName_SUF.Text
+            };
+            //Pr_Clone.AddSufix = cb_AddSufix.Checked;
+            if (Pr_Clone.Suffix.On)
             {
                 tb_Sufix.Enabled = true;
                 cb_EditName_SUF.Enabled = true;
-                Pr_Clone.Sufix_Value= tb_Sufix.Text;
+                Pr_Clone.Suffix.Value = tb_Sufix.Text;
             }
             else
             {
                 tb_Sufix.Enabled = false; 
                 cb_EditName_SUF.Enabled = false;
-                Pr_Clone.Sufix_Value = null;
+                Pr_Clone.Suffix.Value = null;
                 tb_Sufix.Text = null;
             }
         }
@@ -390,13 +402,26 @@ namespace VSNRM_Kompas.ProjectClone
 
         private void tb_Prefix_Properties_EditValueChanged(object sender, EventArgs e)
         {
-            Pr_Clone.Prefix_Value = tb_Prefix.Text;
-            Pr_Clone.SetPrefixAndSufix(cb_EditName_PRE.Text);
+            Pr_Clone.Prefix = new Pr_Clone_Class.SuffixPrefix
+            {
+                On = cb_AddPrefix.Checked,
+                Value = tb_Prefix.Text,
+                ParameterName = cb_EditName_PRE.Text
+            };
+
+            //Pr_Clone.Prefix_Value = tb_Prefix.Text;
+            Pr_Clone.SetPrefixAndSufix(Pr_Clone.Prefix.ParameterName);
         }
 
         private void tb_Sufix_EditValueChanged(object sender, EventArgs e)
         {
-            Pr_Clone.Sufix_Value = tb_Sufix.Text;
+            Pr_Clone.Suffix = new Pr_Clone_Class.SuffixPrefix
+            {
+                On = cb_AddSufix.Checked,
+                Value = tb_Sufix.Text,
+                ParameterName = cb_EditName_SUF.Text
+            };
+            //Pr_Clone.Sufix_Value = tb_Sufix.Text;
             Pr_Clone.SetPrefixAndSufix(cb_EditName_SUF.Text);
         }
 

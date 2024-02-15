@@ -64,7 +64,14 @@ namespace VSNRM_Kompas.Export.XMLexport
                     VSNRM_Kompas.API_Toops.ComponentInfo componentinfo = (API_Toops.ComponentInfo)node.Tag;
                     if (componentinfo != null)
                     {
-                        int count = (string.IsNullOrWhiteSpace(node.GetValue("Количество общ.").ToString()) ? 1 : Convert.ToInt32(node.GetValue("Количество общ.")));
+                        int count = 1;
+                        if (node["Количество общ."] != null)
+                        {
+                            string countstr = node.GetValue("Количество общ.").ToString();
+                            if (!string.IsNullOrEmpty(countstr))
+                                count = Convert.ToInt32(countstr);
+                        }
+                            
                         for (int i = 0; i < count; i++)
                         {
                             sr.WriteLine($"{new string('\t', tabInd)}<Object Name=\"{(componentinfo.isBody ? componentinfo.Body.Naim :componentinfo.Naim)}\">");

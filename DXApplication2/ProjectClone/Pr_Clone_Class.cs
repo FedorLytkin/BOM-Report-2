@@ -28,11 +28,12 @@ namespace VSNRM_Kompas.ProjectClone
         public string FolderPath;
         public string SourseFolderPath;
         public string ZipFileName;
-        
-        public string Prefix_Value;
-        public string Sufix_Value;
-        public bool AddSufix = false;
-        public bool AddPrefix = false;
+        public SuffixPrefix Suffix { get; set; } = new SuffixPrefix();
+        public SuffixPrefix Prefix { get; set; } = new SuffixPrefix();
+        public string Prefix_Value1;
+        public string Sufix_Value1;
+        public bool AddSufix1 = false;
+        public bool AddPrefix1 = false;
 
         public bool SaveInOneFolder = true;
         List<string> ColList;
@@ -41,7 +42,12 @@ namespace VSNRM_Kompas.ProjectClone
         public LabelControl LB_Part;
         public LabelControl LB_Drw;
         public LabelControl LB_SP;
-
+        public class SuffixPrefix
+        {
+            public bool On { get; set; }
+            public string Value { get; set; }
+            public string ParameterName { get; set; }
+        }
         public enum TreeViewEnum
         {
             TreeView = 0,
@@ -207,13 +213,13 @@ namespace VSNRM_Kompas.ProjectClone
                     switch (ParamName)
                     {
                         case "Сохранить в имени":
-                            ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
+                            ParamVal = $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(f.Name)}{Suffix.Value}";
                             break;
                         case "Сохранить в Обозначении":
-                            ParamVal = $@"{Prefix_Value}{Drw_Info.Oboz}{Sufix_Value}";
+                            ParamVal = $@"{Prefix.Value}{Drw_Info.Oboz}{Suffix.Value}";
                             break;
                         case "Сохранить в Наименовании":
-                            ParamVal = $@"{Prefix_Value}{Drw_Info.Naim}{Sufix_Value}";
+                            ParamVal = $@"{Prefix.Value}{Drw_Info.Naim}{Suffix.Value}";
                             break;
                         case "Расположение":
                             ParamVal = f.DirectoryName;
@@ -273,15 +279,15 @@ namespace VSNRM_Kompas.ProjectClone
                     {
                         case "Сохранить в имени":
                             if (f != null)
-                                ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(f.Name)}{Sufix_Value}";
+                                ParamVal = $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(f.Name)}{Suffix.Value}";
                             else
-                                ParamVal = $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}";
+                                ParamVal = $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Suffix.Value}";
                             break;
                         case "Сохранить в Обозначении":
-                            ParamVal = $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}";
+                            ParamVal = $@"{Prefix.Value}{componentInfo.Oboz}{Suffix.Value}";
                             break;
                         case "Сохранить в Наименовании":
-                            ParamVal = $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}";
+                            ParamVal = $@"{Prefix.Value}{componentInfo.Naim}{Suffix.Value}";
                             break;
                         case "Расположение":
                             if (f != null)
@@ -378,20 +384,20 @@ namespace VSNRM_Kompas.ProjectClone
                 {
                     case "Сохранить в имени":
                         if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
-                            node.SetValue(ColumnName, $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
+                            node.SetValue(ColumnName, $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Suffix.Value}");
                         break;
                     case "Сохранить в Обозначении":
                         if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
-                            node.SetValue(ColumnName, $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}");
+                            node.SetValue(ColumnName, $@"{Prefix.Value}{componentInfo.Oboz}{Suffix.Value}");
                         break;
                     case "Сохранить в Наименовании":
                         if (!string.IsNullOrEmpty(node.GetValue(ColumnName).ToString()))
-                            node.SetValue(ColumnName, $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}");
+                            node.SetValue(ColumnName, $@"{Prefix.Value}{componentInfo.Naim}{Suffix.Value}");
                         break;
                     default:
-                        node.SetValue("Сохранить в имени", $@"{Prefix_Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Sufix_Value}");
-                        node.SetValue("Сохранить в Обозначении", $@"{Prefix_Value}{componentInfo.Oboz}{Sufix_Value}");
-                        node.SetValue("Сохранить в Наименовании", $@"{Prefix_Value}{componentInfo.Naim}{Sufix_Value}"); 
+                        node.SetValue("Сохранить в имени", $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(componentInfo.FFN)}{Suffix.Value}");
+                        node.SetValue("Сохранить в Обозначении", $@"{Prefix.Value}{componentInfo.Oboz}{Suffix.Value}");
+                        node.SetValue("Сохранить в Наименовании", $@"{Prefix.Value}{componentInfo.Naim}{Suffix.Value}"); 
                         break;
                 } 
                 //if (string.IsNullOrEmpty(node.GetValue("Сохранить в имени").ToString()) || string.IsNullOrEmpty(Prefix_Value) || string.IsNullOrEmpty(Sufix_Value))
@@ -420,9 +426,9 @@ namespace VSNRM_Kompas.ProjectClone
         public string getFileNameWithFindOptions(string FullFileName)
         {
             if (SaveInOneFolder)
-                return FolderPath + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
+                return FolderPath + $@"\{Prefix.Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Suffix.Value}{Path.GetExtension(FullFileName)}";
             else
-                return getResultFolderPath(FolderPath, SourseFolderPath, FullFileName) + $@"\{Prefix_Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Sufix_Value}{Path.GetExtension(FullFileName)}";
+                return getResultFolderPath(FolderPath, SourseFolderPath, FullFileName) + $@"\{Prefix.Value}{Path.GetFileNameWithoutExtension(FullFileName)}{Suffix.Value}{Path.GetExtension(FullFileName)}";
             return FullFileName;
         }
         public string getSourceFileNameByExpFN(string ExportFileName)

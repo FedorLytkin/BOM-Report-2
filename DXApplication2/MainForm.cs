@@ -570,7 +570,7 @@ namespace VSNRM_Kompas
 
         private void bt_Check_Update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Process.Start("https://cloud.mail.ru/public/5hAo/2TA1Q4oH7");
+            Process.Start("https://drive.google.com/drive/folders/1LR89Ionm5WZXQy-2RyvnRXJ412d9sL_g?usp=sharing");
         }
 
         private void bt_DXFAuto_View_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

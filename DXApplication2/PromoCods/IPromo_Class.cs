@@ -22,6 +22,7 @@ namespace VSNRM_Kompas.PromoCods
             PromoCodeList.Add("iproject_clone");
             PromoCodeList.Add("ICheckProfileLength");
             PromoCodeList.Add("icanedit");
+            PromoCodeList.Add("GetBase64FromImageForDrawing");
         }
         public bool checkPromo(string SetPromoText)
         {
@@ -49,6 +50,9 @@ namespace VSNRM_Kompas.PromoCods
                             break;
                         case "icanedit":
                             IOption_Class.IVC.EditOn = true;
+                            break;
+                        case "GetBase64FromImageForDrawing":
+                            IOption_Class.IVC.GetBase64FromImageForDrawingPanelVis = true;
                             break;
                     }
                     XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();

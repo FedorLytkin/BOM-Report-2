@@ -414,6 +414,8 @@ namespace SaveDXF
             }
             //Node.SetValue("Имя файла", Path.GetFileNameWithoutExtension(Drw_componentInfo.FFN));
             Node.SetValue("Миниатюра", Drw_componentInfo.Slide);
+            if (treeView.Columns["Миниатюра(base64)"] != null) Node.SetValue("Миниатюра(base64)", Drw_componentInfo.SlideBase64);
+            //Node.SetValue("Миниатюра(base64)", Drw_componentInfo.SlideBase64);
             switch (Path.GetExtension(Drw_componentInfo.FFN).ToUpper())
             {
                 case ".CDW":
@@ -857,7 +859,11 @@ namespace SaveDXF
                     _Property classresProperty = (_Property)Property;
                     if (classresProperty != null)
                     {
-                        Prop.GetPropertyValue((_Property)classresProperty, out returnObject, Baseunit, out FromSource);
+                        try
+                        {
+                            Prop.GetPropertyValue((_Property)classresProperty, out returnObject, Baseunit, out FromSource);
+                        }
+                        catch { }
                         if (returnObject != null)
                         {
                             res = true;
@@ -1221,7 +1227,10 @@ namespace SaveDXF
             ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
             drw_Info.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); //shellFile.Thumbnail.SmallBitmap;
             drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
-            drw_Info.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
+            if (IOption_Class.IVC.GetBase64FromImageForDrawing)
+                drw_Info.SlideBase64 = GetBase64FromDrawing(drw_Name);
+            else
+                drw_Info.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             //iMSH.ParamValueList = FindParam_Model;
             foreach (string ParamName in FindParam_Model)
@@ -1253,6 +1262,63 @@ namespace SaveDXF
             drw_Info.ParamValueList = ParamValueList;
 
             return drw_Info;
+        }
+        string GetBase64FromDrawing(string drw_Name)
+        {
+            if (!File.Exists(drw_Name)) return null;
+
+            _IApplication.HideMessage = ksHideMessageEnum.ksHideMessageNo; //отключаем все сообщения от компаса
+            bool opendoc = false;
+            bool visible = false;
+            IKompasDocument _IKompasDocument2d = _IApplication.Documents[drw_Name];
+            if (_IKompasDocument2d != null) opendoc = true;
+            else _IKompasDocument2d = (IKompasDocument)GetIKompasDocument(drw_Name, true, true);
+            //if (!_IKompasDocument2d.Visible)
+            //{
+            //    _IKompasDocument2d.Close(DocumentCloseOptions.kdDoNotSaveChanges);
+            //    _IKompasDocument2d = (IKompasDocument)GetIKompasDocument(drw_Name, true, true);
+            //    visible = true;
+            //}
+            Document2D document2D = null;
+            try
+            {
+                document2D = Body._kompasObject.TransferInterface(_IKompasDocument2d, (int)ksAPITypeEnum.ksAPI5Auto, 0);
+            }
+            catch 
+            {
+                document2D = Body._kompasObject.Document2D();
+                document2D.ksOpenDocument(drw_Name, true);
+            }
+
+            string Pict_FileName = $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments)}\NSoft\{System.Windows.Forms.Application.ProductName}\tmp\" + Guid.NewGuid() + ".PNG";
+            SaveAsToRasterFormat(document2D, Pict_FileName);
+            if (!File.Exists(Pict_FileName)) 
+            {
+                _IApplication.HideMessage = ksHideMessageEnum.ksShowMessage;
+                return null; 
+            }
+            System.Drawing.Bitmap pic = (System.Drawing.Bitmap)System.Drawing.Bitmap.FromFile(Pict_FileName);
+            string B64 = BitmapClass.GetBase32(pic);
+            pic.Dispose(); // Освободить ресурсы
+            File.Delete(Pict_FileName);
+            if (visible) _IKompasDocument2d.Close(DocumentCloseOptions.kdDoNotSaveChanges);
+            _IApplication.HideMessage = ksHideMessageEnum.ksShowMessage; //включаем все сообщения от компаса
+            return B64;
+        }
+        private bool SaveAsToRasterFormat(Document2D _IKompasDocument2D, string Pict_FileName)
+        {
+            
+            var RastrPar = _IKompasDocument2D.RasterFormatParam();
+            RastrPar.format = 2;
+            RastrPar.colorType = 0;
+            RastrPar.extResolution = 100;
+            RastrPar.extScale = 1;
+            RastrPar.greyScale = 0;
+            RastrPar.colorBPP = 24;
+            RastrPar.multiPageOutput = 1;
+            RastrPar.onlyThinLine = 1;
+            RastrPar.rangeIndex = 0;
+            return _IKompasDocument2D.SaveAsToRasterFormat(Pict_FileName, RastrPar);
         }
         public static double GetThicknessPart(IPart7 Part_, bool inSource = true)
         //процедура возвращает значение толщины ЛТ
@@ -2060,6 +2126,7 @@ namespace SaveDXF
         List<string> SetSourseCompeteFile_List;
         public VSNRM_Kompas.ProjectClone.Pr_Clone_Class _Pr_Clone_Class;
         bool OpenVisible = true;
+        List<TreeListNode> AllComponentsInTreeList;
         public void SetLinks(List<TreeListNode> AllComponents)
         {
             //_IApplication.Visible = false;
@@ -2070,6 +2137,7 @@ namespace SaveDXF
             waitMng.ShowWaitForm();
             waitMng.SetWaitFormCaption("Копирование проекта");
             waitMng.SetWaitFormDescription("Копирование файлов проекта");
+            AllComponentsInTreeList = AllComponents;
             foreach (TreeListNode node in AllComponents)
             {
                 if (node.Checked)
@@ -2326,7 +2394,16 @@ namespace SaveDXF
 
             foreach (TreeListNode node in AllComponents)
             {
+                if (node["Имя файла"].ToString() == Path.GetFileNameWithoutExtension(DonorFileName) &&
+                    node["Тип"].ToString() == Path.GetExtension(DonorFileName))
+                {
+                    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                }
+            }
+            foreach (TreeListNode node in AllComponents)
+            {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
+                //_Pr_Clone_Class. 
                 if (componentInfo.FFN == ParentFileNamee && !node.Checked)
                     return DonorFileName;
             }
@@ -2343,6 +2420,7 @@ namespace SaveDXF
                 if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
                     return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
             }
+            return GetFileNameByAllComponents(DonorFileName, AllComponentsInTreeList, ParentFileNamee);
             return DonorFileName;
         }
         string GetCopiFileNameByAllComponents(string NewPartFileName, string OperationName, List<TreeListNode> AllComponents)
@@ -2487,7 +2565,7 @@ namespace SaveDXF
                                     string Part_ExportFileName = GetFileNameByAllComponents(part.FileName, ParentNode.Nodes.ToList());
                                     if (string.IsNullOrEmpty(Part_ExportFileName) && IsExportFileName(part.FileName, ParentNode.Nodes.ToList())) SetSourseChancge_ModelAPI7(part.FileName, node, part.FileName);
 
-                                    if (!string.IsNullOrEmpty(Part_ExportFileName)) SetSourseChancge_ModelAPI7(Part_ExportFileName, node, part.FileName);
+                                    if (!string.IsNullOrEmpty(Part_ExportFileName) && node.Checked) SetSourseChancge_ModelAPI7(Part_ExportFileName, node, part.FileName);
                                     //SetSourseChancge_ModelAPI7(Part_ExportFileName, AllComponents, part.FileName);
                                 }
                             }
@@ -2533,7 +2611,10 @@ namespace SaveDXF
                 {
                     NodeCheck = node.Checked;
                     FindNode = node;
-                    return $@"{node["Расположение"]}\{node["Имя файла"]}{Extension}";
+                    if(!NodeCheck)
+                        return $@"{node["Расположение"]}\{node["Имя файла"]}{Extension}";
+                    else
+                        return $@"{node["Сохранить в папке"]}\{node["Сохранить в имени"]}{Extension}";
                 }
             }
             return null;
@@ -2660,41 +2741,39 @@ namespace SaveDXF
         {
             string ParamName = null;
             ParamName = variable7.Name;
-            if (!string.IsNullOrEmpty(variable7.LinkDocumentName))
+            if (string.IsNullOrEmpty(variable7.LinkDocumentName)) return;
+            try
             {
-                try
+                string link_FileName = variable7.LinkDocumentName;
+                string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
+                if (!string.IsNullOrEmpty(New_link_FileName))
                 {
-                    string link_FileName = variable7.LinkDocumentName;
-                    string New_link_FileName = GetFileNameByAllComponents(link_FileName, AllComponents, PartFileName);
-                    if (!string.IsNullOrEmpty(New_link_FileName))
+                    if (!IsExportFileName(link_FileName, AllComponents))
                     {
-                        if (!IsExportFileName(link_FileName, AllComponents))
-                        {
-                            if (!File.Exists(New_link_FileName))
-                                New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                        }
+                        if (!File.Exists(New_link_FileName))
+                            New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
                     }
-                    else
-                        New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
-                    if (File.Exists(New_link_FileName))
+                }
+                else
+                    New_link_FileName = getSousrFilaName(link_FileName, AllComponents, ParamName);
+                if (File.Exists(New_link_FileName))
+                {
+                    try
                     {
-                        try
-                        {
-                            variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                            //string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
-                            //variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
-                        }
-                        catch
-                        {
-                            variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
-                        }
+                        variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                        //string LinkEmbodimentMarking = variable7.GetLinkEmbodimentMarking(ksVariantMarkingTypeEnum.ksVMFullMarking, true);
+                        //variable7.SetLinkEmbodiment(New_link_FileName, variable7.LinkVariableName, LinkEmbodimentMarking);
+                    }
+                    catch
+                    {
+                        variable7.SetLink(New_link_FileName, variable7.LinkVariableName);
+                    }
 
-                    }
                 }
-                catch (Exception ex2)
-                {
-                    MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private List<string> LinkComponovGeometryDone = new List<string>();

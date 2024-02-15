@@ -237,6 +237,8 @@ public class Option_Class
         public bool ProjectClone { get; set; } = false;
         public bool Check_ProfileValue { get; set; } = false;
         public bool EditOn { get; set; } = false;
+        public bool GetBase64FromImageForDrawingPanelVis { get; set; } = false;
+        public bool GetBase64FromImageForDrawing { get; set; } = false;
     }
     public class SpecTools
     {

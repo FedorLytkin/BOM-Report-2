@@ -38,6 +38,9 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             cb_TreeStatus.Text = IOption_Class.GetTreeStatusNameByStatusEnum((Option_Class.TreeStatus_Enum)IOption_Class.TreeStatus_Value);
             toggleSwitch_AddTreeListForStandartKomponent.IsOn = IOption_Class.AddTreeListForStandartKomponent;
             zoomTrackBarModelSlideSize.Value = IOption_Class.ModelSlideSize;
+
+            chb_GetBase64FromImageForDrawing.Visible = IOption_Class.IVC.GetBase64FromImageForDrawingPanelVis;
+            chb_GetBase64FromImageForDrawing.Checked = IOption_Class.IVC.GetBase64FromImageForDrawing;
         }
 
         private void Cancel_Bt_Click(object sender, EventArgs e)
@@ -60,7 +63,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.Positio_CalcBR_Value = toggleSwitch_PositioCalcBR.IsOn;
             IOption_Class.ModelSlideSize = zoomTrackBarModelSlideSize.Value;
             IOption_Class.Add_NotSPCreateObject = toggleSwitch_SPNotCreateObj.IsOn;
-
+            if (IOption_Class.IVC != null)
+                IOption_Class.IVC.GetBase64FromImageForDrawing = chb_GetBase64FromImageForDrawing.Checked;
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
             xMLCLass.IOptions.SaveOptions(IOption_Class, false);
             this.DialogResult = DialogResult.OK;
