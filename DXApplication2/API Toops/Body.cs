@@ -2388,17 +2388,36 @@ namespace SaveDXF
             }
             return DonorFileName;
         }
+        int RecursCount = 0;
         string GetFileNameByAllComponents(string DonorFileName, List<TreeListNode> AllComponents, string ParentFileNamee)
         {
             if (string.IsNullOrEmpty(DonorFileName)) return null;
-
+            if (RecursCount > 2) return DonorFileName;
             foreach (TreeListNode node in AllComponents)
             {
-                if (node["Имя файла"].ToString() == Path.GetFileNameWithoutExtension(DonorFileName) &&
-                    node["Тип"].ToString() == Path.GetExtension(DonorFileName))
+                string FileName = node["Имя файла"].ToString().ToLower();
+                string FileType = node["Тип"].ToString().ToLower();
+
+                string FileNameDonor = Path.GetFileNameWithoutExtension(DonorFileName).ToLower();
+                string FileTypeDonor = Path.GetExtension(DonorFileName).ToLower();
+                if (FileName.Equals(FileNameDonor) &&
+                       FileType.Equals(FileTypeDonor))
                 {
+                    RecursCount = 0;
                     return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
                 }
+
+                //if (node["Имя файла"].ToString().ToLower().Equals(Path.GetFileNameWithoutExtension(DonorFileName).ToLower()) &&
+                //       node["Тип"].ToString().ToLower().Equals(Path.GetExtension(DonorFileName).ToLower()))
+                //{
+                //    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                //}
+
+                //if (node["Имя файла"].ToString().ToLower() == Path.GetFileNameWithoutExtension(DonorFileName).ToLower() &&
+                //    node["Тип"].ToString().ToLower() == Path.GetExtension(DonorFileName).ToLower())
+                //{
+                //    return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
+                //}
             }
             foreach (TreeListNode node in AllComponents)
             {
@@ -2420,6 +2439,7 @@ namespace SaveDXF
                 if (Path.GetFileName(componentInfo.FFN) == Path.GetFileName(DonorFileName) && node.Checked)
                     return $@"{node.GetValue("Сохранить в папке")}\{node.GetValue("Сохранить в имени")}{node.GetValue("Тип")}";
             }
+            RecursCount++;
             return GetFileNameByAllComponents(DonorFileName, AllComponentsInTreeList, ParentFileNamee);
             return DonorFileName;
         }
@@ -2522,6 +2542,9 @@ namespace SaveDXF
                 //if (tmp_Embodiment.IsCurrent == true) { currentEmbody = j; }
                 tmp_Embodiment.IsCurrent = true;
                 if (tmp_Embodiment.Part == null) { IPart7NothingMsg(ExportFileName); return; }
+
+                List<TreeListNode> ComponentsNodes = ParentNode.ParentNode == null ? ParentNode.TreeList.Nodes.ToList() : ParentNode.Nodes.ToList();
+                SetCloneProperty(document3D, tmp_Embodiment.Part, ExportFileName, ComponentsNodes);
                 var Parts = tmp_Embodiment.Part.Parts;//PartsEx[0];
                 if (Parts != null)
                 {
@@ -2708,6 +2731,8 @@ namespace SaveDXF
                             {
                                 foreach (Variable7 variable7 in VariableCollection)
                                 {
+                                    string VarName = variable7.DisplayName; 
+                                    if (string.IsNullOrEmpty(variable7.LinkDocumentName)) continue;
                                     SetVariableLink(variable7, AllComponents, PartFileName);
                                 }
                             }
