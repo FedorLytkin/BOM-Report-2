@@ -53,6 +53,8 @@ namespace VSNRM_Kompas.XMLContreller
                     path = OptionPath.Columns_FileXML;
                 List<Column_Class> column_s = new List<Column_Class>();
 
+                if (!File.Exists(path)) return column_s;
+
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(path);
                 string xmlString = xmlDocument.OuterXml;
@@ -75,6 +77,7 @@ namespace VSNRM_Kompas.XMLContreller
             public List<string> GetList(string Sourse_Path)
             {
                 List<string> Params_List = new List<string>();
+                if (!File.Exists(Sourse_Path)) return Params_List;
                 string[] lines = File.ReadAllLines(Sourse_Path);
                 foreach (string line in lines)
                     Params_List.Add(line);
@@ -99,6 +102,8 @@ namespace VSNRM_Kompas.XMLContreller
             {
                 string path = OptionPath.SystemInformation_ForUser_FileXML;
                 GetOptionInformation column_s = new GetOptionInformation();
+
+                if (!File.Exists(path)) return column_s;
 
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(path);
@@ -135,6 +140,7 @@ namespace VSNRM_Kompas.XMLContreller
                 string path = OptionPath.Options_FileXML;
                 List<Obj_Variable_Class> column_s = new List<Obj_Variable_Class>();
 
+                if (!File.Exists(path)) return column_s;
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.Load(path);
                 string xmlString = xmlDocument.OuterXml;

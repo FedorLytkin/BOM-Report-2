@@ -34,6 +34,7 @@ SystemColors.Window);
             int row_ind = 0;
             Random rnd = new Random();
             row_ind = rnd.Next(table.Count);
+            if (table.Count == 0) return Pogovorka;
             Pogovorka = table[row_ind].ToString();
             return Pogovorka;
         }
