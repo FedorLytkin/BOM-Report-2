@@ -731,6 +731,10 @@
             this.LinkVis_Page = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.diagramBarController1 = new DevExpress.XtraDiagram.Bars.DiagramBarController(this.components);
             this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VSNRM_Kompas.Splash_Control.WaitForm1), true, true);
             this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
             this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
@@ -817,10 +821,6 @@
             this.diagramShape44 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape45 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
-            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VSNRM_Kompas.Splash_Control.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -2324,6 +2324,7 @@
             // 
             // diagramCommandImageToolsSetImageScaleBarDropDownItem1
             // 
+            this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Enabled = false;
             this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.Id = 89;
             this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.diagramCommandImageToolsSetImageScaleBarDropDownItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -3102,7 +3103,7 @@
             this.diagramControl1.OptionsBehavior.SelectedStencils = new DevExpress.Diagram.Core.StencilCollection(new string[0]);
             this.diagramControl1.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             this.diagramControl1.OptionsView.PropertiesPanelVisibility = DevExpress.Diagram.Core.PropertiesPanelVisibility.Closed;
-            this.diagramControl1.Size = new System.Drawing.Size(1223, 342);
+            this.diagramControl1.Size = new System.Drawing.Size(1192, 336);
             this.diagramControl1.TabIndex = 4;
             // 
             // diagramCommandIncreaseFontSizeBarButtonItem1
@@ -3252,7 +3253,7 @@
             this.diagramCommandToolsContainerCheckDropDownItem1.Name = "diagramCommandToolsContainerCheckDropDownItem1";
             this.diagramCommandToolsContainerCheckDropDownItem1.RememberLastCommand = true;
             this.diagramCommandToolsContainerCheckDropDownItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
-            toolTipTitleItem94.Text = "Прямоугольник (Ctrl+8)";
+            toolTipTitleItem94.Text = "Прямоугольник (CTRL+8)";
             toolTipItem38.Text = "Drag to draw a rectangle.";
             superToolTip71.Items.Add(toolTipTitleItem94);
             superToolTip71.Items.Add(toolTipItem38);
@@ -4566,7 +4567,7 @@
             this.LinkVis_Page.Controls.Add(this.diagramControl1);
             this.LinkVis_Page.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("LinkVis_Page.ImageOptions.SvgImage")));
             this.LinkVis_Page.Name = "LinkVis_Page";
-            this.LinkVis_Page.Size = new System.Drawing.Size(1223, 342);
+            this.LinkVis_Page.Size = new System.Drawing.Size(1192, 336);
             // 
             // diagramBarController1
             // 
@@ -4761,6 +4762,31 @@
             this.diagramDataBindingController1.TemplateDiagram.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
             this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            // 
+            // radialMenu1
+            // 
+            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
+            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
+            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
+            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
+            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
+            this.radialMenu1.Name = "radialMenu1";
+            this.radialMenu1.Ribbon = this.mainRibbonControl;
+            // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
             // 
             // diagramContainer1
             // 
@@ -5990,13 +6016,15 @@
             this.diagramContainer9.ItemsCanSnapToThisItem = false;
             this.diagramContainer9.MoveWithSubordinates = true;
             this.diagramContainer9.Position = new DevExpress.Utils.PointFloat(1250F, 50F);
-            this.diagramContainer9.Size = new System.Drawing.SizeF(180F, 190F);
+            this.diagramContainer9.Size = new System.Drawing.SizeF(190F, 190F);
             this.diagramContainer9.TemplateName = "Сборочные единицы";
             this.diagramContainer9.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage7
             // 
-            this.diagramImage7.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage7.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage7.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage7.Appearance.BorderSize = 0;
@@ -6010,14 +6038,15 @@
             this.diagramImage7.CanSnapToOtherItems = false;
             this.diagramImage7.CanSnapToThisItem = false;
             this.diagramImage7.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage7.Position = new DevExpress.Utils.PointFloat(25F, 5F);
-            this.diagramImage7.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage7.Position = new DevExpress.Utils.PointFloat(30.00034F, 2F);
+            this.diagramImage7.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage7.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage7.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer10
             // 
-            this.diagramContainer10.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramContainer10.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramContainer10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.diagramContainer10.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramContainer10.Appearance.BorderSize = 0;
@@ -6040,33 +6069,37 @@
             this.diagramShape29,
             this.diagramShape30,
             this.diagramShape31});
-            this.diagramContainer10.Position = new DevExpress.Utils.PointFloat(0F, 130F);
-            this.diagramContainer10.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer10.Position = new DevExpress.Utils.PointFloat(0F, 125F);
+            this.diagramContainer10.Size = new System.Drawing.SizeF(190F, 65F);
             this.diagramContainer10.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape29
             // 
-            this.diagramShape29.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape29.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape29.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape29.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape29.Appearance.BorderSize = 0;
-            this.diagramShape29.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape29.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape29.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape29.CanCopy = false;
             this.diagramShape29.CanCopyWithoutParent = false;
             this.diagramShape29.CanEdit = false;
             this.diagramShape29.CanMove = false;
-            this.diagramShape29.CanResize = false;
+            this.diagramShape29.CanResize = true;
             this.diagramShape29.CanRotate = false;
             this.diagramShape29.CanSelect = false;
             this.diagramShape29.CanSnapToOtherItems = false;
             this.diagramShape29.CanSnapToThisItem = false;
-            this.diagramShape29.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape29.Size = new System.Drawing.SizeF(189.9999F, 25F);
             this.diagramShape29.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape30
             // 
-            this.diagramShape30.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape30.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape30.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape30.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape30.Appearance.BorderSize = 0;
@@ -6081,13 +6114,15 @@
             this.diagramShape30.CanSelect = false;
             this.diagramShape30.CanSnapToOtherItems = false;
             this.diagramShape30.CanSnapToThisItem = false;
-            this.diagramShape30.Position = new DevExpress.Utils.PointFloat(0F, 20F);
-            this.diagramShape30.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape30.Position = new DevExpress.Utils.PointFloat(0F, 25F);
+            this.diagramShape30.Size = new System.Drawing.SizeF(189.9999F, 20F);
             this.diagramShape30.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape31
             // 
-            this.diagramShape31.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape31.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape31.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape31.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape31.Appearance.BorderSize = 0;
@@ -6102,13 +6137,14 @@
             this.diagramShape31.CanSelect = false;
             this.diagramShape31.CanSnapToOtherItems = false;
             this.diagramShape31.CanSnapToThisItem = false;
-            this.diagramShape31.Position = new DevExpress.Utils.PointFloat(0F, 40F);
-            this.diagramShape31.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape31.Position = new DevExpress.Utils.PointFloat(0F, 45F);
+            this.diagramShape31.Size = new System.Drawing.SizeF(189.9999F, 20F);
             this.diagramShape31.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer11
             // 
             this.diagramContainer11.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramContainer11.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
             this.diagramContainer11.Appearance.BorderSize = 3;
             this.diagramContainer11.CanAddItems = false;
             this.diagramContainer11.CanCopyWithoutParent = true;
@@ -6134,15 +6170,16 @@
             this.diagramContainer11.ItemsCanSnapToOtherItems = false;
             this.diagramContainer11.ItemsCanSnapToThisItem = false;
             this.diagramContainer11.MoveWithSubordinates = true;
-            this.diagramContainer11.Position = new DevExpress.Utils.PointFloat(1250F, 310F);
-            this.diagramContainer11.Size = new System.Drawing.SizeF(180.0001F, 190F);
-            this.diagramContainer11.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramContainer11.TemplateName = "Детали";
+            this.diagramContainer11.Position = new DevExpress.Utils.PointFloat(1250F, 1215F);
+            this.diagramContainer11.Size = new System.Drawing.SizeF(190.0009F, 195F);
+            this.diagramContainer11.TemplateName = "Другие";
             this.diagramContainer11.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage8
             // 
-            this.diagramImage8.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage8.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage8.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage8.Appearance.BorderSize = 0;
@@ -6156,17 +6193,18 @@
             this.diagramImage8.CanSnapToOtherItems = false;
             this.diagramImage8.CanSnapToThisItem = false;
             this.diagramImage8.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage8.Position = new DevExpress.Utils.PointFloat(24.99999F, 4.999987F);
-            this.diagramImage8.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage8.Position = new DevExpress.Utils.PointFloat(30.00046F, 3F);
+            this.diagramImage8.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage8.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage8.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer12
             // 
-            this.diagramContainer12.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramContainer12.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
+            this.diagramContainer12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
             this.diagramContainer12.Appearance.BorderSize = 0;
             this.diagramContainer12.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
-            this.diagramContainer12.BackgroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
             this.diagramContainer12.CanAddItems = false;
             this.diagramContainer12.CanCopy = false;
             this.diagramContainer12.CanCopyWithoutParent = false;
@@ -6185,33 +6223,38 @@
             this.diagramShape32,
             this.diagramShape33,
             this.diagramShape34});
-            this.diagramContainer12.Position = new DevExpress.Utils.PointFloat(3.242493E-05F, 130F);
-            this.diagramContainer12.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer12.Position = new DevExpress.Utils.PointFloat(3.511765E-05F, 125F);
+            this.diagramContainer12.Size = new System.Drawing.SizeF(190.0001F, 70F);
             this.diagramContainer12.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape32
             // 
-            this.diagramShape32.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape32.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape32.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape32.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape32.Appearance.BorderSize = 0;
-            this.diagramShape32.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape32.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape32.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape32.CanCopy = false;
             this.diagramShape32.CanCopyWithoutParent = false;
             this.diagramShape32.CanEdit = false;
             this.diagramShape32.CanMove = false;
-            this.diagramShape32.CanResize = false;
+            this.diagramShape32.CanResize = true;
             this.diagramShape32.CanRotate = false;
             this.diagramShape32.CanSelect = false;
             this.diagramShape32.CanSnapToOtherItems = false;
             this.diagramShape32.CanSnapToThisItem = false;
-            this.diagramShape32.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape32.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 1.144409E-05F);
+            this.diagramShape32.Size = new System.Drawing.SizeF(190F, 30F);
             this.diagramShape32.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape33
             // 
-            this.diagramShape33.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape33.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape33.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape33.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape33.Appearance.BorderSize = 0;
@@ -6226,13 +6269,15 @@
             this.diagramShape33.CanSelect = false;
             this.diagramShape33.CanSnapToOtherItems = false;
             this.diagramShape33.CanSnapToThisItem = false;
-            this.diagramShape33.Position = new DevExpress.Utils.PointFloat(0F, 20F);
-            this.diagramShape33.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape33.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 30.00001F);
+            this.diagramShape33.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape33.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape34
             // 
-            this.diagramShape34.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape34.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape34.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape34.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape34.Appearance.BorderSize = 0;
@@ -6247,14 +6292,14 @@
             this.diagramShape34.CanSelect = false;
             this.diagramShape34.CanSnapToOtherItems = false;
             this.diagramShape34.CanSnapToThisItem = false;
-            this.diagramShape34.Position = new DevExpress.Utils.PointFloat(0F, 40F);
-            this.diagramShape34.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape34.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 50F);
+            this.diagramShape34.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape34.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer13
             // 
             this.diagramContainer13.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer13.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(96)))));
+            this.diagramContainer13.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.diagramContainer13.Appearance.BorderSize = 3;
             this.diagramContainer13.CanAddItems = false;
             this.diagramContainer13.CanCopyWithoutParent = true;
@@ -6280,14 +6325,16 @@
             this.diagramContainer13.ItemsCanSnapToOtherItems = false;
             this.diagramContainer13.ItemsCanSnapToThisItem = false;
             this.diagramContainer13.MoveWithSubordinates = true;
-            this.diagramContainer13.Position = new DevExpress.Utils.PointFloat(1250F, 532F);
-            this.diagramContainer13.Size = new System.Drawing.SizeF(180F, 190F);
-            this.diagramContainer13.TemplateName = "Стандартные изделия";
+            this.diagramContainer13.Position = new DevExpress.Utils.PointFloat(1250F, 980.9999F);
+            this.diagramContainer13.Size = new System.Drawing.SizeF(190F, 190F);
+            this.diagramContainer13.TemplateName = "Материалы";
             this.diagramContainer13.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage9
             // 
-            this.diagramImage9.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage9.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage9.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage9.Appearance.BorderSize = 0;
@@ -6301,16 +6348,16 @@
             this.diagramImage9.CanSnapToOtherItems = false;
             this.diagramImage9.CanSnapToThisItem = false;
             this.diagramImage9.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage9.Position = new DevExpress.Utils.PointFloat(24.99991F, 4.999982F);
-            this.diagramImage9.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage9.Position = new DevExpress.Utils.PointFloat(30.00018F, 3.000122F);
+            this.diagramImage9.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage9.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage9.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer14
             // 
-            this.diagramContainer14.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(96)))));
-            this.diagramContainer14.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.diagramContainer14.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
+            this.diagramContainer14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.diagramContainer14.Appearance.BorderSize = 0;
             this.diagramContainer14.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
             this.diagramContainer14.CanAddItems = false;
@@ -6331,34 +6378,38 @@
             this.diagramShape35,
             this.diagramShape36,
             this.diagramShape37});
-            this.diagramContainer14.Position = new DevExpress.Utils.PointFloat(-8.734535E-05F, 130F);
-            this.diagramContainer14.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer14.Position = new DevExpress.Utils.PointFloat(0F, 125F);
+            this.diagramContainer14.Size = new System.Drawing.SizeF(190F, 65F);
             this.diagramContainer14.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape35
             // 
-            this.diagramShape35.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape35.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape35.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape35.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape35.Appearance.BorderSize = 0;
-            this.diagramShape35.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape35.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape35.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape35.CanCopy = false;
             this.diagramShape35.CanCopyWithoutParent = false;
             this.diagramShape35.CanEdit = false;
             this.diagramShape35.CanMove = false;
-            this.diagramShape35.CanResize = false;
+            this.diagramShape35.CanResize = true;
             this.diagramShape35.CanRotate = false;
             this.diagramShape35.CanSelect = false;
             this.diagramShape35.CanSnapToOtherItems = false;
             this.diagramShape35.CanSnapToThisItem = false;
-            this.diagramShape35.Position = new DevExpress.Utils.PointFloat(0F, -2.809874E-06F);
-            this.diagramShape35.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape35.Position = new DevExpress.Utils.PointFloat(1.20674E-05F, 4.291534E-06F);
+            this.diagramShape35.Size = new System.Drawing.SizeF(190F, 24.00012F);
             this.diagramShape35.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape36
             // 
-            this.diagramShape36.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape36.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape36.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape36.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape36.Appearance.BorderSize = 0;
@@ -6373,13 +6424,15 @@
             this.diagramShape36.CanSelect = false;
             this.diagramShape36.CanSnapToOtherItems = false;
             this.diagramShape36.CanSnapToThisItem = false;
-            this.diagramShape36.Position = new DevExpress.Utils.PointFloat(0F, 20F);
-            this.diagramShape36.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape36.Position = new DevExpress.Utils.PointFloat(0F, 24.00012F);
+            this.diagramShape36.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape36.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape37
             // 
-            this.diagramShape37.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape37.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape37.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape37.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape37.Appearance.BorderSize = 0;
@@ -6394,8 +6447,8 @@
             this.diagramShape37.CanSelect = false;
             this.diagramShape37.CanSnapToOtherItems = false;
             this.diagramShape37.CanSnapToThisItem = false;
-            this.diagramShape37.Position = new DevExpress.Utils.PointFloat(0F, 40F);
-            this.diagramShape37.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape37.Position = new DevExpress.Utils.PointFloat(0F, 44.00012F);
+            this.diagramShape37.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape37.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer15
@@ -6428,13 +6481,15 @@
             this.diagramContainer15.ItemsCanSnapToThisItem = false;
             this.diagramContainer15.MoveWithSubordinates = true;
             this.diagramContainer15.Position = new DevExpress.Utils.PointFloat(1250F, 750.9999F);
-            this.diagramContainer15.Size = new System.Drawing.SizeF(180F, 190F);
+            this.diagramContainer15.Size = new System.Drawing.SizeF(190.0009F, 190F);
             this.diagramContainer15.TemplateName = "Прочие изделия";
             this.diagramContainer15.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage10
             // 
-            this.diagramImage10.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage10.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage10.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage10.Appearance.BorderSize = 0;
@@ -6448,14 +6503,15 @@
             this.diagramImage10.CanSnapToOtherItems = false;
             this.diagramImage10.CanSnapToThisItem = false;
             this.diagramImage10.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage10.Position = new DevExpress.Utils.PointFloat(24.99996F, 5.000002F);
-            this.diagramImage10.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage10.Position = new DevExpress.Utils.PointFloat(29.99975F, 1.000122F);
+            this.diagramImage10.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage10.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage10.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer16
             // 
-            this.diagramContainer16.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramContainer16.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramContainer16.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
             this.diagramContainer16.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramContainer16.Appearance.BorderSize = 0;
@@ -6478,34 +6534,38 @@
             this.diagramShape38,
             this.diagramShape39,
             this.diagramShape40});
-            this.diagramContainer16.Position = new DevExpress.Utils.PointFloat(-4.347633E-05F, 130F);
-            this.diagramContainer16.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer16.Position = new DevExpress.Utils.PointFloat(3.511765E-05F, 125F);
+            this.diagramContainer16.Size = new System.Drawing.SizeF(190.0001F, 65F);
             this.diagramContainer16.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape38
             // 
-            this.diagramShape38.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape38.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape38.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape38.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape38.Appearance.BorderSize = 0;
-            this.diagramShape38.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape38.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape38.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape38.CanCopy = false;
             this.diagramShape38.CanCopyWithoutParent = false;
             this.diagramShape38.CanEdit = false;
             this.diagramShape38.CanMove = false;
-            this.diagramShape38.CanResize = false;
+            this.diagramShape38.CanResize = true;
             this.diagramShape38.CanRotate = false;
             this.diagramShape38.CanSelect = false;
             this.diagramShape38.CanSnapToOtherItems = false;
             this.diagramShape38.CanSnapToThisItem = false;
-            this.diagramShape38.Position = new DevExpress.Utils.PointFloat(0F, 1.770072E-05F);
-            this.diagramShape38.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape38.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 0F);
+            this.diagramShape38.Size = new System.Drawing.SizeF(190F, 24.00012F);
             this.diagramShape38.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape39
             // 
-            this.diagramShape39.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape39.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape39.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape39.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape39.Appearance.BorderSize = 0;
@@ -6520,13 +6580,15 @@
             this.diagramShape39.CanSelect = false;
             this.diagramShape39.CanSnapToOtherItems = false;
             this.diagramShape39.CanSnapToThisItem = false;
-            this.diagramShape39.Position = new DevExpress.Utils.PointFloat(0F, 20.00002F);
-            this.diagramShape39.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape39.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 24.00012F);
+            this.diagramShape39.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape39.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape40
             // 
-            this.diagramShape40.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape40.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape40.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape40.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape40.Appearance.BorderSize = 0;
@@ -6541,14 +6603,14 @@
             this.diagramShape40.CanSelect = false;
             this.diagramShape40.CanSnapToOtherItems = false;
             this.diagramShape40.CanSnapToThisItem = false;
-            this.diagramShape40.Position = new DevExpress.Utils.PointFloat(0F, 40.00002F);
-            this.diagramShape40.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape40.Position = new DevExpress.Utils.PointFloat(8.695266E-05F, 44.00012F);
+            this.diagramShape40.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape40.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer17
             // 
             this.diagramContainer17.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer17.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
+            this.diagramContainer17.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(96)))));
             this.diagramContainer17.Appearance.BorderSize = 3;
             this.diagramContainer17.CanAddItems = false;
             this.diagramContainer17.CanCopyWithoutParent = true;
@@ -6574,14 +6636,16 @@
             this.diagramContainer17.ItemsCanSnapToOtherItems = false;
             this.diagramContainer17.ItemsCanSnapToThisItem = false;
             this.diagramContainer17.MoveWithSubordinates = true;
-            this.diagramContainer17.Position = new DevExpress.Utils.PointFloat(1250F, 980.9999F);
-            this.diagramContainer17.Size = new System.Drawing.SizeF(180F, 190F);
-            this.diagramContainer17.TemplateName = "Материалы";
+            this.diagramContainer17.Position = new DevExpress.Utils.PointFloat(1250F, 532F);
+            this.diagramContainer17.Size = new System.Drawing.SizeF(190.0002F, 190F);
+            this.diagramContainer17.TemplateName = "Стандартные изделия";
             this.diagramContainer17.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage11
             // 
-            this.diagramImage11.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage11.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage11.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage11.Appearance.BorderSize = 0;
@@ -6595,15 +6659,17 @@
             this.diagramImage11.CanSnapToOtherItems = false;
             this.diagramImage11.CanSnapToThisItem = false;
             this.diagramImage11.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage11.Position = new DevExpress.Utils.PointFloat(24.99999F, 5.000049F);
-            this.diagramImage11.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage11.Position = new DevExpress.Utils.PointFloat(30.00002F, 2F);
+            this.diagramImage11.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage11.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage11.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer18
             // 
-            this.diagramContainer18.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
+            this.diagramContainer18.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
+            this.diagramContainer18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(32)))), ((int)(((byte)(96)))));
+            this.diagramContainer18.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramContainer18.Appearance.BorderSize = 0;
             this.diagramContainer18.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
             this.diagramContainer18.CanAddItems = false;
@@ -6624,34 +6690,37 @@
             this.diagramShape41,
             this.diagramShape42,
             this.diagramShape43});
-            this.diagramContainer18.Position = new DevExpress.Utils.PointFloat(-9.144052E-06F, 130F);
-            this.diagramContainer18.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer18.Position = new DevExpress.Utils.PointFloat(3.051758E-05F, 125F);
+            this.diagramContainer18.Size = new System.Drawing.SizeF(190.0002F, 65F);
             this.diagramContainer18.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape41
             // 
-            this.diagramShape41.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape41.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape41.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape41.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape41.Appearance.BorderSize = 0;
-            this.diagramShape41.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape41.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape41.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape41.CanCopy = false;
             this.diagramShape41.CanCopyWithoutParent = false;
             this.diagramShape41.CanEdit = false;
             this.diagramShape41.CanMove = false;
-            this.diagramShape41.CanResize = false;
+            this.diagramShape41.CanResize = true;
             this.diagramShape41.CanRotate = false;
             this.diagramShape41.CanSelect = false;
             this.diagramShape41.CanSnapToOtherItems = false;
             this.diagramShape41.CanSnapToThisItem = false;
-            this.diagramShape41.Position = new DevExpress.Utils.PointFloat(0F, 3.245464E-06F);
-            this.diagramShape41.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape41.Size = new System.Drawing.SizeF(190.0001F, 25F);
             this.diagramShape41.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape42
             // 
-            this.diagramShape42.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape42.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape42.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape42.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape42.Appearance.BorderSize = 0;
@@ -6666,13 +6735,15 @@
             this.diagramShape42.CanSelect = false;
             this.diagramShape42.CanSnapToOtherItems = false;
             this.diagramShape42.CanSnapToThisItem = false;
-            this.diagramShape42.Position = new DevExpress.Utils.PointFloat(0F, 20F);
-            this.diagramShape42.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape42.Position = new DevExpress.Utils.PointFloat(9.155273E-05F, 23F);
+            this.diagramShape42.Size = new System.Drawing.SizeF(190.0001F, 20F);
             this.diagramShape42.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape43
             // 
-            this.diagramShape43.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape43.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape43.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape43.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape43.Appearance.BorderSize = 0;
@@ -6687,14 +6758,13 @@
             this.diagramShape43.CanSelect = false;
             this.diagramShape43.CanSnapToOtherItems = false;
             this.diagramShape43.CanSnapToThisItem = false;
-            this.diagramShape43.Position = new DevExpress.Utils.PointFloat(0F, 40F);
-            this.diagramShape43.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape43.Position = new DevExpress.Utils.PointFloat(9.155273E-05F, 43F);
+            this.diagramShape43.Size = new System.Drawing.SizeF(190.0001F, 20F);
             this.diagramShape43.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer19
             // 
             this.diagramContainer19.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer19.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
             this.diagramContainer19.Appearance.BorderSize = 3;
             this.diagramContainer19.CanAddItems = false;
             this.diagramContainer19.CanCopyWithoutParent = true;
@@ -6720,14 +6790,17 @@
             this.diagramContainer19.ItemsCanSnapToOtherItems = false;
             this.diagramContainer19.ItemsCanSnapToThisItem = false;
             this.diagramContainer19.MoveWithSubordinates = true;
-            this.diagramContainer19.Position = new DevExpress.Utils.PointFloat(1250F, 1215F);
-            this.diagramContainer19.Size = new System.Drawing.SizeF(180F, 190F);
-            this.diagramContainer19.TemplateName = "Другие";
+            this.diagramContainer19.Position = new DevExpress.Utils.PointFloat(1250F, 310F);
+            this.diagramContainer19.Size = new System.Drawing.SizeF(190F, 190F);
+            this.diagramContainer19.StrokeId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
+            this.diagramContainer19.TemplateName = "Детали";
             this.diagramContainer19.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant2;
             // 
             // diagramImage12
             // 
-            this.diagramImage12.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramImage12.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramImage12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage12.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramImage12.Appearance.BorderSize = 0;
@@ -6741,17 +6814,18 @@
             this.diagramImage12.CanSnapToOtherItems = false;
             this.diagramImage12.CanSnapToThisItem = false;
             this.diagramImage12.ForegroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
-            this.diagramImage12.Position = new DevExpress.Utils.PointFloat(24.99996F, 4.999947F);
-            this.diagramImage12.Size = new System.Drawing.SizeF(130F, 125F);
+            this.diagramImage12.Position = new DevExpress.Utils.PointFloat(30.00034F, 2F);
+            this.diagramImage12.Size = new System.Drawing.SizeF(130F, 123F);
             this.diagramImage12.StretchMode = DevExpress.Diagram.Core.StretchMode.UniformToFill;
             this.diagramImage12.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramContainer20
             // 
-            this.diagramContainer20.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
-            this.diagramContainer20.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.diagramContainer20.Anchors = ((DevExpress.Diagram.Core.Sides)(((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramContainer20.Appearance.BorderSize = 0;
             this.diagramContainer20.Appearance.Font = new System.Drawing.Font("GOST Common", 8.25F);
+            this.diagramContainer20.BackgroundId = DevExpress.Diagram.Core.DiagramThemeColorId.Accent1;
             this.diagramContainer20.CanAddItems = false;
             this.diagramContainer20.CanCopy = false;
             this.diagramContainer20.CanCopyWithoutParent = false;
@@ -6770,17 +6844,19 @@
             this.diagramShape44,
             this.diagramShape45,
             this.diagramShape46});
-            this.diagramContainer20.Position = new DevExpress.Utils.PointFloat(-4.347633E-05F, 130F);
-            this.diagramContainer20.Size = new System.Drawing.SizeF(180F, 60F);
+            this.diagramContainer20.Position = new DevExpress.Utils.PointFloat(0F, 125F);
+            this.diagramContainer20.Size = new System.Drawing.SizeF(190F, 65F);
             this.diagramContainer20.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape44
             // 
-            this.diagramShape44.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape44.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape44.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape44.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape44.Appearance.BorderSize = 0;
-            this.diagramShape44.Appearance.Font = new System.Drawing.Font("GOST Common", 12F, System.Drawing.FontStyle.Italic);
+            this.diagramShape44.Appearance.Font = new System.Drawing.Font("GOST Common", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.diagramShape44.Bindings.Add(new DevExpress.Diagram.Core.DiagramBinding("Content", "Oboz"));
             this.diagramShape44.CanCopy = false;
             this.diagramShape44.CanCopyWithoutParent = false;
@@ -6791,13 +6867,14 @@
             this.diagramShape44.CanSelect = false;
             this.diagramShape44.CanSnapToOtherItems = false;
             this.diagramShape44.CanSnapToThisItem = false;
-            this.diagramShape44.Position = new DevExpress.Utils.PointFloat(0F, -7.715191E-06F);
-            this.diagramShape44.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape44.Size = new System.Drawing.SizeF(189.9997F, 25F);
             this.diagramShape44.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape45
             // 
-            this.diagramShape45.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape45.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape45.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape45.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape45.Appearance.BorderSize = 0;
@@ -6812,13 +6889,15 @@
             this.diagramShape45.CanSelect = false;
             this.diagramShape45.CanSnapToOtherItems = false;
             this.diagramShape45.CanSnapToThisItem = false;
-            this.diagramShape45.Position = new DevExpress.Utils.PointFloat(0F, 19.99999F);
-            this.diagramShape45.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape45.Position = new DevExpress.Utils.PointFloat(0F, 25F);
+            this.diagramShape45.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape45.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
             // 
             // diagramShape46
             // 
-            this.diagramShape46.Anchors = ((DevExpress.Diagram.Core.Sides)((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top)));
+            this.diagramShape46.Anchors = ((DevExpress.Diagram.Core.Sides)((((DevExpress.Diagram.Core.Sides.Left | DevExpress.Diagram.Core.Sides.Top) 
+            | DevExpress.Diagram.Core.Sides.Right) 
+            | DevExpress.Diagram.Core.Sides.Bottom)));
             this.diagramShape46.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
             this.diagramShape46.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.diagramShape46.Appearance.BorderSize = 0;
@@ -6833,34 +6912,9 @@
             this.diagramShape46.CanSelect = false;
             this.diagramShape46.CanSnapToOtherItems = false;
             this.diagramShape46.CanSnapToThisItem = false;
-            this.diagramShape46.Position = new DevExpress.Utils.PointFloat(0F, 39.99999F);
-            this.diagramShape46.Size = new System.Drawing.SizeF(180F, 20F);
+            this.diagramShape46.Position = new DevExpress.Utils.PointFloat(0F, 45F);
+            this.diagramShape46.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape46.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            // 
-            // radialMenu1
-            // 
-            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
-            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
-            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
-            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
-            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
-            this.radialMenu1.Name = "radialMenu1";
-            this.radialMenu1.Ribbon = this.mainRibbonControl;
-            // 
-            // splashScreenManager2
-            // 
-            this.splashScreenManager2.ClosingDelay = 500;
             // 
             // MainForm
             // 
@@ -7230,6 +7284,17 @@
         private DevExpress.XtraBars.BarEditItem bt_EditOn;
         private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch toggleSwitch_EditOn;
         private DevExpress.XtraBars.BarToggleSwitchItem ts_EditOn;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
+        private DevExpress.XtraBars.BarStaticItem Tb_Timer;
+        private DevExpress.XtraBars.BarButtonItem bt_GoYouTube;
+        private DevExpress.XtraBars.BarButtonItem Bt_Website;
+        private DevExpress.XtraBars.BarButtonItem Bt_2Telegram_Canal;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        public DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraDiagram.DiagramContainer diagramContainer1;
         private DevExpress.XtraDiagram.DiagramShape diagramShape1;
         private DevExpress.XtraDiagram.DiagramShape diagramShape2;
@@ -7316,16 +7381,5 @@
         private DevExpress.XtraDiagram.DiagramShape diagramShape44;
         private DevExpress.XtraDiagram.DiagramShape diagramShape45;
         private DevExpress.XtraDiagram.DiagramShape diagramShape46;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
-        private DevExpress.XtraBars.BarStaticItem Tb_Timer;
-        private DevExpress.XtraBars.BarButtonItem bt_GoYouTube;
-        private DevExpress.XtraBars.BarButtonItem Bt_Website;
-        private DevExpress.XtraBars.BarButtonItem Bt_2Telegram_Canal;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
-        public DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }
