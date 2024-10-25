@@ -644,6 +644,7 @@ namespace SaveDXF
                 {
                     if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
                     {
+                        if (Path.GetExtension(tDoc.ToString().ToUpper()) == ".M3D" || Path.GetExtension(tDoc.ToString().ToUpper()) == ".A3D") continue;
                         drwS.Add(tDoc.ToString());
                     }   
                 }
