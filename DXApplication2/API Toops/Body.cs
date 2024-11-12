@@ -269,8 +269,17 @@ namespace SaveDXF
                                 if (componentInfo == null) componentInfo = GetParam(item);
                                 WorkList.Add(componentInfo);
                                 AddWaitStatus(File.Exists(componentInfo.FFN) ? Path.GetFileNameWithoutExtension(componentInfo.FFN) : componentInfo.FFN);
-                                if (!componentInfo.QNT_False)
-                                    componentInfo.QNT = Convert.ToDouble(TopPart.InstanceCount[(Part7)item]);
+                                double count = 1;
+                                try
+                                {
+                                    count = Convert.ToDouble(TopPart.InstanceCount[(Part7)item]);
+                                }
+                                catch
+                                {
+                                    count = 0;
+                                }
+                                if (!componentInfo.QNT_False && count != 0)
+                                    componentInfo.QNT = count;
                                 //if (!componentInfo.QNT_False)
                                 //    componentInfo.QNT = GetQNTIn_PartsList(itemKey, PartList);
                                 try { componentInfo.ParamValueList["Количество"] = componentInfo.QNT.ToString(); } catch { }
@@ -567,14 +576,17 @@ namespace SaveDXF
                     if (temp_componentInfo.Key == _componentInfo.Key)
                     {
                         //temp_componentInfo.QNT = Convert.ToDouble(TempNode.GetValue("Количество")) + 1;
+                        double count = double.Parse(TempNode["Количество"].ToString());
                         double QNT = 0;
                         if (AddBodyTree)
                         {
-                            QNT = temp_componentInfo.Body.QNT + _componentInfo.Body.QNT;
+                            //QNT = temp_componentInfo.Body.QNT + _componentInfo.Body.QNT;
+                            QNT = count + _componentInfo.Body.QNT;
                             temp_componentInfo.Body.QNT = QNT;
                         }
                         else
-                            QNT = temp_componentInfo.QNT + _componentInfo.QNT;
+                            QNT = count + _componentInfo.QNT;
+                        //QNT = temp_componentInfo.QNT + _componentInfo.QNT;
                         ChildNode = TempNode;
                         ChildNode.SetValue("Количество", QNT);
                         ChildNode.SetValue("Количество общ.", GetTotalQNT(ChildNode));
