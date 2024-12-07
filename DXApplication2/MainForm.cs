@@ -98,7 +98,7 @@ namespace VSNRM_Kompas
 
             bt_Prop_trans.Visibility = option_Class.IVC.PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
             ribbonPageGroup_SpecialPan.Visible = option_Class.IVC.SpecialPan;
-            Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
+            //Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
 
             Body.AppVersNOTValidStrongMessage();
             OptionsBehaviorChangche();

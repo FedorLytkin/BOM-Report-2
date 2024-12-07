@@ -731,10 +731,6 @@
             this.LinkVis_Page = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.diagramBarController1 = new DevExpress.XtraDiagram.Bars.DiagramBarController(this.components);
             this.diagramDataBindingController1 = new DevExpress.XtraDiagram.DiagramDataBindingController(this.components);
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
-            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VSNRM_Kompas.Splash_Control.WaitForm1), true, true);
             this.diagramContainer1 = new DevExpress.XtraDiagram.DiagramContainer();
             this.diagramShape1 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape2 = new DevExpress.XtraDiagram.DiagramShape();
@@ -821,6 +817,10 @@
             this.diagramShape44 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape45 = new DevExpress.XtraDiagram.DiagramShape();
             this.diagramShape46 = new DevExpress.XtraDiagram.DiagramShape();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.radialMenu1 = new DevExpress.XtraBars.Ribbon.RadialMenu(this.components);
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VSNRM_Kompas.Splash_Control.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -3617,7 +3617,6 @@
             superToolTip80.Items.Add(toolTipSeparatorItem39);
             superToolTip80.Items.Add(toolTipTitleItem112);
             this.Bt_Copy.SuperTip = superToolTip80;
-            this.Bt_Copy.Visibility = DevExpress.XtraBars.BarItemVisibility.OnlyInCustomizing;
             this.Bt_Copy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Bt_Copy_ItemClick);
             // 
             // Add_Drw_In_Tree_CH_B
@@ -4762,31 +4761,6 @@
             this.diagramDataBindingController1.TemplateDiagram.OptionsView.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             this.diagramDataBindingController1.TemplateDiagram.OptionsView.ShowPageBreaks = false;
             this.diagramDataBindingController1.TemplateDiagram.TabIndex = 0;
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            // 
-            // radialMenu1
-            // 
-            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
-            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
-            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
-            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
-            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
-            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
-            this.radialMenu1.Name = "radialMenu1";
-            this.radialMenu1.Ribbon = this.mainRibbonControl;
-            // 
-            // splashScreenManager2
-            // 
-            this.splashScreenManager2.ClosingDelay = 500;
             // 
             // diagramContainer1
             // 
@@ -6915,6 +6889,31 @@
             this.diagramShape46.Position = new DevExpress.Utils.PointFloat(0F, 45F);
             this.diagramShape46.Size = new System.Drawing.SizeF(190F, 20F);
             this.diagramShape46.ThemeStyleId = DevExpress.Diagram.Core.DiagramShapeStyleId.Variant1;
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            // 
+            // radialMenu1
+            // 
+            this.radialMenu1.Glyph = ((System.Drawing.Image)(resources.GetObject("radialMenu1.Glyph")));
+            this.radialMenu1.ItemLinks.Add(this.BOM_Scan_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Navigator_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Export_Menu);
+            this.radialMenu1.ItemLinks.Add(this.Options_Menu);
+            this.radialMenu1.ItemLinks.Add(this.bbiSaveAndClose);
+            this.radialMenu1.ItemLinks.Add(this.bt_ShowColumns);
+            this.radialMenu1.ItemLinks.Add(this.bt_AboutBox);
+            this.radialMenu1.Name = "radialMenu1";
+            this.radialMenu1.Ribbon = this.mainRibbonControl;
+            // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
             // 
             // MainForm
             // 
