@@ -650,16 +650,20 @@ namespace SaveDXF
             if (productDataMenager == null) return null;
 
             dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
+            if (arrAttachDoc == null)
+            {
+                arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)doci3D];
+            }
+            if (arrAttachDoc == null) return drwS;
 
-            if (arrAttachDoc != null)
-                foreach (var tDoc in arrAttachDoc)
+            foreach (var tDoc in arrAttachDoc)
+            {
+                if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
                 {
-                    if (!string.IsNullOrEmpty(tDoc.ToString()) && File.Exists(tDoc.ToString()))
-                    {
-                        if (Path.GetExtension(tDoc.ToString().ToUpper()) == ".M3D" || Path.GetExtension(tDoc.ToString().ToUpper()) == ".A3D") continue;
-                        drwS.Add(tDoc.ToString());
-                    }   
-                }
+                    if (Path.GetExtension(tDoc.ToString().ToUpper()) == ".M3D" || Path.GetExtension(tDoc.ToString().ToUpper()) == ".A3D") continue;
+                    drwS.Add(tDoc.ToString());
+                }   
+            }
                     
             return drwS;
         }
@@ -2176,9 +2180,9 @@ namespace SaveDXF
                 switch (Path.GetExtension(CopyFile.CopyFileName).ToUpper())
                 {
                     case ".CDW":
-                        SetLinkInDRW(CopyFile.CopyFileName, CopyFile.Node.Nodes.ToList());
+                        SetLinkInDRW(CopyFile.CopyFileName, AllComponents);
                         break;
-                    case ".A3D": 
+                    case ".A3D":
                         SetSourseChancge_ModelAPI7(CopyFile.CopyFileName, CopyFile.Node, GetDonorFileNameByAllComponents(CopyFile.CopyFileName, AllComponents));
                         break;
                 }
@@ -2261,6 +2265,29 @@ namespace SaveDXF
             iKompasDocument.Save();
             if(!OpenDoc) iKompasDocument.Close(DocumentCloseOptions.kdSaveChanges);
         }
+        private void AddAttachedDoc(string ModelFileName, string AttacheFileName)
+        {
+            bool OpenDoc = false;
+            IKompasDocument3D iKompasDocument;
+            iKompasDocument = (IKompasDocument3D)_IApplication.Documents[ModelFileName];
+            if (iKompasDocument != null) OpenDoc = true;
+            else
+                iKompasDocument = (IKompasDocument3D)_IApplication.Documents.Open(ModelFileName, OpenVisible, false);
+            if (iKompasDocument == null) return;
+
+            IProductDataManager productDataMenager = iKompasDocument as IProductDataManager;
+            IPart7 part7 = iKompasDocument.TopPart;
+            IPropertyKeeper propertyKeeper = part7 as IPropertyKeeper;
+            productDataMenager.ObjectAttachedDocuments[propertyKeeper] = AttacheFileName;
+            if (!OpenDoc) iKompasDocument.Close(DocumentCloseOptions.kdSaveChanges);
+        }
+        private void AddAttachedDoc(IKompasDocument3D iKompasDocument, string AttacheFileName)
+        {
+            IProductDataManager productDataMenager = iKompasDocument as IProductDataManager;
+            IPart7 part7 = iKompasDocument.TopPart;
+            IPropertyKeeper propertyKeeper = part7 as IPropertyKeeper;
+            productDataMenager.ObjectAttachedDocuments[propertyKeeper] = AttacheFileName;
+        }
         public void SetAttachedDoc(string FileName)
         {
             bool OpenDoc = false;
@@ -2275,7 +2302,7 @@ namespace SaveDXF
                 IPart7 part7 = iKompasDocument.TopPart;
                 IProductDataManager productDataMenager = iKompasDocument as IProductDataManager;
                 if (productDataMenager == null) return;
-
+                
                 dynamic arrAttachDoc = productDataMenager.ObjectAttachedDocuments[(IPropertyKeeper)part7];
                 List<string> drwS = new List<string>();
                 if (arrAttachDoc != null)
@@ -2322,6 +2349,7 @@ namespace SaveDXF
             else
                 document2D = (IKompasDocument2D)_IApplication.Documents.Open(FileName, OpenVisible, false);
             IKompasDocument2D1 kompasDocument2D1 = null;
+            Dictionary<string, string> AttachedDoc = new Dictionary<string, string>();
             try
             {
                 kompasDocument2D1 = (IKompasDocument2D1)document2D;
@@ -2335,6 +2363,7 @@ namespace SaveDXF
                         IAssociationView associationView = (IAssociationView)view;
                         string Name = associationView.SourceFileName;
                         string New_FileName = GetFileNameByAllComponents(Name, AllComponents);
+                        if (!AttachedDoc.ContainsKey(New_FileName)) AttachedDoc.Add(New_FileName, FileName);
                         if (!string.IsNullOrEmpty(New_FileName)) associationView.SourceFileName = New_FileName;
                         view.Update();
                     }
@@ -2344,7 +2373,12 @@ namespace SaveDXF
             {
                 ShowMsgBox("Ошибка при изменении связанных файлов у документа" + FileName + Environment.NewLine + Ex.Message, MessageBoxIcon.Error);
             }
-            if(kompasDocument2D1!=null) kompasDocument2D1.RebuildDocument();
+            foreach (KeyValuePair<string, string> entry in AttachedDoc)
+            {
+                AddAttachedDoc(entry.Key, entry.Value);
+            } 
+
+            if (kompasDocument2D1!=null) kompasDocument2D1.RebuildDocument();
             if(!OpenDoc && document2D!=null) document2D.Close(DocumentCloseOptions.kdSaveChanges);
         }
         string GetDonorFileNameByAllComponents(string ExportFileName, List<TreeListNode> AllComponents)

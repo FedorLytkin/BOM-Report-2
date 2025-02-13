@@ -208,35 +208,35 @@ namespace VSNRM_Kompas.ProjectClone
             foreach (string ParamName in ColList)
             {
                 object ParamVal = Donor_Node.GetValue(ParamName);
-                if (ParamVal == null)
+                switch (ParamName)
                 {
-                    switch (ParamName)
-                    {
-                        case "Сохранить в имени":
-                            ParamVal = $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(f.Name)}{Suffix.Value}";
-                            break;
-                        case "Сохранить в Обозначении":
-                            ParamVal = $@"{Prefix.Value}{Drw_Info.Oboz}{Suffix.Value}";
-                            break;
-                        case "Сохранить в Наименовании":
-                            ParamVal = $@"{Prefix.Value}{Drw_Info.Naim}{Suffix.Value}";
-                            break;
-                        case "Расположение":
-                            ParamVal = f.DirectoryName;
-                            break;
-                        case "Размер":
-                            ParamVal = $"{f.Length/1024} КБ";
-                            break;
-                        case "Тип":
-                            ParamVal = f.Extension;
-                            break;
-                        case "Сохранить в папке":
-                            if(SaveInOneFolder)
-                                ParamVal = FolderPath;
-                            else
-                                ParamVal = getResultFolderPath(FolderPath, SourseFolderPath, Drw_Info.FFN);
-                            break;
-                    }
+                    case "Сохранить в имени":
+                        ParamVal = $@"{Prefix.Value}{Path.GetFileNameWithoutExtension(f.Name)}{Suffix.Value}";
+                        break;
+                    case "Сохранить в Обозначении":
+                        ParamVal = $@"{Prefix.Value}{Drw_Info.Oboz}{Suffix.Value}";
+                        break;
+                    case "Сохранить в Наименовании":
+                        ParamVal = $@"{Prefix.Value}{Drw_Info.Naim}{Suffix.Value}";
+                        break;
+                    case "Расположение":
+                        ParamVal = f.DirectoryName;
+                        break;
+                    case "Размер":
+                        ParamVal = $"{f.Length/1024} КБ";
+                        break;
+                    case "Тип":
+                        ParamVal = f.Extension;
+                        break;
+                    case "Сохранить в папке":
+                        if(SaveInOneFolder)
+                            ParamVal = FolderPath;
+                        else
+                            ParamVal = getResultFolderPath(FolderPath, SourseFolderPath, Drw_Info.FFN);
+                        break;
+                    default:
+                        ParamVal = Donor_Node.GetValue(ParamName);
+                        break;
                 }
                 New_Node.SetValue(ParamName, ParamVal);
             }
