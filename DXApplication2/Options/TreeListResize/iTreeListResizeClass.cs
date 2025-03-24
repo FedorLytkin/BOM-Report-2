@@ -29,15 +29,15 @@ namespace VSNRM_Kompas.Options.TreeListResize
             {
                 DataRowView row = (DataRowView)GetGridView.GetRow(i);
                 ComponentInfo componentInfo = (ComponentInfo)row["System"];
-                row["Миниатюра"] = BitmapClass.resizeImage(componentInfo.LargeSlide, Size);
+                row["Миниатюра"] = BitmapClass.resizeImage(componentInfo.Slide, Size);
             }
             foreach(TreeListNode node in treeList.GetNodeList())
             {
                 ComponentInfo componentInfo = (ComponentInfo)node.Tag;
                 if(node.StateImageIndex ==  (int)Option_Class.Obj_Type_Enum.Drawing || node.StateImageIndex == (int)Option_Class.Obj_Type_Enum.Specification)
-                    node["Миниатюра"] = BitmapClass.resizeImage(componentInfo.drw_Info.LargeSlide, Size);
+                    node["Миниатюра"] = BitmapClass.resizeImage(componentInfo.drw_Info.Slide, Size);
                 else
-                    node["Миниатюра"] = BitmapClass.resizeImage(componentInfo.LargeSlide, Size);
+                    node["Миниатюра"] = BitmapClass.resizeImage(componentInfo.Slide, Size);
             }
         }
 

@@ -43,10 +43,13 @@ namespace VSNRM_Kompas
         public Body body = new Body();
         XMLContreller.XMLCLass controller;
         public CFG_Class Main_Options;
-        public Option_Class option_Class;
+        public static Option_Class option_Class;
         RepositoryItemPictureEdit pictureEdit;
         DiagrammForm_ControllClass diagrammForm;
         AllPartReport_ControllClass allPartReport;
+
+        public static int savedThumbnailColumnWidth = -1; // Переменная для хранения ширины 
+        public static int savedThumbnailColumnWidthGridControl = -1; // Переменная для хранения ширины 
         public MainForm()
         {
             CopyINIFile copyINIFile = new CopyINIFile();
@@ -55,7 +58,9 @@ namespace VSNRM_Kompas
             Body.Init();
             AddColumns(false);
             treeList1.NodeCellStyle += new GetCustomNodeCellStyleEventHandler(treeList1_NodeCellStyle);
-            pictureEdit = treeList1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
+            pictureEdit = new RepositoryItemPictureEdit();
+            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit.CustomHeight = 0; // Позволяет строке менять высоту
         }
         private void AddOptionControls()
         {
@@ -105,23 +110,8 @@ namespace VSNRM_Kompas
             //mainRibbonControl.PageCategories["Дерево"].Visible = true;
             mainRibbonControl.PageCategories["Обозреватель"].Visible = false;
             mainRibbonControl.PageCategories["Визуализатор"].Visible = false;
-            TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
-        }
-
-        private void TableHightSizeByColumn(GridColumn cln)
-        {
-            if (cln == null) return;
-            if (cln.Caption != "Миниатюра") return;
-
-            if (cln.Visible) Main_gridView.RowHeight = option_Class.ModelSlideSize + 2;
-            else Main_gridView.RowHeight = default;
-
-            TreeListColumn treeColunm = treeList1.Columns[cln.Caption];
-            if (treeColunm == null) return;
-            if (treeColunm.Caption != "Миниатюра") return;
-            if (treeColunm.Visible) treeList1.RowHeight = option_Class.ModelSlideSize + 2;
-            else treeList1.RowHeight = default;
-        }
+            //TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
+        } 
         private void OptionsBehaviorChangche()
         {
             treeList1.OptionsBehavior.ReadOnly = !option_Class.IST.EditOn;
@@ -216,6 +206,8 @@ namespace VSNRM_Kompas
             body.All_Level_Search = All_Level_Check_CH_B.Checked;
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
+            savedThumbnailColumnWidth = 256;
+            savedThumbnailColumnWidthGridControl = 256;
             body.OpenDocumentParam_API7();
             UpdateData();
             PostProcessData();
@@ -1065,8 +1057,9 @@ namespace VSNRM_Kompas
             optionForm.IOption_Class = option_Class;
             if (optionForm.ShowDialog() == DialogResult.OK)
             {
-                Options.TreeListResize.iTreeListResizeClass.ReSize(Main_gridView, Main_Options, treeList1, option_Class.ModelSlideSize);
-                TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
+                option_Class = optionForm.IOption_Class;
+                //Options.TreeListResize.iTreeListResizeClass.ReSize(Main_gridView, Main_Options, treeList1, 256);
+                //TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
             }
         }
 
@@ -1159,17 +1152,14 @@ namespace VSNRM_Kompas
 
         private void Main_gridView_ColumnPositionChanged(object sender, EventArgs e)
         {
-            if (Main_Options == null) return;
-            GridColumn cln = sender as DevExpress.XtraGrid.Columns.GridColumn;
-            if (cln != null)
-                TableHightSizeByColumn(cln);
+            AdjustRowHeightGrid();
         }
 
         private void Main_gridView_DragObjectDrop(object sender, DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs e)
         {
             GridColumn cln = e.DragObject as DevExpress.XtraGrid.Columns.GridColumn;
-            if (cln != null)
-                TableHightSizeByColumn(cln);
+            //if (cln != null)
+                //TableHightSizeByColumn(cln);
         }
 
         private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
@@ -1180,6 +1170,71 @@ namespace VSNRM_Kompas
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
             body.GetAttr(@"D:\Desktop\test1\Апрель\33List.m3d");
+        }
+        private void AdjustRowHeightTreeList()
+        {
+            TreeList treeList = treeList1;
+            treeList.OptionsBehavior.AutoNodeHeight = false;
+            TreeListColumn column = treeList.Columns["Миниатюра"];
+            if (column == null) return;
+            //treeList1.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.False;
+
+            //column.ColumnEdit = null;
+            if (column != null && column.Visible)
+            {
+                // Ограничиваем ширину столбца "Миниатюра" до 256 пикселей
+                if (column.Width > savedThumbnailColumnWidth && savedThumbnailColumnWidth != -1)
+                {
+                    column.Width = savedThumbnailColumnWidth;
+                }
+                treeList.RowHeight = column.Width;
+                treeList.LayoutChanged(); // Применяем изменения
+                treeList.Refresh(); // Обновляем TreeList
+            }
+            else
+            {
+                treeList.RowHeight = -1; // Используем стандартную высоту  
+                treeList.LayoutChanged(); // Применяем изменения
+                treeList.Refresh(); // Обновляем TreeList
+            }
+        }
+
+
+        private void AdjustRowHeightGrid()
+        {
+            GridView view = Main_gridView;
+            GridColumn column = view.Columns["Миниатюра"];
+            if (column == null) return;
+            view.OptionsView.RowAutoHeight = false;
+            //column.ColumnEdit = null;
+            if (column != null && column.Visible)
+            {
+                // Ограничиваем ширину столбца "Миниатюра" до 256 пикселей
+                if (column.Width > savedThumbnailColumnWidthGridControl && savedThumbnailColumnWidthGridControl != -1)
+                {
+                    column.Width = savedThumbnailColumnWidthGridControl;
+                }
+                view.RowHeight = column.Width;
+            }
+            else
+            {
+                view.RowHeight = -1; // Используем стандартную высоту  
+            }
+        }
+
+        private void treeList1_ColumnWidthChanged(object sender, ColumnChangedEventArgs e)
+        {
+            AdjustRowHeightTreeList();
+        }
+
+        private void treeList1_ColumnPositionChanged(object sender, EventArgs e)
+        {
+            AdjustRowHeightTreeList();
+        }
+
+        private void Main_gridView_ColumnWidthChanged(object sender, DevExpress.XtraGrid.Views.Base.ColumnEventArgs e)
+        {
+            AdjustRowHeightGrid();
         }
     }
 }

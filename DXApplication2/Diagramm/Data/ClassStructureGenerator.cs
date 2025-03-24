@@ -94,7 +94,7 @@ namespace DiagramDataControllerBehavior.Data
             //else
             //    item.Qnt = Convert.ToDouble(componentInfo.ParamValueList["Количество общ."]);
             item.Qnt = componentInfo.Total_QNT;
-            item.Slide = componentInfo.LargeSlide;
+            item.Slide = componentInfo.Slide;
             item.Type = GetType_By_RazdelSP(componentInfo);
             return item;
         }

@@ -4461,6 +4461,7 @@
             this.treeList1.Location = new System.Drawing.Point(0, 0);
             this.treeList1.MenuManager = this.mainRibbonControl;
             this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsBehavior.AutoNodeHeight = false;
             this.treeList1.OptionsBehavior.Editable = false;
             this.treeList1.OptionsBehavior.ReadOnly = true;
             this.treeList1.OptionsCustomization.CustomizationFormSearchBoxVisible = true;
@@ -4469,9 +4470,11 @@
             this.treeList1.Size = new System.Drawing.Size(1192, 336);
             this.treeList1.StateImageList = this.Section_IL;
             this.treeList1.TabIndex = 1;
+            this.treeList1.ColumnWidthChanged += new DevExpress.XtraTreeList.ColumnWidthChangedEventHandler(this.treeList1_ColumnWidthChanged);
             this.treeList1.CustomNodeCellEdit += new DevExpress.XtraTreeList.GetCustomNodeCellEditEventHandler(this.treeList1_CustomNodeCellEdit);
             this.treeList1.CustomColumnSort += new DevExpress.XtraTreeList.CustomColumnSortEventHandler(this.treeList1_CustomColumnSort);
             this.treeList1.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.treeList1_PopupMenuShowing);
+            this.treeList1.ColumnPositionChanged += new System.EventHandler(this.treeList1_ColumnPositionChanged);
             this.treeList1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeList1_DragDrop);
             this.treeList1.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeList1_DragEnter);
             this.treeList1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeList1_MouseClick);
@@ -4557,6 +4560,7 @@
             this.Main_gridView.OptionsBehavior.ReadOnly = true;
             this.Main_gridView.OptionsSelection.MultiSelect = true;
             this.Main_gridView.DragObjectDrop += new DevExpress.XtraGrid.Views.Base.DragObjectDropEventHandler(this.Main_gridView_DragObjectDrop);
+            this.Main_gridView.ColumnWidthChanged += new DevExpress.XtraGrid.Views.Base.ColumnEventHandler(this.Main_gridView_ColumnWidthChanged);
             this.Main_gridView.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.Main_gridView_PopupMenuShowing);
             this.Main_gridView.ColumnPositionChanged += new System.EventHandler(this.Main_gridView_ColumnPositionChanged);
             // 

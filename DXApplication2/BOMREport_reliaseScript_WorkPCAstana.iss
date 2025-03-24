@@ -2,16 +2,22 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "BOM-Report Kompas 3D"
-#define MyAppVersion "18.30.20.241"
+#define MyAppExeName "BOM Report.exe"
+#define MyAppExePath "C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\BOM Report.exe"
+#define MyAppVersion GetStringFileInfo("C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\BOM Report.exe", "FileVersion")
+#define MajorVersion Copy(MyAppVersion, 1, Pos(".", MyAppVersion) - 1)
 #define MyAppPublisher "DXF-AutoHelp - dxfautohelp@gmail.com"
 #define MyAppURL "dxfautohelp@gmail.com"
-#define MyAppExeName "BOM Report.exe"
+; Динамическое определение OutputDir
+#define DynamicOutputDir "F:\Мой диск\Программы Realise\BOM-Report\BR для Компас 3D\Kompas 3D " + MajorVersion
+#define GetFileMD5(FilePath) GetMD5OfFile(MyAppExePath)
+#define AppGUID "{{" + GetFileMD5(MyAppExePath) + "}"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{499AD00E-1961-4C4B-8B4C-3773E1B044BB}
+AppId={#AppGUID}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -21,10 +27,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\NSoft\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\lic.txt
-InfoBeforeFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\ThisDemoVersion.txt
-InfoAfterFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\ReadMe.txt
-OutputDir=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Realise
+LicenseFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\Info\lic.txt
+InfoBeforeFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\Info\ThisDemoVersion.txt
+InfoAfterFile=C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\Info\ReadMe.txt
+OutputDir={#DynamicOutputDir}
 OutputBaseFilename={#MyAppName}_{#MyAppVersion}_setup
 ;SetupIconFile=C:\Users\fedor\source\repos\DXApplication2\DXApplication2\icons8-collage-30.ico
 Compression=lzma
@@ -42,6 +48,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Source: "C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\BOM Report.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\ACK\Documents\GitHub\BOM-Report-2\DXApplication2\bin\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

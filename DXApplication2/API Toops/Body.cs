@@ -167,7 +167,7 @@ namespace SaveDXF
             FindParam_Model = ColumnsConf_Save_Read.FindParams();   //получаем список искомых параметров
             FindModel_List = new List<object>();                    //обнуляем список обработанных файлов
             optionClassInBody = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).Main_Options;
-            IOption_Class = ((MainForm)System.Windows.Forms.Application.OpenForms["MainForm"]).option_Class;
+            IOption_Class = MainForm.option_Class;
             OpenDocsPERED_Start = GetInvisibleDocument();
             if (MainForm.thisDemo)
             {
@@ -1145,11 +1145,10 @@ namespace SaveDXF
             //int newWidth = 32;
             //int newHeight = newWidth;
             ShellFile shellFile = null;
-            if (File.Exists(part.FileName))
+            if (File.Exists(part.FileName) && MainForm.option_Class.AddThumbnail)
             {
                 shellFile = ShellFile.FromFilePath(part.FileName);
-                iMSH.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); // shellFile.Thumbnail.SmallBitmap;
-                iMSH.LargeSlide = shellFile.Thumbnail.LargeBitmap;
+                iMSH.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, 256); // shellFile.Thumbnail.SmallBitmap;
                 iMSH.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
             }
             //iMSH.Slide = new System.Drawing.Bitmap(iMSH.LargeSlide, new System.Drawing.Size(newWidth, newHeight));
@@ -1240,14 +1239,15 @@ namespace SaveDXF
             drw_Info.FL_Size = GetFileSize(drw_Name);
             drw_Info.Naim = OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, "Наименование"), "");
             drw_Info.Oboz= OptionsFold.tools_class.FixInvalidChars_St(GetPropertyIDrw(drw_Name, "Обозначение"), "");
-            
-            ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
-            drw_Info.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, IOption_Class.ModelSlideSize); //shellFile.Thumbnail.SmallBitmap;
-            drw_Info.LargeSlide = shellFile.Thumbnail.LargeBitmap;
-            if (IOption_Class.IVC.GetBase64FromImageForDrawing)
-                drw_Info.SlideBase64 = GetBase64FromDrawing(drw_Name);
-            else
-                drw_Info.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
+            if (MainForm.option_Class.AddThumbnail)
+            {
+                ShellFile shellFile = ShellFile.FromFilePath(drw_Name);
+                drw_Info.Slide = BitmapClass.resizeImage(shellFile.Thumbnail.LargeBitmap, 256); //shellFile.Thumbnail.SmallBitmap;
+                if (IOption_Class.IVC.GetBase64FromImageForDrawing)
+                    drw_Info.SlideBase64 = GetBase64FromDrawing(drw_Name);
+                else
+                    drw_Info.SlideBase64 = BitmapClass.GetBase32(shellFile.Thumbnail.LargeBitmap);
+            }
             Dictionary<string, string> ParamValueList = new Dictionary<string, string>();
             //iMSH.ParamValueList = FindParam_Model;
             foreach (string ParamName in FindParam_Model)

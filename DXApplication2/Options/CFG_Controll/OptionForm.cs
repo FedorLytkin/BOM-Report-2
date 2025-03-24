@@ -37,7 +37,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             toggleSwitch_SPNotCreateObj.IsOn = IOption_Class.Add_NotSPCreateObject;
             cb_TreeStatus.Text = IOption_Class.GetTreeStatusNameByStatusEnum((Option_Class.TreeStatus_Enum)IOption_Class.TreeStatus_Value);
             toggleSwitch_AddTreeListForStandartKomponent.IsOn = IOption_Class.AddTreeListForStandartKomponent;
-            zoomTrackBarModelSlideSize.Value = IOption_Class.ModelSlideSize;
+            //zoomTrackBarModelSlideSize.Value = IOption_Class.ModelSlideSize;
+            ts_AddThumbnail.IsOn = IOption_Class.AddThumbnail;
 
             chb_GetBase64FromImageForDrawing.Visible = IOption_Class.IVC.GetBase64FromImageForDrawingPanelVis;
             chb_GetBase64FromImageForDrawing.Checked = IOption_Class.IVC.GetBase64FromImageForDrawing;
@@ -61,7 +62,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.TreeStatus_Value = (int)IOption_Class.GetTreeStatusEnumByStatusName(cb_TreeStatus.Text);
             IOption_Class.AddTreeListForStandartKomponent = toggleSwitch_AddTreeListForStandartKomponent.IsOn;
             IOption_Class.Positio_CalcBR_Value = toggleSwitch_PositioCalcBR.IsOn;
-            IOption_Class.ModelSlideSize = zoomTrackBarModelSlideSize.Value;
+            IOption_Class.AddThumbnail = ts_AddThumbnail.IsOn;
+            //IOption_Class.ModelSlideSize = zoomTrackBarModelSlideSize.Value;
             IOption_Class.Add_NotSPCreateObject = toggleSwitch_SPNotCreateObj.IsOn;
             if (IOption_Class.IVC != null)
                 IOption_Class.IVC.GetBase64FromImageForDrawing = chb_GetBase64FromImageForDrawing.Checked;

@@ -19,7 +19,8 @@ public class Option_Class
     public bool Add_InVisiblePart { get; set; } = true;
     public bool Add_NotSPCreateObject { get; set; } = true;
     public int Mass_MU_Value { get; set; }
-    public int ModelSlideSize { get; set; } = 32;
+    public bool AddThumbnail { get; set; } = true;
+    //public int ModelSlideSize { get; set; } = 32;
     public int Length_MU_Value { get; set; }
     public int Area_MU_Value { get; set; }
     public int Volume_MU_Value { get; set; }

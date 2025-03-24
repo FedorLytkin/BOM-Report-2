@@ -30,7 +30,7 @@ namespace VSNRM_Kompas.API_Toops
         public bool SheeMetall { get; set; }
         public bool HaveUnfold { get; set; }
         public Bitmap Slide { get; set; }
-        public Bitmap LargeSlide { get; set; }
+        //public Bitmap LargeSlide { get; set; }
         public string SlideBase64 { get; set; }
         public bool HaveDrw { get; set; }
         public bool HaveSP { get; set; }
@@ -76,7 +76,7 @@ namespace VSNRM_Kompas.API_Toops
             public string Oboz { get; set; }
             public string Naim { get; set; }
             public Bitmap Slide { get; set; }
-            public Bitmap LargeSlide { get; set; }
+            //public Bitmap LargeSlide { get; set; }
             public string SlideBase64 { get; set; }
             public long FL_Size { get; set; }
             public Dictionary<string, string> ParamValueList { get; set; }
@@ -103,7 +103,7 @@ namespace VSNRM_Kompas.API_Toops
                 SheeMetall = this.SheeMetall,
                 HaveUnfold = this.HaveUnfold,
                 Slide = this.Slide,
-                LargeSlide = this.LargeSlide,
+                //LargeSlide = this.LargeSlide,
                 SlideBase64 = this.SlideBase64,
                 drw_List = this.drw_List,
                 drw_Info = this.drw_Info,

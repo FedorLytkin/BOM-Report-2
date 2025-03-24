@@ -50,7 +50,9 @@ namespace VSNRM_Kompas.Diagramm.ControlClass
             RepositoryItemImageComboBox rep = Option_Class.GetRepositoryItemImageComboBox(treeView.StateImageList);
             Main_gridView.Columns[System_Object_Type_ColumnName].ColumnEdit = rep;
 
-            pictureEdit = MainGridControl.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
+            pictureEdit = new RepositoryItemPictureEdit();
+            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            pictureEdit.CustomHeight = 0; // Позволяет строке менять высоту
             Main_gridView.CustomRowCellEdit += Main_gridView_CustomRowCellEdit;
 
 
