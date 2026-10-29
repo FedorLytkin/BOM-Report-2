@@ -435,10 +435,15 @@ namespace VSNRM_Kompas.ProjectClone
                                 "Для использования всех функций программы, обратитесь к разработчику приложения (Справка - Контакты - Email)", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            body._Pr_Clone_Class = Pr_Clone;
-            body.SetLinks(treeList1.GetNodeList());
-            if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
-                ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));
+            VSNRM_Kompas.Options.ProcessNotifier.Begin(MainForm.option_Class.NotificationExport, "Копирование проекта");
+            try
+            {
+                body._Pr_Clone_Class = Pr_Clone;
+                body.SetLinks(treeList1.GetNodeList());
+                if (Pr_Clone.saveEnum == VSNRM_Kompas.ProjectClone.Pr_Clone_Class.SaveEnum.InZipFile)
+                    ZipFile.CreateFromDirectory(Pr_Clone.FolderPath, Pr_Clone.getFreeFileName(Pr_Clone.ZipFileName));
+            }
+            finally { VSNRM_Kompas.Options.ProcessNotifier.End(); }
             MessageBox.Show("Копирование проекта завершено!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

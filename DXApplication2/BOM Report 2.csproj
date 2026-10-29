@@ -146,6 +146,7 @@
       <DependentUpon>OptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\CFG_Controll\Option_Class.cs" />
+    <Compile Include="Options\ProcessNotifier.cs" />
     <Compile Include="Options\TreeListResize\iTreeListResizeClass.cs" />
     <Compile Include="PostProcess\IPostProcess_Class.cs" />
     <Compile Include="ProjectClone\CopyProjectHelperClass.cs" />

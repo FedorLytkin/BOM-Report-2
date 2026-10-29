@@ -37,6 +37,10 @@ public class Option_Class
     public bool All_Level_In_AllReport { get; set; } = false;
     public bool Check_ProfileValue { get; set; } = false;
     public bool AddTreeListForStandartKomponent { get; set; } = false;
+    /// <summary>Способ вывода ошибок при сканировании состава</summary>
+    public VSNRM_Kompas.Options.Notification_Method_Enum NotificationScan { get; set; } = VSNRM_Kompas.Options.Notification_Method_Enum.MessagesBox;
+    /// <summary>Способ вывода ошибок при копировании проекта</summary>
+    public VSNRM_Kompas.Options.Notification_Method_Enum NotificationExport { get; set; } = VSNRM_Kompas.Options.Notification_Method_Enum.MessagesBox;
     public Option_Class()
     {
         Mass_MU_Value = 1;

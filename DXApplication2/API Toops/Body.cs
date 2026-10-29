@@ -305,7 +305,8 @@ namespace SaveDXF
         }
         private static void ShowMsgBox(string MsgText, MessageBoxIcon icon)
         {
-            MessageBox.Show(MsgText, System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, icon);
+            //во время сканирования/копирования в режиме "список" сообщение откладывается до конца процесса
+            VSNRM_Kompas.Options.ProcessNotifier.Error(MsgText, null, icon);
         }
         private ComponentInfo Add_BodyInfo_In_Component(IPart7 Part, IBody7 _body, ComponentInfo componentInfo)
         {
@@ -2626,7 +2627,7 @@ namespace SaveDXF
                                     }
                                     catch(Exception ex1)
                                     {
-                                        MessageBox.Show($"Ошибка при копировании/изменении ссылок у модели {Name} на {New_FileName}\n{ex1.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        VSNRM_Kompas.Options.ProcessNotifier.Error($"Ошибка при копировании/изменении ссылок у модели {Name} на {New_FileName}\n{ex1.Message}", System.Windows.Forms.Application.ProductName, System.Windows.Forms.MessageBoxIcon.Error);
                                     }
                                     part.Update();
                                 }
@@ -2765,7 +2766,7 @@ namespace SaveDXF
                     }
                     catch(Exception ex) 
                     {
-                        MessageBox.Show($"Ошибка при изменении Обозначение/Наименование!\n{ex.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        VSNRM_Kompas.Options.ProcessNotifier.Error($"Ошибка при изменении Обозначение/Наименование!\n{ex.Message}", System.Windows.Forms.Application.ProductName, System.Windows.Forms.MessageBoxIcon.Error);
                     }
                     try
                     {
@@ -2845,7 +2846,7 @@ namespace SaveDXF
             }
             catch (Exception ex2)
             {
-                MessageBox.Show($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                VSNRM_Kompas.Options.ProcessNotifier.Error($"Ошибка при изменении переменной {variable7.Name}!\n{ex2.Message}", System.Windows.Forms.Application.ProductName, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
         private List<string> LinkComponovGeometryDone = new List<string>();
@@ -2925,7 +2926,7 @@ namespace SaveDXF
                                 }
                                 catch(Exception ex2)
                                 {
-                                    MessageBox.Show($"Ошибка при изменении источника у компоновочной геометрии {link_FileName}!\nOldFileName:{reffn}\nNewfilename:{New_link_FileName}\n{ex2.Message}", System.Windows.Forms.Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    VSNRM_Kompas.Options.ProcessNotifier.Error($"Ошибка при изменении источника у компоновочной геометрии {link_FileName}!\nOldFileName:{reffn}\nNewfilename:{New_link_FileName}\n{ex2.Message}", System.Windows.Forms.Application.ProductName, System.Windows.Forms.MessageBoxIcon.Error);
                                 }
                             }
                         }

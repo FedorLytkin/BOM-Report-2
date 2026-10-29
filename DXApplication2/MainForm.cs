@@ -200,6 +200,15 @@ namespace VSNRM_Kompas
                 Update_Tree.Enabled = true;
             }
         }
+        private void BeginScan() => Options.ProcessNotifier.Begin(option_Class.NotificationScan, "Сканирование состава");
+        /// <summary>
+        /// Закрывает заставку ожидания и завершает сбор ошибок процесса (итоговое окно показывается после заставки).
+        /// </summary>
+        private void EndProcess()
+        {
+            if (splashScreenManager2.IsSplashFormVisible) splashScreenManager2.CloseWaitForm();
+            Options.ProcessNotifier.End();
+        }
         private void FindBOM()
         {
             Stopwatch st = StartTimer();
@@ -208,10 +217,14 @@ namespace VSNRM_Kompas
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
             savedThumbnailColumnWidth = 256;
             savedThumbnailColumnWidthGridControl = 256;
-            body.OpenDocumentParam_API7();
-            UpdateData();
-            PostProcessData();
-            splashScreenManager2.CloseWaitForm();
+            BeginScan();
+            try
+            {
+                body.OpenDocumentParam_API7();
+                UpdateData();
+                PostProcessData();
+            }
+            finally { EndProcess(); }
             StopTimer(st);
         }
         private void bbiFindBOM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -463,8 +476,9 @@ namespace VSNRM_Kompas
                         splashScreenManager2.SetWaitFormCaption("Сканирование состава");
                         //открыть документ
                         body.All_Level_Search = All_Level_Check_CH_B.Checked;
-                        body.OpenThisDocument(fileName);
-                        splashScreenManager2.CloseWaitForm();
+                        BeginScan();
+                        try { body.OpenThisDocument(fileName); }
+                        finally { EndProcess(); }
                     }
                 }
             }
@@ -486,10 +500,14 @@ namespace VSNRM_Kompas
             Stopwatch st = StartTimer();
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
-            body.UpDateTreeList();
-            UpdateData();
-            PostProcessData();
-            splashScreenManager2.CloseWaitForm();
+            BeginScan();
+            try
+            {
+                body.UpDateTreeList();
+                UpdateData();
+                PostProcessData();
+            }
+            finally { EndProcess(); }
             StopTimer(st);
         }
         private void Update_Tree_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -520,11 +538,15 @@ namespace VSNRM_Kompas
 
             splashScreenManager2.ShowWaitForm();
             splashScreenManager2.SetWaitFormCaption("Сканирование состава");
-            body.OpenThisDocument();
+            BeginScan();
+            try
+            {
+                body.OpenThisDocument();
 
-            UpdateData();
-            PostProcessData();
-            splashScreenManager2.CloseWaitForm();
+                UpdateData();
+                PostProcessData();
+            }
+            finally { EndProcess(); }
             StopTimer(st);
         }
         private Stopwatch StartTimer()

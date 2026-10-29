@@ -14,6 +14,7 @@ namespace VSNRM_Kompas.Options.CFG_Controll
     public partial class OptionForm : DevExpress.XtraEditors.XtraForm
     {
         public Option_Class IOption_Class { get; set; }
+        NotificationOptionsPage notificationPage;
         public OptionForm()
         {
             InitializeComponent();
@@ -42,6 +43,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
 
             chb_GetBase64FromImageForDrawing.Visible = IOption_Class.IVC.GetBase64FromImageForDrawingPanelVis;
             chb_GetBase64FromImageForDrawing.Checked = IOption_Class.IVC.GetBase64FromImageForDrawing;
+            notificationPage = new NotificationOptionsPage(xtraTabControl1, IOption_Class.NotificationScan, IOption_Class.NotificationExport,
+                "Уведомления при сканировании состава", "Уведомления при копировании проекта");
         }
 
         private void Cancel_Bt_Click(object sender, EventArgs e)
@@ -65,6 +68,8 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             IOption_Class.AddThumbnail = ts_AddThumbnail.IsOn;
             //IOption_Class.ModelSlideSize = zoomTrackBarModelSlideSize.Value;
             IOption_Class.Add_NotSPCreateObject = toggleSwitch_SPNotCreateObj.IsOn;
+            IOption_Class.NotificationScan = notificationPage.NotificationScan;
+            IOption_Class.NotificationExport = notificationPage.NotificationExport;
             if (IOption_Class.IVC != null)
                 IOption_Class.IVC.GetBase64FromImageForDrawing = chb_GetBase64FromImageForDrawing.Checked;
             XMLContreller.XMLCLass xMLCLass = new XMLContreller.XMLCLass();
