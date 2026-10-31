@@ -127,56 +127,28 @@ namespace VSNRM_Kompas.Options
     }
 
     /// <summary>
-    /// Вкладка "Уведомления" в окне настроек: способ вывода ошибок при сканировании и при экспорте.
+    /// Заполнение и чтение выпадающих списков "Уведомления об ошибках" в окне настроек
+    /// (сами списки - cb_NotificationScan / cb_NotificationExport - лежат в дизайнере формы).
     /// </summary>
-    public class NotificationOptionsPage
+    public static class NotificationOptionsCombo
     {
-        private readonly DevExpress.XtraEditors.ComboBoxEdit cb_NotificationScan;
-        private readonly DevExpress.XtraEditors.ComboBoxEdit cb_NotificationExport;
-
-        public NotificationOptionsPage(DevExpress.XtraTab.XtraTabControl tabControl,
-            Notification_Method_Enum scan, Notification_Method_Enum export,
-            string scanCaption = "Уведомления при сканировании состава",
-            string exportCaption = "Уведомления при экспорте")
+        /// <summary>Заполняет список вариантами Notification_Method_Enum и выбирает value</summary>
+        public static void Fill(DevExpress.XtraEditors.ComboBoxEdit combo, Notification_Method_Enum value)
         {
-            DevExpress.XtraTab.XtraTabPage page = tabControl.TabPages.Add("Уведомления");
-            DevExpress.XtraEditors.GroupControl group = new DevExpress.XtraEditors.GroupControl
-            {
-                Text = "Уведомления об ошибках",
-                Location = new Point(3, 3),
-                Size = new Size(400, 140)
-            };
-            cb_NotificationScan = AddCombo(group, scanCaption, 28, scan);
-            cb_NotificationExport = AddCombo(group, exportCaption, 80, export);
-            page.Controls.Add(group);
-        }
-        private static DevExpress.XtraEditors.ComboBoxEdit AddCombo(Control parent, string caption, int top, Notification_Method_Enum value)
-        {
-            parent.Controls.Add(new DevExpress.XtraEditors.LabelControl { Text = caption, Location = new Point(8, top) });
-            DevExpress.XtraEditors.ComboBoxEdit combo = new DevExpress.XtraEditors.ComboBoxEdit
-            {
-                Location = new Point(8, top + 18),
-                Size = new Size(380, 20)
-            };
-            combo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            combo.Properties.Items.Clear();
             //пункты идут в порядке значений Notification_Method_Enum: SelectedIndex == значение enum
             foreach (Notification_Method_Enum m in Enum.GetValues(typeof(Notification_Method_Enum)))
                 combo.Properties.Items.Add(GetDescription(m));
             combo.SelectedIndex = (int)value;
-            combo.ToolTip = "Отдельное сообщение - каждая ошибка показывается сразу и процесс ждет нажатия ОК.\r\n" +
-                            "Одно сообщение в конце - ошибки собираются и показываются списком после завершения процесса.";
-            parent.Controls.Add(combo);
-            return combo;
         }
+        /// <summary>Выбранный в списке способ уведомления</summary>
+        public static Notification_Method_Enum GetValue(DevExpress.XtraEditors.ComboBoxEdit combo) =>
+            combo.SelectedIndex >= 0 ? (Notification_Method_Enum)combo.SelectedIndex : Notification_Method_Enum.MessagesBox;
         private static string GetDescription(Notification_Method_Enum value)
         {
             var field = typeof(Notification_Method_Enum).GetField(value.ToString());
             var attr = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
             return attr != null ? attr.Description : value.ToString();
         }
-        public Notification_Method_Enum NotificationScan =>
-            cb_NotificationScan.SelectedIndex >= 0 ? (Notification_Method_Enum)cb_NotificationScan.SelectedIndex : Notification_Method_Enum.MessagesBox;
-        public Notification_Method_Enum NotificationExport =>
-            cb_NotificationExport.SelectedIndex >= 0 ? (Notification_Method_Enum)cb_NotificationExport.SelectedIndex : Notification_Method_Enum.MessagesBox;
     }
 }

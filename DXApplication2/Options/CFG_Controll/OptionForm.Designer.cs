@@ -110,6 +110,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+            this.gb_Notification = new DevExpress.XtraEditors.GroupControl();
+            this.lbl_NotificationScan = new DevExpress.XtraEditors.LabelControl();
+            this.cb_NotificationScan = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lbl_NotificationExport = new DevExpress.XtraEditors.LabelControl();
+            this.cb_NotificationExport = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Cancel_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.OK_Bt = new DevExpress.XtraEditors.SimpleButton();
             this.TP_MU = new DevExpress.XtraTab.XtraTabPage();
@@ -148,6 +153,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.toggleSwitch_ON_Position_Transl = new DevExpress.XtraEditors.ToggleSwitch();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.ts_AddThumbnail = new DevExpress.XtraEditors.ToggleSwitch();
+            ((System.ComponentModel.ISupportInitialize)(this.gb_Notification)).BeginInit();
+            this.gb_Notification.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_NotificationScan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_NotificationExport.Properties)).BeginInit();
             this.TP_MU.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -400,8 +409,62 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             this.TP_MU,
             this.TP_Other});
             // 
+            // gb_Notification
+            // 
+            this.gb_Notification.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left));
+            this.gb_Notification.Controls.Add(this.cb_NotificationExport);
+            this.gb_Notification.Controls.Add(this.lbl_NotificationExport);
+            this.gb_Notification.Controls.Add(this.cb_NotificationScan);
+            this.gb_Notification.Controls.Add(this.lbl_NotificationScan);
+            this.gb_Notification.Location = new System.Drawing.Point(263, 163);
+            this.gb_Notification.Name = "gb_Notification";
+            this.gb_Notification.Size = new System.Drawing.Size(226, 117);
+            this.gb_Notification.TabIndex = 30;
+            this.gb_Notification.Text = "Уведомления об ошибках";
+            // 
+            // lbl_NotificationScan
+            // 
+            this.lbl_NotificationScan.Location = new System.Drawing.Point(8, 27);
+            this.lbl_NotificationScan.Name = "lbl_NotificationScan";
+            this.lbl_NotificationScan.TabIndex = 0;
+            this.lbl_NotificationScan.Text = "Уведомления при сканировании состава";
+            // 
+            // lbl_NotificationExport
+            // 
+            this.lbl_NotificationExport.Location = new System.Drawing.Point(8, 71);
+            this.lbl_NotificationExport.Name = "lbl_NotificationExport";
+            this.lbl_NotificationExport.TabIndex = 2;
+            this.lbl_NotificationExport.Text = "Уведомления при копировании проекта";
+            // 
+            // cb_NotificationScan
+            // 
+            this.cb_NotificationScan.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
+            this.cb_NotificationScan.Location = new System.Drawing.Point(8, 45);
+            this.cb_NotificationScan.Name = "cb_NotificationScan";
+            this.cb_NotificationScan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_NotificationScan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_NotificationScan.Size = new System.Drawing.Size(210, 20);
+            this.cb_NotificationScan.TabIndex = 1;
+            this.cb_NotificationScan.ToolTip = "Отдельное сообщение - каждая ошибка показывается сразу и процесс ждет нажатия ОК.\r\n" +
+                "Одно сообщение в конце - ошибки собираются и показываются списком после завершения процесса.";
+            // 
+            // cb_NotificationExport
+            // 
+            this.cb_NotificationExport.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
+            this.cb_NotificationExport.Location = new System.Drawing.Point(8, 89);
+            this.cb_NotificationExport.Name = "cb_NotificationExport";
+            this.cb_NotificationExport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cb_NotificationExport.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cb_NotificationExport.Size = new System.Drawing.Size(210, 20);
+            this.cb_NotificationExport.TabIndex = 3;
+            this.cb_NotificationExport.ToolTip = "Отдельное сообщение - каждая ошибка показывается сразу и процесс ждет нажатия ОК.\r\n" +
+                "Одно сообщение в конце - ошибки собираются и показываются списком после завершения процесса.";
+            // 
             // TP_Other
             // 
+            this.TP_Other.Controls.Add(this.gb_Notification);
             this.TP_Other.Controls.Add(this.groupControl6);
             this.TP_Other.Controls.Add(this.groupControl5);
             this.TP_Other.Controls.Add(this.groupControl4);
@@ -839,6 +902,11 @@ namespace VSNRM_Kompas.Options.CFG_Controll
             ((System.ComponentModel.ISupportInitialize)(this.chb_Positio_Split.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_ON_Position_Transl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ts_AddThumbnail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gb_Notification)).EndInit();
+            this.gb_Notification.ResumeLayout(false);
+            this.gb_Notification.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_NotificationScan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cb_NotificationExport.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -882,5 +950,10 @@ namespace VSNRM_Kompas.Options.CFG_Controll
         private System.Windows.Forms.CheckBox chb_GetBase64FromImageForDrawing;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.ToggleSwitch ts_AddThumbnail;
+        private DevExpress.XtraEditors.GroupControl gb_Notification;
+        private DevExpress.XtraEditors.LabelControl lbl_NotificationScan;
+        private DevExpress.XtraEditors.ComboBoxEdit cb_NotificationScan;
+        private DevExpress.XtraEditors.LabelControl lbl_NotificationExport;
+        private DevExpress.XtraEditors.ComboBoxEdit cb_NotificationExport;
     }
 }
