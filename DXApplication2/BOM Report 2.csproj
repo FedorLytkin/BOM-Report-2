@@ -191,6 +191,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProjectClone\Pr_Clone_Class.cs" />
     <Compile Include="PromoCods\IPromo_Class.cs" />
+    <Compile Include="PromoCods\PromoClient.cs" />
+    <Compile Include="PromoCods\PromoCodec.cs" />
+    <Compile Include="PromoCods\PromoLicense.cs" />
+    <Compile Include="PromoCods\PromoProducts.cs" />
     <Compile Include="PromoCods\PromoForm.cs">
       <SubType>Form</SubType>
     </Compile>

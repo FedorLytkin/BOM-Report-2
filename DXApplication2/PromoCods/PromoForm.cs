@@ -1,12 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VSNRM_Kompas.PromoCods
@@ -14,23 +7,59 @@ namespace VSNRM_Kompas.PromoCods
     public partial class PromoForm : DevExpress.XtraEditors.XtraForm
     {
         public IPromo_Class promo_Class = new IPromo_Class();
+        bool promoApplied;
+
         public PromoForm()
         {
             InitializeComponent();
         }
 
-        private void bt_ok_Click(object sender, EventArgs e)
+        private void PromoForm_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tb_PromoIn.Text)) return;
-            
-            if (promo_Class.checkPromo(tb_PromoIn.Text))
-                MessageBox.Show($"Промокод {tb_PromoIn.Text.ToUpper()} успешно применен!\nЧтобы изменения вступили в силу, перезапустите приложение {Application.ProductName}", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show($"Промокод {tb_PromoIn.Text.ToUpper()} введен не верно, либо не существует!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            lb_Active.Text = promo_Class.ActiveFeaturesText();
+        }
+
+        private void bt_CreateRequest_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.FileName = promo_Class.Client.RequestFileName();
+                dialog.Filter = "Файл-запрос (*.datq)|*.datq";
+                if (dialog.ShowDialog(this) != DialogResult.OK) return;
+                try
+                {
+                    promo_Class.CreateRequestFile(dialog.FileName);
+                    MessageBox.Show("Файл-запрос создан. Отправьте его разработчику.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Не удалось создать файл-запрос:\n" + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void bt_ImportPromo_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Файл промокода (*.dat)|*.dat";
+                if (dialog.ShowDialog(this) != DialogResult.OK) return;
+
+                if (promo_Class.ImportPromoFile(dialog.FileName, out string message))
+                {
+                    promoApplied = true;
+                    lb_Active.Text = promo_Class.ActiveFeaturesText();
+                    MessageBox.Show(message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show(message ?? "Файл промокода не подходит.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bt_close_Click(object sender, EventArgs e)
         {
+            //OK - чтобы главное окно обновило панели по новым промокодам
+            this.DialogResult = promoApplied ? DialogResult.OK : DialogResult.Cancel;
             this.Close();
         }
     }

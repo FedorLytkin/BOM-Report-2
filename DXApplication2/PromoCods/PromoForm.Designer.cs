@@ -30,64 +30,87 @@ namespace VSNRM_Kompas.PromoCods
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PromoForm));
-            this.tb_PromoIn = new DevExpress.XtraEditors.TextEdit();
-            this.bt_ok = new DevExpress.XtraEditors.SimpleButton();
+            this.lb_Step1 = new DevExpress.XtraEditors.LabelControl();
+            this.bt_CreateRequest = new DevExpress.XtraEditors.SimpleButton();
+            this.lb_Step2 = new DevExpress.XtraEditors.LabelControl();
+            this.bt_ImportPromo = new DevExpress.XtraEditors.SimpleButton();
+            this.lb_Active = new DevExpress.XtraEditors.LabelControl();
             this.bt_close = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_PromoIn.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tb_PromoIn
-            // 
-            this.tb_PromoIn.Location = new System.Drawing.Point(12, 31);
-            this.tb_PromoIn.Name = "tb_PromoIn";
-            this.tb_PromoIn.Size = new System.Drawing.Size(224, 20);
-            this.tb_PromoIn.TabIndex = 0;
-            // 
-            // bt_ok
-            // 
-            this.bt_ok.Location = new System.Drawing.Point(12, 85);
-            this.bt_ok.Name = "bt_ok";
-            this.bt_ok.Size = new System.Drawing.Size(115, 23);
-            this.bt_ok.TabIndex = 1;
-            this.bt_ok.Text = "ОК";
-            this.bt_ok.Click += new System.EventHandler(this.bt_ok_Click);
-            // 
+            //
+            // lb_Step1
+            //
+            this.lb_Step1.Location = new System.Drawing.Point(12, 12);
+            this.lb_Step1.Name = "lb_Step1";
+            this.lb_Step1.Size = new System.Drawing.Size(277, 13);
+            this.lb_Step1.TabIndex = 0;
+            this.lb_Step1.Text = "1. Создайте файл-запрос и отправьте его разработчику";
+            //
+            // bt_CreateRequest
+            //
+            this.bt_CreateRequest.Location = new System.Drawing.Point(12, 31);
+            this.bt_CreateRequest.Name = "bt_CreateRequest";
+            this.bt_CreateRequest.Size = new System.Drawing.Size(200, 23);
+            this.bt_CreateRequest.TabIndex = 1;
+            this.bt_CreateRequest.Text = "Создать файл-запрос...";
+            this.bt_CreateRequest.Click += new System.EventHandler(this.bt_CreateRequest_Click);
+            //
+            // lb_Step2
+            //
+            this.lb_Step2.Location = new System.Drawing.Point(12, 68);
+            this.lb_Step2.Name = "lb_Step2";
+            this.lb_Step2.Size = new System.Drawing.Size(244, 13);
+            this.lb_Step2.TabIndex = 2;
+            this.lb_Step2.Text = "2. Загрузите полученный файл промокода (.dat)";
+            //
+            // bt_ImportPromo
+            //
+            this.bt_ImportPromo.Location = new System.Drawing.Point(12, 87);
+            this.bt_ImportPromo.Name = "bt_ImportPromo";
+            this.bt_ImportPromo.Size = new System.Drawing.Size(200, 23);
+            this.bt_ImportPromo.TabIndex = 3;
+            this.bt_ImportPromo.Text = "Загрузить промокод...";
+            this.bt_ImportPromo.Click += new System.EventHandler(this.bt_ImportPromo_Click);
+            //
+            // lb_Active
+            //
+            this.lb_Active.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.lb_Active.Location = new System.Drawing.Point(12, 126);
+            this.lb_Active.Name = "lb_Active";
+            this.lb_Active.Size = new System.Drawing.Size(441, 13);
+            this.lb_Active.TabIndex = 4;
+            this.lb_Active.Text = "Промокоды не активированы.";
+            //
             // bt_close
-            // 
+            //
             this.bt_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bt_close.Location = new System.Drawing.Point(161, 85);
+            this.bt_close.Location = new System.Drawing.Point(378, 158);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(75, 23);
-            this.bt_close.TabIndex = 2;
-            this.bt_close.Text = "Отмена";
+            this.bt_close.TabIndex = 5;
+            this.bt_close.Text = "Закрыть";
             this.bt_close.Click += new System.EventHandler(this.bt_close_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(95, 13);
-            this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Введите промокод";
-            // 
+            //
             // PromoForm
-            // 
-            this.AcceptButton = this.bt_ok;
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bt_close;
-            this.ClientSize = new System.Drawing.Size(248, 120);
-            this.Controls.Add(this.labelControl1);
+            this.ClientSize = new System.Drawing.Size(465, 193);
             this.Controls.Add(this.bt_close);
-            this.Controls.Add(this.bt_ok);
-            this.Controls.Add(this.tb_PromoIn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.lb_Active);
+            this.Controls.Add(this.bt_ImportPromo);
+            this.Controls.Add(this.lb_Step2);
+            this.Controls.Add(this.bt_CreateRequest);
+            this.Controls.Add(this.lb_Step1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("PromoForm.IconOptions.SvgImage")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PromoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Промо";
-            ((System.ComponentModel.ISupportInitialize)(this.tb_PromoIn.Properties)).EndInit();
+            this.Text = "Промокоды";
+            this.Load += new System.EventHandler(this.PromoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,9 +118,11 @@ namespace VSNRM_Kompas.PromoCods
 
         #endregion
 
-        private DevExpress.XtraEditors.TextEdit tb_PromoIn;
-        private DevExpress.XtraEditors.SimpleButton bt_ok;
+        private DevExpress.XtraEditors.LabelControl lb_Step1;
+        private DevExpress.XtraEditors.SimpleButton bt_CreateRequest;
+        private DevExpress.XtraEditors.LabelControl lb_Step2;
+        private DevExpress.XtraEditors.SimpleButton bt_ImportPromo;
+        private DevExpress.XtraEditors.LabelControl lb_Active;
         private DevExpress.XtraEditors.SimpleButton bt_close;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

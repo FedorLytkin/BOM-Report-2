@@ -67,6 +67,8 @@ namespace VSNRM_Kompas
             Main_Options = new CFG_Class();
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Main_Options.Skin_Name.Value);
             option_Class = controller.IOptions.GetOptions(false);
+            //флаги функций - только по действующим промокодам
+            PromoCods.PromoLicense.Apply(option_Class);
             UpdateData();
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -86,24 +88,15 @@ namespace VSNRM_Kompas
             bt_Dublicate.Down = option_Class.Dublicate_In_Visual; 
             Bt_Qnt_On_Line.Down = option_Class.Qnt_On_Line_In_Visual;
 
-            rb_UserRibbon.Visible = option_Class.IVC.SpecialPan;
-            bt_CutLenth.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            PromoCodesVisible();
             
             Bt_Cut_Length_ON.Down = option_Class.ICShMProperty.CutLengt_Calc;
             Bt_Bend_Count_ON.Down = option_Class.ICShMProperty.BendCount_Calc;
             Bt_Holl_Count_ON.Down = option_Class.ICShMProperty.HoleCount_Calc;
             ts_EditOn.Checked = option_Class.IST.EditOn;
-            Bt_Cut_Length_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
-            Bt_Bend_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
-            Bt_Holl_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
-            ts_EditOn.Visibility = option_Class.IVC.EditOn ? BarItemVisibility.Always : BarItemVisibility.Never;
 
-            Bt_chek_ProfileValue.Visibility = option_Class.IVC.Check_ProfileValue ? BarItemVisibility.Always : BarItemVisibility.Never;
             Bt_chek_ProfileValue.Down = option_Class.Check_ProfileValue;
 
-            bt_Prop_trans.Visibility = option_Class.IVC.PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
-            ribbonPageGroup_SpecialPan.Visible = option_Class.IVC.SpecialPan;
-            //Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
 
             Body.AppVersNOTValidStrongMessage();
             OptionsBehaviorChangche();
@@ -1080,6 +1073,7 @@ namespace VSNRM_Kompas
             if (optionForm.ShowDialog() == DialogResult.OK)
             {
                 option_Class = optionForm.IOption_Class;
+                PromoCods.PromoLicense.Apply(option_Class);
                 //Options.TreeListResize.iTreeListResizeClass.ReSize(Main_gridView, Main_Options, treeList1, 256);
                 //TableHightSizeByColumn(Main_gridView.Columns["Миниатюра"]);
             }
@@ -1106,7 +1100,23 @@ namespace VSNRM_Kompas
         {
             PromoCods.PromoForm promoForm = new PromoCods.PromoForm();
             promoForm.promo_Class.IOption_Class = option_Class;
-            promoForm.ShowDialog();
+            if (promoForm.ShowDialog() != DialogResult.OK) return;
+            PromoCodesVisible();
+        }
+        /// <summary>Видимость функций, которые включаются промокодами.</summary>
+        private void PromoCodesVisible()
+        {
+            PromoCods.PromoLicense.Apply(option_Class);
+            rb_UserRibbon.Visible = option_Class.IVC.SpecialPan;
+            ribbonPageGroup_SpecialPan.Visible = option_Class.IVC.SpecialPan;
+            bt_CutLenth.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_Cut_Length_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_Bend_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_Holl_Count_ON.Visibility = option_Class.IVC.CutLength ? BarItemVisibility.Always : BarItemVisibility.Never;
+            ts_EditOn.Visibility = option_Class.IVC.EditOn ? BarItemVisibility.Always : BarItemVisibility.Never;
+            Bt_chek_ProfileValue.Visibility = option_Class.IVC.Check_ProfileValue ? BarItemVisibility.Always : BarItemVisibility.Never;
+            bt_Prop_trans.Visibility = option_Class.IVC.PropertyTranslation ? BarItemVisibility.Always : BarItemVisibility.Never;
+            //Bt_Copy.Visibility = option_Class.IVC.ProjectClone ? BarItemVisibility.Always : BarItemVisibility.Never;
         }
 
         private void Bt_Cut_Length_ON_ItemClick(object sender, ItemClickEventArgs e)
