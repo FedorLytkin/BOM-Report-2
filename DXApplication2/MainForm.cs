@@ -163,20 +163,45 @@ namespace VSNRM_Kompas
             treeList.BeginInvoke(new Action(treeList.ShowFindPanel));
         }
 
-        private void DemoVers_StartWindows()
+        /// <param name="startup">При запуске программы: сообщения о лицензии и переход на сайт в демо-режиме.</param>
+        private void DemoVers_StartWindows(bool startup = true)
         {
-            CryptoClass CryptoClass_ = new CryptoClass();
-            thisDemo = CryptoClass_.Form_LoadTrue(true);
+            // новая подписанная лицензия; старый keyfile.dat действует 14 дней после установки этой версии (переходный период)
+            ProgramLicense.Refresh();
+            thisDemo = !ProgramLicense.IsLicensed;
+            // менеджер лицензии нужен и с действующей лицензией: туда загружают новую лицензию после продления
+            Licence_Manager_ribbonPageGroup1.Visible = true;
+            string licTitle = $"{Application.ProductName}. Менеджер лицензии";
             if (thisDemo)
             {
                 this.Text = $"{Application.ProductName} v{Application.ProductVersion} {Body.KompasVersionFlag} !!!This DemoVersion!!!";
-                Licence_Manager_ribbonPageGroup1.Visible = true;
-                GoToWebSite();
+                if (startup)
+                {
+                    MessageBox.Show(ProgramLicense.DescribeCurrent() + "\n\n" +
+                                    ProgramLicense.T("Окно лицензии: Справка → Менеджер лицензии.", "License window: Help → License manager."),
+                                    licTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    GoToWebSite();
+                }
             }
             else
             {
                 this.Text = $"{Application.ProductName} v{Application.ProductVersion} {Body.KompasVersionFlag}";
-                Licence_Manager_ribbonPageGroup1.Visible = false;
+                if (startup && ProgramLicense.Source == DXF_AutoHelp.Licensing.LicenseSource.Legacy)
+                {
+                    // переходный срок для старого ключа: напоминание при каждом запуске
+                    if (MessageBox.Show(ProgramLicense.DescribeCurrent() + "\n\n" + ProgramLicense.T("Открыть окно лицензии?", "Open the license window?"),
+                                        licTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        using (var form = new LicenseForm()) form.ShowDialog(this);
+                        DemoVers_StartWindows(startup: false);
+                        return;
+                    }
+                }
+                else if (startup)
+                {
+                    string notice = ProgramLicense.TakeUpdatesNotice();
+                    if (notice != null) MessageBox.Show(notice, licTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             thisVirtualPC = DetectVirtualMachine_Class.DetectVirtualMachine();
             if (thisVirtualPC)
@@ -184,7 +209,7 @@ namespace VSNRM_Kompas
                 bbiFindBOM_AcriveDoc.Enabled = false;
                 bbiFindBOM.Enabled = false;
                 Update_Tree.Enabled = false;
-                MessageBox.Show($"ВНИМАНИЕ!\nПрограмма установлена на виртуальную машину!\nДля предотвращения ошибок в работе программы, некоторый функционал будет отключен.\nДля восстановления всего функционала программы, установите {Application.ProductName} на физическую рабочую машину!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (startup) MessageBox.Show($"ВНИМАНИЕ!\nПрограмма установлена на виртуальную машину!\nДля предотвращения ошибок в работе программы, некоторый функционал будет отключен.\nДля восстановления всего функционала программы, установите {Application.ProductName} на физическую рабочую машину!", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -407,8 +432,9 @@ namespace VSNRM_Kompas
 
         private void Livence_Manager_Bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         { 
-            LicForm2 licForm2 = new LicForm2();
-            licForm2.ShowDialog();
+            using (var form = new LicenseForm()) form.ShowDialog(this);
+            // лицензию могли активировать или заменить - режим перечитывается в любом случае
+            DemoVers_StartWindows(startup: false);
         }
 
         private void SaveColumnsSort_Bt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

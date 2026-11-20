@@ -167,6 +167,10 @@
     <Compile Include="Export\XMLexport\XMLExport_Class.cs" />
     <Compile Include="Licenc\CompressedFile.cs" />
     <Compile Include="Licenc\CryptoClass.cs" />
+    <Compile Include="Licenc\LicenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenc\ProgramLicense.cs" />
     <Compile Include="Licenc\LicForm2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,8 +349,15 @@
     <Content Include="icons8-collage-30.ico" />
     <Content Include="Images\Generate-tables-icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\source\repos\DXF-AutoHelp.Licensing\DXF-AutoHelp.Licensing\DXF-AutoHelp.Licensing.csproj">
+      <Project>{C2D9967B-496D-43E5-9285-A22FAD4B05DD}</Project>
+      <Name>DXF-AutoHelp.Licensing</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- дата выпуска версии в сборке: лицензия сравнивает её с «обновления до» -->
+  <Import Project="..\..\..\..\source\repos\DXF-AutoHelp.Licensing\DXF-AutoHelp.Licensing\ReleaseDate.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

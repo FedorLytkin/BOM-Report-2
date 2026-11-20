@@ -256,6 +256,56 @@ namespace SaveDXF
                 return true;
             }
         }
+        /// <summary>
+        /// Расшифровать keyfile.dat без сравнения. null - файла нет или он не расшифровывается.
+        /// </summary>
+        private string DecryptKeyFile(string path)
+        {
+            try
+            {
+                if (!File.Exists(path)) return null;
+                byte[] key = new byte[0x20];
+                for (int i = 0; i <= 0x1f; i++)
+                    key[i] = 0x1f;
+                Rijndael.Key = key;
+                using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    byte[] IV = new byte[Rijndael.IV.Length];
+                    fs.Read(IV, 0, IV.Length);
+                    Rijndael.IV = IV;
+                    using (var cs = new CryptoStream(fs, Rijndael.CreateDecryptor(), CryptoStreamMode.Read))
+                    using (var sr = new StreamReader(cs))
+                        return sr.ReadToEnd();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Старый ключ выдан для этого компьютера и этой программы - для любой версии (первые 3 числа).
+        /// Возвращает версию из ключа или null, если ключа нет или он чужой.
+        /// Нужно для перехода на новую схему: владельцы старых ключей получают время на замену.
+        /// </summary>
+        public string LegacyKeyVersionAnyVersion(string keyFilePath)
+        {
+            string text = DecryptKeyFile(keyFilePath);
+            if (string.IsNullOrEmpty(text)) return null;
+            string mb = GetMotherBoardID(), cpu = GetProcessorID(), vol = GetVolumeSerial(), prog = GetProgramName(true);
+            // конец строки ключа: ANK{плата}ANK{процессор}ANK{том}{версия}ANK{программа}ANK
+            string head = DelimerChar + mb + DelimerChar + cpu + DelimerChar + vol;
+            string tail = DelimerChar + prog + DelimerChar;
+            if (!text.EndsWith(tail)) return null;
+            int start = text.LastIndexOf(head, text.Length - tail.Length, StringComparison.Ordinal);
+            if (start < 0) return null;
+            int from = start + head.Length;
+            string version = text.Substring(from, text.Length - tail.Length - from);
+            // полная проверка: ключ должен совпасть с тем, что генерировался для этой версии
+            return Char_Mix2(mb, cpu, vol, prog, version) == text ? version : null;
+        }
+
         public bool DecodeKey2strings(string inString, string path)
         {
             try

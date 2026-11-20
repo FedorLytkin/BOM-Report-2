@@ -116,8 +116,16 @@ namespace VSNRM_Kompas.Dump
         void Create_QueryFile()
         {
             string QueryFile = $@"{NowDumpFolder}\Query.datq";
-            LicForm2 licForm2 = new LicForm2();
-            licForm2.GenerateQueryFile(QueryFile);
+            // файл-запрос новой схемы (зашифрован открытым ключом разработчика)
+            try
+            {
+                var lic = ProgramLicense.License;
+                lic.SaveRequest(lic.CreateRequest(Environment.MachineName, Environment.UserName, "Дамп"), QueryFile);
+            }
+            catch (Exception ex)
+            {
+                System.IO.File.WriteAllText(System.IO.Path.ChangeExtension(QueryFile, ".err.txt"), ex.ToString());
+            }
             AddWaitStatus("Подготовка системной информации");
         }
 
