@@ -27,7 +27,7 @@ param(
     [int]$VersionStart    = 19,
     [int]$VersionEnd      = 25,
 
-    [string]$BuildConfig  = 'Debug',
+    [string]$BuildConfig  = 'Release',
 
     # Платформа решения. '' = определить по PlatformTarget в настройках проекта (.csproj)
     [string]$BuildPlatform = '',
@@ -271,6 +271,72 @@ function Invoke-InnoSetup {
 
 # ---------- ОСНОВНОЙ ЦИКЛ -----------------------------------
 
+# ---------- ОБФУСКАЦИЯ (ConfuserEx) — самодостаточно, путь не хардкодится ----------
+$ObfNoRename   = $true
+$ObfNoRefProxy = $false
+$ObfConfuserVersion = 'v1.6.0'
+if ($projContent -match '<AssemblyName>\s*([^<]+?)\s*</AssemblyName>') { $AssemblyName = $Matches[1].Trim() }
+else { $AssemblyName = [IO.Path]::GetFileNameWithoutExtension($ProjectPath) }
+$ExeName = "$AssemblyName.exe"
+
+function Resolve-ConfuserCli {
+    $cands = @()
+    if ($env:CONFUSEREX_HOME) { $cands += $env:CONFUSEREX_HOME }
+    $cands += @(
+        (Join-Path $env:LOCALAPPDATA 'ConfuserEx'),
+        (Join-Path $env:USERPROFILE  'Tools\ConfuserEx'),
+        'C:\Tools\ConfuserEx',
+        (Join-Path $ProjectDir 'ConfuserEx')
+    )
+    foreach ($c in $cands) { if ($c) { $cli = Join-Path $c 'Confuser.CLI.exe'; if (Test-Path $cli) { return $cli } } }
+    $dst = Join-Path $env:LOCALAPPDATA 'ConfuserEx'
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+    $zip = Join-Path $dst "ConfuserEx_$ObfConfuserVersion.zip"
+    $url = "https://github.com/mkaring/ConfuserEx/releases/download/$ObfConfuserVersion/ConfuserEx.zip"
+    Write-Host "  ConfuserEx не найден локально — скачиваю $ObfConfuserVersion ..." -ForegroundColor Yellow
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Invoke-WebRequest -Uri $url -OutFile $zip -UseBasicParsing
+    Expand-Archive -Path $zip -DestinationPath $dst -Force
+    Get-ChildItem $dst -Recurse -File | Unblock-File -ErrorAction SilentlyContinue
+    $cli = Join-Path $dst 'Confuser.CLI.exe'
+    if (-not (Test-Path $cli)) { throw 'не удалось подготовить ConfuserEx' }
+    Write-Host "  ConfuserEx готов: $dst" -ForegroundColor DarkGreen
+    return $cli
+}
+
+function Invoke-Obfuscate {
+    $cfgEsc = [regex]::Escape($BuildConfig)
+    $exe = Get-ChildItem (Join-Path $ProjectDir 'bin') -Recurse -Filter $ExeName -ErrorAction SilentlyContinue |
+           Where-Object { $_.FullName -match "\\$cfgEsc\\" } |
+           Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if (-not $exe) { throw "обфускация: не найден собранный '$ExeName' в bin\...\$BuildConfig" }
+    $cli = Resolve-ConfuserCli
+    $dir = $exe.DirectoryName
+    $work = Join-Path $env:TEMP ("confuserex_" + [guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Force -Path $work | Out-Null
+    try {
+        $prot = @('<protection id="anti ildasm" />','<protection id="constants" />','<protection id="ctrl flow" />')
+        if (-not $ObfNoRefProxy) { $prot += '<protection id="ref proxy" />' }
+        if (-not $ObfNoRename)   { $prot += '<protection id="rename" />' }
+        $cfg = Join-Path $work 'job.crproj'
+        $xml = @"
+<project outputDir="$work\out" baseDir="$dir" xmlns="http://confuser.codeplex.com">
+  <rule pattern="true" preset="none" inherit="false">
+    $($prot -join "`r`n    ")
+  </rule>
+  <module path="$($exe.Name)" />
+</project>
+"@
+        Set-Content -Path $cfg -Value $xml -Encoding UTF8
+        & $cli -n $cfg | Out-Null
+        $outExe = Join-Path (Join-Path $work 'out') $exe.Name
+        if ($LASTEXITCODE -ne 0 -or -not (Test-Path $outExe)) { throw "ConfuserEx: код $LASTEXITCODE для $($exe.Name)" }
+        Copy-Item $outExe $exe.FullName -Force
+        Write-Host ("    [obf] защищён: {0} ({1} КБ)" -f $exe.Name, [math]::Round((Get-Item $exe.FullName).Length/1KB)) -ForegroundColor Green
+    }
+    finally { Remove-Item $work -Recurse -Force -ErrorAction SilentlyContinue }
+}
+
 $results = @()
 try {
     for ($cadVer = $VersionStart; $cadVer -le $VersionEnd; $cadVer++) {
@@ -282,6 +348,9 @@ try {
 
             Write-Host "  [2/3] MSBuild ($BuildConfig | $BuildPlatform) ..."
             Invoke-Build
+
+            Write-Host '  [obf] Обфускация (ConfuserEx) ...'
+            Invoke-Obfuscate
 
             Write-Host '  [3/3] Inno Setup ...'
             $setup = Invoke-InnoSetup
